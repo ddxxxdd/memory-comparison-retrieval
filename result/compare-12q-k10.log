@@ -1,0 +1,62 @@
+[proposed] 并行运行 12 条查询，workers=4
+[proposed] 完成 1/12: q_dnli_1b41a4de8d426a2d
+[proposed] 完成 2/12: q_dnli_67c020ad0b6f93b8
+[proposed] 完成 3/12: q_dnli_2aea4a1246c622d9
+[proposed] 完成 4/12: q_dnli_dd0ed517db9d283b
+[proposed] 完成 5/12: q_dnli_363fae09ab6320ac
+[proposed] 完成 6/12: q_dnli_3c8ee653699cc840
+[proposed] 完成 7/12: q_dnli_bedc36abe51df854
+[proposed] 完成 8/12: q_dnli_c92a956fe1ef0b5f
+[proposed] 完成 9/12: q_dnli_60ccf8b5603a729d
+[proposed] 完成 10/12: q_dnli_8161568edd0b62f0
+[proposed] 完成 11/12: q_dnli_cbff18f32619baf5
+[proposed] 完成 12/12: q_dnli_13827b2cb05f2d12
+[dense] 并行运行 12 条查询，workers=4
+[dense] 完成 1/12: q_dnli_dd0ed517db9d283b
+[dense] 完成 2/12: q_dnli_67c020ad0b6f93b8
+[dense] 完成 3/12: q_dnli_1b41a4de8d426a2d
+[dense] 完成 4/12: q_dnli_2aea4a1246c622d9
+[dense] 完成 5/12: q_dnli_3c8ee653699cc840
+[dense] 完成 6/12: q_dnli_bedc36abe51df854
+[dense] 完成 7/12: q_dnli_363fae09ab6320ac
+[dense] 完成 8/12: q_dnli_c92a956fe1ef0b5f
+[dense] 完成 9/12: q_dnli_cbff18f32619baf5
+[dense] 完成 10/12: q_dnli_13827b2cb05f2d12
+[dense] 完成 11/12: q_dnli_60ccf8b5603a729d
+[dense] 完成 12/12: q_dnli_8161568edd0b62f0
+[bm25] 并行运行 12 条查询，workers=4
+[bm25] 完成 1/12: q_dnli_1b41a4de8d426a2d
+[bm25] 完成 2/12: q_dnli_dd0ed517db9d283b
+[bm25] 完成 3/12: q_dnli_2aea4a1246c622d9
+[bm25] 完成 4/12: q_dnli_67c020ad0b6f93b8
+[bm25] 完成 5/12: q_dnli_3c8ee653699cc840
+[bm25] 完成 6/12: q_dnli_c92a956fe1ef0b5f
+[bm25] 完成 7/12: q_dnli_bedc36abe51df854
+[bm25] 完成 8/12: q_dnli_363fae09ab6320ac
+[bm25] 完成 9/12: q_dnli_cbff18f32619baf5
+[bm25] 完成 10/12: q_dnli_60ccf8b5603a729d
+[bm25] 完成 11/12: q_dnli_8161568edd0b62f0
+[bm25] 完成 12/12: q_dnli_13827b2cb05f2d12
+实验完成：C:\Users\dzp\project\paper\memory-comparison-retrieval\result\compare-12q-k10
+# 来源数据小规模实验
+
+> 指标按数据集提供的金标对全部选中查询计算；标签核对状态由数据维护者在数据集中管理。
+> 本次只使用一个共同旧库，不划分 dev/test；库容曲线需另行测量。
+
+- 旧记忆：1102 条
+- 查询：12 条
+- 固定阈值：0.7；并行线程：4
+- 冲突判定方法臂：未运行
+
+| 方法臂 | 候选召回率 | 候选纯度 | 冲突 F1 | 误报率 | 漏报率 | 写入 p50 ms | 写入 p95 ms |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| proposed | 0.416 | 0.699 | - | - | - | 23.6 | 29.6 |
+| dense | 0.113 | 0.933 | - | - | - | 775.8 | 1365.8 |
+| bm25 | 0.088 | 0.733 | - | - | - | 8.3 | 12.9 |
+
+逐阶段时延和指标见 `report.json`；逐查询原始结果保存在 `arms/`。
+
+`dense` 和 `bm25` 是检索流程诊断，不代表 Mem0、MemLACE 或 SparseCL 的复现。
+
+时延受 API 缓存、服务响应和并发影响。单个库容点不能支持规模复杂度结论。
+

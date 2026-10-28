@@ -1,0 +1,294 @@
+{
+  "run": {
+    "run_id": "compare-12q-k10",
+    "created_at_utc": "2026-10-16T11:34:55.397061+00:00",
+    "experiment_type": "shared_memory_bank_source_pilot",
+    "dataset": {
+      "path": "C:\\Users\\dzp\\project\\paper\\memory-comparison-retrieval\\data\\dialogue_nli_mixed_full_v8",
+      "files_sha256": {
+        "memories.jsonl": "8ee3ed9d8c74b8ee1fa2f4d6cd9e50bbec59a6c3d4d6d0b6f7e18830b23e41ca",
+        "queries.jsonl": "f737d86abe218889667e1643a72ce326ff1e408f4175ddad39f691757e955a37",
+        "gold.jsonl": "c268e0a347627c62db86992b04e89f39e61d32d124126f65066bbe129ae2d697"
+      },
+      "memory_count": 1102,
+      "query_count": 67,
+      "gold_count": 67
+    },
+    "sample": {
+      "query_count": 12,
+      "query_ids": [
+        "q_dnli_1b41a4de8d426a2d",
+        "q_dnli_67c020ad0b6f93b8",
+        "q_dnli_dd0ed517db9d283b",
+        "q_dnli_2aea4a1246c622d9",
+        "q_dnli_3c8ee653699cc840",
+        "q_dnli_bedc36abe51df854",
+        "q_dnli_c92a956fe1ef0b5f",
+        "q_dnli_363fae09ab6320ac",
+        "q_dnli_cbff18f32619baf5",
+        "q_dnli_60ccf8b5603a729d",
+        "q_dnli_13827b2cb05f2d12",
+        "q_dnli_8161568edd0b62f0"
+      ],
+      "limit": 12,
+      "seed": 20261014
+    },
+    "settings": {
+      "similarity_threshold": 0.7,
+      "coarse_k": 50,
+      "final_k": 10,
+      "workers": 4,
+      "llm": {
+        "url": "https://api.pie-xian.com/v1/chat/completions",
+        "model": "deepseek-v4.1-flash",
+        "temperature": 0.0,
+        "json_mode": true
+      },
+      "embedding": {
+        "url": "https://api.pie-xian.com/v1/embeddings",
+        "model": "qwen3-embedding-8b"
+      },
+      "llm_temperature": 0.0,
+      "llm_json_mode": true,
+      "api_timeout_seconds": 120.0
+    },
+    "index": {
+      "index_id": "23e410053fff222cadbc05a672d5abff821b1917cbb9db3945587b64ea11ea0f",
+      "origin": "C:\\Users\\dzp\\project\\paper\\memory-comparison-retrieval\\runs\\experiments\\dnli-v8-batchreuse-12q-r2\\index",
+      "description_mode": "batch_reuse",
+      "batch_size": 16,
+      "build_seconds": 0.0,
+      "build_usage": {}
+    },
+    "arms": {
+      "proposed": {
+        "method": "proposed",
+        "rerank": true,
+        "kind": "main_method",
+        "judged": false
+      },
+      "dense": {
+        "method": "dense",
+        "rerank": true,
+        "kind": "retrieval_diagnostic",
+        "judged": false
+      },
+      "bm25": {
+        "method": "bm25",
+        "rerank": true,
+        "kind": "retrieval_diagnostic",
+        "judged": false
+      }
+    }
+  },
+  "dataset": {
+    "memory_count": 1102
+  },
+  "sample": {
+    "query_count": 12,
+    "query_ids": [
+      "q_dnli_1b41a4de8d426a2d",
+      "q_dnli_67c020ad0b6f93b8",
+      "q_dnli_dd0ed517db9d283b",
+      "q_dnli_2aea4a1246c622d9",
+      "q_dnli_3c8ee653699cc840",
+      "q_dnli_bedc36abe51df854",
+      "q_dnli_c92a956fe1ef0b5f",
+      "q_dnli_363fae09ab6320ac",
+      "q_dnli_cbff18f32619baf5",
+      "q_dnli_60ccf8b5603a729d",
+      "q_dnli_13827b2cb05f2d12",
+      "q_dnli_8161568edd0b62f0"
+    ],
+    "limit": 12,
+    "seed": 20261014
+  },
+  "settings": {
+    "similarity_threshold": 0.7,
+    "coarse_k": 50,
+    "final_k": 10,
+    "workers": 4,
+    "llm": {
+      "url": "https://api.pie-xian.com/v1/chat/completions",
+      "model": "deepseek-v4.1-flash",
+      "temperature": 0.0,
+      "json_mode": true
+    },
+    "embedding": {
+      "url": "https://api.pie-xian.com/v1/embeddings",
+      "model": "qwen3-embedding-8b"
+    },
+    "llm_temperature": 0.0,
+    "llm_json_mode": true,
+    "api_timeout_seconds": 120.0
+  },
+  "index": {
+    "index_id": "23e410053fff222cadbc05a672d5abff821b1917cbb9db3945587b64ea11ea0f",
+    "origin": "C:\\Users\\dzp\\project\\paper\\memory-comparison-retrieval\\runs\\experiments\\dnli-v8-batchreuse-12q-r2\\index",
+    "description_mode": "batch_reuse",
+    "batch_size": 16,
+    "build_seconds": 0.0,
+    "build_usage": {}
+  },
+  "arms": {
+    "proposed": {
+      "kind": "main_method",
+      "judged": false,
+      "result_file": "C:\\Users\\dzp\\project\\paper\\memory-comparison-retrieval\\result\\compare-12q-k10\\arms\\proposed.jsonl",
+      "metrics": {
+        "total_queries": 12,
+        "library_size": 1102,
+        "candidate_retrieval": {
+          "evaluated_queries": 12,
+          "retrieved_required_memories": 414,
+          "required_memories": 995,
+          "candidate_recall": 0.41608040201005025,
+          "returned_candidates": 592,
+          "non_comparable_candidates": 178,
+          "candidate_purity": 0.6993243243243243
+        },
+        "conflict_classification": null,
+        "write_latency_ms": {
+          "extraction": {
+            "p50": 4.720750002888963,
+            "p95": 10.010480011987966
+          },
+          "retrieval": {
+            "p50": 2.562149995355867,
+            "p95": 8.675149996997787
+          },
+          "reranking": {
+            "p50": 14.313249994302168,
+            "p95": 19.546515002730303
+          },
+          "llm_judgment": {
+            "p50": null,
+            "p95": null
+          },
+          "total": {
+            "p50": 23.56849999341648,
+            "p95": 29.581099993083622
+          }
+        },
+        "excluded_queries": []
+      },
+      "usage": {
+        "api_attempts": 0,
+        "cache_hits": 40,
+        "invalid_outputs": 1,
+        "known_prompt_tokens": 0,
+        "known_completion_tokens": 0,
+        "known_total_tokens": 0,
+        "responses_without_usage": 0
+      }
+    },
+    "dense": {
+      "kind": "retrieval_diagnostic",
+      "judged": false,
+      "result_file": "C:\\Users\\dzp\\project\\paper\\memory-comparison-retrieval\\result\\compare-12q-k10\\arms\\dense.jsonl",
+      "metrics": {
+        "total_queries": 12,
+        "library_size": 1102,
+        "candidate_retrieval": {
+          "evaluated_queries": 12,
+          "retrieved_required_memories": 112,
+          "required_memories": 995,
+          "candidate_recall": 0.11256281407035176,
+          "returned_candidates": 120,
+          "non_comparable_candidates": 8,
+          "candidate_purity": 0.9333333333333333
+        },
+        "conflict_classification": null,
+        "write_latency_ms": {
+          "extraction": {
+            "p50": 0.0,
+            "p95": 0.0
+          },
+          "retrieval": {
+            "p50": 775.7798999955412,
+            "p95": 1365.8214799972484
+          },
+          "reranking": {
+            "p50": 0.0,
+            "p95": 0.0
+          },
+          "llm_judgment": {
+            "p50": null,
+            "p95": null
+          },
+          "total": {
+            "p50": 775.785050005652,
+            "p95": 1365.8286100093392
+          }
+        },
+        "excluded_queries": []
+      },
+      "usage": {
+        "api_attempts": 12,
+        "cache_hits": 0,
+        "invalid_outputs": 0,
+        "known_prompt_tokens": 174,
+        "known_completion_tokens": 0,
+        "known_total_tokens": 174,
+        "responses_without_usage": 0
+      }
+    },
+    "bm25": {
+      "kind": "retrieval_diagnostic",
+      "judged": false,
+      "result_file": "C:\\Users\\dzp\\project\\paper\\memory-comparison-retrieval\\result\\compare-12q-k10\\arms\\bm25.jsonl",
+      "metrics": {
+        "total_queries": 12,
+        "library_size": 1102,
+        "candidate_retrieval": {
+          "evaluated_queries": 12,
+          "retrieved_required_memories": 88,
+          "required_memories": 995,
+          "candidate_recall": 0.08844221105527639,
+          "returned_candidates": 120,
+          "non_comparable_candidates": 32,
+          "candidate_purity": 0.7333333333333333
+        },
+        "conflict_classification": null,
+        "write_latency_ms": {
+          "extraction": {
+            "p50": 0.0,
+            "p95": 0.0
+          },
+          "retrieval": {
+            "p50": 8.335949998581782,
+            "p95": 12.888110007042993
+          },
+          "reranking": {
+            "p50": 0.0,
+            "p95": 0.0
+          },
+          "llm_judgment": {
+            "p50": null,
+            "p95": null
+          },
+          "total": {
+            "p50": 8.340300002600998,
+            "p95": 12.895430004573424
+          }
+        },
+        "excluded_queries": []
+      },
+      "usage": {
+        "api_attempts": 0,
+        "cache_hits": 0,
+        "invalid_outputs": 0,
+        "known_prompt_tokens": 0,
+        "known_completion_tokens": 0,
+        "known_total_tokens": 0,
+        "responses_without_usage": 0
+      }
+    }
+  },
+  "scale_curve": {
+    "status": "not_measured",
+    "library_sizes": [
+      1102
+    ]
+  }
+}

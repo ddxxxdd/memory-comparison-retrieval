@@ -1,0 +1,320 @@
+# 可比较记忆检索：先选择已有描述，再生成未覆盖事项
+
+此项目实现已定方法的首版框架：固定旧库、每条新记忆独立查询、完整目录选择、描述向量粗召回、假设句细筛、固定逐对冲突判定。LLM 和向量均通过 `.env` 中独立配置的 OpenAI 兼容 API 接入。没有硬编码真实模型、服务地址或 Key。
+
+`examples/` 仅用于检查流程与接口。当前第一版使用 Dialogue NLI 的已有混合配对构建 `data/dialogue_nli_mixed_v1/`：先核对来源候选组，再合并固定旧库，最后逐条核对新记忆与整个旧库的关系。标签仅为 `conflict`、`no_conflict`。来源及模型复核尚未经过本项目的人工核对，因此不等同于人工评估结果。
+
+历史的 `data/combined_sources_v1/` 存在候选遗漏和新旧边界问题，不作为当前默认数据集。它早期写入的 `fully_reviewed=true` 不能证明金标完整，审计说明见工作区 `research_notes/dataset_audit_2026-10-15.md`。
+
+## 1. 安装与配置
+
+在 PowerShell 中运行：
+
+```powershell
+cd C:\Users\dzp\project\paper\memory-comparison-retrieval
+python -m venv .venv
+.\.venv\Scripts\python.exe -m pip install -e .
+```
+
+根目录已准备好空白 `.env`，填写：
+
+```dotenv
+LLM_BASE_URL=https://your-llm-provider.example/v1
+LLM_API_KEY=你的Key
+LLM_MODEL=你的模型名称
+
+EMBEDDING_BASE_URL=https://your-embedding-provider.example/v1
+EMBEDDING_API_KEY=你的Key
+EMBEDDING_MODEL=你的多语向量模型名称
+```
+
+上面是地址示意，不是真实服务。向量模型应支持数据原文的语言；可填服务提供的 BGE-M3 或其他冻结多语编码器。两个模型可来自不同服务。不在代码中下载或选择模型，不使用聊天模型代替向量模型。
+
+服务前缀自动追加 `/chat/completions` 或 `/embeddings`；填完整端点也可以。当前仅支持这两个兼容端点，不是任意厂商的专有协议。服务不支持 `response_format` 时，将 `LLM_JSON_MODE=false`；不支持 `temperature` 时将 `LLM_TEMPERATURE=` 留空。两种情况仍执行程序端 JSON 和编号校验。
+
+`.env.example` 是配置参考。主方法粗筛和细筛都固定保留余弦相似度 `>= 0.7` 的全部候选，数量可变；该阈值不通过环境变量或命令行调整。`COARSE_K=50`、`FINAL_K=10` 仅供 top-k 诊断方法使用。进程环境变量优先于 `.env`；也可在子命令前用 `--env 路径` 指定文件。缓存路径默认相对于项目根目录，其他 CLI 路径相对于当前目录。
+
+配置完成后，先运行真实接口连通性测试：
+
+```powershell
+.\.venv\Scripts\python.exe check_api_connection.py
+# 可选：指定环境文件或单次请求超时
+.\.venv\Scripts\python.exe check_api_connection.py --env .env --timeout 60
+```
+
+脚本分别显示 LLM、向量模型的 `[成功]` 或 `[失败]`、耗时和失败原因；向量成功时显示维度。即使一项失败，也会继续测试另一项。两项都成功退出码为 `0`，任一失败为 `1`，PowerShell 可通过 `$LASTEXITCODE` 查看。配置文件无法读取时明确报告两项均未执行。
+
+每次使用临时缓存，发送真实 API 请求，不读取已有响应，不输出 Key。LLM 测试使用与主流程相同的 JSON mode 和 temperature 设置，校验 JSON 回复；网络错误不重试，JSON 输出无效时沿用主流程的一次格式修复。只发送固定测试文本，不上传旧记忆库；此测试验证接口兼容性，不验证方法的语义效果。
+
+## 2. 运行完整流程
+
+以下命令可直接使用安装后的虚拟环境 Python；无需激活虚拟环境。
+
+```powershell
+# 不调用 API，检查示例与两层标签
+.\.venv\Scripts\python.exe -m memory_retrieval validate-data --memories examples/memories.jsonl --queries examples/queries.jsonl --gold examples/gold.jsonl
+
+# 一次离线建库，默认批式复用：每批 16 条共用一次请求，先引用已有描述，批内同一事项收敛到同一份文本
+.\.venv\Scripts\python.exe -m memory_retrieval build --input examples/memories.jsonl --adapter text --output artifacts/text-index
+
+# 每条新记忆先选择旧描述，再生成未覆盖事项；运行完整流程和下游判定
+.\.venv\Scripts\python.exe -m memory_retrieval query --index artifacts/text-index --queries examples/queries.jsonl --output runs/proposed.jsonl --judge
+
+# 评测，不调用 API
+.\.venv\Scripts\python.exe -m memory_retrieval evaluate --gold examples/gold.jsonl --results runs/proposed.jsonl --output runs/proposed-metrics.json
+```
+
+去掉 `--judge` 只返回候选，保留相同检索流程。主方法固定使用阈值 0.7；top-k 诊断可用 `--coarse-k` 和 `--final-k`。没有达标候选时返回空集合。
+
+索引目录、查询结果和报告不会覆盖已有文件。重复实验使用新的输出名称；相同请求可复用缓存。批量查询若中途失败，会保留已经完成的结果并非零退出；修复配置后用新输出路径重跑即可，不完整结果不能通过评测。
+
+## 3. 数据与接口约定
+
+文本旧库为 JSONL，每条一行：
+
+```json
+{"memory_id":"m1","content":"2026年10月13日，小林唯一的工作单位是腾讯。","source_ref":"text:m1"}
+```
+
+适配器输出完整 `content` 与可追溯的 `source_ref`，不生成描述。检索表示的语义内容仍是 `description、content、source_ref`；`memory_id` 和目录编号只是记录映射。一个旧记录可有多个描述入口；返回候选按原记录去重，不将相同内容的不同记录合并。
+
+查询 JSONL 只需要 `query_id、content`，见 `examples/queries.jsonl`。将主体、必要上下文和明确时间写入可读内容；系统不凭空恢复原对话。代码仅将查询 content 传给模型，不把金标传入模型。
+
+金标独立存放：
+
+```json
+{"query_id":"q1","fully_reviewed":false,"human_reviewed":false,"gold_compare_ids":["m1","m2"],"conflict_labels":{"m1":"conflict","m2":"no_conflict"}}
+```
+
+当前新数据集的 `conflict_labels` 只含 `conflict、no_conflict`；构造时无法确定的来源配对不入选，合库后任何配对仍无法确定的查询整条排除。需要比较不等于冲突：同事项重复、不同答案和历史状态可进入应比较集合；明确不同有效时间的状态不自动冲突。历史数据与判定器仍兼容 `uncertain`，本次没有修改冻结的实验判定器。
+
+`fully_reviewed` 和 `human_reviewed` 是数据集中的审核状态字段，由数据维护者更新。评估代码对提供的全部金标行计算指标，不以这两个字段筛除查询；标签是否适合支撑正式结论由数据维护者核对后判断。更换或扩充旧库后，候选集合需要重新确认。
+
+图适配器读 `examples/graph.json` 展示的明确 schema：
+
+- `nodes` 保存可读实体/事件名称；`edges` 保存方向明确的关系及 `qualifiers`；`memories` 用边引用组合同一原记录的完整主张。
+- `relation_templates` 按后端关系语义表达主语、宾语及所有限定属性；逆向关系可在模板中交换表达顺序。否定、条件、有效时间、语气必须显式保存在限定属性并由模板表达。
+- 模板遗漏限定属性、边引用不存在或记录 ID 重复时拒绝输入，不静默删信息。模板的语义正确性仍需人工核查。
+- 当前只接这个明确 schema，不声称能自动无损读取任意图数据库；也不沿图推导其他旧记忆未直接表达的结论。
+
+示例文本与图适配后具有相同 `memory_id、content`，来源引用不同。可用下面的命令建立等价图索引，再运行同一批查询：
+
+```powershell
+.\.venv\Scripts\python.exe -m memory_retrieval build --input examples/graph.json --adapter graph --output artifacts/graph-index
+```
+
+## 4. 方法对应实现
+
+```text
+离线：文本/图 → content + source_ref →（按批，默认每批 16 条）旧描述目录 → 描述向量与完整内容向量 → 冻结索引
+
+查询：新记忆 content
+  → LLM 先返回适用旧描述编号，再返回未覆盖事项的新描述（每条新增附对照编号与差异维度）
+  → 程序按编号复制目录原文，对照后无差异的新增也换回原文，组合本次描述入口
+  → 新旧描述向量匹配，对每条旧记录取最高分，保留分数 >= 0.7 的全部记录
+  → 根据新记忆与描述生成同值改述/异值假设；自动保留原文探针
+  → 仅在粗候选中计算探针与旧完整内容的最高相似度，再保留分数 >= 0.7 的全部记录
+  → 可选的固定判定器只读取新旧完整 content
+```
+
+离线建库默认 `batch_reuse`：把旧记录按输入顺序分批（默认每批 16 条），同一批放进同一次请求，模型同时看到该批全部记忆和当前全部描述目录。批内涉及同一事项时要求输出完全相同的描述文本，本地按精确文本合并成一条；批间直接引用已有编号，不重新生成。批次必须顺序推进（后一批要用前一批结束时的目录），因此加速来自批内一次请求处理多条，请求次数由 O(n) 降为 O(n/批大小)。批次末按记忆原始顺序合并，保证条目编号与原序一致、结果可复现。某条记忆没有结果会被拦下并让整次建库失败，不静默丢记忆。
+
+选中已有描述时直接复用其冻结向量；新描述才调用向量 API。共享描述只代表共享检索入口。时间、条件、答案是否相容仍由完整内容决定。
+
+查询侧沿用同一条描述提示（`value`／`description` 两栏），只是不写回：**目录永远不因查询而改变**，查询只决定本次使用哪几条描述入口。
+
+假设生成每个描述最多一条同值改述、两条异值探针。原文始终作为同值基本探针。假设不读取候选旧内容，不作为真实事实或冲突证据。最终排序是最高余弦相似度；平分时依次按粗分和记录 ID 确定顺序。粗分平分按记录 ID，不依赖随机文件顺序。
+
+默认采用精确矩阵相似度，先验证方法机制，未加入 ANN、目录预筛、在线写回、训练、自动更新或额外语义判定模型。目录过大导致服务拒绝时明确失败，不自动截断目录；方案中的前置目录召回属于后续规模阶段。
+
+异常处理：非法目录编号/JSON 最多修复一次；请求超时、429 或服务器错误按 `.env` 重试。旧记录没有可识别描述时停止建库以免漏收旧记录；新查询没有描述时返回空候选并标记 `no_descriptions`。没有隐藏的原文补检或语义回退。JSON 校验不能保证模型选对事项，真实效果需实验验证。
+
+建库阶段另有两道可判定检查，只依赖库内数据，不读数据集标注、不带领域词表：
+
+零、事项—取值显式分离（默认开启，不需要开关）。每个 `new_items` 必须给出两栏：
+`value` 是原文对该事项的回答（含必要的否定、状态或不确定信息），`description` 只保留
+主体、待比较事项与必要实例限定。**只有 `description` 进入描述目录、描述向量与目录去重**；
+`value` 不参与检索，仅与 `description` 一起留在 `extraction.new_items` 与 `values.items` 里，
+供事后核对"描述是否仍含着取值"。
+
+生成标准是“换值不换事项”：固定主体、事项与实例范围，只换答案时描述应保持不变。
+例如教材 A/B 都对应“微积分课程推荐的教材”，而不是“是否推荐 A”。日期、人名、数字有时
+是主体或实例限定，不能机械删除。首批空目录、单条、批量及重写沿用同一要求，在原有一次
+生成中完成；已有项仍只返回编号。字段校验只保证非空字符串，**不能证明语义上没有值泄露**；
+不会按字符串重合自动删值，也不增加第二个语义复核模型。
+
+**这里不再有新增准入（`contrast_id`／`differs`／`difference` 与 `unverified` 已撤除）。**
+撤除依据是实测：协议 5 下强制每条新增给出对照编号与差异理由，程序只能保证"给了理由"，
+不能保证"理由成立"；抽查新增项，约 15–21% 被判为其实与对照是同一事项，而收敛率相对
+上一版持平（76.4% 对 76.7%）。换言之该机制把错判变成了**可审计**，但没有**拦住**它，
+却额外引入了重写轮与待核查状态。现在只保留提示词里的复用指引（答案、措辞、语言、数值
+不同都不是新增理由，另一种语言的已有条目也应选中其编号）与 `value`／`description` 的审计留档。
+
+一、抽取结果校验与重写（M1，默认开启）。每批结果返回后按可判定规则复核：每条记忆至少要有一条描述；描述不能是纯标点，也不能比原文长一倍以上；同一批里内容相似度达到 `MEMORY_TEMPLATE_THRESHOLD`（0.90）的两条记忆属于同一事项，必须至少共用一条描述，各写一份措辞不同的就算违规。违规时把具体条目和违反的规则发回，让模型只改这些描述重写一轮；重写后仍违规的保留下来，并把违规清单写进索引供事后审计，既不静默接受也不中断建库。校验阈值是固定先验，与是否启用归并无关；`build --no-repair` 可关掉重写（仍然照常校验并记录）。
+
+二、目录归并（M2，**默认关闭**）。按两条判据合并条目：两条描述向量相似度达到 `DESCRIPTION_DUPLICATE_THRESHOLD`（0.95），即同一事项的两种措辞；两个条目各自挂着的旧记忆里存在一对内容相似度达到 0.90，即同一事项的两个取值——取值写进描述时条目会被拆开，这一条负责收回。归并只改变目录呈现方式：被收掉的措辞保留在条目的 `aliases` 里继续参与打分，条目得分取其全部别名的最大值，条目文本取挂着记忆最多的那一份。
+
+  默认关闭是实测结果，不是保守设置：在同一份抽取结果上只加归并（`tmp/index_v6base_m2only`，771 → 716 条目），37 条写入的候选召回从 0.980 掉到 0.961，而同一配置两次独立运行的召回都稳定在 0.980。原因是**归并只保留一份条目文本**：模型在查询时看不到被收掉的那些措辞，就失去了选中它的入口（别名只救打分、救不了选择）。归并确实换来了更小的目录（706 vs 771 条）和更集中的同一事项（世界 topic 收敛到单条目 31/84 vs 24/84），但代价是召回。`build --consolidate` 可开启，用于消融。
+
+索引 `format_version=3` 额外保存 `quality`（重写批次数与违规按规则计数）、`values`（每条记忆抽取到的 `value` 与 `description`，供事后核对取值泄漏）和 `consolidation`（归并前后条目数、每组归并的编号与触发判据）。归并后描述向量的行数不再等于目录条目数，条目通过 `aliases` 指向自己的全部向量行；`format_version=1/2` 的旧索引仍可加载，按一一对应处理（2 版里已撤除的 `admission`／`unverified` 字段只是被忽略）。
+
+**当前建库协议为 `BUILD_PROTOCOL=7`（撤除新增准入，保留事项与取值分离），旧建库哈希不可再用于描述检索（`proposed`／`independent`）**：已有带值目录不会自动清理，应在重新建库时应用新约束；不会在查询时改写冻结目录。索引身份只绑定建库用的描述提示与协议；仅修改查询阶段的 hypothesis/judge 提示无需重建索引。`dense`/`bm25`/`hybrid` 不读描述，仍可用旧索引。
+
+两个机制的 2×2 消融（数据 `data/validmem_v5`，37 条写入、102 条冲突对，同一网关同一模型；`proposed` 臂，`scripts/score_validmem_run.py`）：
+
+| 配置 | 索引 | 候选召回 | 候选纯度 | 冲突 F1 | 误报率 | 平均候选 | 运行目录 |
+|---|---:|---:|---:|---:|---:|---:|---|
+| M1 关 / M2 关 | `validmem-v6-base` | 0.980 | 0.407 | 0.933 | 0.062 | 6.6 | `validmem-v6base-37w` |
+| M1 关 / M2 关（空缓存重跑，测噪声） | `validmem-v6-base` | 0.980 | 0.383 | 0.910 | 0.081 | 7.1 | `validmem-v6base-37w-r2` |
+| M1 开 / M2 关（当前默认） | `validmem-v7` | 0.980 | **0.426** | 0.933 | 0.067 | **6.4** | `validmem-v7-37w` |
+| M1 关 / M2 开 | `tmp/index_v6base_m2only` | 0.961 | 0.386 | 0.906 | 0.090 | 6.9 | `validmem-v6base-m2-37w` |
+| M1 开 / M2 开 | `validmem-v6` | 0.961 | 0.387 | 0.906 | 0.090 | 6.84 | `validmem-v6-37w` |
+
+读法：召回在两次同配置运行里都稳定在 0.980，纯度和候选数有运行间波动（0.407/0.383，6.6/7.1）。M1 在同召回下把纯度抬到 0.426、候选压到 6.4，超出该波动；M2 在两种 M1 状态下都把召回压到 0.961，方向一致，因此默认关闭。第一次跑出的 v5 数字（0.941 / 0.405）来自旧网关，与上表不可直接比较：换网关本身就把召回从 0.941 抬到 0.980。
+
+两点必须一起读的测量前提：一、`reference` 网关在 `temperature=0` 下**不可复现**——同一条请求原样重发，9 条结果里有 5 条描述文本不同（`tmp/probe_determinism.py`），所以任何单次建库之间的目录差异都只有一半来自机制本身（两次建库的目录文本重合率仅 46%–50%）；判断某个机制是否有效，要看同一份抽取结果上的固定输出对照，或多次重复后的均值。二、`proposed` 的端到端时延在不同运行间不可比，因为缓存命中状态不同（上表 p50 从 3.0 秒到 64 秒都是同一套代码）。
+
+主要模块：`adapters.py` 读取后端，`prompts.py` 固定提示，`index.py` 离线索引，`quality.py` 可判定校验与目录归并，`pipeline.py` 查询，`api.py` 两类接口与缓存，`evaluation.py` 评测。`index.json` 保存目录、完整旧内容、描述提取结果、模型/提示指纹；`vectors.npz` 保存归一化向量。加载时校验文件完整性，查询不改动二者。更换向量服务/模型必须重建索引。
+
+## 5. 当前代码路径
+
+下表列出现有可运行的实现路径，不代表已经确认的论文 baseline 名单。正式对照方法需根据文献调研结果另行确定。
+
+使用相同旧库、查询和金标；主方法与文献 baseline 保留各自候选策略，统一交给同一个冲突判定器。主方法按相似度阈值产生变长候选，文献 baseline 使用其原生候选选择方法。比较时同时报告各阶段候选数量、检索指标和完整成本，不将不同候选数的结果表述成相同预算。
+
+| 参数 | 对应对照 |
+|---|---|
+| `--method proposed` | 完整目录先选后生＋假设句细筛，粗筛和细筛均按相似度阈值保留全部达标候选 |
+| `--method independent` | 查询独立生成描述＋相同阈值筛选；旧索引不变 |
+| `--method proposed --no-rerank` | 相同阈值粗候选直接输出，检验细筛作用 |
+| `--method dense` | 新旧完整内容向量检索 |
+| `--method bm25` | 完整内容 BM25，无在线模型调用；中文按字、其他文字按词 |
+| `--method hybrid` | 完整内容 BM25 与向量排序的 RRF 融合（常数 60） |
+| 建库 `--description-mode batch_reuse`（默认） | 旧库按批先选后生：批内同一事项收敛到同一份文本，批间引用已有编号；`--batch-size` 控制批大小 |
+| `scripts/probe_admission_contract.py` | 固定目录与固定批次对照旧／新输出合约的机制诊断脚本（见上文实测表） |
+| 建库 `--no-repair` | 关掉抽取校验后的重写（M1 消融）；仍然照常校验并把违规写进索引 |
+| 建库 `--consolidate` | 开启建库后的目录归并（M2）；默认关闭，理由见上文消融表 |
+| 建库 `--description-mode reuse` | 旧库逐条先选后生，完全串行；结果受输入顺序影响 |
+| 建库 `--description-mode independent` | 旧库逐条独立生成，不看已有描述，旧库之间不做任何合并 |
+
+其中 `dense`、`bm25`、`hybrid` 是框架现有的检索诊断入口，不是已复现的 Mem0、MemLACE 或 SparseCL。所选文献 baseline 尚未全部接入；接入时应保留各自原生候选机制，并按 README 前述口径记录候选数量与成本。
+
+`batch_reuse` 是默认建库方式：旧库描述在批内合并、批间复用，使同一事项尽量收敛到同一份文本。`reuse` 与 `batch_reuse` 都受输入顺序影响，测试不同顺序时须分别建库；`independent` 保留为旧库之间不合并的消融起点。查询默认始终是"先选已有描述、再生成未覆盖事项"。描述目录只在建库期间变化，查询生成的新描述永远不写回。
+
+例：
+
+```powershell
+.\.venv\Scripts\python.exe -m memory_retrieval query --index artifacts/text-index --queries examples/queries.jsonl --method independent --output runs/independent.jsonl --judge
+.\.venv\Scripts\python.exe -m memory_retrieval query --index artifacts/text-index --queries examples/queries.jsonl --no-rerank --output runs/no-rerank.jsonl
+.\.venv\Scripts\python.exe -m memory_retrieval query --index artifacts/text-index --queries examples/queries.jsonl --method dense --output runs/dense.jsonl
+```
+
+查询输出包含候选策略与阈值（或 top-k 预算）、选中的编号、新描述、假设句、实际粗候选与最终候选、来源引用、可选冲突结果、模型/提示/索引版本、分阶段耗时和调用统计。
+
+评估只报告四项：人工核对写入上的候选召回率与候选纯度；逐对冲突/不冲突 F1、误报率与漏报率；每条写入的端到端时延中位数/p95 和抽取、检索、重排、大模型判定四阶段时延；以及不同库容下的召回率-时延曲线。时延单位为毫秒。当前 ValidMem 冲突-only 金标下，候选纯度为命中的冲突候选数除以返回候选总数；兼容旧两层金标时，则按其应比较集合计算候选指标。误报率在已送入判定器且金标不冲突的对中计算；漏报包括冲突对未召回或未判为冲突。`uncertain` 查询不计入主指标。
+
+`memory_retrieval evaluate` 输出每次运行的库容和四项指标所需数据；多个库容的报告可用 `scripts/scale_curve.py` 汇总。规模曲线尚未完成，当前实现采用完整目录和精确相似度扫描，因此不能据现有代码宣称时延随库容次线性；该结论必须由后续规模实验实测支持。
+
+缓存位于 `artifacts/api_cache.sqlite3`，记录请求、响应，不保存鉴权头。输出显示实际 API 尝试次数、缓存命中和已知 token；服务缺少 usage 时单独计数，不能当成零费用。未配置单价，程序不猜测货币成本。比较耗时时须区分冷调用与缓存回放；冷调用可为各次实验设置新的 `CACHE_PATH`。失败记录保存在缓存目录下的 `last_error.json`。
+
+## 6. 数据转换与实验
+
+```powershell
+.\.venv\Scripts\python.exe -m unittest discover -s tests -v
+```
+
+测试使用本地 HTTP 模拟服务，不需要真实 Key，也不调用外部付费模型；它验证数据流、接口、去重、预算、冻结、缓存、错误处理和指标计算，不验证语义效果。
+
+运行一次小规模实验（默认使用完整共同旧库，随机抽 12 条查询）。注意 `run_experiment.py` 的
+`--dataset` 默认值仍指向早期的 Dialogue NLI 目录，当前数据要显式指定：
+
+```powershell
+.\.venv\Scripts\python.exe scripts\run_experiment.py --dataset data\validmem_v5 --limit 12 --workers 4 --arms proposed
+```
+
+结果写入 `runs/experiments/<run-id>/`，包括运行配置、冻结索引、逐查询原始结果和指标摘要。当前默认只运行主方法，避免将尚未确认的实现路径当作正式 baseline。端到端运行可显式加 `--judge-arms proposed`；自动/来源标签只作为诊断结果，正式指标仍要求人工核对。
+
+当前构造源文件为工作区 `tmp/dialogue_nli/verified_test.jsonl`，来自 Dialogue NLI 已有三份标注的子集。原文件名中的 test 只是来源文件名称；本项目不划分训练、dev、test，也不训练或调参。先筛出共享同一句查询、已有两种关系且三份标注一致的来源组；排除相同句对标签矛盾的记录，优先核对明确数量对照，避免将不同职业等可并存值直接判为冲突。
+
+经用户确认，入选原句统一重组为同一测试主体的记忆；保留原文，不补造人物、时间或事实，也不声称恢复了原始人物时间线。模型先独立核对来源组，只保留与来源标签一致的配对以及仍有两类候选的查询；再合库，并核对每条入选查询与全部旧记忆，补齐跨组候选。任一配对未解决、来源关系在全库复核中不一致的查询整条排除，不强制输出二元标签。
+
+```powershell
+.\.venv\Scripts\python.exe scripts\build_mixed_dataset.py --groups 24 --max-memories 2500 --workers 4
+```
+
+输出目录 `data/dialogue_nli_mixed_v1/` 只包含 `memories.jsonl`、`queries.jsonl`、`gold.jsonl`。24 是首次核对的候选组数，实际通过数量以构造结果为准；2,500 是旧库硬上限，不以填满库容为目标。超过上限时跳过整个候选组，不截断已确认的必需候选。全库复核按 40 条旧记忆分块请求，索引映射回同一个完整旧库；接口无法核对的组或查询会排除并写入审计目录，不强行补标签。来源与全库复核依据保存在 `runs/dataset_builds/dialogue_nli_mixed_v1/`，不增加第四个数据文件。
+
+构造完成后 `fully_reviewed` 和 `human_reviewed` 都为 `false`；全库模型复核不等于人工审核。数据维护者完成人工核对后再更新这两个字段。实验不依据它们跳过查询，而是按提供的金标计算指标。构造请求使用现有 API 缓存，中断重跑复用成功响应，不覆盖非空数据目录。实验默认使用此共同旧库，随机抽 12 条查询并行运行；不同库容的召回率-时延曲线由 `scripts/scale_curve.py` 汇总多次运行，单个库容点不能支持规模复杂度结论。
+
+
+## 7. ValidMem 来源:大旧库 + 带主体的新写入 + 冲突金标
+
+当前主数据集从 ValidMem 的事件更新分区构造。任务口径:
+
+```text
+一个冻结的大旧记忆库 + 独立到来的新记忆写入
+每条写入:从旧库检索出可能冲突的旧记忆
+冲突 = 同一件事 + 取值不同(不比较时间:默认旧库整体早于写入)
+两条通道:
+  personal  关于某个具体人的记忆 → 只有同一个 owner 的旧记忆可比
+  world     关于公共事物的记忆(营业时间/价格/政策/教材/日程) → 谁说的都能比
+第一阶段只要求把可能冲突的旧记忆找全(召回优先);金标只标冲突,不再单独标注"可比较但没冲突"的一层
+```
+
+```powershell
+.\.venv\Scripts\python.exe scripts\build_validmem_dataset.py `
+  --memories ..\tmp\validmem_memories.jsonl --cases ..\tmp\validmem_cases.jsonl `
+  --output data\validmem_v5 `
+  --scope-labels artifacts\validmem_bg_scope.json `
+  --world-writes data\validmem_world_writes_v3.json `
+  --slot-labels artifacts\world_slot_labels.json `
+  --label-overrides data\world_label_overrides.json
+```
+
+只有一个正式数据集 `data/validmem_v5`:
+
+| 项目 | 数值 |
+|---|---:|
+| 旧库 | 1225 |
+| ├ 个人通道 | 688 |
+| └ 世界通道(无主) | 537 |
+| 新写入 | 188 |
+| ├ 个人通道 | 166 |
+| └ 世界通道 | 22 |
+| 冲突配对 | 288 |
+| ├ 个人通道 | 202 |
+| └ 世界通道 | 86 |
+| 每条写入都有冲突旧记忆 | 是 |
+| 每写冲突数 | 1 条 138、2 条 42、3 条 4、5 条 1、6 条 1、14 条 1、29 条 1 |
+| 库 / 写入比 | 6.52 |
+
+**主体不写进正文。** 主体和通道只存在 `source_ref`(`user_id`、`scope`)。早期版本把主体写进正文,实测同一槽位里不同主体的余弦中位数 0.814、同主体 0.861,嵌入几乎分不开主体,却让词法检索白捡一个 id 匹配,已废弃。
+
+**"同一件事"由内容决定,不看来源的槽位键。** 来源在每个 case 里各自命名,同一件事会被写成 `Physics` / `Physics 101` / `Physics course` 等 6 个键。现在先用一次内容标注把 382 个世界槽位键归成 `(subject, aspect)` 的 topic(311 个),topic 落盘冻结;金标按 topic 机械重算:同 topic + 更早 + 取值不同。
+
+**只提及不算主张。** 同 topic 里只提到补充材料、备选读物、学生反馈的记录没有给出竞争取值,按 `mention_pattern` 排除;另有 3 条逐条例外记在 `world_label_overrides.json`。
+
+**历史与计划表述不算冲突。** 句子自己把主张限定在过去(`was` / `lived` / `old` / `initial` / `previous`)或只表达计划(`plans to` / `planned`)时,它不否认写入的当前取值:`David's old address was 2A` 与 `new address is 3B` 可以同时为真。这类配对按 `non_assertive` 剔除;剔除后没有任何冲突的写入整条移出数据集(不为它们编造旧记忆),记录在 manifest 的 `dropped`。测量值(血压等)没有时间限定,仍算冲突。
+
+**8 条旧记忆按人工裁定改写为现在时。** 这些句子原本用过去时或计划语气写,经人工复核确认它们与新写入是同一件事、只是表述方式导致被排除;按需求改写为当前取值后,它们成为明确的冲突并在金标里打上标签。改写清单(before / after / 理由)记在 manifest 的 `rewrites`。
+
+**每条写入都有冲突。** 个人通道两个 near-miss case 各合成一条同主体不同值的旧记忆;世界通道 24 条写入从已有公共事实上合成,金标直接指回那些旧记忆。
+
+**金标只有一层。** `gold.jsonl` 为 `query_id / conflict_old_memory_ids / fully_reviewed / human_reviewed`。召回率看冲突记忆是否都被收进候选,候选纯度看候选中真冲突的占比。
+
+**记录在案的例外 1 条。** `TC-A-0081` 同主体同事项下的 `User mentions great deals at Costco` 只提到优惠、没有断言首选超市,不算同一件事,不标冲突。
+
+字段:`memories.jsonl` 为 `memory_id/content/source_ref`,`queries.jsonl` 为 `query_id/content/source_ref`;`source_ref` 保存 `user_id`、`scope`、`source_role`、`conflict_entity`、`conflict_attribute`、`created_day`,世界通道另有 `topic`。其中 `scope` 与 `user_id` 只用来限定合法候选池(个人通道只查同一 owner、世界通道只查公共池),不参与打分;`conflict_entity`、`conflict_attribute`、`topic`、`source_role`、`created_day` 检索完全不读。
+
+`human_reviewed` 仍为 `false`:topic 标签由模型按内容标注、随后人工抽查了与实验相关的家族,没有逐条人工复核;指标只能作为流程诊断。
+
+配套脚本:
+
+| 脚本 | 用途 |
+|---|---|
+| `scripts/build_validmem_dataset.py` | 构造并断言数据集 |
+| `scripts/score_validmem_run.py` | 冲突召回率、找全率、冲突纯度、库削减率 |
+| `scripts/classify_candidates.py` | 候选按冲突 / 同主体 / 其他主体 / 无关分类 |
+| `scripts/judge_gap_report.py` | 检索阶段与判定阶段的差距分解 |
+| `scripts/scale_compare.py` | 同一批写入的库容对比 |
+| `scripts/make_review_worksheet.py` | 导出人工核对表 |

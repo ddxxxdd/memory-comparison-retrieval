@@ -1,0 +1,1335 @@
+{
+  "summary": {
+    "sampled": 120,
+    "judged": 120,
+    "leaked": 5,
+    "unverifiable": 0,
+    "leak_rate": 0.0417,
+    "api": {
+      "calls": 142,
+      "errors": 12
+    }
+  },
+  "rows": [
+    {
+      "id": "D000191",
+      "description": "门店关于购买折扣鞋的建议",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只说明建议的主题（折扣鞋），未给出任何具体品牌或结论取值。",
+      "memories": [
+        "The store recommends checking out sale items for discounted shoes."
+      ]
+    },
+    {
+      "id": "D000161",
+      "description": "量子物理论文初稿的完成状态",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只说明论文初稿的完成状态这一主题，未给出具体状态取值或日期等答案。",
+      "memories": [
+        "Completed the first draft of the research paper on quantum physics."
+      ]
+    },
+    {
+      "id": "D000274",
+      "description": "生物实验报告的截止日期",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只说明截止日期这一事项，未写出具体日期 day_40。",
+      "memories": [
+        "Biology lab report due on day_40"
+      ]
+    },
+    {
+      "id": "D000259",
+      "description": "special holiday schedule",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只写了“special holiday schedule”，没有给出具体时间或日期。",
+      "memories": [
+        "Special holiday schedule: 10 AM to 4 PM from day 20 to day 25."
+      ]
+    },
+    {
+      "id": "D000246",
+      "description": "学生对学习资源形式的偏好",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只说明偏好对象是学习资源形式，未给出具体偏好取值（如数字资源）。",
+      "memories": [
+        "Student preference for digital resources"
+      ]
+    },
+    {
+      "id": "D000008",
+      "description": "project planning session time and location",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只说明问的是会议时间和地点，未写出周四10点或Room C等具体取值。",
+      "memories": [
+        "Project planning session confirmed for Thursday 10am in Room C"
+      ]
+    },
+    {
+      "id": "D000292",
+      "description": "小组撰写报告使用的排版工具",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只说明报告排版工具这一事项，未写出具体工具名 LaTeX。",
+      "memories": [
+        "Group uses LaTeX for reports"
+      ]
+    },
+    {
+      "id": "D000215",
+      "description": "患者用药剂量的调整方案",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只说明是剂量调整方案，未写出任何具体剂量数值或药物名称。",
+      "memories": [
+        "Patient's medication dosage adjusted to 100mg daily for 7 days."
+      ]
+    },
+    {
+      "id": "D000006",
+      "description": "gym membership cost",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只写了“gym membership cost”，没有给出任何具体价格或币种。",
+      "memories": [
+        "Gym membership costs 300 yuan per month."
+      ]
+    },
+    {
+      "id": "D000056",
+      "description": "患者报告的症状",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只说明记忆主题是患者报告的症状，未给出任何具体症状或数值。",
+      "memories": [
+        "Patient reported mild headache symptoms."
+      ]
+    },
+    {
+      "id": "D000596",
+      "description": "学生论文大纲的评审状态",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只说明评审状态这一事项，未写出满意/无需修改等具体结论。",
+      "memories": [
+        "The student's essay outline is satisfactory and needs no further changes."
+      ]
+    },
+    {
+      "id": "D000625",
+      "description": "用户当前学习的数学科目及所用工具",
+      "leak": true,
+      "answer": "数学科目及所用工具",
+      "verbatim": true,
+      "reason": "描述虽为概括性表述，但“数学科目及所用工具”直接指向记忆中的具体取值（Geometry 与 Mathway），属于对答案的概括泄漏。",
+      "memories": [
+        "User stopped studying Algebra and shifted focus to Geometry using Mathway."
+      ]
+    },
+    {
+      "id": "D000592",
+      "description": "化学额外加分作业的截止日期",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只说明截止日期这一待查事项，未写出具体日期 day_110。",
+      "memories": [
+        "Extra credit assignment for Chemistry due on day_110"
+      ]
+    },
+    {
+      "id": "D000148",
+      "description": "上周末进行的家务活动",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只说明是上周末的家务活动，未写出具体活动内容（清理房间）。",
+      "memories": [
+        "上周末清理了房间。"
+      ]
+    },
+    {
+      "id": "D000550",
+      "description": "user's reviewed additional tool for vocabulary practice",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只说“额外的词汇练习工具”，未写出具体工具名 Anki，未泄漏答案。",
+      "memories": [
+        "User reviewed Anki flashcards as an additional tool for vocabulary practice."
+      ]
+    },
+    {
+      "id": "D000219",
+      "description": "冬季系列限时优惠券的折扣",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只说明优惠券的折扣对象，未写出具体折扣值20%或券码WINTER20。",
+      "memories": [
+        "Limited-time coupon 'WINTER20' for 20% off winter collection."
+      ]
+    },
+    {
+      "id": "D000014",
+      "description": "John's preferred seating for team lunches",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只说明问的是 John 对团队午餐的座位偏好，没有写出“outdoor”这一具体取值。",
+      "memories": [
+        "John prefers outdoor seating for team lunches."
+      ]
+    },
+    {
+      "id": "D000310",
+      "description": "研究论文指南的提供时间",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只说明问的是提供时间，未写出具体日期（day 25）。",
+      "memories": [
+        "Research paper guidelines were provided on day 25."
+      ]
+    },
+    {
+      "id": "D000374",
+      "description": "supplementary reading for physics",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只说明是物理补充阅读，未给出书名《Physics in Everyday Life》这一具体取值。",
+      "memories": [
+        "Supplementary reading: 'Physics in Everyday Life'."
+      ]
+    },
+    {
+      "id": "D000195",
+      "description": "患者第10天检查时的心率记录值",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只说明记录的是第10天检查时的心率值，未写出具体数值72，未泄漏答案。",
+      "memories": [
+        "Patient's heart rate was recorded as 72 beats per minute during day 10 check-up."
+      ]
+    },
+    {
+      "id": "D000691",
+      "description": "2023年冬季游泳池会员的生效日期",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只说明问的是生效日期，未写出具体日期（12月1日）。",
+      "memories": [
+        "2023 winter pool membership is active from December 1st."
+      ]
+    },
+    {
+      "id": "D000647",
+      "description": "可再生能源开发新项目的启动状态",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只说明项目主题与启动状态，未给出具体项目名称、日期或状态取值等答案。",
+      "memories": [
+        "A new project focused on renewable energy development was initiated."
+      ]
+    },
+    {
+      "id": "D000069",
+      "description": "公园门票费用",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只写了“公园门票费用”这一主题，没有给出任何具体价格。",
+      "memories": [
+        "Park entry fee is $10 per person."
+      ]
+    },
+    {
+      "id": "D000324",
+      "description": "微积分导数章节的复习状态",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只说明复习对象是微积分导数章节，未给出复习状态或结论等具体取值。",
+      "memories": [
+        "Reviewed chapter on calculus derivatives"
+      ]
+    },
+    {
+      "id": "D000035",
+      "description": "历史论文草稿的完成状态",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只说明主题是历史论文草稿的完成状态，未给出任何具体状态取值或结论。",
+      "memories": [
+        "Completed the first draft of the history essay."
+      ]
+    },
+    {
+      "id": "D000114",
+      "description": "偏好的鞋码",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只说明问的是偏好的鞋码，未写出具体尺码 42。",
+      "memories": [
+        "Preferred shoe size is 42."
+      ]
+    },
+    {
+      "id": "D000313",
+      "description": "冬季系列促销的折扣与有效期",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只说明涉及折扣与有效期，未写出 30% 或 day 30 等具体取值。",
+      "memories": [
+        "30% off on winter collection valid until day 30."
+      ]
+    },
+    {
+      "id": "D000323",
+      "description": "生物演示所用研究材料的选定状态",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只说明待查的是研究材料的选定状态，未给出具体材料名称或取值。",
+      "memories": [
+        "Selected research materials for the biology presentation."
+      ]
+    },
+    {
+      "id": "D000255",
+      "description": "第4章关键术语闪卡的制作状态",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只说明第4章关键术语闪卡的状态，未给出具体状态取值或答案。",
+      "memories": [
+        "Prepared flashcards for the key terms in Chapter 4."
+      ]
+    },
+    {
+      "id": "D000128",
+      "description": "学习Python推荐的资源",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只说明主题是学习Python的推荐资源，未写出任何具体书名。",
+      "memories": [
+        "Recommended resource for learning Python is 'Automate the Boring Stuff with Python'."
+      ]
+    },
+    {
+      "id": "D000139",
+      "description": "闪卡集《Biology Basics》的过期日期",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只说明问的是过期日期，未写出具体日期 day_50。",
+      "memories": [
+        "Flashcard set 'Biology Basics' expires on day_50."
+      ]
+    },
+    {
+      "id": "D000287",
+      "description": "时间管理推荐的书籍",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只说明推荐的是时间管理书籍，未写出具体书名。",
+      "memories": [
+        "Recommended book for time management is 'Getting Things Done'."
+      ]
+    },
+    {
+      "id": "D000570",
+      "description": "学习方法从间隔重复软件转为纸质笔记的变更情况",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只说明变更方向（从间隔重复软件转为纸质笔记），未给出具体取值或结论细节，属于对事项本身的概括。",
+      "memories": [
+        "The spaced repetition software was discontinued, and the study method shifted to physical notes."
+      ]
+    },
+    {
+      "id": "D000417",
+      "description": "物理教材的推荐选择",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只说明是物理教材的推荐选择，未写出具体书名或推荐结论。",
+      "memories": [
+        "Recommended to study 'Advanced Physics Concepts' book instead of 'Physics Fundamentals'."
+      ]
+    },
+    {
+      "id": "D000330",
+      "description": "患者被推荐但因禁忌未处方的药物",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只说明药物被推荐但因禁忌未处方，未写出具体药名（Drug C）。",
+      "memories": [
+        "'Drug C' was recommended but not prescribed due to contraindications."
+      ]
+    },
+    {
+      "id": "D000461",
+      "description": "library membership validity period",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只说明问的是会员有效期，未写出任何具体天数或日期。",
+      "memories": [
+        "Library membership valid until day_100"
+      ]
+    },
+    {
+      "id": "D000169",
+      "description": "第3章总结修订的完成状态",
+      "leak": true,
+      "answer": "完成",
+      "verbatim": true,
+      "reason": "描述中的“完成状态”直接给出了记忆里的完成取值。",
+      "memories": [
+        "Completed revision of Chapter 3 summary"
+      ]
+    },
+    {
+      "id": "D000453",
+      "description": "Dr. Smith的办公时间",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只说明问的是 Dr. Smith 的办公时间，未给出具体时间取值。",
+      "memories": [
+        "Dr. Smith's office hours are Monday 3-5 PM."
+      ]
+    },
+    {
+      "id": "D000617",
+      "description": "使用闪卡时的聚焦建议",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只说明聚焦建议这一主题，未给出具体取值（如一次一个主题）。",
+      "memories": [
+        "Flashcards should focus on one topic at a time."
+      ]
+    },
+    {
+      "id": "D000659",
+      "description": "Jonathan的电子邮箱地址",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只说明要查的是Jonathan的电子邮箱地址，未写出任何具体邮箱地址。",
+      "memories": [
+        "Jonathan's email is jon.doe123@example.com"
+      ]
+    },
+    {
+      "id": "D000149",
+      "description": "物理教材第3章的学习完成状态",
+      "leak": true,
+      "answer": "完成状态",
+      "verbatim": true,
+      "reason": "描述中直接写出了“完成状态”这一状态取值，而记忆内容正是“已完成学习/复习”，属于答案泄漏。",
+      "memories": [
+        "Completed studying Chapter 3 of Physics textbook"
+      ]
+    },
+    {
+      "id": "D000141",
+      "description": "微积分作业的截止日期",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只说明问的是微积分作业截止日期，未写出具体日期 day_25。",
+      "memories": [
+        "Assignment on Calculus due date was day_25."
+      ]
+    },
+    {
+      "id": "D000501",
+      "description": "学生为加深理解应复习的历史材料主题",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只说明应复习历史材料主题，未写出具体主题（文艺复兴时期），未泄漏答案。",
+      "memories": [
+        "Students should review the material on the Renaissance period for better understanding."
+      ]
+    },
+    {
+      "id": "D000460",
+      "description": "research paper 'Quantum Dynamics' summary availability deadline",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只说明问的是摘要可用截止时间，未写出具体日期 day_80。",
+      "memories": [
+        "Research paper 'Quantum Dynamics' summary available until day_80"
+      ]
+    },
+    {
+      "id": "D000015",
+      "description": "user's favorite shoe brand",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只说明问的是最喜欢的鞋品牌，未写出 Nike 这一答案。",
+      "memories": [
+        "User's favorite shoe brand is Nike."
+      ]
+    },
+    {
+      "id": "D000391",
+      "description": "患者头痛症状的当前状态",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只说明询问头痛症状的当前状态，未写出“完全缓解”这一答案。",
+      "memories": [
+        "Headache symptoms resolved completely."
+      ]
+    },
+    {
+      "id": "D000334",
+      "description": "药物B的有效期状态",
+      "leak": true,
+      "answer": "有效期状态",
+      "verbatim": true,
+      "reason": "描述中的“有效期状态”直接指向记忆给出的“expired”状态取值，属于答案泄漏。",
+      "memories": [
+        "Medication B now expired."
+      ]
+    },
+    {
+      "id": "D000188",
+      "description": "患者因喉部感染被处方的药物",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只说明处方针对喉部感染，未写出任何具体药物名称。",
+      "memories": [
+        "Patient was prescribed amoxicillin for throat infection."
+      ]
+    },
+    {
+      "id": "D000448",
+      "description": "微积分学习所使用的教材",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只说明是微积分学习所用教材，未写出具体书名或作者，未泄漏答案。",
+      "memories": [
+        "The student switched to the textbook 'Advanced Calculus by James' for deeper understanding."
+      ]
+    },
+    {
+      "id": "D000454",
+      "description": "electronics discount during the promotion",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只说明促销期间电子产品有折扣，未写出具体折扣比例或截止天数。",
+      "memories": [
+        "10% off on electronics until day 60"
+      ]
+    },
+    {
+      "id": "D000352",
+      "description": "Literature课程论文的提交截止日期",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只说明问的是截止日期，未写出具体日期 day_50。",
+      "memories": [
+        "Essay submission deadline for Literature class is on day_50."
+      ]
+    },
+    {
+      "id": "D000500",
+      "description": "学生复习量子力学笔记的频率",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只说明复习频率这一事项，未写出具体频率取值（weekly）。",
+      "memories": [
+        "Students should review the notes on quantum mechanics weekly."
+      ]
+    },
+    {
+      "id": "D000530",
+      "description": "西班牙语学习工具的更换情况",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只说明是西班牙语学习工具的更换情况，未写出具体工具名称（Babbel、Rosetta Stone）。",
+      "memories": [
+        "User discontinued Babbel and started using Rosetta Stone for Spanish."
+      ]
+    },
+    {
+      "id": "D000503",
+      "description": "即将到来的考试所推荐的学习计划内容",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只说明是推荐的学习计划内容，未写出具体复习代数等答案取值。",
+      "memories": [
+        "The recommended study schedule for the upcoming exams suggests reviewing algebra topics daily."
+      ]
+    },
+    {
+      "id": "D000354",
+      "description": "数学作业解答的可用截止日期",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只说明截止日期的主题，未写出具体日期 day_50。",
+      "memories": [
+        "Math homework solutions available until day_50"
+      ]
+    },
+    {
+      "id": "D000646",
+      "description": "图书馆会员续费的有效期",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只说明问的是续费有效期，未写出具体天数 30 days。",
+      "memories": [
+        "Library membership renewal is valid for 30 days."
+      ]
+    },
+    {
+      "id": "D000439",
+      "description": "学生对最终稿评审的延期申请状态",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只说明申请的对象是最终稿评审的延期，未给出任何状态取值或具体答案。",
+      "memories": [
+        "Student requested extension for final draft review."
+      ]
+    },
+    {
+      "id": "D000338",
+      "description": "患者偏好的预约时段",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只说明偏好的是预约时段，未写出具体时段（morning）。",
+      "memories": [
+        "Patient prefers morning appointments."
+      ]
+    },
+    {
+      "id": "D000395",
+      "description": "积分兑换用户指南的更新日期",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只说明问的是更新日期，未写出具体日期（第40天）。",
+      "memories": [
+        "User guide for redeeming points updated on day 40."
+      ]
+    },
+    {
+      "id": "D000343",
+      "description": "健身房会员续费促销的持续时间",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只说明促销持续时间这一待查事项，未写出任何具体天数。",
+      "memories": [
+        "Gym membership renewal promo lasts until day 50."
+      ]
+    },
+    {
+      "id": "D000463",
+      "description": "'AI Basics' course 学生反馈的接收日期",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只说明反馈的接收日期这一待查事项，未写出具体日期（第50天）。",
+      "memories": [
+        "Student feedback for 'AI Basics' course received on day 50."
+      ]
+    },
+    {
+      "id": "D000591",
+      "description": "物理测验的截止日期",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只说明问的是物理测验截止日期，未写出具体日期 day_120。",
+      "memories": [
+        "Physics quiz deadline is on day_120."
+      ]
+    },
+    {
+      "id": "D000643",
+      "description": "免费瑜伽课的提供安排",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只说明是免费瑜伽课的提供安排，未写出具体时间（每周日、七月）等答案取值。",
+      "memories": [
+        "Free yoga classes available every Sunday in July."
+      ]
+    },
+    {
+      "id": "D000218",
+      "description": "中秋节特惠活动的折扣",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只说明问的是中秋节特惠活动的折扣，未写出“买二送一”这一具体答案。",
+      "memories": [
+        "Mid-Autumn Festival special sale: Buy 2 get 1 free"
+      ]
+    },
+    {
+      "id": "D000601",
+      "description": "用户学习西班牙语所用的工具",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只说明工具用途，未写出具体工具名 Babbel 或 Rosetta Stone。",
+      "memories": [
+        "The user started using Babbel for Spanish learning instead of Rosetta Stone."
+      ]
+    },
+    {
+      "id": "D000267",
+      "description": "护肤品促销活动的折扣",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只说明问的是护肤品促销折扣，未写出具体折扣值10%。",
+      "memories": [
+        "10% off all skincare products"
+      ]
+    },
+    {
+      "id": "D000132",
+      "description": "user's preferred time of day for swimming",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只说明询问的是游泳偏好的时段，未写出具体时段（evening）。",
+      "memories": [
+        "User prefers evening hours for swimming."
+      ]
+    },
+    {
+      "id": "D000652",
+      "description": "用户最喜欢的咖啡店'Urban Roast'的营业状态",
+      "leak": true,
+      "answer": "营业状态",
+      "verbatim": true,
+      "reason": "描述中的“营业状态”直接指向记忆给出的“已永久关闭”这一状态取值，属于答案泄漏。",
+      "memories": [
+        "User mentioned their favorite coffee shop 'Urban Roast' closed permanently."
+      ]
+    },
+    {
+      "id": "D000636",
+      "description": "John的工作电话号码",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只说明查询对象是John的工作电话号码，未写出具体号码555-123-4567。",
+      "memories": [
+        "John's work phone number is 555-123-4567."
+      ]
+    },
+    {
+      "id": "D000573",
+      "description": "preference between physical notes and digital solutions",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只说明了比较对象（纸质笔记与数字方案），没有给出偏好哪一方的结论。",
+      "memories": [
+        "Feedback about preferring physical notes over digital solutions."
+      ]
+    },
+    {
+      "id": "D000440",
+      "description": "第5章使用的物理教材版本",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只说明第5章使用的物理教材版本这一事项，未写出具体版本号（第3版）。",
+      "memories": [
+        "Physics textbook edition 3 was used for Chapter 5."
+      ]
+    },
+    {
+      "id": "D000558",
+      "description": "双十一预售活动的开始状态与优惠方式",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只概括了预售开始状态与优惠方式这一主题，未写出具体优惠内容或状态取值。",
+      "memories": [
+        "双十一预售开始，支付定金享受提前优惠"
+      ]
+    },
+    {
+      "id": "D000372",
+      "description": "effectiveness of flashcards for studying vocabulary",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只说明主题是抽认卡对词汇学习的效果，未给出任何具体结论或取值。",
+      "memories": [
+        "Flashcards are effective for studying vocabulary."
+      ]
+    },
+    {
+      "id": "D000049",
+      "description": "患者药物X的处方剂量",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只说明问的是药物X的处方剂量，未写出任何具体剂量数值。",
+      "memories": [
+        "Prescribed 10mg of medication X once daily for the patient."
+      ]
+    },
+    {
+      "id": "D000436",
+      "description": "学生John Doe更新个人资料的日期",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只说明问的是更新日期，未写出具体日期（day 45）。",
+      "memories": [
+        "Student John Doe updated their profile on day 45."
+      ]
+    },
+    {
+      "id": "D000359",
+      "description": "可再生能源项目的完成状态",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只说明主题是完成状态，未给出任何具体状态取值。",
+      "memories": [
+        "Renewable energy project completed."
+      ]
+    },
+    {
+      "id": "D000088",
+      "description": "Studio B周六的可用状态",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只说明查询对象是Studio B周六的可用状态，未写出具体状态取值（如已确认可用）。",
+      "memories": [
+        "Studio B availability for Saturday confirmed."
+      ]
+    },
+    {
+      "id": "D000284",
+      "description": "学期项目报告的提交截止日期",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只说明问的是提交截止日期，未写出具体天数（55 或 60）。",
+      "memories": [
+        "Semester project report submission deadline is day 55."
+      ]
+    },
+    {
+      "id": "D000531",
+      "description": "总结研究论文发现的任务分配状态",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只说明任务是什么（总结研究论文发现），没有给出任何具体取值或结论。",
+      "memories": [
+        "User assigned a task to summarize the research paper findings."
+      ]
+    },
+    {
+      "id": "D000204",
+      "description": "Studio B瑜伽课的预约要求",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只说明是Studio B瑜伽课的预约要求，未给出具体预约方式或时限等答案。",
+      "memories": [
+        "Yoga class requires booking in advance for Studio B"
+      ]
+    },
+    {
+      "id": "D000512",
+      "description": "推荐的教材",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只说明问的是推荐教材，未写出任何具体书名。",
+      "memories": [
+        "Recommended textbook is 'Introduction to Algorithms, 3rd Edition'"
+      ]
+    },
+    {
+      "id": "D000019",
+      "description": "患者的既往病史",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只说明是既往病史，未写出高血压或2型糖尿病等具体诊断。",
+      "memories": [
+        "Patient has a history of hypertension."
+      ]
+    },
+    {
+      "id": "D000640",
+      "description": "户外瑜伽课的提供截止时间",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只说明问的是截止时间，未写出具体时间（九月底）。",
+      "memories": [
+        "Outdoor yoga classes are available until the end of September."
+      ]
+    },
+    {
+      "id": "D000641",
+      "description": "户外游泳池的开放季节安排",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只说明是户外游泳池的开放季节安排，未写出具体季节（夏季）这一答案。",
+      "memories": [
+        "Outdoor swimming pool open for summer season."
+      ]
+    },
+    {
+      "id": "D000093",
+      "description": "客户反馈中提到的内容",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只说客户反馈中提到的内容，未写出具体事项（Item A 质量改进）。",
+      "memories": [
+        "Customer feedback mentions Item A quality improvement."
+      ]
+    },
+    {
+      "id": "D000644",
+      "description": "夏季游泳池会员的有效期",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只说明会员有效期的主题，未给出任何具体日期。",
+      "memories": [
+        "Summer pool membership was valid for the period June 1 to August 31."
+      ]
+    },
+    {
+      "id": "D000361",
+      "description": "学生微积分课程大纲涵盖的内容",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只说明大纲涵盖的内容，未写出积分和导数这两个具体取值。",
+      "memories": [
+        "Student's calculus syllabus includes integration and derivatives."
+      ]
+    },
+    {
+      "id": "D000481",
+      "description": "Physics Chapter 5 study materials' approval status",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只说明审批状态这一待查事项，未写出“已批准”这一具体取值。",
+      "memories": [
+        "The study materials for Physics Chapter 5 were approved by the group leader."
+      ]
+    },
+    {
+      "id": "D000217",
+      "description": "母婴用品优惠活动的折扣",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只说明是母婴用品优惠活动的折扣，未写出具体折扣取值“八折”。",
+      "memories": [
+        "母婴用品八折优惠活动已开始"
+      ]
+    },
+    {
+      "id": "D000385",
+      "description": "用户当前购买杂货的商店",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只说明问的是当前购买杂货的商店，未写出任何具体商店名称。",
+      "memories": [
+        "User now shops at MegaStore for groceries."
+      ]
+    },
+    {
+      "id": "D000124",
+      "description": "偏好的咖啡品牌",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只写了“偏好的咖啡品牌”这一待查事项，未写出任何具体品牌名。",
+      "memories": [
+        "The preferred coffee brand is Starbucks."
+      ]
+    },
+    {
+      "id": "D000686",
+      "description": "用户对促销期间健身房定价的反馈",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只说明用户对促销期健身房定价有反馈，未给出任何具体价格或结论。",
+      "memories": [
+        "User reported confusion about the gym's pricing during promotion period."
+      ]
+    },
+    {
+      "id": "D000633",
+      "description": "Tom的电子邮箱地址",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只说明要查的是Tom的电子邮箱地址，未给出具体地址。",
+      "memories": [
+        "Tom's email address is tom.smith23@example.com"
+      ]
+    },
+    {
+      "id": "D000471",
+      "description": "教授对提案改进的反馈内容",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只说明反馈的主题，未给出任何具体反馈内容。",
+      "memories": [
+        "Feedback from professor about proposal improvements."
+      ]
+    },
+    {
+      "id": "D000478",
+      "description": "学生复习重点的建议",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只笼统说“学生复习重点的建议”，未写出具体学科（微积分）这一答案。",
+      "memories": [
+        "Student should focus more on revising calculus topics."
+      ]
+    },
+    {
+      "id": "D000456",
+      "description": "math study material validity period",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只说明是数学学习材料的有效期，未写出具体天数 day_90。",
+      "memories": [
+        "Math study material valid until day_90"
+      ]
+    },
+    {
+      "id": "D000111",
+      "description": "主要健身房会员所属品牌",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只说明问的是主要健身房会员所属品牌，未写出 Pure Fitness 这一具体答案。",
+      "memories": [
+        "Primary gym membership is at Pure Fitness."
+      ]
+    },
+    {
+      "id": "D000585",
+      "description": "备考物理考试推荐的最新且最准确的资源",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只说明要找最新最准确的备考资源，未写出具体资源名 'Physics Mastery'。",
+      "memories": [
+        "Recommended to study 'Physics Mastery' as the latest and most accurate resource for the exam."
+      ]
+    },
+    {
+      "id": "D000037",
+      "description": "法国大革命笔记的存放位置",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只说明笔记的存放位置这一待查事项，未给出具体位置取值。",
+      "memories": [
+        "Notes on the French Revolution are saved in the shared folder."
+      ]
+    },
+    {
+      "id": "D000337",
+      "description": "患者复诊预约的安排日期",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只说明预约安排日期这一事项，未写出第50天或第60天等具体取值。",
+      "memories": [
+        "Patient has a follow-up appointment scheduled for day 50."
+      ]
+    },
+    {
+      "id": "D000426",
+      "description": "John's gym membership number",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只说明问的是 John 的健身房会员号，没有写出 GYM12345 或 4523 等具体取值。",
+      "memories": [
+        "John's gym membership number is GYM12345"
+      ]
+    },
+    {
+      "id": "D000187",
+      "description": "用户查看过评价的品牌",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只说明用户查看过评价的品牌，未写出具体品牌名。",
+      "memories": [
+        "User looked up reviews for Brand D."
+      ]
+    },
+    {
+      "id": "D000434",
+      "description": "用户对增加瑜伽课时段的建议",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只概括了建议主题（增加瑜伽课时段），未给出具体时段、数量等答案取值。",
+      "memories": [
+        "User suggested adding additional yoga class slots."
+      ]
+    },
+    {
+      "id": "D000630",
+      "description": "牙医预约改期后的日期",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只说明问的是改期后的日期，未写出具体日期 June 20th。",
+      "memories": [
+        "The dentist appointment was rescheduled to June 20th."
+      ]
+    },
+    {
+      "id": "D000302",
+      "description": "明天的天气预报",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只说明查询对象是明天的天气预报，未写出晴天这一答案。",
+      "memories": [
+        "明天的天气预报是晴天。"
+      ]
+    },
+    {
+      "id": "D000137",
+      "description": "数学教材《Algebra Basics》的推荐有效期",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只说明推荐有效期的主题，未写出具体取值 day_90。",
+      "memories": [
+        "Math textbook 'Algebra Basics' recommended until day_90."
+      ]
+    },
+    {
+      "id": "D000513",
+      "description": "复习讲座笔记的建议频率",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只说明问的是复习讲座笔记的建议频率，未写出具体频率取值。",
+      "memories": [
+        "Important to review lecture notes weekly."
+      ]
+    },
+    {
+      "id": "D000616",
+      "description": "用户对语言练习学习形式的偏好",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只说明偏好的是语言练习学习形式，未写出具体取值（视频学习）。",
+      "memories": [
+        "User prefers video-based learning for language practice."
+      ]
+    },
+    {
+      "id": "D000516",
+      "description": "项目指南对代码注释的要求",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只说明指南涉及代码注释要求，未给出具体取值或结论。",
+      "memories": [
+        "Project guidelines require clear inline comments in the code."
+      ]
+    },
+    {
+      "id": "D000005",
+      "description": "preferred time for working on research papers",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只说明偏好时间这一待查事项，未写出具体时间取值（evening/morning/afternoon）。",
+      "memories": [
+        "Prefers to work on research papers in the evening."
+      ]
+    },
+    {
+      "id": "D000564",
+      "description": "项目的到期状态",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只说明问的是到期状态，未给出具体状态取值。",
+      "memories": [
+        "Project is due to expire soon"
+      ]
+    },
+    {
+      "id": "D000251",
+      "description": "患者用药的调整情况",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只说明问的是用药调整情况，未写出“无变化”这一答案。",
+      "memories": [
+        "Patient reports no changes in medication"
+      ]
+    },
+    {
+      "id": "D000016",
+      "description": "dietary recommendations for hypertension",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只说明了主题（高血压的饮食建议），没有给出任何具体建议或取值。",
+      "memories": [
+        "Recommended diet changes for hypertension."
+      ]
+    },
+    {
+      "id": "D000040",
+      "description": "教材第3章笔记总结的完成状态",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只说明笔记总结的完成状态这一事项，未给出具体状态取值。",
+      "memories": [
+        "Completed the notes summarization for Chapter 3 of the textbook."
+      ]
+    },
+    {
+      "id": "D000389",
+      "description": "学生社团会议的安排日期",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只说明问的是会议安排日期，未写出具体日期 day_55。",
+      "memories": [
+        "Student club meeting scheduled on day_55"
+      ]
+    },
+    {
+      "id": "D000256",
+      "description": "历史论文文献综述的进展状态",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只说明文献综述的进展状态，未给出具体内容或结论。",
+      "memories": [
+        "Started the literature review for the history paper on Renaissance art."
+      ]
+    },
+    {
+      "id": "D000074",
+      "description": "患者首次检查时的血压记录值",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只说明记录的是首次检查的血压值，未写出具体数值 120/80 mmHg。",
+      "memories": [
+        "Patient's blood pressure was recorded as 120/80 mmHg during the first check-up."
+      ]
+    },
+    {
+      "id": "D000615",
+      "description": "闪卡对词汇记忆保持的效果",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只说明闪卡对词汇记忆保持的效果这一主题，未给出具体结论或取值。",
+      "memories": [
+        "Using flashcards helped improve vocabulary retention."
+      ]
+    },
+    {
+      "id": "D000105",
+      "description": "Preferred morning coffee",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只说明问的是早晨咖啡偏好，未写出 black coffee 这一具体取值。",
+      "memories": [
+        "Preferred morning coffee: black coffee"
+      ]
+    },
+    {
+      "id": "D000584",
+      "description": "为保持记忆而复习闪卡的推荐频率",
+      "leak": false,
+      "answer": "",
+      "verbatim": true,
+      "reason": "描述只说明问的是复习频率，未写出具体取值（每两天）。",
+      "memories": [
+        "Recommended to review flashcards every two days for retention."
+      ]
+    }
+  ]
+}

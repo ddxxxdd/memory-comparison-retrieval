@@ -1,0 +1,82 @@
+{
+  "run_id": "compare-12q-k10",
+  "created_at_utc": "2026-10-16T11:34:55.397061+00:00",
+  "experiment_type": "shared_memory_bank_source_pilot",
+  "dataset": {
+    "path": "C:\\Users\\dzp\\project\\paper\\memory-comparison-retrieval\\data\\dialogue_nli_mixed_full_v8",
+    "files_sha256": {
+      "memories.jsonl": "8ee3ed9d8c74b8ee1fa2f4d6cd9e50bbec59a6c3d4d6d0b6f7e18830b23e41ca",
+      "queries.jsonl": "f737d86abe218889667e1643a72ce326ff1e408f4175ddad39f691757e955a37",
+      "gold.jsonl": "c268e0a347627c62db86992b04e89f39e61d32d124126f65066bbe129ae2d697"
+    },
+    "memory_count": 1102,
+    "query_count": 67,
+    "gold_count": 67
+  },
+  "sample": {
+    "query_count": 12,
+    "query_ids": [
+      "q_dnli_1b41a4de8d426a2d",
+      "q_dnli_67c020ad0b6f93b8",
+      "q_dnli_dd0ed517db9d283b",
+      "q_dnli_2aea4a1246c622d9",
+      "q_dnli_3c8ee653699cc840",
+      "q_dnli_bedc36abe51df854",
+      "q_dnli_c92a956fe1ef0b5f",
+      "q_dnli_363fae09ab6320ac",
+      "q_dnli_cbff18f32619baf5",
+      "q_dnli_60ccf8b5603a729d",
+      "q_dnli_13827b2cb05f2d12",
+      "q_dnli_8161568edd0b62f0"
+    ],
+    "limit": 12,
+    "seed": 20261014
+  },
+  "settings": {
+    "similarity_threshold": 0.7,
+    "coarse_k": 50,
+    "final_k": 10,
+    "workers": 4,
+    "llm": {
+      "url": "https://api.pie-xian.com/v1/chat/completions",
+      "model": "deepseek-v4.1-flash",
+      "temperature": 0.0,
+      "json_mode": true
+    },
+    "embedding": {
+      "url": "https://api.pie-xian.com/v1/embeddings",
+      "model": "qwen3-embedding-8b"
+    },
+    "llm_temperature": 0.0,
+    "llm_json_mode": true,
+    "api_timeout_seconds": 120.0
+  },
+  "index": {
+    "index_id": "23e410053fff222cadbc05a672d5abff821b1917cbb9db3945587b64ea11ea0f",
+    "origin": "C:\\Users\\dzp\\project\\paper\\memory-comparison-retrieval\\runs\\experiments\\dnli-v8-batchreuse-12q-r2\\index",
+    "description_mode": "batch_reuse",
+    "batch_size": 16,
+    "build_seconds": 0.0,
+    "build_usage": {}
+  },
+  "arms": {
+    "proposed": {
+      "method": "proposed",
+      "rerank": true,
+      "kind": "main_method",
+      "judged": false
+    },
+    "dense": {
+      "method": "dense",
+      "rerank": true,
+      "kind": "retrieval_diagnostic",
+      "judged": false
+    },
+    "bm25": {
+      "method": "bm25",
+      "rerank": true,
+      "kind": "retrieval_diagnostic",
+      "judged": false
+    }
+  }
+}

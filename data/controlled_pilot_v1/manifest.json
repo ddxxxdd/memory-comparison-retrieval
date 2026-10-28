@@ -1,0 +1,24 @@
+{
+  "dataset_id": "controlled_pilot_v1",
+  "language": "zh",
+  "source_type": "controlled_synthetic",
+  "purpose": "mechanism and pipeline diagnostic; not a public-source benchmark",
+  "library_policy": "one frozen memory bank is shared by all 50 independent queries",
+  "query_count": 50,
+  "memory_count": 250,
+  "pair_audit_count": 12500,
+  "human_reviewed_queries": 0,
+  "notes": [
+    "No MemConflict, HaluMem, or STALE records are included; their source data were not present locally.",
+    "All pair labels are exhaustive for the generated bank and derive from explicit subject/slot/scope metadata.",
+    "This pilot has no double-annotator agreement study and should not be presented as a human-validated benchmark.",
+    "Queries are single-claim; multi-claim, coreference, aliases, and uncertain cases are deferred."
+  ],
+  "gold_pairs": 80,
+  "empty_gold_queries": 10,
+  "query_modes": {
+    "conflict": 20,
+    "duplicate": 20,
+    "empty": 10
+  }
+}

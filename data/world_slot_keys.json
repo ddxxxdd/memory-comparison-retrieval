@@ -1,0 +1,3141 @@
+[
+ {
+  "entity": "活动规则",
+  "attribute": "政策说明",
+  "count": 1,
+  "samples": [
+   "活动政策说明书：各活动过期后不再有效"
+  ]
+ },
+ {
+  "entity": "swimming pool",
+  "attribute": "maintenance schedule",
+  "count": 1,
+  "samples": [
+   "The swimming pool maintenance schedule was set from day 1 to day 5."
+  ]
+ },
+ {
+  "entity": "gym_membership",
+  "attribute": "price",
+  "count": 4,
+  "samples": [
+   "Gym membership costs 300 yuan per month.",
+   "Gym membership costs 100 dollars per month."
+  ]
+ },
+ {
+  "entity": "spring_sale",
+  "attribute": "promotion_status",
+  "count": 1,
+  "samples": [
+   "Spring clearance sale: 50% off select items"
+  ]
+ },
+ {
+  "entity": "history paper",
+  "attribute": "due date",
+  "count": 1,
+  "samples": [
+   "The history paper is due on day 20."
+  ]
+ },
+ {
+  "entity": "Physics 101",
+  "attribute": "textbook edition",
+  "count": 3,
+  "samples": [
+   "The textbook edition for Physics 101 is Edition 5.",
+   "New textbook Edition 7 is recommended for Physics 101 this semester."
+  ]
+ },
+ {
+  "entity": "VIP promo",
+  "attribute": "status",
+  "count": 1,
+  "samples": [
+   "Double points promo valid for VIP members"
+  ]
+ },
+ {
+  "entity": "store_map",
+  "attribute": "availability",
+  "count": 1,
+  "samples": [
+   "Store location map available for download."
+  ]
+ },
+ {
+  "entity": "gym_membership",
+  "attribute": "free_trial_status",
+  "count": 1,
+  "samples": [
+   "Gym membership free trial ends on day 15."
+  ]
+ },
+ {
+  "entity": "gym_membership",
+  "attribute": "free_trial_start_date",
+  "count": 1,
+  "samples": [
+   "Gym membership free trial started on day 5."
+  ]
+ },
+ {
+  "entity": "store_hours",
+  "attribute": "schedule",
+  "count": 2,
+  "samples": [
+   "Store hours are 9 AM to 9 PM daily",
+   "Store hours updated to 9 AM - 8 PM daily."
+  ]
+ },
+ {
+  "entity": "Newton's Laws",
+  "attribute": "recommendation",
+  "count": 1,
+  "samples": [
+   "Physics guide 'Newton's Laws' recommended until day_50."
+  ]
+ },
+ {
+  "entity": "biology_assignment",
+  "attribute": "submission_deadline",
+  "count": 1,
+  "samples": [
+   "Reminder: Biology assignment was due on day_30."
+  ]
+ },
+ {
+  "entity": "Physics Fundamentals",
+  "attribute": "validity",
+  "count": 1,
+  "samples": [
+   "Flashcard set 'Physics Fundamentals' expired on day_30."
+  ]
+ },
+ {
+  "entity": "History project",
+  "attribute": "guidelines",
+  "count": 1,
+  "samples": [
+   "History project guidelines available until day_25"
+  ]
+ },
+ {
+  "entity": "history essay",
+  "attribute": "deadline",
+  "count": 1,
+  "samples": [
+   "The history essay is due on day 20"
+  ]
+ },
+ {
+  "entity": "Physics textbook",
+  "attribute": "recommendation",
+  "count": 9,
+  "samples": [
+   "Recommended textbook for Physics: 'Introductory Physics Vol. 1'.",
+   "Recommended textbook for Physics is 'Fundamentals of Physics, 9th Edition'."
+  ]
+ },
+ {
+  "entity": "park_route",
+  "attribute": "best_route",
+  "count": 3,
+  "samples": [
+   "The best route to the park is through Oak Street.",
+   "The best route to the park is through Pine Avenue."
+  ]
+ },
+ {
+  "entity": "course_material",
+  "attribute": "textbook",
+  "count": 5,
+  "samples": [
+   "The primary textbook for the course is 'Physics Fundamentals'.",
+   "The official textbook for the course is 'Introduction to Physics, 3rd Edition'."
+  ]
+ },
+ {
+  "entity": "calculus textbook recommendation",
+  "attribute": "recommended textbook",
+  "count": 2,
+  "samples": [
+   "Recommended textbook for calculus is 'Calculus Fundamentals, 2nd Edition'.",
+   "Recommended textbook for calculus is 'Advanced Calculus Principles, 3rd Edition'"
+  ]
+ },
+ {
+  "entity": "Medication B",
+  "attribute": "dosage",
+  "count": 1,
+  "samples": [
+   "Recommended dosage for Medication B was 100mg daily."
+  ]
+ },
+ {
+  "entity": "Physics course",
+  "attribute": "recommended textbook",
+  "count": 5,
+  "samples": [
+   "Recommended textbook for Physics course: 'Fundamentals of Physics 9th Edition'.",
+   "Recommended textbook for Physics course: 'Conceptual Physics, 10th Edition'."
+  ]
+ },
+ {
+  "entity": "course_material",
+  "attribute": "recommended_book",
+  "count": 2,
+  "samples": [
+   "The recommended book for the course is 'Introduction to Algorithms'.",
+   "The recommended book for the course is 'Algorithm Design'."
+  ]
+ },
+ {
+  "entity": "Gym promo",
+  "attribute": "discount",
+  "count": 3,
+  "samples": [
+   "Gym promotion: 50% off membership fees",
+   "Gym promotion updated: 60% off membership fees"
+  ]
+ },
+ {
+  "entity": "Calculus textbook",
+  "attribute": "recommendation",
+  "count": 3,
+  "samples": [
+   "Recommended textbook for Calculus: Calculus by Stewart (7th Edition).",
+   "Updated textbook recommendation for Calculus: Calculus by Larson (11th Edition)."
+  ]
+ },
+ {
+  "entity": "Chemistry textbook recommendation",
+  "attribute": "title",
+  "count": 3,
+  "samples": [
+   "Recommended textbook for Chemistry: 'Advanced Inorganic Chemistry, 6th Edition'.",
+   "Updated Chemistry textbook recommendation: 'Modern Chemistry Concepts, 3rd Editi"
+  ]
+ },
+ {
+  "entity": "Biology textbook",
+  "attribute": "edition",
+  "count": 3,
+  "samples": [
+   "Recommended textbook edition: Biology 2nd Edition",
+   "Updated recommendation: Biology 3rd Edition"
+  ]
+ },
+ {
+  "entity": "Biology",
+  "attribute": "textbook",
+  "count": 3,
+  "samples": [
+   "Recommended textbook for Biology: 'Biology Essentials' by Dr. Smith",
+   "New recommended textbook: 'Advanced Biology' by Dr. Lee"
+  ]
+ },
+ {
+  "entity": "Math resource",
+  "attribute": "recommendation",
+  "count": 2,
+  "samples": [
+   "Recommended study resource: 'Math Practice Workbook Edition 2022'",
+   "Updated recommendation: 'Advanced Math Workbook Edition 2023'"
+  ]
+ },
+ {
+  "entity": "Physics 101",
+  "attribute": "recommended textbook",
+  "count": 8,
+  "samples": [
+   "Recommended textbook for Physics 101: 'Physics Fundamentals, 9th Edition'.",
+   "The recommended textbook for Physics 101 is 'Fundamentals of Physics, 9th Editio"
+  ]
+ },
+ {
+  "entity": "Physics",
+  "attribute": "recommended textbook",
+  "count": 3,
+  "samples": [
+   "Recommended textbook for Physics: 'Quantum Fundamentals' (2nd Edition).",
+   "Updated recommended Physics textbook: 'Advanced Quantum Mechanics' (3rd Edition)"
+  ]
+ },
+ {
+  "entity": "Calculus textbook",
+  "attribute": "recommended edition",
+  "count": 3,
+  "samples": [
+   "Recommended textbook edition: Calculus, 7th Edition.",
+   "Updated recommendation: Calculus, 8th Edition."
+  ]
+ },
+ {
+  "entity": "calculus",
+  "attribute": "recommended textbook",
+  "count": 6,
+  "samples": [
+   "Recommended textbook for calculus: 'Calculus Essentials, 2nd Ed.'",
+   "Recommended textbook for calculus: 'Calculus Basics, 1st Edition'."
+  ]
+ },
+ {
+  "entity": "gym_discount",
+  "attribute": "offer_details",
+  "count": 3,
+  "samples": [
+   "Gym membership discount: 20% off for new sign-ups.",
+   "Updated gym promotion: 25% off for new sign-ups."
+  ]
+ },
+ {
+  "entity": "blood_test",
+  "attribute": "instructions",
+  "count": 2,
+  "samples": [
+   "Blood test recommended: fasting required.",
+   "Blood test recommended: fasting not required."
+  ]
+ },
+ {
+  "entity": "park_entry_fee",
+  "attribute": "cost",
+  "count": 3,
+  "samples": [
+   "Park entry fee is $10 per person.",
+   "Park entry fee reduced to $5 during festival week."
+  ]
+ },
+ {
+  "entity": "study_material",
+  "attribute": "chapter_recommendation",
+  "count": 1,
+  "samples": [
+   "Chapter 2 of the textbook is suggested for review."
+  ]
+ },
+ {
+  "entity": "item_A",
+  "attribute": "price",
+  "count": 3,
+  "samples": [
+   "Standard price of the item is 200 yuan.",
+   "Flash sale: item_A available for 150 yuan for 3 days."
+  ]
+ },
+ {
+  "entity": "Medication X",
+  "attribute": "dosage",
+  "count": 5,
+  "samples": [
+   "Recommended dosage for Medication X is 10mg daily.",
+   "Recommended dosage is 500mg of Medication X daily."
+  ]
+ },
+ {
+  "entity": "exam_date",
+  "attribute": "schedule",
+  "count": 3,
+  "samples": [
+   "The final exam is scheduled for May 15th.",
+   "The exam date is rescheduled to May 22nd due to holiday conflicts."
+  ]
+ },
+ {
+  "entity": "library_hours",
+  "attribute": "schedule",
+  "count": 3,
+  "samples": [
+   "Opening hours are 9 AM to 5 PM on weekdays.",
+   "Special holiday schedule: 10 AM to 4 PM from day 20 to day 25."
+  ]
+ },
+ {
+  "entity": "Item A",
+  "attribute": "Price",
+  "count": 3,
+  "samples": [
+   "Regular price: 200 yuan.",
+   "Item A has a promotional price of 180 yuan."
+  ]
+ },
+ {
+  "entity": "jacket",
+  "attribute": "price",
+  "count": 6,
+  "samples": [
+   "Original price of the jacket is 300 yuan.",
+   "Regular price of the jacket is 200 dollars."
+  ]
+ },
+ {
+  "entity": "Quantum Mechanics course",
+  "attribute": "recommended textbook",
+  "count": 4,
+  "samples": [
+   "The recommended textbook for the course is 'Introduction to Quantum Mechanics, E",
+   "Temporary update: 'Introduction to Quantum Mechanics, Edition 2' is being triale"
+  ]
+ },
+ {
+  "entity": "双十一特价活动",
+  "attribute": "折扣信息",
+  "count": 1,
+  "samples": [
+   "双十一特价活动开始，所有商品六折优惠"
+  ]
+ },
+ {
+  "entity": "feedback",
+  "attribute": "promo",
+  "count": 1,
+  "samples": [
+   "Customer feedback on promo effectiveness"
+  ]
+ },
+ {
+  "entity": null,
+  "attribute": null,
+  "count": 1,
+  "samples": [
+   "Reminder: recycling drives are held monthly."
+  ]
+ },
+ {
+  "entity": "research paper",
+  "attribute": "topic",
+  "count": 2,
+  "samples": [
+   "The research paper topic is quantum entanglement.",
+   "The research paper is about climate change impact on agriculture."
+  ]
+ },
+ {
+  "entity": "midterm_study_topic",
+  "attribute": "content",
+  "count": 3,
+  "samples": [
+   "Chapter 2 is covered in the study material for midterm exam preparation.",
+   "Chapter 4 replaces Chapter 2 as the primary study material for the midterm exam."
+  ]
+ },
+ {
+  "entity": "Item A",
+  "attribute": "Quality",
+  "count": 1,
+  "samples": [
+   "Customer feedback mentions Item A quality improvement."
+  ]
+ },
+ {
+  "entity": "indoor yoga classes",
+  "attribute": "availability",
+  "count": 1,
+  "samples": [
+   "Indoor yoga classes are available all year round."
+  ]
+ },
+ {
+  "entity": "winter_collection",
+  "attribute": "contents",
+  "count": 1,
+  "samples": [
+   "Winter collection includes jackets, scarves, and boots."
+  ]
+ },
+ {
+  "entity": "community_event",
+  "attribute": "schedule",
+  "count": 1,
+  "samples": [
+   "Community event scheduled for the weekend of day 15"
+  ]
+ },
+ {
+  "entity": "community_event",
+  "attribute": "guidelines",
+  "count": 1,
+  "samples": [
+   "Community event guidelines for day 15 schedule"
+  ]
+ },
+ {
+  "entity": "社区活动",
+  "attribute": "报名截止日期",
+  "count": 1,
+  "samples": [
+   "社区活动报名截止日期是day 15。"
+  ]
+ },
+ {
+  "entity": "Algebra Basics",
+  "attribute": "recommendation",
+  "count": 1,
+  "samples": [
+   "Math textbook 'Algebra Basics' recommended until day_90."
+  ]
+ },
+ {
+  "entity": "history_research_paper",
+  "attribute": "submission_deadline",
+  "count": 1,
+  "samples": [
+   "Reminder: Submit history research paper by day_50."
+  ]
+ },
+ {
+  "entity": "Biology Basics",
+  "attribute": "validity",
+  "count": 1,
+  "samples": [
+   "Flashcard set 'Biology Basics' expires on day_50."
+  ]
+ },
+ {
+  "entity": "science_project",
+  "attribute": "due_date",
+  "count": 1,
+  "samples": [
+   "Science project submission date was day_20."
+  ]
+ },
+ {
+  "entity": "Calculus assignment",
+  "attribute": "due date",
+  "count": 1,
+  "samples": [
+   "Assignment on Calculus due date was day_25."
+  ]
+ },
+ {
+  "entity": "group_project",
+  "attribute": "due_date",
+  "count": 1,
+  "samples": [
+   "Next group project is due on day_90."
+  ]
+ },
+ {
+  "entity": "history essay",
+  "attribute": "topic",
+  "count": 1,
+  "samples": [
+   "The history essay is focused on World War II."
+  ]
+ },
+ {
+  "entity": "历史章节1-3",
+  "attribute": "复习建议",
+  "count": 1,
+  "samples": [
+   "复习建议：针对历史章节1-3，重点记忆关键年代"
+  ]
+ },
+ {
+  "entity": "molecular_bonding_textbook",
+  "attribute": "reference",
+  "count": 1,
+  "samples": [
+   "Relevant textbook for molecular bonding is 'Advanced Chemistry Concepts Volume 3"
+  ]
+ },
+ {
+  "entity": "Research Project Abstract",
+  "attribute": "status",
+  "count": 1,
+  "samples": [
+   "Research project abstract submission status expired on day 25."
+  ]
+ },
+ {
+  "entity": "textbook",
+  "attribute": "recommendation",
+  "count": 2,
+  "samples": [
+   "Textbook 'Advanced Biology' added to recommended list.",
+   "Recommended textbook is 'Introduction to Algorithms, 3rd Edition'"
+  ]
+ },
+ {
+  "entity": "physics_exam_content",
+  "attribute": "chapters",
+  "count": 1,
+  "samples": [
+   "Physics exam will cover Chapters 1-10."
+  ]
+ },
+ {
+  "entity": "calculus textbook",
+  "attribute": "availability",
+  "count": 1,
+  "samples": [
+   "Calculus textbook is available in the library."
+  ]
+ },
+ {
+  "entity": "quantum_mechanics_definition",
+  "attribute": "general_info",
+  "count": 1,
+  "samples": [
+   "Quantum mechanics is a fundamental branch of physics."
+  ]
+ },
+ {
+  "entity": "assignment_submission",
+  "attribute": "deadline",
+  "count": 2,
+  "samples": [
+   "The assignment must be submitted by day 60.",
+   "The assignment must be submitted by day 60."
+  ]
+ },
+ {
+  "entity": "Chapter 5",
+  "attribute": "content_summary",
+  "count": 1,
+  "samples": [
+   "Chapter 5 of the physics textbook covers the topic of Newton's Laws of Motion."
+  ]
+ },
+ {
+  "entity": "focus_session",
+  "attribute": "duration",
+  "count": 1,
+  "samples": [
+   "Focus sessions should last 45 minutes."
+  ]
+ },
+ {
+  "entity": "tutoring_schedule",
+  "attribute": "days",
+  "count": 1,
+  "samples": [
+   "Physics tutoring sessions are scheduled on Tuesdays and Thursdays."
+  ]
+ },
+ {
+  "entity": "thesis",
+  "attribute": "citation_style",
+  "count": 1,
+  "samples": [
+   "The recommended citation style for the thesis is APA."
+  ]
+ },
+ {
+  "entity": "Advanced Calculus Study Resource",
+  "attribute": "recommendation",
+  "count": 1,
+  "samples": [
+   "Recommended studying Advanced Calculus from Professor Zhao's lectures."
+  ]
+ },
+ {
+  "entity": "Chemistry textbook",
+  "attribute": "recommendation",
+  "count": 5,
+  "samples": [
+   "Recommended textbook for Chemistry: 'Organic Chemistry Basics'.",
+   "Recommended textbook for Chemistry: 'Organic Chemistry Basics'."
+  ]
+ },
+ {
+  "entity": "physics textbook recommendation",
+  "attribute": "recommended textbook",
+  "count": 1,
+  "samples": [
+   "Recommended textbook for physics is 'Physics Concepts, 1st Edition'."
+  ]
+ },
+ {
+  "entity": "Medication A",
+  "attribute": "dosage",
+  "count": 2,
+  "samples": [
+   "Recommended dosage for Medication A was 50mg daily.",
+   "Recommended dosage for Medication A is now 75mg daily."
+  ]
+ },
+ {
+  "entity": "shoes",
+  "attribute": "discount_recommendation",
+  "count": 1,
+  "samples": [
+   "The store recommends checking out sale items for discounted shoes."
+  ]
+ },
+ {
+  "entity": "Calculus textbook",
+  "attribute": "feedback",
+  "count": 1,
+  "samples": [
+   "Student feedback suggests Calculus by Stewart is highly comprehensive."
+  ]
+ },
+ {
+  "entity": "yoga_studio",
+  "attribute": "event_details",
+  "count": 1,
+  "samples": [
+   "A new yoga studio opening nearby."
+  ]
+ },
+ {
+  "entity": "summer_sale",
+  "attribute": "promotion_status",
+  "count": 1,
+  "samples": [
+   "Summer season sale: 30% off storewide"
+  ]
+ },
+ {
+  "entity": "beverage_promo",
+  "attribute": "status",
+  "count": 2,
+  "samples": [
+   "Buy one, get one free promotion for all beverages.",
+   "Buy 1 Get 1 Free promotion for all beverages."
+  ]
+ },
+ {
+  "entity": "recycling_drive",
+  "attribute": "schedule_status",
+  "count": 1,
+  "samples": [
+   "The neighborhood recycling drive scheduled for the weekend of day 15."
+  ]
+ },
+ {
+  "entity": "yoga_class",
+  "attribute": "schedule",
+  "count": 2,
+  "samples": [
+   "Yoga class rescheduled to day 22",
+   "Yoga class schedule changes starting day 60."
+  ]
+ },
+ {
+  "entity": "社区活动",
+  "attribute": "举办日期",
+  "count": 1,
+  "samples": [
+   "社区活动将在day 20举办。"
+  ]
+ },
+ {
+  "entity": "discount_offer",
+  "attribute": "status",
+  "count": 1,
+  "samples": [
+   "Buy one get one free offer on selected items"
+  ]
+ },
+ {
+  "entity": "Philosophy reading list",
+  "attribute": "recommended_material",
+  "count": 3,
+  "samples": [
+   "Recommended reading for Philosophy: 'The Republic' by Plato.",
+   "Updated reading for Philosophy: 'Being and Time' by Heidegger."
+  ]
+ },
+ {
+  "entity": "store hours",
+  "attribute": "schedule",
+  "count": 1,
+  "samples": [
+   "Store hours updated for holiday season"
+  ]
+ },
+ {
+  "entity": "母婴用品优惠活动",
+  "attribute": "折扣信息",
+  "count": 1,
+  "samples": [
+   "母婴用品八折优惠活动已开始"
+  ]
+ },
+ {
+  "entity": "summer_sale",
+  "attribute": "discount_status",
+  "count": 1,
+  "samples": [
+   "夏季清仓活动: 所有商品7折优惠"
+  ]
+ },
+ {
+  "entity": "skincare promotion",
+  "attribute": "availability",
+  "count": 1,
+  "samples": [
+   "Buy one get one free promotion for skincare products"
+  ]
+ },
+ {
+  "entity": "beverage_promotion",
+  "attribute": "active_status",
+  "count": 1,
+  "samples": [
+   "Buy one get one free promotion for all beverages"
+  ]
+ },
+ {
+  "entity": "Mid-Autumn Festival sale",
+  "attribute": "promotion status",
+  "count": 1,
+  "samples": [
+   "Mid-Autumn Festival special sale: Buy 2 get 1 free"
+  ]
+ },
+ {
+  "entity": "winter collection",
+  "attribute": "coupon WINTER20",
+  "count": 1,
+  "samples": [
+   "Limited-time coupon 'WINTER20' for 20% off winter collection."
+  ]
+ },
+ {
+  "entity": "beverage_promotion",
+  "attribute": "availability",
+  "count": 1,
+  "samples": [
+   "Buy 1 Get 1 Free promotion for all beverages."
+  ]
+ },
+ {
+  "entity": "summer_collection_offer",
+  "attribute": "availability",
+  "count": 1,
+  "samples": [
+   "Buy one get one free offer available for summer collection."
+  ]
+ },
+ {
+  "entity": "健身房活动",
+  "attribute": "活动状态",
+  "count": 1,
+  "samples": [
+   "社区健身房免费开放活动"
+  ]
+ },
+ {
+  "entity": "gym_promotion",
+  "attribute": "status",
+  "count": 1,
+  "samples": [
+   "Gym membership promotion: free personal training for new sign-ups."
+  ]
+ },
+ {
+  "entity": "Cell Structure",
+  "attribute": "reference",
+  "count": 1,
+  "samples": [
+   "Biology handbook 'Cell Structure' with no expiry date."
+  ]
+ },
+ {
+  "entity": "Math",
+  "attribute": "assignment_due_date",
+  "count": 1,
+  "samples": [
+   "Math assignment due by day_40."
+  ]
+ },
+ {
+  "entity": "math_test",
+  "attribute": "scheduled_date",
+  "count": 1,
+  "samples": [
+   "Math test scheduled for day_40."
+  ]
+ },
+ {
+  "entity": "assignment_3",
+  "attribute": "submission_deadline",
+  "count": 1,
+  "samples": [
+   "Homework submission deadline for Assignment 3 is day_30."
+  ]
+ },
+ {
+  "entity": "history paper",
+  "attribute": "topic",
+  "count": 1,
+  "samples": [
+   "The history paper focuses on the French Revolution."
+  ]
+ },
+ {
+  "entity": "高等数学",
+  "attribute": "第4章考试权重",
+  "count": 1,
+  "samples": [
+   "老师提到第4章内容会在期末考试中占30%"
+  ]
+ },
+ {
+  "entity": "season",
+  "attribute": "recommendations",
+  "count": 1,
+  "samples": [
+   "秋天是适合炖汤的季节"
+  ]
+ },
+ {
+  "entity": "quantum mechanics reference material",
+  "attribute": "recommendation",
+  "count": 1,
+  "samples": [
+   "Recommended reading: 'Introduction to Quantum Mechanics' by Griffiths."
+  ]
+ },
+ {
+  "entity": "physics textbook",
+  "attribute": "reference",
+  "count": 1,
+  "samples": [
+   "Physics textbook reference for kinematics equations"
+  ]
+ },
+ {
+  "entity": "research methods",
+  "attribute": "book",
+  "count": 1,
+  "samples": [
+   "Recommended book for research methods is 'Research Design' by Creswell."
+  ]
+ },
+ {
+  "entity": "project_deadlines",
+  "attribute": "flexibility",
+  "count": 1,
+  "samples": [
+   "Group project deadlines are always flexible."
+  ]
+ },
+ {
+  "entity": "Physics 101",
+  "attribute": "textbook",
+  "count": 3,
+  "samples": [
+   "The recommended textbook for Physics 101 is 'Fundamentals of Physics'.",
+   "The recommended textbook for Physics 101 is 'Advanced Physics Concepts'."
+  ]
+ },
+ {
+  "entity": "study_material",
+  "attribute": "recommendation",
+  "count": 3,
+  "samples": [
+   "Recommended study material: 'Intro to Quantum Physics, 3rd Edition'.",
+   "Recommended study material for biology: 'Cell Biology Fundamentals'."
+  ]
+ },
+ {
+  "entity": "course_material",
+  "attribute": "supplementary_book",
+  "count": 1,
+  "samples": [
+   "The recommended supplementary book is 'Data Structures and Problem Solving'."
+  ]
+ },
+ {
+  "entity": "shoes",
+  "attribute": "recommended_brand",
+  "count": 2,
+  "samples": [
+   "The store recommends buying Brand A for high-quality shoes.",
+   "The store recommends buying Brand B for high-quality shoes."
+  ]
+ },
+ {
+  "entity": "baking_discount",
+  "attribute": "status",
+  "count": 1,
+  "samples": [
+   "20% discount on all baked goods."
+  ]
+ },
+ {
+  "entity": "checkout_feedback",
+  "attribute": "sentiment",
+  "count": 1,
+  "samples": [
+   "Customer review: 'Great service at checkout.'"
+  ]
+ },
+ {
+  "entity": "skincare_discount",
+  "attribute": "active_status",
+  "count": 1,
+  "samples": [
+   "10% off all skincare products"
+  ]
+ },
+ {
+  "entity": "Flash sale",
+  "attribute": "promotion status",
+  "count": 1,
+  "samples": [
+   "Flash sale: 50% off storewide"
+  ]
+ },
+ {
+  "entity": "Physics",
+  "attribute": "homework_due_date",
+  "count": 1,
+  "samples": [
+   "Physics homework due by day_50."
+  ]
+ },
+ {
+  "entity": "History201",
+  "attribute": "submission_deadline",
+  "count": 1,
+  "samples": [
+   "Homework submission deadline for History201 was on day_40."
+  ]
+ },
+ {
+  "entity": "Science assignment",
+  "attribute": "submission deadline",
+  "count": 1,
+  "samples": [
+   "Homework submission deadline for Science assignment was on day_45."
+  ]
+ },
+ {
+  "entity": "Quantum Physics Basics",
+  "attribute": "summary availability",
+  "count": 1,
+  "samples": [
+   "Old summary access for 'Quantum Physics Basics' expired on day_40"
+  ]
+ },
+ {
+  "entity": "biology_lab_report",
+  "attribute": "deadline",
+  "count": 1,
+  "samples": [
+   "Biology lab report due on day_40"
+  ]
+ },
+ {
+  "entity": "Chemistry lab",
+  "attribute": "experiment notes",
+  "count": 1,
+  "samples": [
+   "Chemistry lab experiment notes available until day_40"
+  ]
+ },
+ {
+  "entity": "Biology project",
+  "attribute": "submission deadline",
+  "count": 1,
+  "samples": [
+   "Biology project deadline was on day_40."
+  ]
+ },
+ {
+  "entity": "feedback session",
+  "attribute": "scheduled date",
+  "count": 1,
+  "samples": [
+   "Student feedback session scheduled on day_40."
+  ]
+ },
+ {
+  "entity": "midterm_exam",
+  "attribute": "scheduled_date",
+  "count": 1,
+  "samples": [
+   "Midterm exam date is scheduled for day_45."
+  ]
+ },
+ {
+  "entity": "physics_group_study",
+  "attribute": "schedule",
+  "count": 1,
+  "samples": [
+   "Scheduled group study for physics on day 25."
+  ]
+ },
+ {
+  "entity": "research_proposal",
+  "attribute": "status",
+  "count": 1,
+  "samples": [
+   "Research proposal update from day 20 expired on day 50."
+  ]
+ },
+ {
+  "entity": "research_proposal_123",
+  "attribute": "approval_status",
+  "count": 7,
+  "samples": [
+   "Research proposal approval expired after 15 days.",
+   "Research proposal approved on day 50 with a 20-day review period."
+  ]
+ },
+ {
+  "entity": "semester_project",
+  "attribute": "submission_deadline",
+  "count": 2,
+  "samples": [
+   "Semester project report submission deadline is day 55.",
+   "Semester project report submission deadline is day 60."
+  ]
+ },
+ {
+  "entity": "physics_exam_plan",
+  "attribute": "revision_chapter_5",
+  "count": 2,
+  "samples": [
+   "The recommended study plan for the physics exam includes revising Chapter 5 by d",
+   "The recommended study plan for the physics exam includes revising Chapter 5 by d"
+  ]
+ },
+ {
+  "entity": "time_management",
+  "attribute": "study_material",
+  "count": 1,
+  "samples": [
+   "Recommended book for time management is 'Getting Things Done'."
+  ]
+ },
+ {
+  "entity": "calculus revision",
+  "attribute": "resource_recommendation",
+  "count": 1,
+  "samples": [
+   "Calculus exercises from textbook Chapter 5 should be practiced."
+  ]
+ },
+ {
+  "entity": "biology_textbook",
+  "attribute": "recommendation",
+  "count": 1,
+  "samples": [
+   "Recommended textbook for biology is 'Principles of Biology'."
+  ]
+ },
+ {
+  "entity": "math_course",
+  "attribute": "textbook",
+  "count": 1,
+  "samples": [
+   "The preferred textbook for the math course is 'Advanced Algebra, 5th Edition'."
+  ]
+ },
+ {
+  "entity": "Spanish grammar",
+  "attribute": "verb usage",
+  "count": 1,
+  "samples": [
+   "The Spanish verb 'estar' is used for temporary states."
+  ]
+ },
+ {
+  "entity": "progress_reports",
+  "attribute": "submission_day",
+  "count": 1,
+  "samples": [
+   "Weekly progress reports should be submitted every Monday."
+  ]
+ },
+ {
+  "entity": "report_format",
+  "attribute": "tool",
+  "count": 1,
+  "samples": [
+   "Group uses LaTeX for reports"
+  ]
+ },
+ {
+  "entity": "physics_textbook",
+  "attribute": "recommendation",
+  "count": 2,
+  "samples": [
+   "Recommended textbook for physics is 'Fundamentals of Physics'.",
+   "The physics textbook suggests weekly problem-solving exercises."
+  ]
+ },
+ {
+  "entity": "flashcard efficiency",
+  "attribute": "spaced repetition",
+  "count": 1,
+  "samples": [
+   "Using spaced repetition apps improves flashcard efficiency."
+  ]
+ },
+ {
+  "entity": "math_study_material",
+  "attribute": "recommended_textbook",
+  "count": 1,
+  "samples": [
+   "Recommended math textbook is 'Calculus Made Easy'."
+  ]
+ },
+ {
+  "entity": "grocery_store_route",
+  "attribute": "best_route",
+  "count": 1,
+  "samples": [
+   "The best route to the nearby grocery store is through Birch Road."
+  ]
+ },
+ {
+  "entity": "exam_subject",
+  "attribute": "study_material",
+  "count": 3,
+  "samples": [
+   "Recommended to study 'Physics Fundamentals' book for exam preparation.",
+   "Recommended to study 'Advanced Physics Concepts' book instead of 'Physics Fundam"
+  ]
+ },
+ {
+  "entity": "course_material",
+  "attribute": "supplementary_material",
+  "count": 1,
+  "samples": [
+   "Supplementary material includes 'Experimental Physics Handbook, 2nd Edition'."
+  ]
+ },
+ {
+  "entity": "plumbing_service_booking",
+  "attribute": "provider",
+  "count": 2,
+  "samples": [
+   "Home plumbing service changed to 'Plumber Y' for advanced repairs.",
+   "Home plumbing service updated to 'Plumber Z' for urgent repairs."
+  ]
+ },
+ {
+  "entity": "Medication for condition X",
+  "attribute": "prescription",
+  "count": 1,
+  "samples": [
+   "Medication B suggested as a replacement for condition X."
+  ]
+ },
+ {
+  "entity": "study_focus",
+  "attribute": "topic",
+  "count": 2,
+  "samples": [
+   "The study group shifted focus to Renaissance art.",
+   "Currently, the study group is focusing on Modern physics."
+  ]
+ },
+ {
+  "entity": "weather_forecast",
+  "attribute": "status",
+  "count": 1,
+  "samples": [
+   "明天的天气预报是晴天。"
+  ]
+ },
+ {
+  "entity": "beauty discount",
+  "attribute": "availability",
+  "count": 1,
+  "samples": [
+   "20% discount on selected beauty items"
+  ]
+ },
+ {
+  "entity": "research_guidelines",
+  "attribute": "content",
+  "count": 1,
+  "samples": [
+   "Research paper guidelines were provided on day 25."
+  ]
+ },
+ {
+  "entity": "winter jackets",
+  "attribute": "buy one get one free offer",
+  "count": 1,
+  "samples": [
+   "Buy one get one free offer started for winter jackets."
+  ]
+ },
+ {
+  "entity": "customer_feedback",
+  "attribute": "snacks_quality",
+  "count": 1,
+  "samples": [
+   "Customer feedback on the quality of snacks."
+  ]
+ },
+ {
+  "entity": "winter_collection_offer",
+  "attribute": "discount",
+  "count": 1,
+  "samples": [
+   "30% off on winter collection valid until day 30."
+  ]
+ },
+ {
+  "entity": "history_essay",
+  "attribute": "due_date",
+  "count": 1,
+  "samples": [
+   "History essay deadline was day_35."
+  ]
+ },
+ {
+  "entity": "History essay",
+  "attribute": "submission deadline",
+  "count": 1,
+  "samples": [
+   "Final draft of the History essay is due on day_45."
+  ]
+ },
+ {
+  "entity": "Chemistry 201",
+  "attribute": "recommended textbook",
+  "count": 1,
+  "samples": [
+   "The recommended textbook for Chemistry 201 is 'Organic Chemistry Basics'."
+  ]
+ },
+ {
+  "entity": "neighborhood_cleanup_event",
+  "attribute": "status",
+  "count": 1,
+  "samples": [
+   "The neighborhood cleanup event was scheduled to happen."
+  ]
+ },
+ {
+  "entity": "community_center",
+  "attribute": "yoga_classes",
+  "count": 1,
+  "samples": [
+   "The community center was offering free yoga classes until day 50."
+  ]
+ },
+ {
+  "entity": "gym membership",
+  "attribute": "discount availability",
+  "count": 1,
+  "samples": [
+   "Gym membership discount of 20% was available for new members."
+  ]
+ },
+ {
+  "entity": "gym_promo",
+  "attribute": "status",
+  "count": 2,
+  "samples": [
+   "Gym membership renewal promo lasts until day 50.",
+   "Gym membership renewal promo 'Buy 1 year, get 2 months free' active period."
+  ]
+ },
+ {
+  "entity": "gym_promotion",
+  "attribute": "promotion_status",
+  "count": 1,
+  "samples": [
+   "Gym membership promotion: Free towels for sign-ups"
+  ]
+ },
+ {
+  "entity": "春季大促活动",
+  "attribute": "优惠活动状态",
+  "count": 1,
+  "samples": [
+   "春季大促全场满500减100活动"
+  ]
+ },
+ {
+  "entity": "community_gym",
+  "attribute": "membership_discount",
+  "count": 1,
+  "samples": [
+   "The community gym membership discount ends on day 50."
+  ]
+ },
+ {
+  "entity": "research_paper_submission",
+  "attribute": "deadline_status",
+  "count": 1,
+  "samples": [
+   "The deadline for submitting the research paper was on day 50."
+  ]
+ },
+ {
+  "entity": "swimming_lessons",
+  "attribute": "registration_status",
+  "count": 1,
+  "samples": [
+   "Summer swimming lessons registration starts."
+  ]
+ },
+ {
+  "entity": "maintenance_schedule",
+  "attribute": "status",
+  "count": 1,
+  "samples": [
+   "Community park maintenance scheduled for Monday to Wednesday."
+  ]
+ },
+ {
+  "entity": "Math101",
+  "attribute": "submission_deadline",
+  "count": 1,
+  "samples": [
+   "Homework submission deadline for Math101 is on day_50."
+  ]
+ },
+ {
+  "entity": "History study guide",
+  "attribute": "validity",
+  "count": 1,
+  "samples": [
+   "History study guide valid until day_60"
+  ]
+ },
+ {
+  "entity": "Math assignment",
+  "attribute": "submission deadline",
+  "count": 3,
+  "samples": [
+   "Homework submission deadline for Math assignment is on day_50.",
+   "Homework submission deadline for Math assignment is day_50."
+  ]
+ },
+ {
+  "entity": "Biology 101",
+  "attribute": "syllabus",
+  "count": 1,
+  "samples": [
+   "Old syllabus for Biology 101 expired on day_60"
+  ]
+ },
+ {
+  "entity": "Literature class",
+  "attribute": "submission deadline",
+  "count": 1,
+  "samples": [
+   "Essay submission deadline for Literature class is on day_50."
+  ]
+ },
+ {
+  "entity": "history_assignment",
+  "attribute": "deadline",
+  "count": 1,
+  "samples": [
+   "History assignment essay due on day_50"
+  ]
+ },
+ {
+  "entity": "math_homework",
+  "attribute": "due_date",
+  "count": 1,
+  "samples": [
+   "Math homework due for submission on day_45."
+  ]
+ },
+ {
+  "entity": "Math homework",
+  "attribute": "solutions",
+  "count": 1,
+  "samples": [
+   "Math homework solutions available until day_50"
+  ]
+ },
+ {
+  "entity": "Community event",
+  "attribute": "registration status",
+  "count": 1,
+  "samples": [
+   "Community event registration closed on day_45"
+  ]
+ },
+ {
+  "entity": "Linear Algebra assignment",
+  "attribute": "due date",
+  "count": 1,
+  "samples": [
+   "Assignment on Linear Algebra due date is day_50."
+  ]
+ },
+ {
+  "entity": "Research Paper Submission",
+  "attribute": "status",
+  "count": 2,
+  "samples": [
+   "Research paper submission deadline set to end on day 50.",
+   "Research paper submission deadline has been extended to day 55."
+  ]
+ },
+ {
+  "entity": "Quantum Fields Study",
+  "attribute": "status",
+  "count": 2,
+  "samples": [
+   "The research project 'Quantum Fields Study' was marked as active on day 30 and s",
+   "The research project 'Quantum Fields Study' was marked as active on day 50 and s"
+  ]
+ },
+ {
+  "entity": "renewable energy research",
+  "attribute": "status",
+  "count": 1,
+  "samples": [
+   "Renewable energy project completed."
+  ]
+ },
+ {
+  "entity": "Quantum Algorithms",
+  "attribute": "status",
+  "count": 2,
+  "samples": [
+   "Research paper 'Quantum Algorithms' finalized.",
+   "Research paper 'Quantum Algorithms' marked as draft."
+  ]
+ },
+ {
+  "entity": "calculus_syllabus",
+  "attribute": "topics",
+  "count": 1,
+  "samples": [
+   "Student's calculus syllabus includes integration and derivatives."
+  ]
+ },
+ {
+  "entity": "Newton's third law",
+  "attribute": "concept_understanding",
+  "count": 3,
+  "samples": [
+   "Newton's third law is covered in Chapter 4 of the physics textbook.",
+   "The concept of Newton's third law must be thoroughly understood before progressi"
+  ]
+ },
+ {
+  "entity": "essay_format",
+  "attribute": "guidelines",
+  "count": 3,
+  "samples": [
+   "APA guidelines are commonly used in psychology papers.",
+   "The essay format should follow MLA guidelines."
+  ]
+ },
+ {
+  "entity": "chapter_3_review",
+  "attribute": "importance",
+  "count": 3,
+  "samples": [
+   "Chapter 3 contains key concepts for understanding the next unit.",
+   "Students should review chapter 3 before the next lecture."
+  ]
+ },
+ {
+  "entity": "algebra_textbook",
+  "attribute": "content",
+  "count": 1,
+  "samples": [
+   "Algebra basics textbook includes chapters on linear equations and inequalities."
+  ]
+ },
+ {
+  "entity": "study_schedule",
+  "attribute": "preferred_time",
+  "count": 1,
+  "samples": [
+   "Group study sessions work better in the evening"
+  ]
+ },
+ {
+  "entity": "study_method",
+  "attribute": "effectiveness",
+  "count": 1,
+  "samples": [
+   "Flashcards are effective for studying vocabulary."
+  ]
+ },
+ {
+  "entity": "course_material",
+  "attribute": "supplementary_reading",
+  "count": 1,
+  "samples": [
+   "Supplementary reading: 'Physics in Everyday Life'."
+  ]
+ },
+ {
+  "entity": "Chemistry course",
+  "attribute": "recommended textbook",
+  "count": 1,
+  "samples": [
+   "Recommended textbook for Chemistry course: 'Organic Chemistry Principles 5th Edi"
+  ]
+ },
+ {
+  "entity": "yoga class timing",
+  "attribute": "schedule",
+  "count": 2,
+  "samples": [
+   "Community yoga class scheduled at 7 AM every Saturday.",
+   "Community yoga class rescheduled to 8 AM every Saturday."
+  ]
+ },
+ {
+  "entity": "AI book recommendation",
+  "attribute": "edition",
+  "count": 3,
+  "samples": [
+   "Recommended book: 'Introduction to AI' (Edition 1).",
+   "Updated recommendation: 'Introduction to AI' (Edition 2)."
+  ]
+ },
+ {
+  "entity": "Physics 101",
+  "attribute": "feedback on textbook",
+  "count": 1,
+  "samples": [
+   "Student feedback: 'Advanced Physics Concepts is too advanced for beginners'."
+  ]
+ },
+ {
+  "entity": "medication_prescription",
+  "attribute": "recommended_medication",
+  "count": 1,
+  "samples": [
+   "Medication B is no longer advised due to expiration of recommendation."
+  ]
+ },
+ {
+  "entity": "student_club_meeting",
+  "attribute": "schedule",
+  "count": 1,
+  "samples": [
+   "Student club meeting scheduled on day_55"
+  ]
+ },
+ {
+  "entity": "shoe_promotion",
+  "attribute": "availability",
+  "count": 1,
+  "samples": [
+   "Buy one get one free promotion for shoes"
+  ]
+ },
+ {
+  "entity": "skincare promo",
+  "attribute": "info",
+  "count": 1,
+  "samples": [
+   "Skincare products are known for their seasonal promotion cycles."
+  ]
+ },
+ {
+  "entity": "redeem_points_guide",
+  "attribute": "update_status",
+  "count": 1,
+  "samples": [
+   "User guide for redeeming points updated on day 40."
+  ]
+ },
+ {
+  "entity": "garden_tips",
+  "attribute": "reference_material",
+  "count": 1,
+  "samples": [
+   "Guide for planting winter vegetables"
+  ]
+ },
+ {
+  "entity": "gym_classes",
+  "attribute": "schedule",
+  "count": 1,
+  "samples": [
+   "The gym introduced yoga classes every Monday"
+  ]
+ },
+ {
+  "entity": "会员优惠活动",
+  "attribute": "优惠活动状态",
+  "count": 1,
+  "samples": [
+   "会员专属：购物满300送50元礼品券"
+  ]
+ },
+ {
+  "entity": "mid-season sale",
+  "attribute": "discount rate",
+  "count": 1,
+  "samples": [
+   "Special mid-season sale with 30% off on all items."
+  ]
+ },
+ {
+  "entity": "Gym membership",
+  "attribute": "renewal discount status",
+  "count": 1,
+  "samples": [
+   "Gym membership renewal discount was available until day 50."
+  ]
+ },
+ {
+  "entity": "yoga_promo",
+  "attribute": "status",
+  "count": 1,
+  "samples": [
+   "Summer yoga class promotion starts from day 40 to day 50."
+  ]
+ },
+ {
+  "entity": "extra credit",
+  "attribute": "assignment",
+  "count": 1,
+  "samples": [
+   "Extra credit assignment available until day_70"
+  ]
+ },
+ {
+  "entity": "feedback",
+  "attribute": "general",
+  "count": 1,
+  "samples": [
+   "Customer feedback on day_40 about coupon usage process"
+  ]
+ },
+ {
+  "entity": "Urban Studies Material",
+  "attribute": "reference",
+  "count": 1,
+  "samples": [
+   "Reading material for urban studies assigned on day 40."
+  ]
+ },
+ {
+  "entity": "research paper",
+  "attribute": "review validity",
+  "count": 1,
+  "samples": [
+   "Research paper review is no longer valid after 10 days."
+  ]
+ },
+ {
+  "entity": "climate_research_project",
+  "attribute": "status",
+  "count": 1,
+  "samples": [
+   "Initial proposal for climate research project submitted."
+  ]
+ },
+ {
+  "entity": "study_guidelines",
+  "attribute": "update_status",
+  "count": 1,
+  "samples": [
+   "Study guidelines updated."
+  ]
+ },
+ {
+  "entity": "quantum_mechanics_notes",
+  "attribute": "study_material",
+  "count": 1,
+  "samples": [
+   "Quantum mechanics textbook recommended for study."
+  ]
+ },
+ {
+  "entity": "study_technique",
+  "attribute": "memorization_advice",
+  "count": 3,
+  "samples": [
+   "A paper published in 2020 discusses the effectiveness of spaced repetition.",
+   "The recommended study technique for memorization is spaced repetition."
+  ]
+ },
+ {
+  "entity": "Renaissance period material",
+  "attribute": "historical context",
+  "count": 1,
+  "samples": [
+   "The Renaissance period covers art and scientific progress from the 14th to the 1"
+  ]
+ },
+ {
+  "entity": "study_method",
+  "attribute": "validity",
+  "count": 1,
+  "samples": [
+   "Flashcard studies are supported by academic research for memory retention."
+  ]
+ },
+ {
+  "entity": "textbook",
+  "attribute": "title",
+  "count": 1,
+  "samples": [
+   "Recommended textbook is 'Introduction to Quantum Mechanics' by Griffiths."
+  ]
+ },
+ {
+  "entity": "programming_language",
+  "attribute": "current_language",
+  "count": 2,
+  "samples": [
+   "The programming language switched to JavaScript for better web development focus",
+   "The programming language changed to TypeScript for enhanced safety and scalabili"
+  ]
+ },
+ {
+  "entity": "Math project",
+  "attribute": "review status",
+  "count": 1,
+  "samples": [
+   "Math project is under review."
+  ]
+ },
+ {
+  "entity": "restaurant_discount",
+  "attribute": "availability",
+  "count": 1,
+  "samples": [
+   "Restaurant offered 50% off discount on all items."
+  ]
+ },
+ {
+  "entity": "skincare promo",
+  "attribute": "status",
+  "count": 1,
+  "samples": [
+   "Buy one get one free promo started for skincare products."
+  ]
+ },
+ {
+  "entity": "spring_sale",
+  "attribute": "discount_status",
+  "count": 1,
+  "samples": [
+   "Spring sale: 20% off all items"
+  ]
+ },
+ {
+  "entity": "gym_membership",
+  "attribute": "promo_availability",
+  "count": 1,
+  "samples": [
+   "Gym membership promo: Free fitness classes for all members."
+  ]
+ },
+ {
+  "entity": "community_garden",
+  "attribute": "event_status",
+  "count": 1,
+  "samples": [
+   "Community garden cleanup scheduled for Saturday"
+  ]
+ },
+ {
+  "entity": "swimming_pool_discount",
+  "attribute": "validity",
+  "count": 1,
+  "samples": [
+   "The swimming pool maintenance discount was valid during the off-season."
+  ]
+ },
+ {
+  "entity": "Spring clearance sale",
+  "attribute": "discount_status",
+  "count": 1,
+  "samples": [
+   "Spring clearance sale with 30% off all items"
+  ]
+ },
+ {
+  "entity": "paper_topic_session",
+  "attribute": "schedule",
+  "count": 1,
+  "samples": [
+   "Paper topic consultation session scheduled."
+  ]
+ },
+ {
+  "entity": "cited_paper",
+  "attribute": "topic",
+  "count": 1,
+  "samples": [
+   "Cited paper discusses related work in AI ethics."
+  ]
+ },
+ {
+  "entity": "project_A",
+  "attribute": "status",
+  "count": 1,
+  "samples": [
+   "Research project 'A' was approved and is valid for 30 days."
+  ]
+ },
+ {
+  "entity": "research_proposal_status",
+  "attribute": "submission_status",
+  "count": 2,
+  "samples": [
+   "Previous version of research proposal was archived.",
+   "Research proposal submitted for review."
+  ]
+ },
+ {
+  "entity": "Physics Chapter 5",
+  "attribute": "reference material",
+  "count": 1,
+  "samples": [
+   "Physics textbook edition 3 was used for Chapter 5."
+  ]
+ },
+ {
+  "entity": "AI trends project",
+  "attribute": "guidelines_reference",
+  "count": 1,
+  "samples": [
+   "Refer to the professor's guidelines for the AI trends project."
+  ]
+ },
+ {
+  "entity": "quantum_mechanics_reading",
+  "attribute": "recommended_material",
+  "count": 1,
+  "samples": [
+   "The recommended reading for quantum mechanics is 'Principles of Quantum Mechanic"
+  ]
+ },
+ {
+  "entity": "electronics_discount",
+  "attribute": "availability",
+  "count": 1,
+  "samples": [
+   "10% off on electronics until day 60"
+  ]
+ },
+ {
+  "entity": "double_points_promo",
+  "attribute": "status",
+  "count": 1,
+  "samples": [
+   "Double points promotion active from day 50 to day 55."
+  ]
+ },
+ {
+  "entity": "community_center",
+  "attribute": "promotion_status",
+  "count": 1,
+  "samples": [
+   "The community center had a 'Free Yoga Week' promotion."
+  ]
+ },
+ {
+  "entity": "gym membership promotion",
+  "attribute": "discount validity",
+  "count": 1,
+  "samples": [
+   "Gym membership discount valid for Gold members only during summer promotion."
+  ]
+ },
+ {
+  "entity": "beverage_offer",
+  "attribute": "status",
+  "count": 1,
+  "samples": [
+   "Buy one get one free offer for selected beverages."
+  ]
+ },
+ {
+  "entity": "Math study material",
+  "attribute": "validity",
+  "count": 1,
+  "samples": [
+   "Math study material valid until day_90"
+  ]
+ },
+ {
+  "entity": "midterm",
+  "attribute": "study guide",
+  "count": 1,
+  "samples": [
+   "Midterm study guide valid until day_90"
+  ]
+ },
+ {
+  "entity": "coupon",
+  "attribute": "validity",
+  "count": 3,
+  "samples": [
+   "Coupon SPRING15 expired on day_60",
+   "Coupon SUMMER10 expired on day_75"
+  ]
+ },
+ {
+  "entity": "history_essay",
+  "attribute": "submission_deadline",
+  "count": 1,
+  "samples": [
+   "History essay submission deadline was day_80."
+  ]
+ },
+ {
+  "entity": "yoga_package",
+  "attribute": "validity",
+  "count": 1,
+  "samples": [
+   "Yoga class package expired on day_80."
+  ]
+ },
+ {
+  "entity": "Quantum Dynamics",
+  "attribute": "summary availability",
+  "count": 1,
+  "samples": [
+   "Research paper 'Quantum Dynamics' summary available until day_80"
+  ]
+ },
+ {
+  "entity": "Physics homework",
+  "attribute": "submission deadline",
+  "count": 1,
+  "samples": [
+   "Physics homework submission deadline is day_90."
+  ]
+ },
+ {
+  "entity": "library_membership",
+  "attribute": "validity",
+  "count": 1,
+  "samples": [
+   "Library membership valid until day_100"
+  ]
+ },
+ {
+  "entity": "product X",
+  "attribute": "feedback",
+  "count": 1,
+  "samples": [
+   "User feedback about product X on day_50"
+  ]
+ },
+ {
+  "entity": "AI Basics",
+  "attribute": "feedback",
+  "count": 1,
+  "samples": [
+   "Student feedback for 'AI Basics' course received on day 50."
+  ]
+ },
+ {
+  "entity": "Gym membership",
+  "attribute": "renewal deadline",
+  "count": 1,
+  "samples": [
+   "Gym membership renewal deadline is on day_80"
+  ]
+ },
+ {
+  "entity": "paper_review_status",
+  "attribute": "status",
+  "count": 1,
+  "samples": [
+   "Research paper review period ended."
+  ]
+ },
+ {
+  "entity": "research_report_status",
+  "attribute": "state",
+  "count": 1,
+  "samples": [
+   "Research report pending review, created on day 50 and expires on day 65."
+  ]
+ },
+ {
+  "entity": "Research paper draft",
+  "attribute": "approval_status",
+  "count": 1,
+  "samples": [
+   "Research paper draft was approved for revisions."
+  ]
+ },
+ {
+  "entity": "renewable_energy_research",
+  "attribute": "status",
+  "count": 3,
+  "samples": [
+   "Research on renewable energy created",
+   "Renewable energy project marked as 'active'"
+  ]
+ },
+ {
+  "entity": "environmental_data_analysis",
+  "attribute": "status",
+  "count": 1,
+  "samples": [
+   "Research task on environmental data analysis created."
+  ]
+ },
+ {
+  "entity": "climate change research",
+  "attribute": "status",
+  "count": 1,
+  "samples": [
+   "Research project on climate change initiated."
+  ]
+ },
+ {
+  "entity": "project_B",
+  "attribute": "status",
+  "count": 1,
+  "samples": [
+   "Research project 'B' was approved and valid for 20 days."
+  ]
+ },
+ {
+  "entity": "gym_membership_discount",
+  "attribute": "validity_period",
+  "count": 2,
+  "samples": [
+   "Gym membership discount valid for 30 days.",
+   "Gym membership discount expired after 30 days."
+  ]
+ },
+ {
+  "entity": "Renewable Energy Study",
+  "attribute": "status",
+  "count": 2,
+  "samples": [
+   "Research project on renewable energy created.",
+   "Study on renewable energy marked as completed."
+  ]
+ },
+ {
+  "entity": "Gym membership renewal",
+  "attribute": "offer status",
+  "count": 1,
+  "samples": [
+   "Gym membership renewal offer valid for 14 days."
+  ]
+ },
+ {
+  "entity": "calculus study method",
+  "attribute": "recommendation",
+  "count": 2,
+  "samples": [
+   "The recommended study method for calculus is spaced repetition.",
+   "The recommended study method for calculus is spaced repetition."
+  ]
+ },
+ {
+  "entity": "Physics Chapter 5",
+  "attribute": "review guidance",
+  "count": 2,
+  "samples": [
+   "The study materials for Physics Chapter 5 must be reviewed thoroughly this semes",
+   "The study materials for Physics Chapter 5 were approved by the group leader."
+  ]
+ },
+ {
+  "entity": "statistics_course",
+  "attribute": "student_feedback",
+  "count": 2,
+  "samples": [
+   "The course material on statistics is highly rated by students.",
+   "The course material on statistics needs urgent improvement."
+  ]
+ },
+ {
+  "entity": "essay_outline",
+  "attribute": "format",
+  "count": 1,
+  "samples": [
+   "The essay outline should follow the APA format."
+  ]
+ },
+ {
+  "entity": "revision_guidelines",
+  "attribute": "chapters_to_focus_on",
+  "count": 2,
+  "samples": [
+   "Students should revise the first five chapters thoroughly for better understandi",
+   "Students should revise the first five chapters thoroughly for better understandi"
+  ]
+ },
+ {
+  "entity": "physics_revision_plan",
+  "attribute": "review_schedule",
+  "count": 1,
+  "samples": [
+   "The physics revision plan should include reviewing Newton's laws weekly."
+  ]
+ },
+ {
+  "entity": "physics_revision_plan",
+  "attribute": "completion_deadline",
+  "count": 1,
+  "samples": [
+   "The physics revision plan must be completed before the semester midterm exam."
+  ]
+ },
+ {
+  "entity": "quantum_mechanics_reading",
+  "attribute": "task_feedback",
+  "count": 1,
+  "samples": [
+   "Review the assigned reading material on quantum mechanics."
+  ]
+ },
+ {
+  "entity": "quantum_mechanics_reading",
+  "attribute": "task_status",
+  "count": 1,
+  "samples": [
+   "Review the assigned reading material on quantum mechanics."
+  ]
+ },
+ {
+  "entity": "quantum_mechanics_notes",
+  "attribute": "review_frequency",
+  "count": 2,
+  "samples": [
+   "Students should review the notes on quantum mechanics weekly.",
+   "Students should review the notes on quantum mechanics weekly."
+  ]
+ },
+ {
+  "entity": "Renaissance period material",
+  "attribute": "review priority",
+  "count": 2,
+  "samples": [
+   "Students should review the material on the Renaissance period for better underst",
+   "Students should review the material on the Renaissance period for better underst"
+  ]
+ },
+ {
+  "entity": "study_method",
+  "attribute": "recommendation",
+  "count": 2,
+  "samples": [
+   "The recommended study method for exam preparation is reviewing flashcards daily.",
+   "The recommended study method for exam preparation is reviewing flashcards daily."
+  ]
+ },
+ {
+  "entity": "study_schedule",
+  "attribute": "algebra_review_frequency",
+  "count": 2,
+  "samples": [
+   "The recommended study schedule for the upcoming exams suggests reviewing algebra",
+   "The recommended study schedule for the upcoming exams suggests reviewing algebra"
+  ]
+ },
+ {
+  "entity": "group",
+  "attribute": "meeting frequency",
+  "count": 1,
+  "samples": [
+   "Group prefers weekly check-ins for progress updates."
+  ]
+ },
+ {
+  "entity": "study_habit",
+  "attribute": "revision_timing",
+  "count": 1,
+  "samples": [
+   "Recommended to revise notes after each lecture"
+  ]
+ },
+ {
+  "entity": "study_schedule",
+  "attribute": "session_break_rule",
+  "count": 1,
+  "samples": [
+   "Recommended a 30-minute study session followed by a 10-minute break."
+  ]
+ },
+ {
+  "entity": "lab_safety",
+  "attribute": "rule",
+  "count": 1,
+  "samples": [
+   "The chemistry lab safety rule is to always wear gloves."
+  ]
+ },
+ {
+  "entity": "study_duration",
+  "attribute": "session_length",
+  "count": 1,
+  "samples": [
+   "Recommended study session duration is 90 minutes."
+  ]
+ },
+ {
+  "entity": "study_environment",
+  "attribute": "preference",
+  "count": 1,
+  "samples": [
+   "Preferred study environment is quiet spaces."
+  ]
+ },
+ {
+  "entity": "study_habits",
+  "attribute": "frequency",
+  "count": 1,
+  "samples": [
+   "Important to review lecture notes weekly."
+  ]
+ },
+ {
+  "entity": "car_insurance",
+  "attribute": "policy_status",
+  "count": 1,
+  "samples": [
+   "Car insurance policy is active with SafeDrive."
+  ]
+ },
+ {
+  "entity": "study method",
+  "attribute": "vocabulary",
+  "count": 1,
+  "samples": [
+   "Preferred study method is flashcards for vocabulary."
+  ]
+ },
+ {
+  "entity": "guidelines",
+  "attribute": "code documentation",
+  "count": 1,
+  "samples": [
+   "Project guidelines require clear inline comments in the code."
+  ]
+ },
+ {
+  "entity": "quantum_mechanics",
+  "attribute": "study_material",
+  "count": 1,
+  "samples": [
+   "Recommended study material for quantum mechanics is Griffiths' Introduction to Q"
+  ]
+ },
+ {
+  "entity": "Linear Algebra Study Resource",
+  "attribute": "recommendation",
+  "count": 1,
+  "samples": [
+   "Professor Smith's Linear Algebra notes are the best resource."
+  ]
+ },
+ {
+  "entity": "study_material",
+  "attribute": "textbook",
+  "count": 1,
+  "samples": [
+   "Recommended textbook for physics is 'Classical Mechanics by Taylor'."
+  ]
+ },
+ {
+  "entity": "garden_club_meeting",
+  "attribute": "location",
+  "count": 3,
+  "samples": [
+   "The garden club meeting is scheduled for Community Hall Room A.",
+   "The garden club meeting location has been updated to Community Hall Room B."
+  ]
+ },
+ {
+  "entity": "Chemistry 101",
+  "attribute": "recommended textbook",
+  "count": 1,
+  "samples": [
+   "Recommended textbook for Chemistry 101 is 'Organic Chemistry' 10th Edition."
+  ]
+ },
+ {
+  "entity": "clothing promo",
+  "attribute": "status",
+  "count": 1,
+  "samples": [
+   "New arrivals promo started for clothing items."
+  ]
+ },
+ {
+  "entity": "promotion_feedback",
+  "attribute": "duration_suggestion",
+  "count": 1,
+  "samples": [
+   "Customer feedback suggests extending promotions for longer durations"
+  ]
+ },
+ {
+  "entity": "summer_clearance",
+  "attribute": "promotion_status",
+  "count": 1,
+  "samples": [
+   "Summer clearance: up to 50% off selected items"
+  ]
+ },
+ {
+  "entity": "Summer festival sale",
+  "attribute": "sale_start_date",
+  "count": 1,
+  "samples": [
+   "Summer festival sale starts from day 60"
+  ]
+ },
+ {
+  "entity": "ethics_approval",
+  "attribute": "approval_status",
+  "count": 1,
+  "samples": [
+   "Ethics approval granted for research project on day 55."
+  ]
+ },
+ {
+  "entity": "Protein shakes discount",
+  "attribute": "validity",
+  "count": 1,
+  "samples": [
+   "Special discount on protein shakes valid for 10 days."
+  ]
+ },
+ {
+  "entity": "yoga_class_schedule",
+  "attribute": "time",
+  "count": 1,
+  "samples": [
+   "Weekly yoga class changed schedule to Wednesdays at 6 PM."
+  ]
+ },
+ {
+  "entity": "weekend_discount_promo",
+  "attribute": "status",
+  "count": 1,
+  "samples": [
+   "Weekend 10% discount promotion active from day 60 to day 62."
+  ]
+ },
+ {
+  "entity": "city_park",
+  "attribute": "renovation_status",
+  "count": 1,
+  "samples": [
+   "City park renovation is ongoing."
+  ]
+ },
+ {
+  "entity": "swimming_pool",
+  "attribute": "maintenance_status",
+  "count": 1,
+  "samples": [
+   "Swimming pool maintenance completed."
+  ]
+ },
+ {
+  "entity": "snack_discount",
+  "attribute": "status",
+  "count": 1,
+  "samples": [
+   "30% off all snacks promotion."
+  ]
+ },
+ {
+  "entity": "Yoga class",
+  "attribute": "timings",
+  "count": 1,
+  "samples": [
+   "Weekend yoga class timings updated to start at 10 AM."
+  ]
+ },
+ {
+  "entity": "chemistry_project",
+  "attribute": "submission_deadline",
+  "count": 1,
+  "samples": [
+   "Chemistry project submission deadline was day_90."
+  ]
+ },
+ {
+  "entity": "FLASH20",
+  "attribute": "validity",
+  "count": 1,
+  "samples": [
+   "Coupon FLASH20 expired on day_90"
+  ]
+ },
+ {
+  "entity": "AI Basics",
+  "attribute": "discount_validity",
+  "count": 1,
+  "samples": [
+   "Flash sale for online course 'AI Basics' valid until day 75."
+  ]
+ },
+ {
+  "entity": "alternate_proposal",
+  "attribute": "status",
+  "count": 1,
+  "samples": [
+   "Alternate project proposal submitted on day 60 for review."
+  ]
+ },
+ {
+  "entity": "Thesis proposal",
+  "attribute": "feedback",
+  "count": 1,
+  "samples": [
+   "Feedback received on unrelated thesis proposal."
+  ]
+ },
+ {
+  "entity": "final_project",
+  "attribute": "review_status",
+  "count": 1,
+  "samples": [
+   "Final project submitted on day 60 with a 10-day review period."
+  ]
+ },
+ {
+  "entity": "climate_research_project",
+  "attribute": "feedback",
+  "count": 1,
+  "samples": [
+   "Feedback: The methods proposed for the project are excellent."
+  ]
+ },
+ {
+  "entity": "Advanced Photonics",
+  "attribute": "status",
+  "count": 1,
+  "samples": [
+   "The research project 'Advanced Photonics' was marked as active on day 60 and set"
+  ]
+ },
+ {
+  "entity": "urban planning study",
+  "attribute": "status",
+  "count": 1,
+  "samples": [
+   "Urban planning study entered final review stage."
+  ]
+ },
+ {
+  "entity": "citation_guidelines",
+  "attribute": "version",
+  "count": 1,
+  "samples": [
+   "Citation guidelines updated to v2.1."
+  ]
+ },
+ {
+  "entity": "AI Climate Forecast Project",
+  "attribute": "status",
+  "count": 1,
+  "samples": [
+   "New AI model for climate forecasting initiated."
+  ]
+ },
+ {
+  "entity": "study_schedule",
+  "attribute": "recommendation",
+  "count": 1,
+  "samples": [
+   "Recommended study schedule includes 3-hour study blocks."
+  ]
+ },
+ {
+  "entity": "Physics textbook",
+  "attribute": "feedback",
+  "count": 1,
+  "samples": [
+   "Student feedback suggests switching to 'Physics Principles with Applications' fo"
+  ]
+ },
+ {
+  "entity": "chess_club_meeting",
+  "attribute": "location",
+  "count": 1,
+  "samples": [
+   "The chess club meeting is scheduled for Library Room C."
+  ]
+ },
+ {
+  "entity": "unrelated_project_456",
+  "attribute": "guidelines",
+  "count": 1,
+  "samples": [
+   "New project guidelines defined for unrelated project."
+  ]
+ },
+ {
+  "entity": "weekend_special",
+  "attribute": "shipping_offer",
+  "count": 1,
+  "samples": [
+   "Weekend special: free shipping on orders above $50"
+  ]
+ },
+ {
+  "entity": "双十一活动",
+  "attribute": "活动状态",
+  "count": 1,
+  "samples": [
+   "双十一预售开始，支付定金享受提前优惠"
+  ]
+ },
+ {
+  "entity": "History 201",
+  "attribute": "project_deadline",
+  "count": 1,
+  "samples": [
+   "Group project deadline for History 201 is on day_90."
+  ]
+ },
+ {
+  "entity": "Science quiz",
+  "attribute": "schedule",
+  "count": 1,
+  "samples": [
+   "Upcoming science quiz on day_80"
+  ]
+ },
+ {
+  "entity": "Math assignment",
+  "attribute": "due_date",
+  "count": 1,
+  "samples": [
+   "Math assignment due on day_90."
+  ]
+ },
+ {
+  "entity": "WINTER10",
+  "attribute": "validity",
+  "count": 1,
+  "samples": [
+   "Coupon WINTER10 valid until day_100"
+  ]
+ },
+ {
+  "entity": "Python for Beginners",
+  "attribute": "discount_validity",
+  "count": 1,
+  "samples": [
+   "Special offer for online course 'Python for Beginners' valid until day 95."
+  ]
+ },
+ {
+  "entity": "Group project",
+  "attribute": "deadline",
+  "count": 2,
+  "samples": [
+   "Initial group project deadline set to day_115.",
+   "Group project deadline extended to day_130."
+  ]
+ },
+ {
+  "entity": "Research Project A",
+  "attribute": "status",
+  "count": 2,
+  "samples": [
+   "Research project status previously marked as 'Active' and expired on day_90.",
+   "Research project status marked as 'Active' and set to expire on day_100."
+  ]
+ },
+ {
+  "entity": "yoga_class_schedule",
+  "attribute": "availability",
+  "count": 1,
+  "samples": [
+   "New yoga class schedule available starting day 70."
+  ]
+ },
+ {
+  "entity": "math_resource",
+  "attribute": "book",
+  "count": 1,
+  "samples": [
+   "Recommended book for math: 'Linear Algebra Done Right'."
+  ]
+ },
+ {
+  "entity": "research_paper",
+  "attribute": "submission_deadline",
+  "count": 2,
+  "samples": [
+   "Research paper submission deadline was extended to day 90.",
+   "Research paper submission deadline is on day 100."
+  ]
+ },
+ {
+  "entity": "research_project_submission",
+  "attribute": "validity_window",
+  "count": 3,
+  "samples": [
+   "The previous submission window was valid until day 90.",
+   "Research project submission window opens on day 100 and closes on day 115."
+  ]
+ },
+ {
+  "entity": "Math 101",
+  "attribute": "exam_date",
+  "count": 1,
+  "samples": [
+   "Final exam schedule for Math 101 is on day_100."
+  ]
+ },
+ {
+  "entity": "Cooking workshop registration",
+  "attribute": "deadline",
+  "count": 1,
+  "samples": [
+   "Cooking workshop limited to registrations until day_100"
+  ]
+ },
+ {
+  "entity": "study_group",
+  "attribute": "meeting_date",
+  "count": 1,
+  "samples": [
+   "The next study group meeting was on day_90."
+  ]
+ },
+ {
+  "entity": "DISCOUNT15",
+  "attribute": "validity",
+  "count": 1,
+  "samples": [
+   "Coupon DISCOUNT15 valid until day_120"
+  ]
+ },
+ {
+  "entity": "Data Science 101",
+  "attribute": "discount_validity",
+  "count": 1,
+  "samples": [
+   "Flash sale for online course 'Data Science 101' valid until day 100."
+  ]
+ },
+ {
+  "entity": "review frequency",
+  "attribute": "flashcards",
+  "count": 1,
+  "samples": [
+   "Recommended to review flashcards every two days for retention."
+  ]
+ },
+ {
+  "entity": "study_method",
+  "attribute": "vocabulary_learning",
+  "count": 1,
+  "samples": [
+   "Flashcards are effective for learning vocabulary."
+  ]
+ },
+ {
+  "entity": "Physics 102",
+  "attribute": "textbook edition",
+  "count": 1,
+  "samples": [
+   "Physics 102 now uses Edition 6 instead of Edition 4."
+  ]
+ },
+ {
+  "entity": "Physics 202",
+  "attribute": "presentation_date",
+  "count": 1,
+  "samples": [
+   "Presentation date for Physics 202 is on day_110."
+  ]
+ },
+ {
+  "entity": "math_assignment",
+  "attribute": "submission_deadline",
+  "count": 1,
+  "samples": [
+   "Homework submission deadline for math assignment is day_100."
+  ]
+ },
+ {
+  "entity": "gardening_project",
+  "attribute": "status",
+  "count": 1,
+  "samples": [
+   "Gardening project started on day_85"
+  ]
+ },
+ {
+  "entity": "physics_quiz",
+  "attribute": "deadline",
+  "count": 1,
+  "samples": [
+   "Physics quiz deadline is on day_120."
+  ]
+ },
+ {
+  "entity": "Chemistry extra credit",
+  "attribute": "due_date",
+  "count": 1,
+  "samples": [
+   "Extra credit assignment for Chemistry due on day_110"
+  ]
+ },
+ {
+  "entity": "History assignment",
+  "attribute": "due date",
+  "count": 1,
+  "samples": [
+   "History reading assignment due on day_110."
+  ]
+ },
+ {
+  "entity": "research_project_guidelines",
+  "attribute": "update",
+  "count": 1,
+  "samples": [
+   "Research project guidelines were updated on day 90."
+  ]
+ },
+ {
+  "entity": "study_method",
+  "attribute": "language_learning",
+  "count": 1,
+  "samples": [
+   "Using flashcards is effective for language learning."
+  ]
+ },
+ {
+  "entity": "research_proposal_status",
+  "attribute": "validity_duration",
+  "count": 2,
+  "samples": [
+   "The research proposal validity expired after 25 days.",
+   "The research proposal review is valid for 30 days."
+  ]
+ },
+ {
+  "entity": "pool maintenance",
+  "attribute": "schedule",
+  "count": 1,
+  "samples": [
+   "The pool is closed for maintenance every Monday."
+  ]
+ },
+ {
+  "entity": "swimming_pool",
+  "attribute": "status",
+  "count": 2,
+  "samples": [
+   "Indoor swimming pool open all year round.",
+   "Outdoor swimming pool open for summer season."
+  ]
+ },
+ {
+  "entity": "Physics exam",
+  "attribute": "schedule",
+  "count": 1,
+  "samples": [
+   "Physics exam scheduled for day_120."
+  ]
+ },
+ {
+  "entity": "Yoga class subscription",
+  "attribute": "validity",
+  "count": 1,
+  "samples": [
+   "Yoga class subscription valid until day_120"
+  ]
+ },
+ {
+  "entity": "restaurant_menu",
+  "attribute": "update",
+  "count": 1,
+  "samples": [
+   "Favorite restaurant updated menu on day_100."
+  ]
+ },
+ {
+  "entity": "midterm_exam",
+  "attribute": "exam_date",
+  "count": 1,
+  "samples": [
+   "Midterm exam date is scheduled for day_120."
+  ]
+ },
+ {
+  "entity": "Physics project",
+  "attribute": "deadline",
+  "count": 1,
+  "samples": [
+   "Assignment deadline for Physics project is on day_120"
+  ]
+ },
+ {
+  "entity": "Physics exam",
+  "attribute": "review session date",
+  "count": 1,
+  "samples": [
+   "Physics exam review session scheduled for day_120."
+  ]
+ },
+ {
+  "entity": "research_paper_submission",
+  "attribute": "status",
+  "count": 2,
+  "samples": [
+   "Research paper submission window is open for 30 days.",
+   "Research paper submission window has been extended to 40 days."
+  ]
+ },
+ {
+  "entity": "climate_change_mitigation",
+  "attribute": "status",
+  "count": 2,
+  "samples": [
+   "The research project on climate change mitigation was launched.",
+   "The research project on climate change mitigation was extended by 10 days."
+  ]
+ },
+ {
+  "entity": "flashcard technique",
+  "attribute": "topic focus",
+  "count": 1,
+  "samples": [
+   "Flashcards should focus on one topic at a time."
+  ]
+ },
+ {
+  "entity": "retention_tips",
+  "attribute": "review_timing",
+  "count": 1,
+  "samples": [
+   "Recommended to review notes within 24 hours after a lecture for better retention"
+  ]
+ },
+ {
+  "entity": "data structure studies",
+  "attribute": "recommended resource",
+  "count": 1,
+  "samples": [
+   "The book 'Introduction to Algorithms' is recommended for data structure studies."
+  ]
+ },
+ {
+  "entity": "special_relativity",
+  "attribute": "publication_year",
+  "count": 1,
+  "samples": [
+   "Historical fact: Einstein published the theory of special relativity in 1905."
+  ]
+ },
+ {
+  "entity": "group_meetings",
+  "attribute": "meeting_format",
+  "count": 1,
+  "samples": [
+   "Group project meetings should include a summary after every session."
+  ]
+ },
+ {
+  "entity": "Biology quiz",
+  "attribute": "date",
+  "count": 1,
+  "samples": [
+   "Biology quiz rescheduled to day_130"
+  ]
+ },
+ {
+  "entity": "outdoor yoga classes",
+  "attribute": "schedule",
+  "count": 1,
+  "samples": [
+   "Outdoor yoga classes are scheduled every Saturday from May to September."
+  ]
+ },
+ {
+  "entity": "outdoor yoga classes",
+  "attribute": "availability",
+  "count": 1,
+  "samples": [
+   "Outdoor yoga classes are available until the end of September."
+  ]
+ },
+ {
+  "entity": "park_hours",
+  "attribute": "schedule",
+  "count": 1,
+  "samples": [
+   "The park opens earlier during summer months."
+  ]
+ },
+ {
+  "entity": "yoga classes",
+  "attribute": "availability",
+  "count": 1,
+  "samples": [
+   "Free yoga classes available every Sunday in July."
+  ]
+ },
+ {
+  "entity": "pool_membership",
+  "attribute": "validity",
+  "count": 2,
+  "samples": [
+   "Summer pool membership was valid for the period June 1 to August 31.",
+   "New Year's pool membership starts January 1 and ends March 31."
+  ]
+ },
+ {
+  "entity": "thesis_review",
+  "attribute": "start_date",
+  "count": 1,
+  "samples": [
+   "Thesis review period starts on day 150."
+  ]
+ },
+ {
+  "entity": "library_membership",
+  "attribute": "status",
+  "count": 1,
+  "samples": [
+   "Library membership renewal is valid for 30 days."
+  ]
+ },
+ {
+  "entity": "renewable_energy_project",
+  "attribute": "status",
+  "count": 1,
+  "samples": [
+   "A new project focused on renewable energy development was initiated."
+  ]
+ },
+ {
+  "entity": "study_material",
+  "attribute": "main_textbook",
+  "count": 1,
+  "samples": [
+   "The study group uses 'Introduction to Quantum Mechanics' as the main textbook."
+  ]
+ },
+ {
+  "entity": "swimming_pool",
+  "attribute": "user_feedback",
+  "count": 1,
+  "samples": [
+   "Many guests enjoy the summer pool's facilities."
+  ]
+ },
+ {
+  "entity": "library_event",
+  "attribute": "details",
+  "count": 1,
+  "samples": [
+   "Library is hosting a book fair next month."
+  ]
+ },
+ {
+  "entity": "final_exam",
+  "attribute": "exam_date",
+  "count": 1,
+  "samples": [
+   "Final exam date was scheduled for day_200."
+  ]
+ },
+ {
+  "entity": "study_schedule",
+  "attribute": "history_review_frequency",
+  "count": 1,
+  "samples": [
+   "The schedule also recommends focusing on history topics every other day."
+  ]
+ },
+ {
+  "entity": "community center yoga",
+  "attribute": "availability",
+  "count": 1,
+  "samples": [
+   "Community center offers yoga classes in August."
+  ]
+ },
+ {
+  "entity": "project_proposal",
+  "attribute": "deadline",
+  "count": 1,
+  "samples": [
+   "The project proposal is due by day 180."
+  ]
+ },
+ {
+  "entity": "2023 summer pool membership",
+  "attribute": "status",
+  "count": 1,
+  "samples": [
+   "2023 summer pool membership ends on August 15th."
+  ]
+ },
+ {
+  "entity": "公共图书馆会员卡",
+  "attribute": "免费续签活动",
+  "count": 1,
+  "samples": [
+   "公共图书馆会员卡的免费续签活动有效期至9月15日。"
+  ]
+ },
+ {
+  "entity": "study_schedule",
+  "attribute": "daily_hours",
+  "count": 1,
+  "samples": [
+   "Recommended study schedule for physics: 2 hours per day."
+  ]
+ },
+ {
+  "entity": "learning material",
+  "attribute": "recommended resource",
+  "count": 1,
+  "samples": [
+   "Recommended Spanish textbook is 'El Camino del Idioma'."
+  ]
+ },
+ {
+  "entity": "recipe",
+  "attribute": "recommendation",
+  "count": 1,
+  "samples": [
+   "New recipe recommendation: Spicy Thai Curry."
+  ]
+ },
+ {
+  "entity": "城市博物馆会员卡",
+  "attribute": "免费更新活动",
+  "count": 1,
+  "samples": [
+   "城市博物馆会员卡的免费更新活动有效期至10月1日。"
+  ]
+ },
+ {
+  "entity": "September promo",
+  "attribute": "status",
+  "count": 1,
+  "samples": [
+   "Buy one get one free promo active in September"
+  ]
+ },
+ {
+  "entity": "November promo",
+  "attribute": "discount",
+  "count": 1,
+  "samples": [
+   "November special: 30% discount on electronics"
+  ]
+ },
+ {
+  "entity": "2023 winter pool membership",
+  "attribute": "status",
+  "count": 1,
+  "samples": [
+   "2023 winter pool membership is active from December 1st."
+  ]
+ }
+]

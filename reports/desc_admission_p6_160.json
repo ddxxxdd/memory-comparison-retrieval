@@ -1,0 +1,1785 @@
+{
+  "summary": {
+    "sampled": 160,
+    "judged": 160,
+    "unfounded": 34,
+    "unfounded_rate": 0.2125,
+    "api": {
+      "calls": 161,
+      "errors": 1
+    }
+  },
+  "rows": [
+    {
+      "memory_id": "M-B-0246",
+      "description": "法国大革命笔记的存放位置",
+      "existing": "research report idea brainstorming status",
+      "differs": [
+        "attribute"
+      ],
+      "difference": "已有项问的是研究报告构思的头脑风暴状态，本条问的是法国大革命笔记的存放位置",
+      "same_item": false,
+      "reason": "两条描述的主体和待比较事项完全不同：一条问研究报告构思的头脑风暴状态，另一条问法国大革命笔记的存放位置。"
+    },
+    {
+      "memory_id": "M-B-0319",
+      "description": "室内设计书籍的查看状态",
+      "existing": "research report idea brainstorming status",
+      "differs": [
+        "attribute"
+      ],
+      "difference": "已有项问的是研究报告构思的头脑风暴状态，本条问的是室内设计书籍的查看状态",
+      "same_item": false,
+      "reason": "主体和待比较事项不同：一条问研究报告构思的头脑风暴状态，另一条问室内设计书籍的查看状态。"
+    },
+    {
+      "memory_id": "M-B-0118",
+      "description": "夏季游泳课程报名的开始状态",
+      "existing": "John的游泳课时间",
+      "differs": [
+        "attribute"
+      ],
+      "difference": "已有项问的是John的游泳课时间，本条问的是夏季游泳课程报名的开始状态",
+      "same_item": false,
+      "reason": "已有项问John个人游泳课的时间，本条问夏季游泳课程报名是否开始，主体和待比较事项均不同。"
+    },
+    {
+      "memory_id": "M-A-0210",
+      "description": "患者病史中记录的过敏药物",
+      "existing": "prescribed drug for hypertension management",
+      "differs": [
+        "attribute"
+      ],
+      "difference": "已有项问的是高血压治疗用药，本条问的是患者过敏的药物",
+      "same_item": false,
+      "reason": "已有项问的是高血压治疗用药，本条问的是患者过敏药物，两者是不同的事项。"
+    },
+    {
+      "memory_id": "M-B-0387",
+      "description": "项目提案方法的反馈内容",
+      "existing": "教授对提案改进的反馈内容",
+      "differs": [
+        "instance"
+      ],
+      "difference": "已有项是教授对提案改进的反馈，本条是对项目方法的评价反馈",
+      "same_item": true,
+      "reason": "两者都在问对提案/项目方法的反馈内容，主体和待比较事项一致，仅实例范围措辞不同，不构成不同事项。"
+    },
+    {
+      "memory_id": "M-C-0225",
+      "description": "患者首次检查时的血压记录值",
+      "existing": "患者报告的症状",
+      "differs": [
+        "attribute"
+      ],
+      "difference": "已有项是患者报告的症状，本条是首次检查时的血压读数",
+      "same_item": false,
+      "reason": "一个是患者报告的症状，另一个是首次检查时的血压读数，二者是不同的临床数据项。"
+    },
+    {
+      "memory_id": "M-B-0357",
+      "description": "图书馆会员续费的有效期",
+      "existing": "library membership validity period",
+      "differs": [
+        "attribute"
+      ],
+      "difference": "已有项是图书馆会员有效期，本条是图书馆会员续费的有效期",
+      "same_item": true,
+      "reason": "两者都在问图书馆会员有效期的时长，续费只是获取会员资格的一种方式，不构成不同的事项。"
+    },
+    {
+      "memory_id": "M-B-0331",
+      "description": "与同伴讨论的第4章要点",
+      "existing": "与John讨论学习计划的内容",
+      "differs": [
+        "subject",
+        "attribute"
+      ],
+      "difference": "已有项记录的是与John讨论学习计划的内容，本条记录的是与同伴讨论第4章要点的内容",
+      "same_item": false,
+      "reason": "主体（John vs 同伴）和讨论事项（学习计划 vs 第4章要点）均不同，属于不同事项。"
+    },
+    {
+      "memory_id": "M-C-0305",
+      "description": "西班牙语作为第二语言的学习状态",
+      "existing": "当前主要学习的外语",
+      "differs": [
+        "attribute"
+      ],
+      "difference": "已有项问的是当前主要学习的外语，本条问的是西班牙语作为第二语言的学习状态",
+      "same_item": false,
+      "reason": "已有项问的是当前主要学习的外语（整体外语学习），本条问的是西班牙语作为第二语言的学习状态，主体与待比较事项不同。"
+    },
+    {
+      "memory_id": "M-C-0303",
+      "description": "学生当前主要学习的语言",
+      "existing": "用户最初学习的第一门外语课程",
+      "differs": [
+        "attribute"
+      ],
+      "difference": "已有项问的是最初学习的第一门外语课程，本条问的是当前主要学习的语言",
+      "same_item": false,
+      "reason": "一个问最初学习的第一门外语课程，另一个问当前主要学习的语言，主体和待比较事项都不同。"
+    },
+    {
+      "memory_id": "M-B-0595",
+      "description": "小组项目会议的要求",
+      "existing": "小组偏好的进度更新方式",
+      "differs": [
+        "attribute"
+      ],
+      "difference": "已有项问的是小组偏好的进度更新方式，本条问的是小组项目会议应包含总结的要求",
+      "same_item": false,
+      "reason": "已有项问的是进度更新方式偏好，本条问的是项目会议应包含总结的要求，两者待比较事项不同。"
+    },
+    {
+      "memory_id": "M-B-0539",
+      "description": "推荐的西班牙语教材",
+      "existing": "课程推荐的教材",
+      "differs": [
+        "instance"
+      ],
+      "difference": "已有项是泛指的课程推荐教材，本条是西班牙语课程的推荐教材",
+      "same_item": false,
+      "reason": "已有项泛指任何课程推荐的教材，本条限定为西班牙语课程，必要实例范围不同。"
+    },
+    {
+      "memory_id": "M-C-0274",
+      "description": "学生对哲学论文导师的满意度",
+      "existing": "学生对《Advanced Calculus Principles》的评价",
+      "differs": [
+        "attribute"
+      ],
+      "difference": "已有项是对教材的评价，本条是对论文导师的满意度",
+      "same_item": false,
+      "reason": "评价对象不同：一个是教材，一个是论文导师，主体和待比较事项均不一致。"
+    },
+    {
+      "memory_id": "M-B-0287",
+      "description": "历史论文文献综述的进展状态",
+      "existing": "历史论文资料查找的进展状态",
+      "differs": [
+        "attribute"
+      ],
+      "difference": "已有项问的是历史论文资料查找的进展状态，本条问的是文献综述的进展状态",
+      "same_item": false,
+      "reason": "两者询问的是不同对象（资料查找 vs 文献综述）的进展状态，属于不同事项。"
+    },
+    {
+      "memory_id": "M-A-0268",
+      "description": "团队午餐的时间与地点",
+      "existing": "John's preferred seating for team lunches",
+      "differs": [
+        "attribute"
+      ],
+      "difference": "已有项问的是John在团队午餐时的座位偏好，本条问的是团队午餐的时间与地点",
+      "same_item": false,
+      "reason": "已有项问的是John对团队午餐座位的偏好，本条问的是团队午餐的时间与地点，两者询问的事项不同。"
+    },
+    {
+      "memory_id": "M-A-0156",
+      "description": "患者偏好的药房",
+      "existing": "用户首选的杂货店",
+      "differs": [
+        "subject"
+      ],
+      "difference": "已有项问的是用户首选的杂货店，本条问的是患者偏好的药房",
+      "same_item": false,
+      "reason": "主体不同：一个是用户首选的杂货店，另一个是患者偏好的药房，属于不同主体和不同事项。"
+    },
+    {
+      "memory_id": "M-B-0318",
+      "description": "阳台绿植浇灌的开始状态",
+      "existing": "上周末进行的家务活动",
+      "differs": [
+        "subject",
+        "attribute"
+      ],
+      "difference": "已有项问的是上周末进行的家务活动，本条问的是阳台绿植浇灌的开始状态",
+      "same_item": false,
+      "reason": "已有项问的是上周末家务活动的整体情况，本条问的是阳台绿植浇灌这一具体活动的开始状态，主体与待比较事项均不同。"
+    },
+    {
+      "memory_id": "M-C-0212",
+      "description": "用户对促销期间健身房定价的反馈",
+      "existing": "用户对健身房会员促销活动的反馈",
+      "differs": [
+        "attribute"
+      ],
+      "difference": "已有项问的是用户对健身房会员促销活动的反馈，本条问的是用户对促销期间定价的困惑",
+      "same_item": true,
+      "reason": "两者都在问用户对健身房会员促销活动的反馈，定价困惑只是反馈的一个方面，主体和事项范围一致。"
+    },
+    {
+      "memory_id": "M-B-0111",
+      "description": "社区健身房免费开放活动的举办情况",
+      "existing": "gym opening status on national holidays",
+      "differs": [
+        "subject",
+        "attribute"
+      ],
+      "difference": "已有项问的是国家法定节假日健身房是否营业，本条描述的是社区健身房免费开放活动",
+      "same_item": false,
+      "reason": "已有项问的是国家法定节假日健身房的营业状态，而新增项问的是社区健身房免费开放活动的举办情况，两者主体和属性均不同。"
+    },
+    {
+      "memory_id": "M-C-0126",
+      "description": "生物课程推荐教材的版本",
+      "existing": "课程的主要教材",
+      "differs": [
+        "subject",
+        "attribute"
+      ],
+      "difference": "已有项问的是课程的主要教材，本条问的是生物课程推荐教材的版本",
+      "same_item": false,
+      "reason": "已有项问课程的主要教材（教材本身），本条问生物课程推荐教材的版本，待比较事项不同（教材 vs 教材版本）。"
+    },
+    {
+      "memory_id": "M-A-0107",
+      "description": "偏好的鞋码",
+      "existing": "user's favorite shoe brand",
+      "differs": [
+        "attribute"
+      ],
+      "difference": "已有项问的是喜欢的鞋品牌，本条问的是鞋码",
+      "same_item": false,
+      "reason": "已有项问的是喜欢的鞋品牌，本条问的是鞋码，两者是不同属性。"
+    },
+    {
+      "memory_id": "M-A-0318",
+      "description": "Tom的电子邮箱地址",
+      "existing": "Emma's email address",
+      "differs": [
+        "subject"
+      ],
+      "difference": "已有项是 Emma 的邮箱地址，本条是 Tom 的邮箱地址",
+      "same_item": false,
+      "reason": "主体不同：已有项问的是 Emma 的邮箱地址，新增项问的是 Tom 的邮箱地址。"
+    },
+    {
+      "memory_id": "M-A-0330",
+      "description": "John的办公室编号",
+      "existing": "John's gym membership number",
+      "differs": [
+        "attribute"
+      ],
+      "difference": "已有项问的是 John 的健身房会员号，本条问的是 John 的办公室编号",
+      "same_item": false,
+      "reason": "健身房会员号与办公室编号是两个不同的属性，问的不是同一事项。"
+    },
+    {
+      "memory_id": "M-B-0233",
+      "description": "上周末观看的电影",
+      "existing": "上周末进行的活动",
+      "differs": [
+        "attribute"
+      ],
+      "difference": "已有项是上周末进行的活动，本条具体为上周末观看的电影",
+      "same_item": true,
+      "reason": "两者都在问上周末进行的活动，观看电影只是该活动的一个具体实例，主体和待比较事项一致。"
+    },
+    {
+      "memory_id": "M-B-0004",
+      "description": "2023年冬季游泳池会员的生效日期",
+      "existing": "夏季游泳池会员的有效期",
+      "differs": [
+        "instance"
+      ],
+      "difference": "已有项问的是夏季游泳池会员的有效期，本条问的是2023年冬季游泳池会员的生效日期",
+      "same_item": false,
+      "reason": "两者询问的是不同季节会员的不同属性（有效期 vs 生效日期），实例范围与待比较事项均不一致。"
+    },
+    {
+      "memory_id": "M-C-0247",
+      "description": "限量版夹克的价格",
+      "existing": "夹克的原价",
+      "differs": [
+        "instance"
+      ],
+      "difference": "已有项问的是夹克的原价，本条问的是限量版夹克的价格",
+      "same_item": false,
+      "reason": "已有项问普通夹克的原价，本条问限量版夹克的价格，必要实例范围不同，不是同一事项。"
+    },
+    {
+      "memory_id": "M-B-0143",
+      "description": "Biology 101旧课程大纲的过期日期",
+      "existing": "课程材料所依据的课程大纲年份",
+      "differs": [
+        "subject",
+        "attribute"
+      ],
+      "difference": "已有项问的是课程材料所依据的课程大纲年份，本条问的是Biology 101旧课程大纲的过期日期",
+      "same_item": false,
+      "reason": "已有项问课程材料所依据的课程大纲年份，本条问旧课程大纲的过期日期，主体与属性均不同。"
+    },
+    {
+      "memory_id": "M-A-0251",
+      "description": "期末考试备考学习小组的成立状态",
+      "existing": "学习小组会议的时间",
+      "differs": [
+        "attribute"
+      ],
+      "difference": "已有项问学习小组会议的时间，本条问备考学习小组是否成立",
+      "same_item": false,
+      "reason": "已有项问会议时间，本条问小组是否成立，待比较事项不同。"
+    },
+    {
+      "memory_id": "M-B-0326",
+      "description": "去公园散步的计划时间",
+      "existing": "去公园的最佳路线",
+      "differs": [
+        "attribute"
+      ],
+      "difference": "已有项问的是去公园的最佳路线，本条问的是去公园散步的计划时间",
+      "same_item": false,
+      "reason": "一个问路线，一个问时间，待比较事项不同。"
+    },
+    {
+      "memory_id": "M-B-0353",
+      "description": "学生就研究报告提供反馈的日期",
+      "existing": "客户反馈的日期与内容主题",
+      "differs": [
+        "instance"
+      ],
+      "difference": "已有项是客户反馈的日期与内容主题，本条是学生就研究报告提供反馈的日期",
+      "same_item": false,
+      "reason": "主体不同：已有项是客户反馈，本条是学生就研究报告提供反馈，主体与事项均不同。"
+    },
+    {
+      "memory_id": "M-C-0211",
+      "description": "健身房会员在促销期间的价格",
+      "existing": "gym membership cost",
+      "differs": [
+        "attribute"
+      ],
+      "difference": "已有项问的是健身房会员费用，本条问的是促销期间的具体价格及适用时段",
+      "same_item": true,
+      "reason": "两者都在问健身房会员的费用，促销期间的价格只是同一费用事项下的具体取值或时段限定，不构成不同事项。"
+    },
+    {
+      "memory_id": "M-B-0408",
+      "description": "引用指南的版本更新状态",
+      "existing": "学习指南的更新状态",
+      "differs": [
+        "subject"
+      ],
+      "difference": "已有项问的是学习指南的更新状态，本条问的是引用指南的版本更新",
+      "same_item": false,
+      "reason": "主体不同：一个是学习指南，一个是引用指南，属于不同对象。"
+    },
+    {
+      "memory_id": "M-A-0365",
+      "description": "John的工作电话号码",
+      "existing": "Current phone number",
+      "differs": [
+        "subject"
+      ],
+      "difference": "已有项问的是用户的电话号码，本条问的是 John 的工作电话号码",
+      "same_item": false,
+      "reason": "已有项问的是用户本人的当前电话号码，而新增项问的是 John 的工作电话号码，主体不同。"
+    },
+    {
+      "memory_id": "M-C-0125",
+      "description": "'Advanced AI Concepts' 教材的版本",
+      "existing": "textbook edition for Physics 101",
+      "differs": [
+        "subject"
+      ],
+      "difference": "已有项问的是 Physics 101 教材版本，本条问的是 'Advanced AI Concepts' 教材版本",
+      "same_item": false,
+      "reason": "主体不同：已有项问 Physics 101 教材版本，本条问 'Advanced AI Concepts' 教材版本，是不同教材。"
+    },
+    {
+      "memory_id": "M-B-0447",
+      "description": "AI trends research project outline's approval status",
+      "existing": "AI趋势项目的参考指南",
+      "differs": [
+        "attribute"
+      ],
+      "difference": "已有项问的是AI趋势项目的参考指南，本条问的是该项目大纲的批准状态",
+      "same_item": false,
+      "reason": "已有项问的是参考指南，新增项问的是大纲的批准状态，待比较事项不同。"
+    },
+    {
+      "memory_id": "M-C-0037",
+      "description": "物理教材的推荐选择",
+      "existing": "物理课程推荐的教材",
+      "differs": [
+        "attribute"
+      ],
+      "difference": "已有项问的是物理课程推荐的教材，本条问的是在《Advanced Physics Concepts》与《Physics Fundamentals》之间的推荐取舍",
+      "same_item": true,
+      "reason": "两者都在问物理课程推荐哪本教材，只是措辞和候选书名不同，属于同一事项。"
+    },
+    {
+      "memory_id": "M-C-0068",
+      "description": "学生对《Advanced Calculus Principles》的评价",
+      "existing": "student feedback on 'Advanced Physics Concepts'",
+      "differs": [
+        "instance"
+      ],
+      "difference": "已有项评价的是《Advanced Physics Concepts》，本条评价的是《Advanced Calculus Principles》",
+      "same_item": false,
+      "reason": "两条描述评价的是不同的课程（《Advanced Physics Concepts》与《Advanced Calculus Principles》），实例范围不同，因此不是同一个事项。"
+    },
+    {
+      "memory_id": "M-B-0371",
+      "description": "项目的到期状态",
+      "existing": "研究项目'Quantum Fields Study'的活跃状态与过期日期",
+      "differs": [
+        "instance"
+      ],
+      "difference": "已有项针对具体研究项目'Quantum Fields Study'并给出过期日期，本条仅笼统说明项目即将到期",
+      "same_item": false,
+      "reason": "已有项限定于具体项目'Quantum Fields Study'并包含过期日期，而新增项是泛指的项目到期状态，必要实例范围不同。"
+    },
+    {
+      "memory_id": "M-C-0196",
+      "description": "患者在压力测试期间的血压记录值",
+      "existing": "患者血压记录值",
+      "differs": [
+        "instance"
+      ],
+      "difference": "已有项是患者血压记录值，本条是患者在压力测试期间的血压记录值",
+      "same_item": false,
+      "reason": "已有项泛指患者血压记录值，本条限定为压力测试期间的血压记录值，必要实例范围不同，属于不同事项。"
+    },
+    {
+      "memory_id": "M-C-0246",
+      "description": "夹克本周末的促销折扣",
+      "existing": "夹克的原价",
+      "differs": [
+        "attribute"
+      ],
+      "difference": "已有项问的是夹克的原价，本条问的是夹克本周末的促销折扣",
+      "same_item": false,
+      "reason": "原价与促销折扣是两个不同的属性，问的不是同一事项。"
+    },
+    {
+      "memory_id": "M-B-0456",
+      "description": "学生论文大纲的评审状态",
+      "existing": "essay outline's required citation format",
+      "differs": [
+        "attribute"
+      ],
+      "difference": "已有项问的是论文大纲要求的引用格式，本条问的是论文大纲是否令人满意、无需修改",
+      "same_item": false,
+      "reason": "已有项问的是引用格式要求，新增项问的是大纲评审是否满意，两者是不同属性。"
+    },
+    {
+      "memory_id": "M-B-0306",
+      "description": "生物演示所用研究材料的选定状态",
+      "existing": "研究项目最终课题的选定状态",
+      "differs": [
+        "subject",
+        "instance"
+      ],
+      "difference": "已有项问的是研究项目最终课题的选定状态，本条问的是生物演示研究材料的选定状态",
+      "same_item": false,
+      "reason": "主体不同：已有项问研究项目最终课题的选定状态，本条问生物演示研究材料的选定状态，待比较事项与实例范围均不同。"
+    },
+    {
+      "memory_id": "M-A-0091",
+      "description": "偏好的咖啡店",
+      "existing": "Primary coffee preference",
+      "differs": [
+        "attribute"
+      ],
+      "difference": "已有项问的是主要咖啡偏好（饮品），本条问的是偏好的咖啡店",
+      "same_item": false,
+      "reason": "已有项问的是咖啡饮品偏好，新增项问的是咖啡店偏好，待比较事项不同。"
+    },
+    {
+      "memory_id": "M-B-0526",
+      "description": "小组学习效果更好的时段",
+      "existing": "学习小组会议的时间",
+      "differs": [
+        "attribute"
+      ],
+      "difference": "已有项问学习小组会议的时间，本条问小组学习效果更好的时段",
+      "same_item": false,
+      "reason": "已有项问会议时间，本条问学习效果更好的时段，待比较事项不同。"
+    },
+    {
+      "memory_id": "M-C-0231",
+      "description": "最终确认的考试日期",
+      "existing": "期末考试日期",
+      "differs": [
+        "attribute"
+      ],
+      "difference": "已有项问的是期末考试日期，本条问的是最终确认的考试日期",
+      "same_item": true,
+      "reason": "两者都在问期末考试日期，'最终确认的'只是修饰限定，不构成不同事项。"
+    },
+    {
+      "memory_id": "M-B-0059",
+      "description": "健身房会员续费促销的持续时间",
+      "existing": "健身房会员促销活动的内容",
+      "differs": [
+        "attribute"
+      ],
+      "difference": "已有项问的是健身房会员促销活动的内容，本条问的是续费促销的持续时间",
+      "same_item": false,
+      "reason": "已有项问促销活动的内容，本条问续费促销的持续时间，待比较事项不同。"
+    },
+    {
+      "memory_id": "M-A-0358",
+      "description": "Jane's email address",
+      "existing": "Emma's email address",
+      "differs": [
+        "subject"
+      ],
+      "difference": "已有项是Emma的电子邮箱地址，本条是Jane的电子邮箱地址",
+      "same_item": false,
+      "reason": "主体不同：一条问的是Emma的邮箱，另一条问的是Jane的邮箱。"
+    },
+    {
+      "memory_id": "M-B-0151",
+      "description": "coupon WINTER20 expiration date",
+      "existing": "优惠券WINTER10的过期日期",
+      "differs": [
+        "instance"
+      ],
+      "difference": "已有项是优惠券WINTER10的过期日期，本条是优惠券WINTER20的过期日期",
+      "same_item": false,
+      "reason": "两条描述询问的是不同优惠券（WINTER10 与 WINTER20）的过期日期，实例范围不同，因此属于不同事项。"
+    },
+    {
+      "memory_id": "M-A-0196",
+      "description": "user's mentioned shopping deals",
+      "existing": "用户首选的杂货店",
+      "differs": [
+        "attribute"
+      ],
+      "difference": "已有项记录用户首选的杂货店，本条记录用户提到的Costco优惠",
+      "same_item": false,
+      "reason": "已有项问的是用户首选的杂货店，新增项问的是用户提到的购物优惠，两者是不同属性。"
+    },
+    {
+      "memory_id": "M-B-0343",
+      "description": "研究论文提交窗口的开放时长",
+      "existing": "研究论文的提交截止日期",
+      "differs": [
+        "attribute"
+      ],
+      "difference": "已有项问的是研究论文的提交截止日期，本条问的是提交窗口开放时长被延长后的结果",
+      "same_item": false,
+      "reason": "已有项问的是提交截止日期这一时点，新增项问的是提交窗口开放时长这一时长，二者待比较事项不同。"
+    },
+    {
+      "memory_id": "M-B-0248",
+      "description": "数学第5章作业的完成状态",
+      "existing": "高等数学第3章作业的完成状态",
+      "differs": [
+        "subject"
+      ],
+      "difference": "已有项是高等数学第3章作业的完成状态，本条是数学第5章作业的完成状态",
+      "same_item": false,
+      "reason": "章节不同（第3章 vs 第5章），待比较事项不同，不是同一事项。"
+    },
+    {
+      "memory_id": "M-C-0337",
+      "description": "当前主要学习的外语及所用工具",
+      "existing": "当前主要学习的外语",
+      "differs": [
+        "attribute"
+      ],
+      "difference": "已有项只问当前主要学习的外语，本条还涉及学习所用的工具",
+      "same_item": false,
+      "reason": "已有项只问所学外语，新增项还要求说明学习工具，待比较事项的范围不同。"
+    },
+    {
+      "memory_id": "M-B-0309",
+      "description": "昨天购买的物品",
+      "existing": "上周末购买的物品",
+      "differs": [
+        "instance"
+      ],
+      "difference": "已有项记录的是上周末购买的物品，本条记录的是昨天购买的物品",
+      "same_item": true,
+      "reason": "两者都在问购买物品这一事项，仅购买时间实例不同，属于同一事项的不同取值。"
+    },
+    {
+      "memory_id": "M-B-0030",
+      "description": "weekend special promotion details",
+      "existing": "周末促销活动的折扣",
+      "differs": [
+        "attribute"
+      ],
+      "difference": "已有项问的是周末促销活动的折扣，本条问的是周末特惠的免运费条件",
+      "same_item": true,
+      "reason": "两者都在询问周末促销/特惠活动的具体条件，主体和事项范围一致，仅关注的属性不同。"
+    },
+    {
+      "memory_id": "M-A-0219",
+      "description": "患者病史中记录的过敏药物",
+      "existing": "prescribed drug for hypertension management",
+      "differs": [
+        "attribute"
+      ],
+      "difference": "已有项问的是高血压治疗用药，本条问的是患者过敏的药物",
+      "same_item": false,
+      "reason": "已有项问的是高血压治疗用药，本条问的是患者过敏药物，两者是不同的事项。"
+    },
+    {
+      "memory_id": "M-A-0260",
+      "description": "团队午餐的时间与地点",
+      "existing": "John's preferred seating for team lunches",
+      "differs": [
+        "attribute"
+      ],
+      "difference": "已有项问的是John在团队午餐时的座位偏好，本条问的是团队午餐的时间与地点",
+      "same_item": false,
+      "reason": "已有项问的是John对团队午餐座位的偏好，本条问的是团队午餐的时间与地点，两者询问的事项不同。"
+    },
+    {
+      "memory_id": "M-A-0401",
+      "description": "课程材料所依据的课程大纲年份",
+      "existing": "Course material software version",
+      "differs": [
+        "attribute"
+      ],
+      "difference": "已有项问的是课程材料软件的版本，本条问的是课程材料所依据的课程大纲年份",
+      "same_item": false,
+      "reason": "一个问软件版本，一个问课程大纲年份，待比较事项不同。"
+    },
+    {
+      "memory_id": "M-A-0159",
+      "description": "患者复诊预约的安排日期",
+      "existing": "学生反馈会的安排日期",
+      "differs": [
+        "subject",
+        "attribute"
+      ],
+      "difference": "已有项问的是学生反馈会的安排日期，本条问的是患者复诊预约的日期",
+      "same_item": false,
+      "reason": "主体不同：学生反馈会与患者复诊预约是两个不同事项，问的是各自安排日期。"
+    },
+    {
+      "memory_id": "M-B-0294",
+      "description": "历史论文草稿的完成状态",
+      "existing": "history paper due date",
+      "differs": [
+        "attribute"
+      ],
+      "difference": "已有项问的是历史论文的截止日期，本条问的是历史论文草稿的完成状态",
+      "same_item": false,
+      "reason": "已有项问截止日期，本条问草稿完成状态，待比较事项不同。"
+    },
+    {
+      "memory_id": "M-B-0050",
+      "description": "种植冬季蔬菜的指南",
+      "existing": "推荐的书籍",
+      "differs": [
+        "attribute"
+      ],
+      "difference": "已有项是泛指的推荐书籍，本条具体指种植冬季蔬菜的指南",
+      "same_item": false,
+      "reason": "已有项泛指推荐书籍，本条具体指种植冬季蔬菜的指南，待比较事项范围不同。"
+    },
+    {
+      "memory_id": "M-B-0407",
+      "description": "旧版研究提案的归档状态",
+      "existing": "第20天更新的研究提案的过期日期",
+      "differs": [
+        "instance"
+      ],
+      "difference": "已有项针对第20天更新的研究提案的过期日期，本条针对旧版研究提案的归档状态",
+      "same_item": false,
+      "reason": "一个问更新提案的过期日期，一个问旧版提案的归档状态，待比较事项不同。"
+    },
+    {
+      "memory_id": "M-B-0121",
+      "description": "社区公园维护的安排日期",
+      "existing": "scheduled date of the community event",
+      "differs": [
+        "subject",
+        "attribute"
+      ],
+      "difference": "已有项问的是社区活动的预定日期，本条问的是社区公园维护的安排日期",
+      "same_item": false,
+      "reason": "主体不同：已有项问社区活动的预定日期，本条问社区公园维护的安排日期，属于不同事项。"
+    },
+    {
+      "memory_id": "M-C-0128",
+      "description": "final recommended textbook edition for biology",
+      "existing": "生物课程推荐教材的版本",
+      "differs": [
+        "attribute"
+      ],
+      "difference": "已有项问的是生物课程推荐教材的版本，本条问的是生物最终推荐教材的版本",
+      "same_item": true,
+      "reason": "两者都在问生物推荐教材的版本，主体和待比较事项一致，'final'只是措辞差异，不构成不同事项。"
+    },
+    {
+      "memory_id": "M-B-0377",
+      "description": "研究项目摘要的提交截止日期",
+      "existing": "科学项目的提交日期",
+      "differs": [
+        "attribute"
+      ],
+      "difference": "已有项问的是科学项目的提交日期，本条问的是研究项目摘要的提交截止日期",
+      "same_item": true,
+      "reason": "两者都在问研究/科学项目提交的截止日期，主体和待比较事项一致，仅措辞不同。"
+    },
+    {
+      "memory_id": "M-B-0476",
+      "description": "student's grade in Calculus 101",
+      "existing": "高等微积分课程的完成情况与成绩",
+      "differs": [
+        "instance"
+      ],
+      "difference": "已有项是高等微积分课程的完成情况与成绩，本条是Calculus 101课程的成绩",
+      "same_item": false,
+      "reason": "已有项指高等微积分课程，新增项指Calculus 101，二者为不同课程实例，必要实例范围不一致。"
+    },
+    {
+      "memory_id": "M-B-0056",
+      "description": "客人对夏季泳池设施的评价",
+      "existing": "swimming pool maintenance schedule",
+      "differs": [
+        "attribute"
+      ],
+      "difference": "已有项问的是游泳池维护安排，本条问的是客人对夏季泳池设施的评价",
+      "same_item": false,
+      "reason": "已有项问的是维护安排，新增项问的是客人评价，两者是不同的事项。"
+    },
+    {
+      "memory_id": "M-B-0520",
+      "description": "用户学习生物偏好的工具",
+      "existing": "偏好的学习工具",
+      "differs": [
+        "instance"
+      ],
+      "difference": "已有项问的是一般偏好的学习工具，本条限定为学习生物所用的工具",
+      "same_item": false,
+      "reason": "已有项问的是一般学习工具偏好，本条限定为学习生物这一特定场景的工具，必要实例范围不同。"
+    },
+    {
+      "memory_id": "M-B-0412",
+      "description": "研究提案评审的有效期",
+      "existing": "研究论文评审的有效期",
+      "differs": [
+        "instance"
+      ],
+      "difference": "已有项问的是研究论文评审的有效期，本条问的是研究提案评审的有效期",
+      "same_item": false,
+      "reason": "评审对象不同：一个是研究论文评审，一个是研究提案评审，属于不同事项。"
+    },
+    {
+      "memory_id": "M-C-0051",
+      "description": "John的瑜伽课时间",
+      "existing": "瑜伽课的时间与地点",
+      "differs": [
+        "subject"
+      ],
+      "difference": "已有项问的是瑜伽课的时间与地点，本条问的是John的瑜伽课时间",
+      "same_item": true,
+      "reason": "两者都在问瑜伽课的时间，主体范围虽有宽窄但属于同一事项。"
+    },
+    {
+      "memory_id": "M-C-0082",
+      "description": "课程推荐的书籍",
+      "existing": "推荐的书籍",
+      "differs": [
+        "instance"
+      ],
+      "difference": "已有项是泛指的推荐书籍，本条针对特定课程推荐的书籍",
+      "same_item": false,
+      "reason": "已有项是泛指推荐书籍，本条限定为特定课程推荐的书籍，必要实例范围不同。"
+    },
+    {
+      "memory_id": "M-A-0371",
+      "description": "Emma's email address",
+      "existing": "John's primary email address",
+      "differs": [
+        "subject"
+      ],
+      "difference": "已有项问的是John的主要邮箱地址，本条问的是Emma的邮箱地址",
+      "same_item": false,
+      "reason": "主体不同：已有项问的是John的邮箱，新增项问的是Emma的邮箱。"
+    },
+    {
+      "memory_id": "M-A-0232",
+      "description": "健身课的时间",
+      "existing": "project planning session time and location",
+      "differs": [
+        "attribute"
+      ],
+      "difference": "已有项问的是项目规划会议的时间地点，本条问的是健身课的时间",
+      "same_item": false,
+      "reason": "主体和待比较事项不同：已有项问的是项目规划会议的时间地点，新增项问的是健身课的时间。"
+    },
+    {
+      "memory_id": "M-B-0195",
+      "description": "生物实验报告的截止日期",
+      "existing": "科学项目的提交日期",
+      "differs": [
+        "instance"
+      ],
+      "difference": "已有项是科学项目的提交日期，本条是生物实验报告的截止日期",
+      "same_item": false,
+      "reason": "一个是科学项目的提交日期，另一个是生物实验报告的截止日期，主体和待比较事项都不同。"
+    },
+    {
+      "memory_id": "M-B-0342",
+      "description": "研究论文提交窗口的开放时长",
+      "existing": "研究论文的提交截止日期",
+      "differs": [
+        "attribute"
+      ],
+      "difference": "已有项问的是研究论文的提交截止日期，本条问的是提交窗口的开放时长",
+      "same_item": false,
+      "reason": "一个问截止日期（时间点），一个问开放时长（时间跨度），待比较事项不同。"
+    },
+    {
+      "memory_id": "M-B-0489",
+      "description": "《Algebra Basics》教材涵盖的章节内容",
+      "existing": "数学教材《Algebra Basics》的推荐有效期",
+      "differs": [
+        "attribute"
+      ],
+      "difference": "已有项问《Algebra Basics》的推荐有效期，本条问该教材涵盖的章节内容",
+      "same_item": false,
+      "reason": "已有项问推荐有效期，本条问涵盖章节内容，待比较事项不同。"
+    },
+    {
+      "memory_id": "M-B-0420",
+      "description": "学习指南的更新状态",
+      "existing": "研究论文指南的提供时间",
+      "differs": [
+        "attribute"
+      ],
+      "difference": "已有项问的是研究论文指南的提供时间，本条问的是学习指南的更新状态",
+      "same_item": false,
+      "reason": "一个问提供时间，一个问更新状态，待比较事项不同。"
+    },
+    {
+      "memory_id": "M-B-0106",
+      "description": "scheduled date of the community event",
+      "existing": "project planning session time and location",
+      "differs": [
+        "subject",
+        "attribute"
+      ],
+      "difference": "已有项问的是项目规划会议的时间地点，本条问的是社区活动的举办时间",
+      "same_item": false,
+      "reason": "主体不同（项目规划会议 vs 社区活动），待比较事项也不同（时间地点 vs 举办时间），因此不是同一事项。"
+    },
+    {
+      "memory_id": "M-B-0405",
+      "description": "新瑜伽课程安排的开始日期",
+      "existing": "community yoga class schedule",
+      "differs": [
+        "attribute"
+      ],
+      "difference": "已有项问的是社区瑜伽课程的时间安排，本条问的是新瑜伽课程安排开始生效的日期",
+      "same_item": true,
+      "reason": "两者都在问瑜伽课程安排的时间信息，主体和待比较事项一致，只是具体属性取值不同。"
+    },
+    {
+      "memory_id": "M-C-0073",
+      "description": "患者因疼痛被处方的药物",
+      "existing": "患者头痛的初始处方药物",
+      "differs": [
+        "instance"
+      ],
+      "difference": "已有项是头痛的初始处方药物，本条是因疼痛（未限定头痛）处方的药物",
+      "same_item": false,
+      "reason": "已有项限定为头痛的初始处方，新项为未限定疼痛类型的处方，必要实例范围不同。"
+    },
+    {
+      "memory_id": "M-B-0140",
+      "description": "Science作业的提交截止日期",
+      "existing": "作业的提交截止日期",
+      "differs": [
+        "instance"
+      ],
+      "difference": "已有项是泛指作业的提交截止日期，本条特指Science作业的提交截止日期",
+      "same_item": false,
+      "reason": "已有项泛指所有作业的截止日期，本条限定为Science作业，必要实例范围不同，属于不同事项。"
+    },
+    {
+      "memory_id": "M-C-0245",
+      "description": "夹克的原价",
+      "existing": "该商品的标准价格",
+      "differs": [
+        "subject"
+      ],
+      "difference": "已有项问的是某商品的标准价格，本条问的是夹克的原价",
+      "same_item": false,
+      "reason": "主体不同：已有项指某商品的标准价格，本条指夹克的原价，主体不一致。"
+    },
+    {
+      "memory_id": "M-B-0453",
+      "description": "quantum mechanics notes' review timing",
+      "existing": "量子力学讲座的时间与地点",
+      "differs": [
+        "attribute"
+      ],
+      "difference": "已有项问的是量子力学讲座的时间与地点，本条问的是量子力学笔记的复习时机",
+      "same_item": false,
+      "reason": "已有项问讲座的时间地点，新增项问笔记的复习时机，主体与待比较事项均不同。"
+    },
+    {
+      "memory_id": "M-B-0008",
+      "description": "客户反馈中关于促销活动时长的建议",
+      "existing": "客户反馈的内容主题",
+      "differs": [
+        "attribute"
+      ],
+      "difference": "已有项问客户反馈的内容主题，本条具体给出关于促销时长的建议内容",
+      "same_item": true,
+      "reason": "两者都在问客户反馈的内容主题，新描述只是把主题具体化为促销时长建议，属于同一事项的取值细化。"
+    },
+    {
+      "memory_id": "M-B-0174",
+      "description": "闪卡集《Biology Basics》的过期日期",
+      "existing": "物理基础闪卡集的过期日期",
+      "differs": [
+        "subject"
+      ],
+      "difference": "已有项问的是物理基础闪卡集的过期日期，本条问的是生物基础闪卡集的过期日期",
+      "same_item": false,
+      "reason": "主体不同：已有项是物理基础闪卡集，新增项是生物基础闪卡集，属于不同事项。"
+    },
+    {
+      "memory_id": "M-C-0261",
+      "description": "学生对较新教材'Edition 2'的反馈",
+      "existing": "用户对推荐教材的使用反馈",
+      "differs": [
+        "instance"
+      ],
+      "difference": "已有项是用户对推荐教材的使用反馈，本条针对具体教材'Edition 2'的反馈",
+      "same_item": true,
+      "reason": "两者都在问对推荐教材的使用反馈，'Edition 2'只是具体实例，不构成不同事项。"
+    },
+    {
+      "memory_id": "M-B-0341",
+      "description": "用户喜欢的饮品",
+      "existing": "用户首选的杂货店",
+      "differs": [
+        "attribute"
+      ],
+      "difference": "已有项问的是首选的杂货店，本条问的是喜欢的饮品",
+      "same_item": false,
+      "reason": "一个问首选的杂货店，一个问喜欢的饮品，主体和待比较事项都不同。"
+    },
+    {
+      "memory_id": "M-B-0301",
+      "description": "教授对论文参考文献提出的建议",
+      "existing": "论文推荐的引用格式",
+      "differs": [
+        "attribute"
+      ],
+      "difference": "已有项问的是论文推荐的引用格式，本条是教授建议增加近期实验参考文献",
+      "same_item": false,
+      "reason": "已有项问的是论文推荐的引用格式，本条是教授对参考文献提出的建议，两者主体和待比较事项均不同。"
+    },
+    {
+      "memory_id": "M-B-0252",
+      "description": "化学教材第3章的复习状态",
+      "existing": "期中考试复习资料涵盖的章节",
+      "differs": [
+        "subject"
+      ],
+      "difference": "已有项是期中考试复习资料涵盖的章节，本条是化学教材第3章的复习状态",
+      "same_item": false,
+      "reason": "已有项问的是复习资料涵盖的章节范围，新项问的是化学教材第3章的复习状态，主体与待比较事项均不同。"
+    },
+    {
+      "memory_id": "M-C-0224",
+      "description": "患者增加剂量后报告的不良反应",
+      "existing": "患者报告的症状",
+      "differs": [
+        "attribute"
+      ],
+      "difference": "已有项记录患者报告的症状，本条记录增加剂量后出现的不良反应",
+      "same_item": true,
+      "reason": "两者都在询问患者报告的不良事件，只是触发条件（增加剂量）不同，属于同一事项。"
+    },
+    {
+      "memory_id": "M-B-0085",
+      "description": "烘焙商品促销活动的折扣",
+      "existing": "spring clearance sale discount",
+      "differs": [
+        "instance"
+      ],
+      "difference": "已有项是春季清仓活动的折扣，本条是烘焙商品促销活动的折扣",
+      "same_item": false,
+      "reason": "已有项指春季清仓活动的折扣，新增项指烘焙商品促销活动的折扣，两者属于不同的促销活动实例，实例范围不一致。"
+    },
+    {
+      "memory_id": "M-B-0060",
+      "description": "用户对健身房会员促销活动的反馈",
+      "existing": "健身房会员促销活动的内容",
+      "differs": [
+        "attribute"
+      ],
+      "difference": "已有项描述健身房会员促销活动的内容，本条描述用户对该促销的反馈评价",
+      "same_item": false,
+      "reason": "已有项问的是促销活动本身的内容，新增项问的是用户对该活动的反馈评价，两者待比较事项不同。"
+    },
+    {
+      "memory_id": "M-C-0028",
+      "description": "前往附近杂货店的最佳路线",
+      "existing": "去公园的最佳路线",
+      "differs": [
+        "instance"
+      ],
+      "difference": "已有项问的是去公园的最佳路线，本条问的是去附近杂货店的最佳路线",
+      "same_item": false,
+      "reason": "目的地不同（公园 vs 杂货店），待比较事项的必要实例范围不一致。"
+    },
+    {
+      "memory_id": "M-C-0139",
+      "description": "student feedback on 'Advanced Physics Concepts'",
+      "existing": "用户对推荐教材的使用反馈",
+      "differs": [
+        "instance"
+      ],
+      "difference": "已有项问的是用户对推荐教材的使用反馈，本条问的是学生对《Advanced Physics Concepts》的反馈",
+      "same_item": false,
+      "reason": "已有项问的是对推荐教材的泛化使用反馈，本条限定为对特定教材《Advanced Physics Concepts》的反馈，必要实例范围不同。"
+    },
+    {
+      "memory_id": "M-B-0148",
+      "description": "瑜伽课订阅的有效截止日期",
+      "existing": "yoga class package expiration date",
+      "differs": [
+        "attribute"
+      ],
+      "difference": "已有项问的是瑜伽课套餐的过期日期，本条给出的是瑜伽课订阅的有效截止日期，属于不同实例的订阅有效期",
+      "same_item": true,
+      "reason": "两者都在问瑜伽课订阅/套餐的有效期截止日期，主体和待比较事项一致，只是措辞不同。"
+    },
+    {
+      "memory_id": "M-B-0312",
+      "description": "研究论文的主题",
+      "existing": "研究项目最终课题的选定状态",
+      "differs": [
+        "attribute"
+      ],
+      "difference": "已有项是研究项目最终课题的选定状态，本条是研究论文的具体主题",
+      "same_item": false,
+      "reason": "已有项问的是研究项目最终课题的选定状态，新项问的是研究论文的主题，主体与待比较事项均不同。"
+    },
+    {
+      "memory_id": "M-B-0302",
+      "description": "量子力学期刊论文初稿的完成状态",
+      "existing": "研究报告初稿的完成状态",
+      "differs": [
+        "instance"
+      ],
+      "difference": "已有项问的是研究报告初稿的完成状态，本条问的是量子力学期刊论文初稿的完成状态",
+      "same_item": false,
+      "reason": "两者问的是不同文档（研究报告 vs 量子力学期刊论文）的初稿完成状态，实例范围不同。"
+    },
+    {
+      "memory_id": "M-B-0020",
+      "description": "社区清洁活动的举办安排状态",
+      "existing": "社区回收活动的举办时间",
+      "differs": [
+        "attribute"
+      ],
+      "difference": "已有项问的是社区回收活动的举办时间，本条问的是社区清洁活动是否已安排举办",
+      "same_item": false,
+      "reason": "主体事项不同：一个是回收活动的举办时间，一个是清洁活动的举办安排状态。"
+    },
+    {
+      "memory_id": "M-B-0440",
+      "description": "微积分推荐的学习方法",
+      "existing": "当前使用的学习方法",
+      "differs": [
+        "instance"
+      ],
+      "difference": "已有项是当前使用的学习方法，本条是微积分课程推荐的学习方法",
+      "same_item": false,
+      "reason": "已有项问的是当前实际使用的学习方法，新增项问的是微积分课程推荐的学习方法，两者待比较事项不同。"
+    },
+    {
+      "memory_id": "M-B-0112",
+      "description": "用户对社区健身房开放通知的登记状态",
+      "existing": "gym opening status on national holidays",
+      "differs": [
+        "subject",
+        "attribute"
+      ],
+      "difference": "已有项问的是国家法定节假日健身房是否营业，本条描述的是用户登记社区健身房开放通知的状态",
+      "same_item": false,
+      "reason": "已有项问的是国家法定节假日健身房的营业状态，新项问的是用户对社区健身房开放通知的登记状态，主体和待比较事项均不同。"
+    },
+    {
+      "memory_id": "M-B-0183",
+      "description": "User feedback about product X 的日期",
+      "existing": "客户反馈的内容主题",
+      "differs": [
+        "instance"
+      ],
+      "difference": "已有项是客户反馈的内容主题，本条是产品X用户反馈的日期",
+      "same_item": false,
+      "reason": "已有项问的是反馈的内容主题，新增项问的是反馈的日期，待比较事项不同。"
+    },
+    {
+      "memory_id": "M-C-0035",
+      "description": "用户查看过评价的品牌",
+      "existing": "user's favorite shoe brand",
+      "differs": [
+        "attribute"
+      ],
+      "difference": "已有项问的是用户最喜欢的鞋品牌，本条问的是用户查看过评价的品牌",
+      "same_item": false,
+      "reason": "已有项问的是最喜欢的鞋品牌，本条问的是查看过评价的品牌，待比较事项不同。"
+    },
+    {
+      "memory_id": "M-B-0221",
+      "description": "历史论文的主题",
+      "existing": "研究论文的主题",
+      "differs": [
+        "subject"
+      ],
+      "difference": "已有项问的是研究论文的主题，本条问的是历史论文的主题",
+      "same_item": false,
+      "reason": "主体不同：一条问研究论文的主题，另一条问历史论文的主题，属于不同的事项。"
+    },
+    {
+      "memory_id": "M-A-0146",
+      "description": "患者处方药物及剂量",
+      "existing": "患者处方药物剂量",
+      "differs": [
+        "instance"
+      ],
+      "difference": "已有项泛指患者处方药物剂量，本条给出了具体药物Amoxicillin及其剂量",
+      "same_item": true,
+      "reason": "两者都在问患者处方药物的剂量，具体药物实例不改变事项本身。"
+    },
+    {
+      "memory_id": "M-A-0274",
+      "description": "瑜伽课的时间与地点",
+      "existing": "project planning session time and location",
+      "differs": [
+        "attribute"
+      ],
+      "difference": "已有项问的是项目规划会议的时间地点，本条问的是瑜伽课的时间地点",
+      "same_item": false,
+      "reason": "主体不同：一个是项目规划会议，一个是瑜伽课，问的是不同事项的时间地点。"
+    },
+    {
+      "memory_id": "M-B-0296",
+      "description": "保存的文档主题",
+      "existing": "法国大革命笔记的存放位置",
+      "differs": [
+        "attribute"
+      ],
+      "difference": "已有项问的是法国大革命笔记的存放位置，本条问的是保存文档的主题",
+      "same_item": false,
+      "reason": "一个问的是笔记的物理存放位置，另一个问的是文档的主题内容，二者是不同的属性。"
+    },
+    {
+      "memory_id": "M-B-0448",
+      "description": "AI趋势项目的参考指南",
+      "existing": "project planning session time and location",
+      "differs": [
+        "attribute"
+      ],
+      "difference": "已有项是项目规划会议的时间与地点，本条是AI趋势项目应参考的指南",
+      "same_item": false,
+      "reason": "已有项问的是项目规划会议的时间地点，新增项问的是AI趋势项目的参考指南，主体和待比较事项都不同。"
+    },
+    {
+      "memory_id": "M-B-0128",
+      "description": "数学作业的截止日期",
+      "existing": "微积分作业的截止日期",
+      "differs": [
+        "instance"
+      ],
+      "difference": "已有项针对微积分作业的截止日期，本条针对数学作业的截止日期",
+      "same_item": false,
+      "reason": "微积分作业与数学作业是不同实例范围，主体事项不同。"
+    },
+    {
+      "memory_id": "M-B-0228",
+      "description": "研究报告初稿的完成状态",
+      "existing": "research report idea brainstorming status",
+      "differs": [
+        "attribute"
+      ],
+      "difference": "已有项问的是研究报告选题头脑风暴的状态，本条问的是研究报告初稿的完成状态",
+      "same_item": false,
+      "reason": "已有项问的是选题头脑风暴状态，本条问的是初稿完成状态，待比较事项不同。"
+    },
+    {
+      "memory_id": "M-B-0012",
+      "description": "室内瑜伽课程的开设时段",
+      "existing": "瑜伽课的时间与地点",
+      "differs": [
+        "attribute"
+      ],
+      "difference": "已有项问的是瑜伽课的时间与地点，本条问的是室内瑜伽课程的开设时段",
+      "same_item": true,
+      "reason": "两者都在问瑜伽课的开设时间，主体与待比较事项一致，室内瑜伽课只是瑜伽课的子集，不构成不同事项。"
+    },
+    {
+      "memory_id": "M-A-0001",
+      "description": "住家地址",
+      "existing": "用户首选的杂货店",
+      "differs": [
+        "subject",
+        "attribute"
+      ],
+      "difference": "已有项是用户首选的杂货店，本条是住家地址",
+      "same_item": false,
+      "reason": "一个是用户首选的杂货店，一个是住家地址，主体和属性都不同，属于不同事项。"
+    },
+    {
+      "memory_id": "M-B-0548",
+      "description": "论文推荐的引用格式",
+      "existing": "研究论文的主题",
+      "differs": [
+        "attribute"
+      ],
+      "difference": "已有项问的是研究论文的主题，本条问的是论文推荐的引用格式",
+      "same_item": false,
+      "reason": "一个问论文主题，一个问推荐引用格式，待比较事项不同。"
+    },
+    {
+      "memory_id": "M-B-0176",
+      "description": "用户建议创建闪卡集的日期与对应教材",
+      "existing": "第4章关键术语闪卡的制作状态",
+      "differs": [
+        "instance"
+      ],
+      "difference": "已有项问的是第4章关键术语闪卡的制作状态，本条问的是用户建议为《Math Essentials》创建闪卡集",
+      "same_item": false,
+      "reason": "已有项问的是第4章关键术语闪卡的制作状态，本条问的是用户建议创建闪卡集的日期与对应教材，实例范围不同。"
+    },
+    {
+      "memory_id": "M-C-0250",
+      "description": "限时闪购活动的价格",
+      "existing": "限时促销活动的价格与有效期",
+      "differs": [
+        "instance"
+      ],
+      "difference": "已有项是限时促销活动的价格与有效期，本条是闪购活动一天内的价格",
+      "same_item": true,
+      "reason": "两者都在问促销活动的价格，闪购只是限时促销的一个实例，实例范围差异不构成不同事项。"
+    },
+    {
+      "memory_id": "M-C-0283",
+      "description": "为侧重Web开发而切换使用的编程语言",
+      "existing": "John熟练掌握的编程语言",
+      "differs": [
+        "attribute"
+      ],
+      "difference": "已有项问的是John熟练掌握的编程语言，本条问的是为Web开发切换使用的编程语言",
+      "same_item": false,
+      "reason": "已有项问的是John熟练掌握的编程语言（能力范围），本条问的是为Web开发而切换使用的语言（选择/变更），待比较事项不同。"
+    },
+    {
+      "memory_id": "M-B-0152",
+      "description": "coupon SPRING15 expiration date",
+      "existing": "spring clearance sale discount",
+      "differs": [
+        "attribute"
+      ],
+      "difference": "已有项是春季清仓活动的折扣，本条是优惠券SPRING15的过期日期",
+      "same_item": false,
+      "reason": "已有项问的是春季清仓活动的折扣力度，新增项问的是优惠券SPRING15的过期日期，两者是不同属性。"
+    },
+    {
+      "memory_id": "M-B-0354",
+      "description": "研究提案的提交日期与有效期",
+      "existing": "研究提案批准的有效期",
+      "differs": [
+        "attribute"
+      ],
+      "difference": "已有项是研究提案批准的有效期，本条是研究提案的提交日期与有效期",
+      "same_item": false,
+      "reason": "已有项只问批准有效期，新增项还问提交日期，待比较事项范围不同。"
+    },
+    {
+      "memory_id": "M-B-0178",
+      "description": "健身房会员的到期日期",
+      "existing": "健身房会员免费试用的结束日期",
+      "differs": [
+        "attribute"
+      ],
+      "difference": "已有项问的是健身房会员免费试用的结束日期，本条问的是健身房会员的到期日期",
+      "same_item": false,
+      "reason": "已有项问的是免费试用期的结束日期，本条问的是会员本身的到期日期，待比较事项不同。"
+    },
+    {
+      "memory_id": "M-B-0531",
+      "description": "专注学习时段的时长",
+      "existing": "user's preferred study time",
+      "differs": [
+        "attribute"
+      ],
+      "difference": "已有项问的是用户偏好的学习时间，本条问的是专注学习时段的时长",
+      "same_item": false,
+      "reason": "已有项问的是偏好的学习时间点，本条问的是专注学习时段的时长，属于不同属性。"
+    },
+    {
+      "memory_id": "M-B-0470",
+      "description": "时间管理推荐的书籍",
+      "existing": "推荐的书籍",
+      "differs": [
+        "attribute"
+      ],
+      "difference": "已有项是泛指的推荐书籍，本条是时间管理主题的推荐书籍",
+      "same_item": false,
+      "reason": "已有项是泛指推荐书籍，本条限定为时间管理主题，待比较事项范围不同。"
+    },
+    {
+      "memory_id": "M-B-0290",
+      "description": "适合炖汤的季节",
+      "existing": "昨晚的烹饪内容",
+      "differs": [
+        "attribute"
+      ],
+      "difference": "已有项问的是昨晚的烹饪内容，本条问的是适合炖汤的季节",
+      "same_item": false,
+      "reason": "已有项问的是昨晚的烹饪内容，本条问的是适合炖汤的季节，两者主体和待比较事项都不同。"
+    },
+    {
+      "memory_id": "M-B-0542",
+      "description": "数学课程推荐的教材",
+      "existing": "课程的主要教材",
+      "differs": [
+        "subject"
+      ],
+      "difference": "已有项是泛指课程的主要教材，本条是数学课程推荐的教材",
+      "same_item": false,
+      "reason": "已有项泛指课程的主要教材，本条限定为数学课程推荐的教材，主体范围不同。"
+    },
+    {
+      "memory_id": "M-B-0073",
+      "description": "门店位置图的获取方式",
+      "existing": "用户首选的杂货店",
+      "differs": [
+        "attribute"
+      ],
+      "difference": "已有项问的是用户首选的杂货店，本条问的是门店位置图的获取方式",
+      "same_item": false,
+      "reason": "一个问用户偏好的杂货店，另一个问门店位置图的获取方式，主体和待比较事项都不同。"
+    },
+    {
+      "memory_id": "M-C-0059",
+      "description": "服用药物X期间应避免的食物",
+      "existing": "dietary recommendations for hypertension",
+      "differs": [
+        "attribute"
+      ],
+      "difference": "已有项是高血压的饮食建议，本条是服用药物X期间的饮食禁忌",
+      "same_item": false,
+      "reason": "已有项问的是高血压的饮食建议，新增项问的是服用药物X期间的饮食禁忌，主体和待比较事项都不同。"
+    },
+    {
+      "memory_id": "M-C-0063",
+      "description": "患者头痛症状的当前状态",
+      "existing": "患者头痛的严重程度",
+      "differs": [
+        "attribute"
+      ],
+      "difference": "已有项问的是患者头痛的严重程度，本条问的是头痛症状的当前状态",
+      "same_item": false,
+      "reason": "已有项问头痛的严重程度（分级/量化），本条问头痛症状的当前状态（有无/存在与否），待比较事项不同。"
+    },
+    {
+      "memory_id": "M-B-0277",
+      "description": "化学实验作业的完成状态",
+      "existing": "化学实验报告的完成状态",
+      "differs": [
+        "instance"
+      ],
+      "difference": "已有项是化学实验报告的完成状态，本条是化学实验作业的完成状态",
+      "same_item": false,
+      "reason": "实验报告与实验作业是不同的事项对象，实例范围不一致。"
+    },
+    {
+      "memory_id": "M-B-0399",
+      "description": "城市规划研究的评审阶段状态",
+      "existing": "研究论文的同行评审进展状态",
+      "differs": [
+        "subject"
+      ],
+      "difference": "已有项问的是研究论文的同行评审进展，本条问的是城市规划研究的评审阶段",
+      "same_item": false,
+      "reason": "主体不同：已有项针对研究论文的同行评审，本条针对城市规划研究的评审阶段，属于不同事项。"
+    },
+    {
+      "memory_id": "M-B-0001",
+      "description": "Restaurant's discount on all items",
+      "existing": "全场限时促销活动的折扣",
+      "differs": [
+        "subject"
+      ],
+      "difference": "已有项问的是全场限时促销活动的折扣，本条问的是餐厅全场商品的折扣",
+      "same_item": true,
+      "reason": "两者都在问餐厅全场商品的折扣，限时促销只是修饰语，主体和待比较事项一致。"
+    },
+    {
+      "memory_id": "M-B-0210",
+      "description": "微积分作业的截止日期",
+      "existing": "微积分考试的日期和时间",
+      "differs": [
+        "attribute"
+      ],
+      "difference": "已有项问的是微积分考试的日期和时间，本条问的是微积分作业的截止日期",
+      "same_item": false,
+      "reason": "考试与作业是不同事项，问的分别是考试时间与作业截止日期"
+    },
+    {
+      "memory_id": "M-C-0041",
+      "description": "supplementary reading for physics",
+      "existing": "物理课程推荐的补充材料",
+      "differs": [
+        "attribute"
+      ],
+      "difference": "已有项问的是物理课程推荐的补充材料，本条问的是物理补充阅读书目",
+      "same_item": true,
+      "reason": "两者都在问物理课程推荐的补充阅读材料，只是措辞不同，属于同一事项。"
+    },
+    {
+      "memory_id": "M-B-0011",
+      "description": "户外瑜伽课的时间安排",
+      "existing": "瑜伽课的时间安排",
+      "differs": [
+        "instance"
+      ],
+      "difference": "已有项是泛指瑜伽课的时间安排，本条特指户外瑜伽课的时间安排",
+      "same_item": false,
+      "reason": "户外瑜伽课是瑜伽课的子类，实例范围不同，属于不同事项。"
+    },
+    {
+      "memory_id": "M-B-0076",
+      "description": "护肤品促销活动的折扣",
+      "existing": "spring clearance sale discount",
+      "differs": [
+        "instance"
+      ],
+      "difference": "已有项是春季清仓促销的折扣，本条是护肤品促销活动的折扣",
+      "same_item": false,
+      "reason": "已有项指春季清仓促销的折扣，本条指护肤品促销活动的折扣，两者属于不同的促销活动实例，因此不是同一个事项。"
+    },
+    {
+      "memory_id": "M-B-0180",
+      "description": "coupon DISCOUNT15 expiration date",
+      "existing": "优惠券WINTER10的过期日期",
+      "differs": [
+        "instance"
+      ],
+      "difference": "已有项是优惠券WINTER10的过期日期，本条是优惠券DISCOUNT15的过期日期",
+      "same_item": false,
+      "reason": "两条描述询问的是不同优惠券（WINTER10 与 DISCOUNT15）的过期日期，必要实例范围不同，因此属于不同事项。"
+    },
+    {
+      "memory_id": "M-B-0525",
+      "description": "推荐的课后复习安排",
+      "existing": "每周学习计划中安排的复习时间",
+      "differs": [
+        "attribute"
+      ],
+      "difference": "已有项问的是每周学习计划中安排的复习时间，本条问的是推荐的课后复习做法",
+      "same_item": true,
+      "reason": "两者都在问课后复习的时间安排，只是措辞不同，属于同一事项。"
+    },
+    {
+      "memory_id": "M-C-0263",
+      "description": "患者药物A的处方剂量",
+      "existing": "患者药物X的处方剂量",
+      "differs": [
+        "subject"
+      ],
+      "difference": "已有项问的是药物X的处方剂量，本条问的是药物A的处方剂量",
+      "same_item": false,
+      "reason": "主体不同：一个是药物X，一个是药物A，问的是不同药物的处方剂量。"
+    },
+    {
+      "memory_id": "M-B-0443",
+      "description": "Physics Chapter 5 study materials' review requirement",
+      "existing": "物理教材第5章涵盖的主题",
+      "differs": [
+        "attribute"
+      ],
+      "difference": "已有项问的是物理教材第5章涵盖的主题，本条问的是第5章学习材料的复习要求",
+      "same_item": false,
+      "reason": "已有项问的是第5章涵盖的主题，新增项问的是复习要求，二者待比较事项不同。"
+    },
+    {
+      "memory_id": "M-C-0016",
+      "description": "牙医预约改期后的日期",
+      "existing": "患者复诊预约的安排日期",
+      "differs": [
+        "attribute"
+      ],
+      "difference": "已有项问的是患者复诊预约的安排日期，本条问的是牙医预约改期后的日期",
+      "same_item": true,
+      "reason": "两者都在问牙科预约的日期，只是复诊/改期措辞不同，主体和待比较事项一致。"
+    },
+    {
+      "memory_id": "M-B-0540",
+      "description": "闪卡对词汇记忆保持的效果",
+      "existing": "effectiveness of flashcards for studying vocabulary",
+      "differs": [
+        "instance"
+      ],
+      "difference": "已有项问的是闪卡对学习词汇的有效性，本条问的是闪卡对词汇记忆保持的效果",
+      "same_item": true,
+      "reason": "两者都在问闪卡对词汇学习/记忆的效果，只是措辞不同，属于同一事项。"
+    },
+    {
+      "memory_id": "M-B-0481",
+      "description": "student's advised revision focus",
+      "existing": "学生复习重点的建议",
+      "differs": [
+        "instance"
+      ],
+      "difference": "已有项是学生复习重点的一般建议，本条具体建议聚焦微积分概念复习",
+      "same_item": true,
+      "reason": "两者都在问学生复习重点的建议，只是措辞和具体化程度不同，属于同一事项。"
+    },
+    {
+      "memory_id": "M-B-0022",
+      "description": "社区中心免费瑜伽课程的提供截止时间",
+      "existing": "室内瑜伽课程的开设时段",
+      "differs": [
+        "attribute"
+      ],
+      "difference": "已有项问的是室内瑜伽课程的开设时段，本条问的是免费瑜伽课程的提供截止时间",
+      "same_item": false,
+      "reason": "已有项问室内瑜伽课程的开设时段，新增项问免费瑜伽课程的提供截止时间，主体课程类型与待比较事项均不同。"
+    },
+    {
+      "memory_id": "M-C-0060",
+      "description": "患者报告的症状",
+      "existing": "患者的既往病史",
+      "differs": [
+        "attribute"
+      ],
+      "difference": "已有项是患者的既往病史，本条是患者报告的症状",
+      "same_item": false,
+      "reason": "既往病史与患者报告的症状是两个不同的临床信息事项，主体虽同但待比较事项不同。"
+    },
+    {
+      "memory_id": "M-B-0462",
+      "description": "recommended revision scope for students",
+      "existing": "建议复习的教材章节",
+      "differs": [
+        "instance"
+      ],
+      "difference": "已有项问的是建议复习的教材章节，本条问的是学生应彻底复习的章节范围",
+      "same_item": true,
+      "reason": "两者都在问学生应复习的章节范围，只是措辞不同，主体和待比较事项一致。"
+    },
+    {
+      "memory_id": "M-C-0006",
+      "description": "物理课程更新后的推荐教材",
+      "existing": "物理课程推荐的教材",
+      "differs": [
+        "attribute"
+      ],
+      "difference": "已有项问的是物理课程推荐的教材，本条问的是更新后的物理教材推荐",
+      "same_item": true,
+      "reason": "两者都在问物理课程推荐的教材，只是措辞上加了'更新后'，主体和待比较事项一致。"
+    },
+    {
+      "memory_id": "M-C-0038",
+      "description": "备考物理考试推荐的最新且最准确的资源",
+      "existing": "备考物理考试推荐的教材",
+      "differs": [
+        "attribute"
+      ],
+      "difference": "已有项问的是备考物理考试推荐的教材，本条问的是备考物理考试推荐的最新且最准确的资源",
+      "same_item": true,
+      "reason": "两者都在问备考物理考试推荐什么学习资源，主体和待比较事项一致，只是对资源属性的措辞不同。"
+    },
+    {
+      "memory_id": "M-B-0485",
+      "description": "students' required review before the next lecture",
+      "existing": "建议复习的教材章节",
+      "differs": [
+        "attribute"
+      ],
+      "difference": "已有项是建议复习的教材章节，本条是下次课前需复习第3章的要求",
+      "same_item": false,
+      "reason": "已有项是建议复习的教材章节（建议性、泛指章节），本条是下次课前必须复习第3章的要求（强制性、具体章节），主体与待比较事项不同。"
+    },
+    {
+      "memory_id": "M-B-0239",
+      "description": "今天早晨进行的家务活动",
+      "existing": "上周末进行的家务活动",
+      "differs": [
+        "instance"
+      ],
+      "difference": "已有项记录的是上周末进行的家务活动，本条记录的是今天早晨进行的家务活动",
+      "same_item": true,
+      "reason": "两者都在问家务活动，只是实例时间不同，属于同一事项。"
+    },
+    {
+      "memory_id": "M-C-0228",
+      "description": "患者第10天检查时的心率记录值",
+      "existing": "患者血压记录值",
+      "differs": [
+        "attribute"
+      ],
+      "difference": "已有项记录的是血压值，本条记录的是心率值",
+      "same_item": false,
+      "reason": "血压与心率是不同的生理指标，主体虽同为患者，但待比较事项不同，因此不是同一事项。"
+    },
+    {
+      "memory_id": "M-B-0330",
+      "description": "第3章总结修订的完成状态",
+      "existing": "教材第3章笔记总结的完成状态",
+      "differs": [
+        "attribute"
+      ],
+      "difference": "已有项问的是教材第3章笔记总结的完成状态，本条问的是第3章总结修订的完成状态",
+      "same_item": false,
+      "reason": "已有项问的是笔记总结的完成状态，新增项问的是总结修订的完成状态，待比较事项不同。"
+    },
+    {
+      "memory_id": "M-C-0311",
+      "description": "中国历史学习所使用的教材",
+      "existing": "历史课程使用的教材",
+      "differs": [
+        "subject"
+      ],
+      "difference": "已有项是历史课程使用的教材，本条是中国历史学习所切换使用的教材",
+      "same_item": true,
+      "reason": "两者都在问历史学习所用的教材，主体和待比较事项一致，'中国历史'只是对'历史'的限定，不构成不同事项。"
+    },
+    {
+      "memory_id": "M-C-0251",
+      "description": "用户对夹克在闪购期间价格的评价",
+      "existing": "夹克本周末的促销折扣",
+      "differs": [
+        "attribute"
+      ],
+      "difference": "已有项问的是夹克本周末的促销折扣，本条问的是用户对闪购期间价格的评价",
+      "same_item": false,
+      "reason": "已有项问的是促销折扣本身，新增项问的是用户对价格的评价，待比较事项不同。"
+    },
+    {
+      "memory_id": "M-C-0116",
+      "description": "哲学课程更新后的推荐阅读书目",
+      "existing": "哲学课程推荐的阅读书目",
+      "differs": [
+        "attribute"
+      ],
+      "difference": "已有项问的是哲学课程推荐的阅读书目，本条问的是更新后的推荐阅读",
+      "same_item": true,
+      "reason": "两者都在问哲学课程推荐的阅读书目，只是措辞不同，主体和待比较事项一致。"
+    },
+    {
+      "memory_id": "M-A-0284",
+      "description": "Zumba课程的时间",
+      "existing": "健身课的时间",
+      "differs": [
+        "instance"
+      ],
+      "difference": "已有项是健身课的时间，本条是Zumba课程的具体时间",
+      "same_item": false,
+      "reason": "已有项问的是健身课的时间，本条问的是Zumba课程的时间，待比较事项不同。"
+    },
+    {
+      "memory_id": "M-B-0258",
+      "description": "化学教材第3章的复习状态",
+      "existing": "期中考试复习资料涵盖的章节",
+      "differs": [
+        "subject"
+      ],
+      "difference": "已有项是期中考试复习资料涵盖的章节，本条是化学教材第3章的复习状态",
+      "same_item": false,
+      "reason": "已有项问的是复习资料涵盖的章节范围，新项问的是化学教材第3章的复习状态，主体与待比较事项均不同。"
+    },
+    {
+      "memory_id": "M-A-0145",
+      "description": "患者的既往病史",
+      "existing": "prescribed drug for hypertension management",
+      "differs": [
+        "attribute"
+      ],
+      "difference": "已有项问的是高血压治疗用药，本条问的是患者是否患有高血压",
+      "same_item": false,
+      "reason": "已有项问的是高血压治疗用药（用药情况），本条问的是患者是否患有高血压（病史/诊断），两者待比较事项不同。"
+    },
+    {
+      "memory_id": "M-C-0003",
+      "description": "用户当前购买杂货的商店",
+      "existing": "用户首选的杂货店",
+      "differs": [
+        "attribute"
+      ],
+      "difference": "已有项问的是用户首选的杂货店，本条问的是用户当前购买杂货的商店",
+      "same_item": false,
+      "reason": "首选杂货店与当前购买杂货的商店是两个不同的属性，前者问偏好，后者问实际行为。"
+    },
+    {
+      "memory_id": "M-B-0150",
+      "description": "cooking workshop registration deadline",
+      "existing": "社区活动的报名截止日期",
+      "differs": [
+        "subject"
+      ],
+      "difference": "已有项是社区活动的报名截止日期，本条是烹饪工作坊的报名截止日期",
+      "same_item": false,
+      "reason": "主体不同：社区活动 vs 烹饪工作坊，属于不同事项。"
+    },
+    {
+      "memory_id": "M-B-0411",
+      "description": "用于气候预测的新AI模型的启动状态",
+      "existing": "气候变化研究项目的启动状态",
+      "differs": [
+        "subject"
+      ],
+      "difference": "已有项问的是气候变化研究项目的启动状态，本条问的是气候预测AI模型的启动",
+      "same_item": false,
+      "reason": "主体不同：一个是气候变化研究项目，另一个是气候预测AI模型。"
+    },
+    {
+      "memory_id": "M-A-0190",
+      "description": "患者用药的调整情况",
+      "existing": "患者用药剂量的调整方案",
+      "differs": [
+        "attribute"
+      ],
+      "difference": "已有项问的是用药剂量的调整方案，本条问的是患者用药是否发生变化",
+      "same_item": true,
+      "reason": "两者都在问患者用药的调整情况，只是措辞不同，主体和待比较事项一致。"
+    },
+    {
+      "memory_id": "M-B-0191",
+      "description": "在线课程《AI Basics》闪购活动的有效期",
+      "existing": "限时闪购活动的价格",
+      "differs": [
+        "instance"
+      ],
+      "difference": "已有项是限时闪购活动的价格，本条是在线课程《AI Basics》闪购活动的有效期",
+      "same_item": false,
+      "reason": "已有项问的是闪购活动的价格，新增项问的是闪购活动的有效期，待比较事项不同。"
+    },
+    {
+      "memory_id": "M-C-0248",
+      "description": "夹克的常规价格",
+      "existing": "该商品的标准价格",
+      "differs": [
+        "subject"
+      ],
+      "difference": "已有项问的是某商品的标准价格，本条问的是夹克的常规价格",
+      "same_item": true,
+      "reason": "两者都在询问同一商品（夹克）的常规/标准价格，主体和待比较事项一致，仅措辞不同。"
+    },
+    {
+      "memory_id": "M-A-0216",
+      "description": "patient's weight",
+      "existing": "患者血压记录值",
+      "differs": [
+        "attribute"
+      ],
+      "difference": "已有项记录患者血压值，本条记录患者体重",
+      "same_item": false,
+      "reason": "血压和体重是不同的临床属性，因此这两条描述询问的是不同的事项。"
+    }
+  ]
+}

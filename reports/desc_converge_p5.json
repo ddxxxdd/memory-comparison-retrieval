@@ -1,0 +1,3449 @@
+{
+  "summary": {
+    "conflict_pairs": 288,
+    "conflict_shared": 221,
+    "conflict_rate": 0.7674,
+    "control_pairs": 26938,
+    "control_shared": 47,
+    "control_rate": 0.0017,
+    "queries_with_empty_selection": 0,
+    "partners_without_entry": 0,
+    "by_channel": {
+      "personal": {
+        "pairs": 202,
+        "shared": 154,
+        "control_pairs": 74,
+        "control_shared": 9
+      },
+      "world": {
+        "pairs": 86,
+        "shared": 67,
+        "control_pairs": 26864,
+        "control_shared": 38
+      }
+    },
+    "api": {
+      "calls": 188,
+      "cache_hits": 11,
+      "errors": 0
+    },
+    "lift": 451.412
+  },
+  "rows": [
+    {
+      "query_id": "TC-A-0020",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 1,
+      "shared": 1,
+      "missed_partners": [],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 0,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0081",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 1,
+      "shared": 1,
+      "missed_partners": [],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 1,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0057",
+      "scope": "personal",
+      "selected": 0,
+      "descriptions": 1,
+      "reached": 0,
+      "partners": 1,
+      "shared": 0,
+      "missed_partners": [
+        "M-A-0125"
+      ],
+      "partner_entries": [
+        2
+      ],
+      "missing_entry": 0,
+      "control_pairs": 1,
+      "control_shared": 0,
+      "hit": false
+    },
+    {
+      "query_id": "TC-A-0047",
+      "scope": "personal",
+      "selected": 0,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 1,
+      "shared": 1,
+      "missed_partners": [],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 1,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0128",
+      "scope": "personal",
+      "selected": 0,
+      "descriptions": 1,
+      "reached": 0,
+      "partners": 1,
+      "shared": 0,
+      "missed_partners": [
+        "M-A-0324"
+      ],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 1,
+      "control_shared": 0,
+      "hit": false
+    },
+    {
+      "query_id": "TC-A-0152",
+      "scope": "personal",
+      "selected": 0,
+      "descriptions": 1,
+      "reached": 0,
+      "partners": 2,
+      "shared": 0,
+      "missed_partners": [
+        "M-A-0395",
+        "M-A-0396"
+      ],
+      "partner_entries": [
+        1,
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 0,
+      "control_shared": 0,
+      "hit": false
+    },
+    {
+      "query_id": "TW-0009",
+      "scope": "world",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 1,
+      "shared": 1,
+      "missed_partners": [],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 1224,
+      "control_shared": 2,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0065",
+      "scope": "personal",
+      "selected": 0,
+      "descriptions": 1,
+      "reached": 0,
+      "partners": 2,
+      "shared": 0,
+      "missed_partners": [
+        "M-A-0148",
+        "M-A-0149"
+      ],
+      "partner_entries": [
+        1,
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 0,
+      "control_shared": 0,
+      "hit": false
+    },
+    {
+      "query_id": "TC-A-0064",
+      "scope": "personal",
+      "selected": 0,
+      "descriptions": 1,
+      "reached": 0,
+      "partners": 1,
+      "shared": 0,
+      "missed_partners": [
+        "M-A-0146"
+      ],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 0,
+      "control_shared": 0,
+      "hit": false
+    },
+    {
+      "query_id": "TC-A-0002",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 1,
+      "shared": 1,
+      "missed_partners": [],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 0,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TW-0002",
+      "scope": "world",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 3,
+      "shared": 3,
+      "missed_partners": [],
+      "partner_entries": [
+        2,
+        1,
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 1222,
+      "control_shared": 1,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0036",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 1,
+      "shared": 1,
+      "missed_partners": [],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 0,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TW-0006",
+      "scope": "world",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 2,
+      "shared": 1,
+      "missed_partners": [
+        "M-C-0134"
+      ],
+      "partner_entries": [
+        1,
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 1223,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0167",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 2,
+      "shared": 2,
+      "missed_partners": [],
+      "partner_entries": [
+        1,
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 0,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0096",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 2,
+      "shared": 2,
+      "missed_partners": [],
+      "partner_entries": [
+        1,
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 1,
+      "control_shared": 1,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0116",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 1,
+      "shared": 1,
+      "missed_partners": [],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 1,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0062",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 2,
+      "shared": 2,
+      "missed_partners": [],
+      "partner_entries": [
+        1,
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 0,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0137",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 1,
+      "shared": 0,
+      "missed_partners": [
+        "SYN-TC-A-0137"
+      ],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 1,
+      "control_shared": 1,
+      "hit": false
+    },
+    {
+      "query_id": "TW-0020",
+      "scope": "world",
+      "selected": 2,
+      "descriptions": 2,
+      "reached": 2,
+      "partners": 6,
+      "shared": 6,
+      "missed_partners": [],
+      "partner_entries": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 1219,
+      "control_shared": 2,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0072",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 1,
+      "shared": 0,
+      "missed_partners": [
+        "M-A-0168"
+      ],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 1,
+      "control_shared": 0,
+      "hit": false
+    },
+    {
+      "query_id": "TC-A-0058",
+      "scope": "personal",
+      "selected": 0,
+      "descriptions": 1,
+      "reached": 0,
+      "partners": 1,
+      "shared": 0,
+      "missed_partners": [
+        "M-A-0128"
+      ],
+      "partner_entries": [
+        2
+      ],
+      "missing_entry": 0,
+      "control_pairs": 1,
+      "control_shared": 0,
+      "hit": false
+    },
+    {
+      "query_id": "TC-A-0006",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 2,
+      "shared": 2,
+      "missed_partners": [],
+      "partner_entries": [
+        1,
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 0,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TW-0024",
+      "scope": "world",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 1,
+      "shared": 1,
+      "missed_partners": [],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 1224,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0012",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 1,
+      "shared": 1,
+      "missed_partners": [],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 0,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0024",
+      "scope": "personal",
+      "selected": 0,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 1,
+      "shared": 1,
+      "missed_partners": [],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 0,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0125",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 1,
+      "shared": 1,
+      "missed_partners": [],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 1,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0071",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 1,
+      "shared": 1,
+      "missed_partners": [],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 0,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TW-0013",
+      "scope": "world",
+      "selected": 12,
+      "descriptions": 12,
+      "reached": 12,
+      "partners": 29,
+      "shared": 23,
+      "missed_partners": [
+        "M-C-0137",
+        "M-C-0079",
+        "M-C-0189",
+        "M-C-0188",
+        "M-C-0136",
+        "M-C-0091"
+      ],
+      "partner_entries": [
+        1,
+        1,
+        1,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 1196,
+      "control_shared": 18,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0154",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 2,
+      "shared": 2,
+      "missed_partners": [],
+      "partner_entries": [
+        1,
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 0,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0028",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 1,
+      "shared": 1,
+      "missed_partners": [],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 0,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0053",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 1,
+      "shared": 1,
+      "missed_partners": [],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 1,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TW-0016",
+      "scope": "world",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 1,
+      "shared": 1,
+      "missed_partners": [],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 1224,
+      "control_shared": 1,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0131",
+      "scope": "personal",
+      "selected": 0,
+      "descriptions": 1,
+      "reached": 0,
+      "partners": 1,
+      "shared": 0,
+      "missed_partners": [
+        "M-A-0333"
+      ],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 1,
+      "control_shared": 0,
+      "hit": false
+    },
+    {
+      "query_id": "TC-A-0027",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 1,
+      "shared": 1,
+      "missed_partners": [],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 0,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0056",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 1,
+      "shared": 0,
+      "missed_partners": [
+        "M-A-0122"
+      ],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 1,
+      "control_shared": 0,
+      "hit": false
+    },
+    {
+      "query_id": "TC-A-0107",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 1,
+      "shared": 1,
+      "missed_partners": [],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 0,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0147",
+      "scope": "personal",
+      "selected": 0,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 2,
+      "shared": 1,
+      "missed_partners": [
+        "M-A-0380"
+      ],
+      "partner_entries": [
+        1,
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 0,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0110",
+      "scope": "personal",
+      "selected": 0,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 1,
+      "shared": 1,
+      "missed_partners": [],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 1,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TW-0005",
+      "scope": "world",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 2,
+      "shared": 2,
+      "missed_partners": [],
+      "partner_entries": [
+        1,
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 1223,
+      "control_shared": 3,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0159",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 2,
+      "shared": 2,
+      "missed_partners": [],
+      "partner_entries": [
+        1,
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 0,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0073",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 1,
+      "shared": 1,
+      "missed_partners": [],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 1,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TW-0023",
+      "scope": "world",
+      "selected": 0,
+      "descriptions": 1,
+      "reached": 0,
+      "partners": 1,
+      "shared": 0,
+      "missed_partners": [
+        "M-B-0096"
+      ],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 1224,
+      "control_shared": 0,
+      "hit": false
+    },
+    {
+      "query_id": "TC-A-0160",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 2,
+      "shared": 2,
+      "missed_partners": [],
+      "partner_entries": [
+        1,
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 0,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0165",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 1,
+      "shared": 1,
+      "missed_partners": [],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 1,
+      "control_shared": 1,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0043",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 1,
+      "shared": 1,
+      "missed_partners": [],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 1,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0104",
+      "scope": "personal",
+      "selected": 3,
+      "descriptions": 4,
+      "reached": 3,
+      "partners": 1,
+      "shared": 1,
+      "missed_partners": [],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 1,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0144",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 1,
+      "shared": 1,
+      "missed_partners": [],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 1,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0009",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 1,
+      "shared": 1,
+      "missed_partners": [],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 0,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0019",
+      "scope": "personal",
+      "selected": 3,
+      "descriptions": 3,
+      "reached": 3,
+      "partners": 1,
+      "shared": 1,
+      "missed_partners": [],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 0,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0085",
+      "scope": "personal",
+      "selected": 0,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 1,
+      "shared": 1,
+      "missed_partners": [],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 1,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0041",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 1,
+      "shared": 1,
+      "missed_partners": [],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 0,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0048",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 2,
+      "shared": 2,
+      "missed_partners": [],
+      "partner_entries": [
+        1,
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 0,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0157",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 2,
+      "shared": 2,
+      "missed_partners": [],
+      "partner_entries": [
+        1,
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 0,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0030",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 1,
+      "shared": 1,
+      "missed_partners": [],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 0,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0051",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 1,
+      "shared": 1,
+      "missed_partners": [],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 1,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0164",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 2,
+      "shared": 2,
+      "missed_partners": [],
+      "partner_entries": [
+        1,
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 0,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0145",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 1,
+      "shared": 1,
+      "missed_partners": [],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 1,
+      "control_shared": 1,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0014",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 1,
+      "shared": 1,
+      "missed_partners": [],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 0,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0098",
+      "scope": "personal",
+      "selected": 2,
+      "descriptions": 2,
+      "reached": 2,
+      "partners": 1,
+      "shared": 1,
+      "missed_partners": [],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 1,
+      "control_shared": 1,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0016",
+      "scope": "personal",
+      "selected": 0,
+      "descriptions": 1,
+      "reached": 0,
+      "partners": 1,
+      "shared": 0,
+      "missed_partners": [
+        "M-A-0032"
+      ],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 0,
+      "control_shared": 0,
+      "hit": false
+    },
+    {
+      "query_id": "TC-A-0033",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 2,
+      "shared": 2,
+      "missed_partners": [],
+      "partner_entries": [
+        1,
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 0,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0093",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 1,
+      "shared": 1,
+      "missed_partners": [],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 0,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0076",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 1,
+      "shared": 0,
+      "missed_partners": [
+        "M-A-0179"
+      ],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 1,
+      "control_shared": 0,
+      "hit": false
+    },
+    {
+      "query_id": "TC-A-0018",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 1,
+      "shared": 1,
+      "missed_partners": [],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 0,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0141",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 1,
+      "shared": 1,
+      "missed_partners": [],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 1,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0119",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 1,
+      "shared": 1,
+      "missed_partners": [],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 1,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0038",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 1,
+      "shared": 1,
+      "missed_partners": [],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 0,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0150",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 2,
+      "shared": 2,
+      "missed_partners": [],
+      "partner_entries": [
+        1,
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 0,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0005",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 1,
+      "shared": 1,
+      "missed_partners": [],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 0,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0115",
+      "scope": "personal",
+      "selected": 4,
+      "descriptions": 4,
+      "reached": 4,
+      "partners": 1,
+      "shared": 0,
+      "missed_partners": [
+        "M-A-0288"
+      ],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 1,
+      "control_shared": 0,
+      "hit": false
+    },
+    {
+      "query_id": "TC-A-0046",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 1,
+      "shared": 1,
+      "missed_partners": [],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 0,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TW-0008",
+      "scope": "world",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 3,
+      "shared": 3,
+      "missed_partners": [],
+      "partner_entries": [
+        1,
+        1,
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 1222,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0126",
+      "scope": "personal",
+      "selected": 0,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 1,
+      "shared": 1,
+      "missed_partners": [],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 1,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0101",
+      "scope": "personal",
+      "selected": 2,
+      "descriptions": 3,
+      "reached": 2,
+      "partners": 1,
+      "shared": 1,
+      "missed_partners": [],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 1,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0120",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 1,
+      "shared": 1,
+      "missed_partners": [],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 0,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0086",
+      "scope": "personal",
+      "selected": 0,
+      "descriptions": 1,
+      "reached": 0,
+      "partners": 1,
+      "shared": 0,
+      "missed_partners": [
+        "M-A-0208"
+      ],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 1,
+      "control_shared": 0,
+      "hit": false
+    },
+    {
+      "query_id": "TC-A-0133",
+      "scope": "personal",
+      "selected": 0,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 1,
+      "shared": 1,
+      "missed_partners": [],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 1,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0001",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 1,
+      "shared": 1,
+      "missed_partners": [],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 0,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0121",
+      "scope": "personal",
+      "selected": 0,
+      "descriptions": 1,
+      "reached": 0,
+      "partners": 1,
+      "shared": 0,
+      "missed_partners": [
+        "M-A-0304"
+      ],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 1,
+      "control_shared": 0,
+      "hit": false
+    },
+    {
+      "query_id": "TC-A-0123",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 1,
+      "shared": 0,
+      "missed_partners": [
+        "SYN-TC-A-0123"
+      ],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 1,
+      "control_shared": 1,
+      "hit": false
+    },
+    {
+      "query_id": "TW-0001",
+      "scope": "world",
+      "selected": 0,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 5,
+      "shared": 5,
+      "missed_partners": [],
+      "partner_entries": [
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 1220,
+      "control_shared": 1,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0132",
+      "scope": "personal",
+      "selected": 0,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 1,
+      "shared": 0,
+      "missed_partners": [
+        "M-A-0336"
+      ],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 1,
+      "control_shared": 1,
+      "hit": false
+    },
+    {
+      "query_id": "TC-A-0135",
+      "scope": "personal",
+      "selected": 0,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 1,
+      "shared": 1,
+      "missed_partners": [],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 1,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0169",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 2,
+      "shared": 2,
+      "missed_partners": [],
+      "partner_entries": [
+        1,
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 0,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0089",
+      "scope": "personal",
+      "selected": 0,
+      "descriptions": 1,
+      "reached": 0,
+      "partners": 1,
+      "shared": 0,
+      "missed_partners": [
+        "M-A-0217"
+      ],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 1,
+      "control_shared": 0,
+      "hit": false
+    },
+    {
+      "query_id": "TC-A-0015",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 1,
+      "shared": 1,
+      "missed_partners": [],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 0,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0140",
+      "scope": "personal",
+      "selected": 0,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 1,
+      "shared": 1,
+      "missed_partners": [],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 1,
+      "control_shared": 1,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0111",
+      "scope": "personal",
+      "selected": 0,
+      "descriptions": 2,
+      "reached": 0,
+      "partners": 1,
+      "shared": 0,
+      "missed_partners": [
+        "M-A-0277"
+      ],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 1,
+      "control_shared": 0,
+      "hit": false
+    },
+    {
+      "query_id": "TC-A-0090",
+      "scope": "personal",
+      "selected": 0,
+      "descriptions": 1,
+      "reached": 0,
+      "partners": 1,
+      "shared": 0,
+      "missed_partners": [
+        "M-A-0220"
+      ],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 1,
+      "control_shared": 0,
+      "hit": false
+    },
+    {
+      "query_id": "TC-A-0168",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 2,
+      "shared": 2,
+      "missed_partners": [],
+      "partner_entries": [
+        1,
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 0,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0050",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 1,
+      "shared": 1,
+      "missed_partners": [],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 0,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0044",
+      "scope": "personal",
+      "selected": 0,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 1,
+      "shared": 1,
+      "missed_partners": [],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 0,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0162",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 2,
+      "shared": 2,
+      "missed_partners": [],
+      "partner_entries": [
+        1,
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 0,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0042",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 1,
+      "shared": 1,
+      "missed_partners": [],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 0,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0156",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 2,
+      "shared": 2,
+      "missed_partners": [],
+      "partner_entries": [
+        1,
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 0,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0077",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 2,
+      "shared": 2,
+      "missed_partners": [],
+      "partner_entries": [
+        1,
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 0,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TW-0007",
+      "scope": "world",
+      "selected": 0,
+      "descriptions": 1,
+      "reached": 0,
+      "partners": 3,
+      "shared": 0,
+      "missed_partners": [
+        "M-C-0125",
+        "M-C-0124",
+        "M-C-0123"
+      ],
+      "partner_entries": [
+        1,
+        1,
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 1222,
+      "control_shared": 0,
+      "hit": false
+    },
+    {
+      "query_id": "TC-A-0122",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 1,
+      "shared": 1,
+      "missed_partners": [],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 1,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0088",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 1,
+      "shared": 1,
+      "missed_partners": [],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 1,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TW-0004",
+      "scope": "world",
+      "selected": 3,
+      "descriptions": 3,
+      "reached": 3,
+      "partners": 2,
+      "shared": 2,
+      "missed_partners": [],
+      "partner_entries": [
+        1,
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 1223,
+      "control_shared": 3,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0117",
+      "scope": "personal",
+      "selected": 2,
+      "descriptions": 2,
+      "reached": 2,
+      "partners": 1,
+      "shared": 1,
+      "missed_partners": [],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 1,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0130",
+      "scope": "personal",
+      "selected": 0,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 1,
+      "shared": 1,
+      "missed_partners": [],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 1,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0136",
+      "scope": "personal",
+      "selected": 0,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 1,
+      "shared": 1,
+      "missed_partners": [],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 1,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0035",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 1,
+      "shared": 1,
+      "missed_partners": [],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 0,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0153",
+      "scope": "personal",
+      "selected": 3,
+      "descriptions": 3,
+      "reached": 3,
+      "partners": 2,
+      "shared": 1,
+      "missed_partners": [
+        "M-A-0398"
+      ],
+      "partner_entries": [
+        1,
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 0,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0075",
+      "scope": "personal",
+      "selected": 0,
+      "descriptions": 1,
+      "reached": 0,
+      "partners": 1,
+      "shared": 0,
+      "missed_partners": [
+        "M-A-0177"
+      ],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 0,
+      "control_shared": 0,
+      "hit": false
+    },
+    {
+      "query_id": "TW-0003",
+      "scope": "world",
+      "selected": 2,
+      "descriptions": 2,
+      "reached": 2,
+      "partners": 14,
+      "shared": 11,
+      "missed_partners": [
+        "M-B-0592",
+        "M-C-0066",
+        "M-C-0151"
+      ],
+      "partner_entries": [
+        2,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 1211,
+      "control_shared": 3,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0032",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 1,
+      "shared": 1,
+      "missed_partners": [],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 0,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0114",
+      "scope": "personal",
+      "selected": 4,
+      "descriptions": 5,
+      "reached": 4,
+      "partners": 1,
+      "shared": 0,
+      "missed_partners": [
+        "M-A-0285"
+      ],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 1,
+      "control_shared": 0,
+      "hit": false
+    },
+    {
+      "query_id": "TC-A-0092",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 1,
+      "shared": 0,
+      "missed_partners": [
+        "M-A-0226"
+      ],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 0,
+      "control_shared": 0,
+      "hit": false
+    },
+    {
+      "query_id": "TC-A-0151",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 2,
+      "shared": 2,
+      "missed_partners": [],
+      "partner_entries": [
+        1,
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 0,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0103",
+      "scope": "personal",
+      "selected": 0,
+      "descriptions": 2,
+      "reached": 0,
+      "partners": 1,
+      "shared": 0,
+      "missed_partners": [
+        "M-A-0255"
+      ],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 0,
+      "control_shared": 0,
+      "hit": false
+    },
+    {
+      "query_id": "TC-A-0017",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 1,
+      "shared": 1,
+      "missed_partners": [],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 0,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0061",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 1,
+      "shared": 1,
+      "missed_partners": [],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 1,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0004",
+      "scope": "personal",
+      "selected": 0,
+      "descriptions": 1,
+      "reached": 0,
+      "partners": 1,
+      "shared": 0,
+      "missed_partners": [
+        "M-A-0007"
+      ],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 0,
+      "control_shared": 0,
+      "hit": false
+    },
+    {
+      "query_id": "TC-A-0029",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 2,
+      "shared": 2,
+      "missed_partners": [],
+      "partner_entries": [
+        1,
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 0,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0124",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 1,
+      "shared": 0,
+      "missed_partners": [
+        "M-A-0312"
+      ],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 1,
+      "control_shared": 0,
+      "hit": false
+    },
+    {
+      "query_id": "TC-A-0080",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 1,
+      "shared": 1,
+      "missed_partners": [],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 1,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0163",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 2,
+      "shared": 2,
+      "missed_partners": [],
+      "partner_entries": [
+        1,
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 0,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0161",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 2,
+      "shared": 2,
+      "missed_partners": [],
+      "partner_entries": [
+        1,
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 0,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0068",
+      "scope": "personal",
+      "selected": 2,
+      "descriptions": 2,
+      "reached": 2,
+      "partners": 1,
+      "shared": 1,
+      "missed_partners": [],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 1,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TW-0012",
+      "scope": "world",
+      "selected": 2,
+      "descriptions": 2,
+      "reached": 2,
+      "partners": 1,
+      "shared": 1,
+      "missed_partners": [],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 1224,
+      "control_shared": 1,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0108",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 1,
+      "shared": 1,
+      "missed_partners": [],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 1,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0155",
+      "scope": "personal",
+      "selected": 4,
+      "descriptions": 4,
+      "reached": 4,
+      "partners": 2,
+      "shared": 2,
+      "missed_partners": [],
+      "partner_entries": [
+        1,
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 0,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TW-0017",
+      "scope": "world",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 2,
+      "shared": 0,
+      "missed_partners": [
+        "M-B-0216",
+        "M-B-0165"
+      ],
+      "partner_entries": [
+        1,
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 1223,
+      "control_shared": 1,
+      "hit": false
+    },
+    {
+      "query_id": "TC-A-0102",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 1,
+      "shared": 1,
+      "missed_partners": [],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 1,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0148",
+      "scope": "personal",
+      "selected": 0,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 2,
+      "shared": 2,
+      "missed_partners": [],
+      "partner_entries": [
+        1,
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 0,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0087",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 1,
+      "shared": 1,
+      "missed_partners": [],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 1,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0097",
+      "scope": "personal",
+      "selected": 7,
+      "descriptions": 7,
+      "reached": 7,
+      "partners": 1,
+      "shared": 0,
+      "missed_partners": [
+        "M-A-0238"
+      ],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 0,
+      "control_shared": 0,
+      "hit": false
+    },
+    {
+      "query_id": "TC-A-0063",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 1,
+      "shared": 0,
+      "missed_partners": [
+        "M-A-0143"
+      ],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 1,
+      "control_shared": 0,
+      "hit": false
+    },
+    {
+      "query_id": "TC-A-0010",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 1,
+      "shared": 1,
+      "missed_partners": [],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 0,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0037",
+      "scope": "personal",
+      "selected": 3,
+      "descriptions": 3,
+      "reached": 3,
+      "partners": 1,
+      "shared": 1,
+      "missed_partners": [],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 0,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0074",
+      "scope": "personal",
+      "selected": 0,
+      "descriptions": 1,
+      "reached": 0,
+      "partners": 1,
+      "shared": 0,
+      "missed_partners": [
+        "M-A-0174"
+      ],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 1,
+      "control_shared": 0,
+      "hit": false
+    },
+    {
+      "query_id": "TC-A-0113",
+      "scope": "personal",
+      "selected": 4,
+      "descriptions": 4,
+      "reached": 4,
+      "partners": 1,
+      "shared": 0,
+      "missed_partners": [
+        "M-A-0282"
+      ],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 1,
+      "control_shared": 0,
+      "hit": false
+    },
+    {
+      "query_id": "TC-A-0091",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 1,
+      "shared": 0,
+      "missed_partners": [
+        "M-A-0223"
+      ],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 1,
+      "control_shared": 0,
+      "hit": false
+    },
+    {
+      "query_id": "TC-A-0166",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 2,
+      "shared": 2,
+      "missed_partners": [],
+      "partner_entries": [
+        1,
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 0,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0142",
+      "scope": "personal",
+      "selected": 0,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 1,
+      "shared": 1,
+      "missed_partners": [],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 1,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0170",
+      "scope": "personal",
+      "selected": 0,
+      "descriptions": 1,
+      "reached": 0,
+      "partners": 2,
+      "shared": 0,
+      "missed_partners": [
+        "M-A-0450",
+        "M-A-0449"
+      ],
+      "partner_entries": [
+        2,
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 0,
+      "control_shared": 0,
+      "hit": false
+    },
+    {
+      "query_id": "TC-A-0025",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 1,
+      "shared": 1,
+      "missed_partners": [],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 0,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0094",
+      "scope": "personal",
+      "selected": 0,
+      "descriptions": 1,
+      "reached": 0,
+      "partners": 1,
+      "shared": 0,
+      "missed_partners": [
+        "M-A-0230"
+      ],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 0,
+      "control_shared": 0,
+      "hit": false
+    },
+    {
+      "query_id": "TC-A-0083",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 2,
+      "shared": 2,
+      "missed_partners": [],
+      "partner_entries": [
+        1,
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 0,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0100",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 1,
+      "shared": 1,
+      "missed_partners": [],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 1,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0139",
+      "scope": "personal",
+      "selected": 0,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 1,
+      "shared": 1,
+      "missed_partners": [],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 1,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0039",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 1,
+      "shared": 1,
+      "missed_partners": [],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 0,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0078",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 1,
+      "shared": 1,
+      "missed_partners": [],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 1,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0022",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 1,
+      "shared": 1,
+      "missed_partners": [],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 0,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0070",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 1,
+      "shared": 0,
+      "missed_partners": [
+        "M-A-0163"
+      ],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 1,
+      "control_shared": 0,
+      "hit": false
+    },
+    {
+      "query_id": "TW-0019",
+      "scope": "world",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 2,
+      "shared": 2,
+      "missed_partners": [],
+      "partner_entries": [
+        1,
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 1223,
+      "control_shared": 1,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0143",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 1,
+      "shared": 1,
+      "missed_partners": [],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 1,
+      "control_shared": 1,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0149",
+      "scope": "personal",
+      "selected": 2,
+      "descriptions": 2,
+      "reached": 2,
+      "partners": 2,
+      "shared": 2,
+      "missed_partners": [],
+      "partner_entries": [
+        1,
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 0,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0079",
+      "scope": "personal",
+      "selected": 0,
+      "descriptions": 1,
+      "reached": 0,
+      "partners": 1,
+      "shared": 0,
+      "missed_partners": [
+        "M-A-0188"
+      ],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 1,
+      "control_shared": 0,
+      "hit": false
+    },
+    {
+      "query_id": "TC-A-0069",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 1,
+      "shared": 1,
+      "missed_partners": [],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 1,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0055",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 1,
+      "shared": 0,
+      "missed_partners": [
+        "M-A-0119"
+      ],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 1,
+      "control_shared": 0,
+      "hit": false
+    },
+    {
+      "query_id": "TC-A-0031",
+      "scope": "personal",
+      "selected": 0,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 1,
+      "shared": 1,
+      "missed_partners": [],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 0,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0003",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 1,
+      "shared": 1,
+      "missed_partners": [],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 0,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0023",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 1,
+      "shared": 1,
+      "missed_partners": [],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 0,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0082",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 1,
+      "shared": 1,
+      "missed_partners": [],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 1,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0095",
+      "scope": "personal",
+      "selected": 0,
+      "descriptions": 1,
+      "reached": 0,
+      "partners": 1,
+      "shared": 0,
+      "missed_partners": [
+        "M-A-0232"
+      ],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 0,
+      "control_shared": 0,
+      "hit": false
+    },
+    {
+      "query_id": "TC-A-0067",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 1,
+      "shared": 1,
+      "missed_partners": [],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 1,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TW-0022",
+      "scope": "world",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 3,
+      "shared": 2,
+      "missed_partners": [
+        "M-B-0028"
+      ],
+      "partner_entries": [
+        1,
+        1,
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 1222,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TW-0018",
+      "scope": "world",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 2,
+      "shared": 1,
+      "missed_partners": [
+        "M-B-0106"
+      ],
+      "partner_entries": [
+        1,
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 1223,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0084",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 1,
+      "shared": 1,
+      "missed_partners": [],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 0,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0127",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 1,
+      "shared": 1,
+      "missed_partners": [],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 1,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0052",
+      "scope": "personal",
+      "selected": 0,
+      "descriptions": 1,
+      "reached": 0,
+      "partners": 1,
+      "shared": 0,
+      "missed_partners": [
+        "M-A-0110"
+      ],
+      "partner_entries": [
+        2
+      ],
+      "missing_entry": 0,
+      "control_pairs": 1,
+      "control_shared": 0,
+      "hit": false
+    },
+    {
+      "query_id": "TC-A-0045",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 1,
+      "shared": 1,
+      "missed_partners": [],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 0,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0099",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 1,
+      "shared": 1,
+      "missed_partners": [],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 1,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0066",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 2,
+      "shared": 0,
+      "missed_partners": [
+        "M-A-0152",
+        "M-A-0151"
+      ],
+      "partner_entries": [
+        1,
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 0,
+      "control_shared": 0,
+      "hit": false
+    },
+    {
+      "query_id": "TC-A-0054",
+      "scope": "personal",
+      "selected": 2,
+      "descriptions": 2,
+      "reached": 2,
+      "partners": 1,
+      "shared": 1,
+      "missed_partners": [],
+      "partner_entries": [
+        2
+      ],
+      "missing_entry": 0,
+      "control_pairs": 1,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TW-0011",
+      "scope": "world",
+      "selected": 0,
+      "descriptions": 1,
+      "reached": 0,
+      "partners": 1,
+      "shared": 0,
+      "missed_partners": [
+        "M-B-0137"
+      ],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 1224,
+      "control_shared": 0,
+      "hit": false
+    },
+    {
+      "query_id": "TC-A-0060",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 2,
+      "shared": 2,
+      "missed_partners": [],
+      "partner_entries": [
+        1,
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 0,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0112",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 1,
+      "shared": 1,
+      "missed_partners": [],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 0,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0021",
+      "scope": "personal",
+      "selected": 0,
+      "descriptions": 1,
+      "reached": 0,
+      "partners": 1,
+      "shared": 0,
+      "missed_partners": [
+        "M-A-0042"
+      ],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 0,
+      "control_shared": 0,
+      "hit": false
+    },
+    {
+      "query_id": "TC-A-0011",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 1,
+      "shared": 1,
+      "missed_partners": [],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 0,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0146",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 2,
+      "shared": 2,
+      "missed_partners": [],
+      "partner_entries": [
+        1,
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 0,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TW-0010",
+      "scope": "world",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 1,
+      "shared": 1,
+      "missed_partners": [],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 1224,
+      "control_shared": 1,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0109",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 1,
+      "shared": 1,
+      "missed_partners": [],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 1,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0129",
+      "scope": "personal",
+      "selected": 0,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 1,
+      "shared": 1,
+      "missed_partners": [],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 1,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0008",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 1,
+      "shared": 1,
+      "missed_partners": [],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 0,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0007",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 1,
+      "shared": 1,
+      "missed_partners": [],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 0,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0059",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 2,
+      "shared": 0,
+      "missed_partners": [
+        "M-A-0131",
+        "M-A-0132"
+      ],
+      "partner_entries": [
+        1,
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 0,
+      "control_shared": 0,
+      "hit": false
+    },
+    {
+      "query_id": "TC-A-0026",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 1,
+      "shared": 1,
+      "missed_partners": [],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 0,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0106",
+      "scope": "personal",
+      "selected": 4,
+      "descriptions": 4,
+      "reached": 4,
+      "partners": 1,
+      "shared": 1,
+      "missed_partners": [],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 1,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TW-0021",
+      "scope": "world",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 1,
+      "shared": 1,
+      "missed_partners": [],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 1224,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0158",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 2,
+      "shared": 2,
+      "missed_partners": [],
+      "partner_entries": [
+        1,
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 0,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0049",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 1,
+      "shared": 1,
+      "missed_partners": [],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 0,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0034",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 1,
+      "shared": 1,
+      "missed_partners": [],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 0,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0013",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 1,
+      "shared": 1,
+      "missed_partners": [],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 0,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0040",
+      "scope": "personal",
+      "selected": 1,
+      "descriptions": 1,
+      "reached": 1,
+      "partners": 1,
+      "shared": 1,
+      "missed_partners": [],
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 0,
+      "control_shared": 0,
+      "hit": true
+    }
+  ]
+}

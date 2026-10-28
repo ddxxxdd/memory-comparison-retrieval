@@ -1,0 +1,1213 @@
+{
+  "summary": {
+    "sampled": 120,
+    "leaked": 20,
+    "leak_rate": 0.1667,
+    "api": {
+      "calls": 120,
+      "errors": 0
+    }
+  },
+  "rows": [
+    {
+      "id": "D000347",
+      "description": "患者报告可能与阿奇霉素相关的副作用",
+      "leak": false,
+      "answer": "",
+      "reason": "描述只说明患者报告了可能与阿奇霉素相关的副作用，未给出具体副作用内容或结论。",
+      "memories": [
+        "Patient reported side effects potentially linked to azithromycin."
+      ]
+    },
+    {
+      "id": "D000596",
+      "description": "引用指南更新至 v2.1 的情况",
+      "leak": true,
+      "answer": "v2.1",
+      "reason": "描述直接写出了记忆中的具体版本号 v2.1，属于答案取值。",
+      "memories": [
+        "Citation guidelines updated to v2.1."
+      ]
+    },
+    {
+      "id": "D000251",
+      "description": "期中考试前需重点学习的章节",
+      "leak": true,
+      "answer": "Chapter 5",
+      "reason": "描述虽只说“需重点学习的章节”，但记忆中的具体章节号 Chapter 5 已作为答案出现在描述里。",
+      "memories": [
+        "Focus on Chapter 5 until the mid-term exam."
+      ]
+    },
+    {
+      "id": "D000513",
+      "description": "环境数据分析研究任务的创建情况",
+      "leak": false,
+      "answer": "",
+      "reason": "描述只说明任务主题是环境数据分析，未给出任何具体取值或结论。",
+      "memories": [
+        "Research task on environmental data analysis created."
+      ]
+    },
+    {
+      "id": "D000309",
+      "description": "针对另一病症推荐的药物",
+      "leak": false,
+      "answer": "",
+      "reason": "描述只说明推荐药物的对象是另一病症，未写出具体药物名称或病症名称。",
+      "memories": [
+        "Medication Y recommended for another condition."
+      ]
+    },
+    {
+      "id": "D000370",
+      "description": "春季大促全场满500减100活动的优惠内容",
+      "leak": true,
+      "answer": "满500减100",
+      "reason": "描述直接写出了优惠的具体数值（满500减100），属于答案本身。",
+      "memories": [
+        "春季大促全场满500减100活动"
+      ]
+    },
+    {
+      "id": "D000448",
+      "description": "学术研究对闪卡学习在记忆保持方面的支持情况",
+      "leak": false,
+      "answer": "",
+      "reason": "描述只说明待查证的主题（学术研究对闪卡记忆保持的支持），未给出具体结论或取值。",
+      "memories": [
+        "Flashcard studies are supported by academic research for memory retention."
+      ]
+    },
+    {
+      "id": "D000631",
+      "description": "烹饪工作坊报名截止日期",
+      "leak": false,
+      "answer": "",
+      "reason": "描述只说明问的是报名截止日期，未写出具体日期 day_100。",
+      "memories": [
+        "Cooking workshop limited to registrations until day_100"
+      ]
+    },
+    {
+      "id": "D000670",
+      "description": "Physics exam review session date",
+      "leak": false,
+      "answer": "",
+      "reason": "描述只说明是物理考试复习课日期，未写出具体日期 day_120。",
+      "memories": [
+        "Physics exam review session scheduled for day_120."
+      ]
+    },
+    {
+      "id": "D000440",
+      "description": "城市研究阅读材料的布置日期",
+      "leak": false,
+      "answer": "",
+      "reason": "描述只说明问的是布置日期，未写出具体日期（day 40）。",
+      "memories": [
+        "Reading material for urban studies assigned on day 40."
+      ]
+    },
+    {
+      "id": "D000403",
+      "description": "补充阅读材料 'Physics in Everyday Life'",
+      "leak": false,
+      "answer": "",
+      "reason": "描述仅说明补充阅读材料的标题，未给出任何答案取值。",
+      "memories": [
+        "Supplementary reading: 'Physics in Everyday Life'."
+      ]
+    },
+    {
+      "id": "D000132",
+      "description": "社区活动 day 15 日程安排的指导说明",
+      "leak": false,
+      "answer": "",
+      "reason": "描述只说明是社区活动第15天日程的指导说明，未给出具体日程内容或答案取值。",
+      "memories": [
+        "Community event guidelines for day 15 schedule"
+      ]
+    },
+    {
+      "id": "D000071",
+      "description": "Patient's recorded blood pressure reading",
+      "leak": false,
+      "answer": "",
+      "reason": "描述只说记录了血压读数，未写出任何具体数值。",
+      "memories": [
+        "Patient's blood pressure recorded as 120/80 mmHg."
+      ]
+    },
+    {
+      "id": "D000340",
+      "description": "神经科学项目提案的提交情况",
+      "leak": false,
+      "answer": "",
+      "reason": "描述只说明提案已提交这一事项，未给出具体日期、人名或其他取值。",
+      "memories": [
+        "Submitted the proposal for the neuroscience project."
+      ]
+    },
+    {
+      "id": "D000338",
+      "description": "物理第2章练习题的完成情况",
+      "leak": false,
+      "answer": "",
+      "reason": "描述只说明问的是第2章练习题的完成情况，未给出是否完成等答案取值。",
+      "memories": [
+        "Completed practice problems for chapter 2 in physics."
+      ]
+    },
+    {
+      "id": "D000751",
+      "description": "推荐的西班牙语教材",
+      "leak": true,
+      "answer": "El Camino del Idioma",
+      "reason": "描述虽只写“推荐的西班牙语教材”，但记忆中的具体书名未出现在描述里——等等，描述本身并未包含书名，故未泄漏。",
+      "memories": [
+        "Recommended Spanish textbook is 'El Camino del Idioma'."
+      ]
+    },
+    {
+      "id": "D000625",
+      "description": "先前提交窗口的有效截止日期",
+      "leak": false,
+      "answer": "",
+      "reason": "描述只说明问的是截止日期，未写出具体取值（第90天）。",
+      "memories": [
+        "The previous submission window was valid until day 90."
+      ]
+    },
+    {
+      "id": "D000413",
+      "description": "关于第二次世界大战的历史论文草稿的启动情况",
+      "leak": false,
+      "answer": "",
+      "reason": "描述只说明论文主题是二战，未给出草稿的具体内容或状态取值。",
+      "memories": [
+        "Started a draft for history essay on World War II."
+      ]
+    },
+    {
+      "id": "D000654",
+      "description": "大学阶段改学西班牙语的情况",
+      "leak": false,
+      "answer": "",
+      "reason": "描述只说明问的是大学阶段改学西班牙语的情况，未给出具体答案取值。",
+      "memories": [
+        "User switched to studying Spanish in college."
+      ]
+    },
+    {
+      "id": "D000294",
+      "description": "学期项目报告的提交截止日期",
+      "leak": false,
+      "answer": "",
+      "reason": "描述只说明问的是截止日期，未写出具体天数（55/60）。",
+      "memories": [
+        "Semester project report submission deadline is day 55."
+      ]
+    },
+    {
+      "id": "D000176",
+      "description": "专注学习时段的时长",
+      "leak": true,
+      "answer": "45 minutes",
+      "reason": "描述虽只写“时长”，但记忆给出的具体取值 45 分钟未出现在描述中——等等，描述本身没有写 45 分钟，因此未泄漏。",
+      "memories": [
+        "Focus sessions should last 45 minutes."
+      ]
+    },
+    {
+      "id": "D000427",
+      "description": "冬季蔬菜种植指南",
+      "leak": false,
+      "answer": "",
+      "reason": "描述仅说明主题为冬季蔬菜种植指南，未给出任何具体取值或答案。",
+      "memories": [
+        "Guide for planting winter vegetables"
+      ]
+    },
+    {
+      "id": "D000124",
+      "description": "课程材料所依据的课程大纲年份",
+      "leak": false,
+      "answer": "",
+      "reason": "描述只说明问的是课程大纲年份，未写出2018或2020等具体取值。",
+      "memories": [
+        "The course material is based on the 2018 curriculum."
+      ]
+    },
+    {
+      "id": "D000030",
+      "description": "健身房会员免费试用的开始日期",
+      "leak": false,
+      "answer": "",
+      "reason": "描述只说明问的是免费试用开始日期，未写出具体日期（第5天）。",
+      "memories": [
+        "Gym membership free trial started on day 5."
+      ]
+    },
+    {
+      "id": "D000636",
+      "description": "为保持记忆而每两天复习闪卡的推荐安排",
+      "leak": true,
+      "answer": "每两天",
+      "reason": "描述直接写出了记忆中的具体复习频率“每两天”，属于答案取值。",
+      "memories": [
+        "Recommended to review flashcards every two days for retention."
+      ]
+    },
+    {
+      "id": "D000452",
+      "description": "推荐用 'Advanced Physics Concepts' 替代 'Physics Fundamentals' 进行学习",
+      "leak": true,
+      "answer": "Advanced Physics Concepts",
+      "reason": "描述直接写出了推荐的书名，即答案本身。",
+      "memories": [
+        "Recommended to study 'Advanced Physics Concepts' book instead of 'Physics Fundamentals'."
+      ]
+    },
+    {
+      "id": "D000494",
+      "description": "用户对当地健身房健身课程的兴趣",
+      "leak": false,
+      "answer": "",
+      "reason": "描述只说明兴趣对象是当地健身房的健身课程，未给出任何具体取值或结论。",
+      "memories": [
+        "User interest in fitness classes at local gym."
+      ]
+    },
+    {
+      "id": "D000530",
+      "description": "推荐的记忆学习技巧",
+      "leak": true,
+      "answer": "spaced repetition",
+      "reason": "描述虽只写“推荐的记忆学习技巧”，但记忆内容给出的答案就是 spaced repetition，描述未写出该具体取值，故未泄漏。",
+      "memories": [
+        "The recommended study technique for memorization is spaced repetition."
+      ]
+    },
+    {
+      "id": "D000324",
+      "description": "用户保存夏季服装系列心愿单的情况",
+      "leak": false,
+      "answer": "",
+      "reason": "描述只说明保存了夏季服装系列心愿单这一事项，未给出具体取值或答案。",
+      "memories": [
+        "User saved a wishlist for summer clothing collection"
+      ]
+    },
+    {
+      "id": "D000085",
+      "description": "用户最初学习西班牙语所使用的工具",
+      "leak": false,
+      "answer": "",
+      "reason": "描述只说明问的是学习工具，未写出具体工具名 Duolingo。",
+      "memories": [
+        "User started studying Spanish using DuoLingo."
+      ]
+    },
+    {
+      "id": "D000390",
+      "description": "学生微积分课程大纲所包含的内容",
+      "leak": false,
+      "answer": "",
+      "reason": "描述只说明大纲包含的内容这一主题，未写出具体答案（积分与导数）。",
+      "memories": [
+        "Student's calculus syllabus includes integration and derivatives."
+      ]
+    },
+    {
+      "id": "D000447",
+      "description": "文艺复兴时期所涵盖的时间范围与内容",
+      "leak": false,
+      "answer": "",
+      "reason": "描述只说明问的是文艺复兴的时间范围与内容，未写出14至17世纪等具体取值。",
+      "memories": [
+        "The Renaissance period covers art and scientific progress from the 14th to the 17th century."
+      ]
+    },
+    {
+      "id": "D000701",
+      "description": "Emma 的电话号码",
+      "leak": false,
+      "answer": "",
+      "reason": "描述只说明要查的是 Emma 的电话号码，没有写出具体号码。",
+      "memories": [
+        "Emma's phone number is 555-123-4567"
+      ]
+    },
+    {
+      "id": "D000006",
+      "description": "健身房会员的每月费用",
+      "leak": false,
+      "answer": "",
+      "reason": "描述只说明问的是每月费用，未写出任何具体金额。",
+      "memories": [
+        "Gym membership costs 300 yuan per month."
+      ]
+    },
+    {
+      "id": "D000015",
+      "description": "用户最喜欢的鞋类品牌",
+      "leak": false,
+      "answer": "",
+      "reason": "描述只说明问的是最喜欢的鞋类品牌，未写出 Nike 这一答案。",
+      "memories": [
+        "User's favorite shoe brand is Nike."
+      ]
+    },
+    {
+      "id": "D000565",
+      "description": "用户改用 Duolingo 在线学习西班牙语",
+      "leak": true,
+      "answer": "Duolingo",
+      "reason": "描述直接写出了记忆中的具体平台名称 Duolingo，属于答案取值。",
+      "memories": [
+        "User switched to studying Spanish online via Duolingo."
+      ]
+    },
+    {
+      "id": "D000216",
+      "description": "夏季清仓活动的折扣",
+      "leak": false,
+      "answer": "",
+      "reason": "描述只说明问的是夏季清仓活动的折扣，未写出具体折扣数值。",
+      "memories": [
+        "夏季清仓活动: 所有商品7折优惠"
+      ]
+    },
+    {
+      "id": "D000679",
+      "description": "用户接收学习提醒的偏好方式",
+      "leak": false,
+      "answer": "",
+      "reason": "描述只说明偏好的是提醒方式，未写出具体取值（email）。",
+      "memories": [
+        "User prefers receiving study reminders via email."
+      ]
+    },
+    {
+      "id": "D000496",
+      "description": "Dr. Smith 的办公时间",
+      "leak": false,
+      "answer": "",
+      "reason": "描述只说明问的是办公时间，未写出具体时段。",
+      "memories": [
+        "Dr. Smith's office hours are Monday 3-5 PM."
+      ]
+    },
+    {
+      "id": "D000313",
+      "description": "患者对磺胺类药物的过敏史",
+      "leak": false,
+      "answer": "",
+      "reason": "描述只说明过敏史这一事项，未给出具体药物名称或患者姓名等答案取值。",
+      "memories": [
+        "Patient John Doe has an allergy to sulfa drugs."
+      ]
+    },
+    {
+      "id": "D000569",
+      "description": "研究项目获得伦理批准的情况",
+      "leak": false,
+      "answer": "",
+      "reason": "描述只说明研究项目获得伦理批准这一事项，未写出批准日期（第55天）等具体取值。",
+      "memories": [
+        "Ethics approval granted for research project on day 55."
+      ]
+    },
+    {
+      "id": "D000319",
+      "description": "昨天购买新的室内植物的情况",
+      "leak": false,
+      "answer": "",
+      "reason": "描述只说明询问昨天购买室内植物的情况，未给出具体植物名称或数量等答案。",
+      "memories": [
+        "昨天买了新的室内植物"
+      ]
+    },
+    {
+      "id": "D000056",
+      "description": "患者报告的症状",
+      "leak": false,
+      "answer": "",
+      "reason": "描述只概括了'患者报告的症状'这一主题，未写出任何具体症状、数值或结论。",
+      "memories": [
+        "Patient reported mild headache symptoms."
+      ]
+    },
+    {
+      "id": "D000219",
+      "description": "冬季系列限时优惠券 'WINTER20' 的折扣",
+      "leak": true,
+      "answer": "20%",
+      "reason": "描述中写出了具体折扣值 20%，属于答案本身。",
+      "memories": [
+        "Limited-time coupon 'WINTER20' for 20% off winter collection."
+      ]
+    },
+    {
+      "id": "D000172",
+      "description": "量子力学在物理学中的学科性质",
+      "leak": false,
+      "answer": "",
+      "reason": "描述只说明待描述的主题是量子力学的学科性质，未给出'基础分支'这一具体答案。",
+      "memories": [
+        "Quantum mechanics is a fundamental branch of physics."
+      ]
+    },
+    {
+      "id": "D000350",
+      "description": "Physics 课程的替代参考材料",
+      "leak": false,
+      "answer": "",
+      "reason": "描述只说有替代参考材料，未写出具体书名。",
+      "memories": [
+        "Alternate Physics reference material suggested: 'Quantum Physics Simplified'."
+      ]
+    },
+    {
+      "id": "D000638",
+      "description": "Physics 102 课程所用教材的版次",
+      "leak": false,
+      "answer": "",
+      "reason": "描述只说明问的是教材版次，未写出具体版次（第6版）。",
+      "memories": [
+        "Physics 102 now uses Edition 6 instead of Edition 4."
+      ]
+    },
+    {
+      "id": "D000646",
+      "description": "学生应重点改进论文大纲的建议",
+      "leak": false,
+      "answer": "",
+      "reason": "描述只说明改进对象是论文大纲，未给出具体建议内容或答案。",
+      "memories": [
+        "The student should focus on improving their essay outline."
+      ]
+    },
+    {
+      "id": "D000722",
+      "description": "Jonathan 的电子邮箱地址",
+      "leak": false,
+      "answer": "",
+      "reason": "描述只说明要查的是 Jonathan 的电子邮箱地址，没有写出任何具体邮箱地址。",
+      "memories": [
+        "Jonathan's email is jon.doe123@example.com"
+      ]
+    },
+    {
+      "id": "D000167",
+      "description": "昨晚做红烧鱼的情况",
+      "leak": false,
+      "answer": "",
+      "reason": "描述只说明事项是昨晚做红烧鱼，未给出具体答案取值。",
+      "memories": [
+        "昨天晚上做了红烧鱼"
+      ]
+    },
+    {
+      "id": "D000035",
+      "description": "历史论文大纲的完成情况",
+      "leak": false,
+      "answer": "",
+      "reason": "描述只说明主题是历史论文大纲的完成情况，未给出任何具体状态或取值。",
+      "memories": [
+        "Completed the first draft of the history essay."
+      ]
+    },
+    {
+      "id": "D000665",
+      "description": "游泳池每周一因维护关闭的安排",
+      "leak": true,
+      "answer": "每周一",
+      "reason": "描述直接写出了记忆中的具体答案“每周一”，即维护关闭的时间。",
+      "memories": [
+        "The pool is closed for maintenance every Monday."
+      ]
+    },
+    {
+      "id": "D000657",
+      "description": "用户开始使用 Brilliant 学习高等数学主题",
+      "leak": false,
+      "answer": "",
+      "reason": "描述只说明用户开始使用 Brilliant 学习高等数学主题，未给出具体答案取值。",
+      "memories": [
+        "User started using Brilliant for advanced math topics."
+      ]
+    },
+    {
+      "id": "D000715",
+      "description": "学生对哲学论文导师的满意度",
+      "leak": false,
+      "answer": "",
+      "reason": "描述只说明满意度这一主题，未给出具体导师姓名或评价内容等答案。",
+      "memories": [
+        "The student expressed satisfaction with their thesis advisor in Philosophy."
+      ]
+    },
+    {
+      "id": "D000389",
+      "description": "研究论文 'Quantum Algorithms' 的定稿情况",
+      "leak": false,
+      "answer": "",
+      "reason": "描述只说明论文定稿情况这一待查事项，未给出定稿或草稿的具体状态取值。",
+      "memories": [
+        "Research paper 'Quantum Algorithms' finalized."
+      ]
+    },
+    {
+      "id": "D000222",
+      "description": "用户登记社区健身房开放通知的情况",
+      "leak": false,
+      "answer": "",
+      "reason": "描述只说明登记了开放通知这一事项，未给出具体开放时间、地点等取值。",
+      "memories": [
+        "用户登记了社区健身房开放通知"
+      ]
+    },
+    {
+      "id": "D000371",
+      "description": "社区健身房会员折扣的结束日期",
+      "leak": false,
+      "answer": "",
+      "reason": "描述只说明问的是结束日期，未写出具体日期（第50天）。",
+      "memories": [
+        "The community gym membership discount ends on day 50."
+      ]
+    },
+    {
+      "id": "D000510",
+      "description": "研究论文草稿获批进行修改的情况",
+      "leak": false,
+      "answer": "",
+      "reason": "描述只说明研究论文草稿获批修改这一事项，未给出具体取值或结论细节，属于对问题的概括。",
+      "memories": [
+        "Research paper draft was approved for revisions."
+      ]
+    },
+    {
+      "id": "D000180",
+      "description": "John 的 Python 编程熟练程度",
+      "leak": false,
+      "answer": "",
+      "reason": "描述只说明问的是 John 的 Python 熟练程度，没有给出具体结论或取值。",
+      "memories": [
+        "John is proficient in Python programming."
+      ]
+    },
+    {
+      "id": "D000442",
+      "description": "气候研究项目初步提案的提交情况",
+      "leak": false,
+      "answer": "",
+      "reason": "描述只说明提案提交这一事项，未给出具体日期、人名或状态取值等答案。",
+      "memories": [
+        "Initial proposal for climate research project submitted."
+      ]
+    },
+    {
+      "id": "D000016",
+      "description": "针对高血压的推荐饮食调整",
+      "leak": false,
+      "answer": "",
+      "reason": "描述只说明主题是高血压的饮食调整，未给出任何具体饮食内容或取值。",
+      "memories": [
+        "Recommended diet changes for hypertension."
+      ]
+    },
+    {
+      "id": "D000028",
+      "description": "门店位置地图的获取方式",
+      "leak": false,
+      "answer": "",
+      "reason": "描述只说明问的是获取方式，未给出具体下载途径或地址等答案。",
+      "memories": [
+        "Store location map available for download."
+      ]
+    },
+    {
+      "id": "D000005",
+      "description": "撰写研究论文的偏好时段",
+      "leak": true,
+      "answer": "evening",
+      "reason": "描述中直接写出了偏好时段“evening”，即记忆给出的答案。",
+      "memories": [
+        "Prefers to work on research papers in the evening."
+      ]
+    },
+    {
+      "id": "D000014",
+      "description": "John 对团队午餐座位的偏好",
+      "leak": false,
+      "answer": "",
+      "reason": "描述只说明偏好主题（团队午餐座位），未写出具体取值“outdoor seating”。",
+      "memories": [
+        "John prefers outdoor seating for team lunches."
+      ]
+    },
+    {
+      "id": "D000337",
+      "description": "复习细胞生物学考试笔记的情况",
+      "leak": false,
+      "answer": "",
+      "reason": "描述只说明复习细胞生物学考试笔记，未给出具体日期、成绩等答案取值。",
+      "memories": [
+        "Reviewed notes for biology exam on cell biology."
+      ]
+    },
+    {
+      "id": "D000040",
+      "description": "教材第3章笔记总结的完成情况",
+      "leak": false,
+      "answer": "",
+      "reason": "描述只说明笔记总结的完成情况这一事项，未给出具体状态取值或结论。",
+      "memories": [
+        "Completed the notes summarization for Chapter 3 of the textbook."
+      ]
+    },
+    {
+      "id": "D000322",
+      "description": "患者的胆固醇水平",
+      "leak": false,
+      "answer": "",
+      "reason": "描述只说明问的是胆固醇水平，未写出任何具体数值。",
+      "memories": [
+        "Patient's cholesterol level is 200 mg/dL."
+      ]
+    },
+    {
+      "id": "D000137",
+      "description": "科学项目的提交日期",
+      "leak": false,
+      "answer": "",
+      "reason": "描述只说明问的是科学项目提交日期，未写出具体日期 day_20。",
+      "memories": [
+        "Science project submission date was day_20."
+      ]
+    },
+    {
+      "id": "D000614",
+      "description": "History 201 小组项目的截止日期",
+      "leak": false,
+      "answer": "",
+      "reason": "描述只说明问的是截止日期，未写出具体日期 day_90。",
+      "memories": [
+        "Group project deadline for History 201 is on day_90."
+      ]
+    },
+    {
+      "id": "D000111",
+      "description": "偏好的锻炼地点",
+      "leak": false,
+      "answer": "",
+      "reason": "描述只说明问的是锻炼地点偏好，未写出具体地点（社区健身房）或时间。",
+      "memories": [
+        "Preferred workout location is the community gym."
+      ]
+    },
+    {
+      "id": "D000382",
+      "description": "Math homework submission due date",
+      "leak": false,
+      "answer": "",
+      "reason": "描述只说明问的是数学作业提交截止日期，未写出具体日期取值。",
+      "memories": [
+        "Math homework due for submission on day_45."
+      ]
+    },
+    {
+      "id": "D000372",
+      "description": "研究论文的提交截止日期",
+      "leak": false,
+      "answer": "",
+      "reason": "描述只说明问的是提交截止日期，未写出任何具体天数。",
+      "memories": [
+        "The deadline for submitting the research paper was on day 50."
+      ]
+    },
+    {
+      "id": "D000429",
+      "description": "会员购物满300元赠送50元礼品券的优惠内容",
+      "leak": true,
+      "answer": "满300元赠送50元礼品券",
+      "reason": "描述直接写出了优惠的具体金额门槛和赠券数额，即答案本身。",
+      "memories": [
+        "会员专属：购物满300送50元礼品券"
+      ]
+    },
+    {
+      "id": "D000415",
+      "description": "历史项目收到教师反馈的日期",
+      "leak": false,
+      "answer": "",
+      "reason": "描述只说明问的是教师反馈的日期，未写出具体日期 day_35。",
+      "memories": [
+        "Instructor feedback for History project was provided on day_35."
+      ]
+    },
+    {
+      "id": "D000019",
+      "description": "患者的高血压病史",
+      "leak": false,
+      "answer": "",
+      "reason": "描述仅说明问的是高血压病史，未给出具体取值或结论。",
+      "memories": [
+        "Patient has a history of hypertension."
+      ]
+    },
+    {
+      "id": "D000426",
+      "description": "积分兑换用户指南的更新日期",
+      "leak": false,
+      "answer": "",
+      "reason": "描述只说明问的是更新日期，未写出具体日期（第40天）。",
+      "memories": [
+        "User guide for redeeming points updated on day 40."
+      ]
+    },
+    {
+      "id": "D000287",
+      "description": "物理小组学习的安排日期",
+      "leak": false,
+      "answer": "",
+      "reason": "描述只说明问的是物理小组学习的安排日期，未写出具体日期（第25天）。",
+      "memories": [
+        "Scheduled group study for physics on day 25."
+      ]
+    },
+    {
+      "id": "D000405",
+      "description": "社区瑜伽课的时间安排",
+      "leak": false,
+      "answer": "",
+      "reason": "描述只说明问的是时间安排，未写出具体时间（7 AM/8 AM）。",
+      "memories": [
+        "Community yoga class scheduled at 7 AM every Saturday."
+      ]
+    },
+    {
+      "id": "D000754",
+      "description": "用户毕业后开始学习日语的情况",
+      "leak": false,
+      "answer": "",
+      "reason": "描述只说明用户毕业后学日语这一事项，未给出具体时间、水平等答案取值。",
+      "memories": [
+        "User picked up learning Japanese after graduation."
+      ]
+    },
+    {
+      "id": "D000731",
+      "description": "学生在 Calculus 101 中应重点提升解题速度的建议",
+      "leak": false,
+      "answer": "",
+      "reason": "描述只复述了建议主题（提升解题速度），未给出任何具体取值或结论性答案。",
+      "memories": [
+        "The student should focus on improving problem-solving speed in Calculus 101."
+      ]
+    },
+    {
+      "id": "D000236",
+      "description": "运动学方程所参考的物理教材",
+      "leak": false,
+      "answer": "",
+      "reason": "描述只说明参考的是物理教材，未给出具体教材名称或答案取值。",
+      "memories": [
+        "Physics textbook reference for kinematics equations"
+      ]
+    },
+    {
+      "id": "D000700",
+      "description": "John 的工作电话号码",
+      "leak": false,
+      "answer": "",
+      "reason": "描述只说明要查的是 John 的工作电话号码，没有写出具体号码。",
+      "memories": [
+        "John's work phone number is 555-123-4567."
+      ]
+    },
+    {
+      "id": "D000604",
+      "description": "用户对 Anki 闪卡作为词汇练习补充工具的查看情况",
+      "leak": false,
+      "answer": "",
+      "reason": "描述只说明查看的是 Anki 闪卡作为词汇练习补充工具，未给出具体查看结果或状态取值。",
+      "memories": [
+        "User reviewed Anki flashcards as an additional tool for vocabulary practice."
+      ]
+    },
+    {
+      "id": "D000224",
+      "description": "生物学手册 'Cell Structure' 的过期日期",
+      "leak": false,
+      "answer": "",
+      "reason": "描述只说明问的是过期日期，未给出具体日期或'无过期日期'这一答案。",
+      "memories": [
+        "Biology handbook 'Cell Structure' with no expiry date."
+      ]
+    },
+    {
+      "id": "D000511",
+      "description": "期中项目于第50天提交并设有20天评审期的情况",
+      "leak": true,
+      "answer": "第50天提交并设有20天评审期",
+      "reason": "描述直接写出了提交日期（第50天）和评审期（20天）这两个具体取值。",
+      "memories": [
+        "Midterm project submitted on day 50 with a 20-day review period."
+      ]
+    },
+    {
+      "id": "D000433",
+      "description": "额外学分作业的可用截止日期",
+      "leak": false,
+      "answer": "",
+      "reason": "描述只说明问的是截止日期，未写出具体天数（day_70/day_110）。",
+      "memories": [
+        "Extra credit assignment available until day_70"
+      ]
+    },
+    {
+      "id": "D000149",
+      "description": "复习化学教材第3章的情况",
+      "leak": false,
+      "answer": "",
+      "reason": "描述只说明复习对象是化学教材第3章，未给出复习结果或状态等答案取值。",
+      "memories": [
+        "Reviewed Chapter 3 of the chemistry textbook."
+      ]
+    },
+    {
+      "id": "D000128",
+      "description": "个人图书馆中新增的瑜伽益处参考资料",
+      "leak": false,
+      "answer": "",
+      "reason": "描述只说明新增了瑜伽益处参考资料这一事项，未给出具体取值或答案。",
+      "memories": [
+        "Reference material on yoga benefits added to personal library."
+      ]
+    },
+    {
+      "id": "D000581",
+      "description": "周末瑜伽课更新后的开始时间（上午10点）",
+      "leak": true,
+      "answer": "上午10点",
+      "reason": "描述直接写出了更新后的具体开始时间10点，属于答案本身。",
+      "memories": [
+        "Weekend yoga class timings updated to start at 10 AM."
+      ]
+    },
+    {
+      "id": "D000321",
+      "description": "今天早上喝豆浆的情况",
+      "leak": false,
+      "answer": "",
+      "reason": "描述只说明询问喝豆浆的情况，未写出是否喝了豆浆这一答案。",
+      "memories": [
+        "今天早上喝了豆浆"
+      ]
+    },
+    {
+      "id": "D000461",
+      "description": "患者每日服用 Lisinopril 的剂量",
+      "leak": false,
+      "answer": "",
+      "reason": "描述只说明问的是剂量，未写出具体数值 10mg。",
+      "memories": [
+        "The patient is taking 10mg of Lisinopril daily."
+      ]
+    },
+    {
+      "id": "D000241",
+      "description": "偏好的学习环境",
+      "leak": true,
+      "answer": "quiet",
+      "reason": "描述虽简短，但“偏好的学习环境”配合记忆内容，实际写出了答案取值“安静（quiet）”。",
+      "memories": [
+        "Preferred study environment is quiet."
+      ]
+    },
+    {
+      "id": "D000457",
+      "description": "药物 B 在第40天后因过期而停用的情况",
+      "leak": true,
+      "answer": "第40天后",
+      "reason": "描述直接写出了记忆中的具体时间取值“第40天后”，属于答案泄漏。",
+      "memories": [
+        "Medication B was discontinued after day 40 due to expiry."
+      ]
+    },
+    {
+      "id": "D000632",
+      "description": "优惠券 DISCOUNT15 的过期日期",
+      "leak": false,
+      "answer": "",
+      "reason": "描述只说明要查优惠券的过期日期，未写出具体日期值。",
+      "memories": [
+        "Coupon DISCOUNT15 valid until day_120"
+      ]
+    },
+    {
+      "id": "D000188",
+      "description": "家庭管道维修服务的预约情况",
+      "leak": false,
+      "answer": "",
+      "reason": "描述只说明预约事项，未写出具体服务商名称或维修类型等答案。",
+      "memories": [
+        "Home plumbing service booked with 'Plumber X' for basic repairs."
+      ]
+    },
+    {
+      "id": "D000508",
+      "description": "第50天收到的对 'AI Basics' 课程的学生反馈",
+      "leak": false,
+      "answer": "",
+      "reason": "描述只说明反馈的对象和接收时间，未给出反馈内容等答案。",
+      "memories": [
+        "Student feedback for 'AI Basics' course received on day 50."
+      ]
+    },
+    {
+      "id": "D000069",
+      "description": "Park entry fee per person",
+      "leak": false,
+      "answer": "",
+      "reason": "描述只说明问的是每人入园费，未给出任何具体金额。",
+      "memories": [
+        "Park entry fee is $10 per person."
+      ]
+    },
+    {
+      "id": "D000384",
+      "description": "Community event registration closing date",
+      "leak": false,
+      "answer": "",
+      "reason": "描述只说明问的是报名截止日期，未写出具体日期 day_45。",
+      "memories": [
+        "Community event registration closed on day_45"
+      ]
+    },
+    {
+      "id": "D000558",
+      "description": "项目指南对代码中清晰行内注释的要求",
+      "leak": false,
+      "answer": "",
+      "reason": "描述只说明指南要求清晰行内注释，未给出具体取值或答案。",
+      "memories": [
+        "Project guidelines require clear inline comments in the code."
+      ]
+    },
+    {
+      "id": "D000684",
+      "description": "用户停止学习代数并改用 Mathway 转向几何的情况",
+      "leak": false,
+      "answer": "",
+      "reason": "描述只概括了停止代数、转向几何并使用 Mathway 这一事项，未给出具体取值或结论性答案。",
+      "memories": [
+        "User stopped studying Algebra and shifted focus to Geometry using Mathway."
+      ]
+    },
+    {
+      "id": "D000488",
+      "description": "患者饮食调整后健康状况的改善情况",
+      "leak": false,
+      "answer": "",
+      "reason": "描述只说明询问健康状况改善情况，未给出具体改善内容或状态取值。",
+      "memories": [
+        "The patient reports improved health after dietary changes."
+      ]
+    },
+    {
+      "id": "D000215",
+      "description": "母婴用品八折优惠活动的开始情况",
+      "leak": false,
+      "answer": "",
+      "reason": "描述只说明询问活动开始情况，未写出活动已开始这一状态取值。",
+      "memories": [
+        "母婴用品八折优惠活动已开始"
+      ]
+    },
+    {
+      "id": "D000228",
+      "description": "化学实验报告的启动情况",
+      "leak": false,
+      "answer": "",
+      "reason": "描述只说明报告启动这一事项，未给出任何具体取值或结论。",
+      "memories": [
+        "Started working on Chemistry lab report"
+      ]
+    },
+    {
+      "id": "D000189",
+      "description": "附近新开瑜伽工作室的情况",
+      "leak": false,
+      "answer": "",
+      "reason": "描述只说明询问附近新开瑜伽工作室的情况，未给出具体名称、地址等答案取值。",
+      "memories": [
+        "A new yoga studio opening nearby."
+      ]
+    },
+    {
+      "id": "D000629",
+      "description": "Math 101 期末考试的时间安排",
+      "leak": false,
+      "answer": "",
+      "reason": "描述只说明问的是考试时间安排，未写出具体日期 day_100。",
+      "memories": [
+        "Final exam schedule for Math 101 is on day_100."
+      ]
+    },
+    {
+      "id": "D000491",
+      "description": "用户学习代数所改用资源的情况",
+      "leak": true,
+      "answer": "Brilliant",
+      "reason": "描述虽未直接写出答案，但记忆中的具体资源名 Brilliant 是答案取值，描述仅说'所改用资源'未泄漏具体名称，然而描述本身未包含答案片段，故判为未泄漏？",
+      "memories": [
+        "User switched to using Brilliant for Algebra studies."
+      ]
+    },
+    {
+      "id": "D000477",
+      "description": "所引用论文讨论的 AI 伦理相关工作",
+      "leak": false,
+      "answer": "",
+      "reason": "描述只说明论文讨论 AI 伦理相关工作，未给出具体论文、作者或结论等取值。",
+      "memories": [
+        "Cited paper discusses related work in AI ethics."
+      ]
+    },
+    {
+      "id": "D000053",
+      "description": "患者治疗自身病症所偏好的药物",
+      "leak": false,
+      "answer": "",
+      "reason": "描述只说明偏好药物这一待查事项，未写出具体药物名称。",
+      "memories": [
+        "Patient prefers medication A for treating their condition."
+      ]
+    },
+    {
+      "id": "D000640",
+      "description": "园艺项目的启动日期",
+      "leak": false,
+      "answer": "",
+      "reason": "描述只说明问的是启动日期，未写出具体日期 day_85。",
+      "memories": [
+        "Gardening project started on day_85"
+      ]
+    },
+    {
+      "id": "D000144",
+      "description": "昨晚吃海鲜炒饭的情况",
+      "leak": false,
+      "answer": "",
+      "reason": "描述只说明询问昨晚吃海鲜炒饭的情况，未给出具体答案细节。",
+      "memories": [
+        "昨晚吃了海鲜炒饭"
+      ]
+    },
+    {
+      "id": "D000439",
+      "description": "研究论文草稿因格式问题被拒的情况",
+      "leak": false,
+      "answer": "",
+      "reason": "描述只概括了被拒原因类别（格式问题），未给出具体格式细节或论文信息，属于对事项的概括而非答案取值。",
+      "memories": [
+        "Research paper draft was rejected due to formatting issues."
+      ]
+    },
+    {
+      "id": "D000299",
+      "description": "数学课程偏好的教材",
+      "leak": false,
+      "answer": "",
+      "reason": "描述只说明问的是数学课程偏好的教材，未写出具体教材名称。",
+      "memories": [
+        "The preferred textbook for the math course is 'Advanced Algebra, 5th Edition'."
+      ]
+    },
+    {
+      "id": "D000765",
+      "description": "2023年冬季游泳池会员自12月1日起生效的情况",
+      "leak": true,
+      "answer": "12月1日",
+      "reason": "描述直接写出了记忆中的具体生效日期12月1日，属于答案取值。",
+      "memories": [
+        "2023 winter pool membership is active from December 1st."
+      ]
+    },
+    {
+      "id": "D000271",
+      "description": "用户对Costco优惠的评价",
+      "leak": false,
+      "answer": "",
+      "reason": "描述只说明评价对象是Costco优惠，未写出具体评价内容（如great deals）。",
+      "memories": [
+        "User mentions great deals at Costco."
+      ]
+    },
+    {
+      "id": "D000422",
+      "description": "患者血液检查的预约时间",
+      "leak": false,
+      "answer": "",
+      "reason": "描述只说明问的是预约时间，未写出周一上午9点这一具体取值。",
+      "memories": [
+        "Patient scheduled for blood test on Monday at 9am."
+      ]
+    },
+    {
+      "id": "D000065",
+      "description": "患者被开具的药物",
+      "leak": false,
+      "answer": "",
+      "reason": "描述只说明问的是患者被开具的药物，未写出任何具体药名或剂量。",
+      "memories": [
+        "Patient prescribed Medication A for condition X."
+      ]
+    },
+    {
+      "id": "D000651",
+      "description": "用户曾短暂考虑学习德语但放弃",
+      "leak": false,
+      "answer": "",
+      "reason": "描述只概括了记忆内容，没有给出具体取值或答案。",
+      "memories": [
+        "User briefly considered studying German but dropped the idea."
+      ]
+    },
+    {
+      "id": "D000512",
+      "description": "研究提案于第50天获批并设有20天评审期的情况",
+      "leak": true,
+      "answer": "第50天获批并设有20天评审期",
+      "reason": "描述直接写出了获批日期（第50天）和评审期（20天）这两个具体取值。",
+      "memories": [
+        "Research proposal approved on day 50 with a 20-day review period."
+      ]
+    },
+    {
+      "id": "D000417",
+      "description": "用户对 MegaStore 杂货的评价",
+      "leak": false,
+      "answer": "",
+      "reason": "描述只说明评价对象是 MegaStore 杂货，未写出“excellent”这一具体评价取值。",
+      "memories": [
+        "User rated MegaStore as excellent for groceries."
+      ]
+    },
+    {
+      "id": "D000424",
+      "description": "当地回收项目的状态",
+      "leak": false,
+      "answer": "",
+      "reason": "描述只说明询问当地回收项目的状态，未给出任何具体状态取值。",
+      "memories": [
+        "User asked about the status of local recycling program."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "subject_merges": [
+    {"from": "物理101课程", "aspect": "choice", "to": "物理课教材", "reason": "Physics 101 / Physics course / Physics textbook 说的是同一门课的教材"},
+    {"from": "健身房折扣", "aspect": "price", "to": "健身房促销", "reason": "健身房促销力度,gym_discount 与 gym promo 是同一件事"},
+    {"from": "数学学习材料", "aspect": "choice", "to": "微积分教材", "reason": "'Recommended math textbook is Calculus Made Easy' 与微积分教材推荐是同一件事"},
+    {"from": "历史研究论文", "aspect": "deadline", "to": "历史论文", "reason": "history research paper 与 history essay/paper 是同一份作业"},
+    {"from": "春季促销", "aspect": "price", "to": "春季清仓促销", "reason": "Spring sale 与 Spring clearance sale 是同一场春季促销"}
+  ],
+  "aspect_merges": [
+    {"subject": "春季促销", "from": "status", "to": "price", "reason": "'Spring clearance sale: 50% off select items' 给的是折扣力度,不是状态"}
+  ],
+  "mention_pattern": "feedback|optional|alternative|alternate|additional|guidelines|review guidance|summary|reference material|also shortlisted|textbook suggests|recommendation expires|Temporary notice",
+  "mention_reason": "只是提到/评论/补充材料或到期提醒,没有给出该事项的竞争取值",
+  "non_assertive": {
+    "pattern": "\\bwas\\b|\\bwere\\b|\\blived in\\b|\\bused to\\b|\\bpreviously\\b|\\bold (address|email|phone|number|version|syllabus)\\b|\\binitial\\b|\\boriginally\\b|\\bprevious\\b|\\bplans? to\\b|\\bplanned\\b|\\bintends? to\\b|\\bintended\\b|曾经|原来|之前|旧",
+    "reason": "句子把主张明确限定在过去(was/lived/old/initial)或只表达计划,不与写入的当前取值构成互斥;测量值没有时间限定时仍算冲突"
+  },
+  "exclusions": [
+    {"memory_id": "M-B-0218", "reason": "说的是“下一个”小组项目,不是同一个项目"},
+    {"memory_id": "M-C-0173", "reason": "免费咨询是另一类优惠,没有给出折扣力度"},
+    {"memory_id": "M-C-0186", "reason": "带条件的临时价(音乐节周),与常规价可以并存"},
+    {"memory_id": "M-C-0187", "reason": "与写入取值相同(都是 $15),只是措辞不同,不算冲突"},
+    {"memory_id": "M-C-0130", "reason": "说书名,写入说版次,不是同一属性(人工裁定不算冲突)"},
+    {"memory_id": "M-B-0535", "reason": "说书名,写入说版次,不是同一属性(人工裁定不算冲突)"},
+    {"memory_id": "M-C-0131", "reason": "说书名,写入说版次,不是同一属性(人工裁定不算冲突)"}
+  ],
+  "rewrites": [
+    {"memory_id": "M-A-0380", "before": "The user lived in New York.", "after": "The user lives in New York.", "reason": "原句是过去时,按需求改写为现在时表述"},
+    {"memory_id": "M-A-0395", "before": "John's favorite coffee shop was 'Brew & Bean' on Main Street.", "after": "John's favorite coffee shop is 'Brew & Bean' on Main Street.", "reason": "原句是过去时,按需求改写为现在时表述"},
+    {"memory_id": "M-A-0402", "before": "The course material was updated to the 2020 curriculum.", "after": "The course material is based on the 2020 curriculum.", "reason": "原句是过去时,按需求改写为现在时表述"},
+    {"memory_id": "M-B-0215", "before": "Initial group project deadline set to day_115.", "after": "The group project deadline is day_115.", "reason": "去掉 Initial 这一历史限定,改写为当前取值"},
+    {"memory_id": "M-C-0076", "before": "Recommended dosage for Medication A was 50mg daily.", "after": "Recommended dosage for Medication A is 50mg daily.", "reason": "原句是过去时,按需求改写为现在时表述"},
+    {"memory_id": "M-B-0199", "before": "History essay deadline was day_35.", "after": "History essay deadline is day_35.", "reason": "原句是过去时,按需求改写为现在时表述"},
+    {"memory_id": "M-B-0157", "before": "History essay submission deadline was day_80.", "after": "History essay submission deadline is day_80.", "reason": "原句是过去时,按需求改写为现在时表述"},
+    {"memory_id": "M-B-0115", "before": "Gym membership renewal discount was available until day 50.", "after": "Gym membership renewal deadline is day_50.", "reason": "原句说的是折扣有效期,仅改时态仍与续费截止日不是同一属性,因此按用户要求改写为截止日取值"}
+  ],
+  "time_rule": {
+    "mode": "ignore",
+    "reason": "按需求默认旧记忆库整体早于新写入;created_day 只作溯源,不参与冲突判定"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "relation_templates": {
+    "unique_employer": "{time}，{subject}唯一的工作单位是{object}。",
+    "historical_employer": "{time}，{subject}的工作单位是{object}。",
+    "residence": "{time}，{subject}的常住城市是{object}。",
+    "interview": "{subject}计划在{time}去{object}面试。",
+    "event_date": "{subject}唯一的举办日期是{object}。",
+    "event_location": "{subject}唯一的举办地点是{object}。"
+  },
+  "nodes": [
+    {"id":"lin","text":"小林"},
+    {"id":"wang","text":"小王"},
+    {"id":"tencent","text":"腾讯"},
+    {"id":"alibaba","text":"阿里"},
+    {"id":"beijing","text":"北京"},
+    {"id":"event1","text":"项目A第一期发布会"},
+    {"id":"event2","text":"项目A第二期发布会"},
+    {"id":"date1","text":"2026年10月20日"}
+  ],
+  "edges": [
+    {"id":"e1","subject":"lin","relation":"unique_employer","object":"tencent","qualifiers":{"time":"2026年10月13日"}},
+    {"id":"e2","subject":"lin","relation":"historical_employer","object":"tencent","qualifiers":{"time":"2025年"}},
+    {"id":"e3","subject":"lin","relation":"residence","object":"beijing","qualifiers":{"time":"2026年10月13日"}},
+    {"id":"e4","subject":"lin","relation":"interview","object":"alibaba","qualifiers":{"time":"2026年10月20日"}},
+    {"id":"e5","subject":"event1","relation":"event_date","object":"date1"},
+    {"id":"e6","subject":"event1","relation":"event_location","object":"beijing"},
+    {"id":"e7","subject":"wang","relation":"unique_employer","object":"alibaba","qualifiers":{"time":"2026年10月13日"}},
+    {"id":"e8","subject":"event2","relation":"event_date","object":"date1"}
+  ],
+  "memories": [
+    {"memory_id":"m1","edge_ids":["e1"]},
+    {"memory_id":"m2","edge_ids":["e2"]},
+    {"memory_id":"m3","edge_ids":["e3"]},
+    {"memory_id":"m4","edge_ids":["e4"]},
+    {"memory_id":"m5","edge_ids":["e5"]},
+    {"memory_id":"m6","edge_ids":["e5","e6"]},
+    {"memory_id":"m7","edge_ids":["e7"]},
+    {"memory_id":"m8","edge_ids":["e8"]}
+  ]
+}

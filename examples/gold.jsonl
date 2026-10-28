@@ -1,0 +1,4 @@
+{"query_id":"q1","fully_reviewed":true,"human_reviewed":false,"gold_compare_ids":["m1","m2"],"conflict_labels":{"m1":"conflict","m2":"no_conflict"}}
+{"query_id":"q2","fully_reviewed":true,"human_reviewed":false,"gold_compare_ids":["m5","m6"],"conflict_labels":{"m5":"conflict","m6":"conflict"}}
+{"query_id":"q3","fully_reviewed":true,"human_reviewed":false,"gold_compare_ids":["m3"],"conflict_labels":{"m3":"no_conflict"}}
+{"query_id":"q4","fully_reviewed":true,"human_reviewed":false,"gold_compare_ids":[],"conflict_labels":{}}

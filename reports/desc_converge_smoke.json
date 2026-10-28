@@ -1,0 +1,98 @@
+{
+  "summary": {
+    "conflict_pairs": 5,
+    "conflict_shared": 3,
+    "conflict_rate": 0.6,
+    "control_pairs": 4,
+    "control_shared": 0,
+    "control_rate": 0.0,
+    "queries_with_empty_selection": 1,
+    "partners_without_entry": 0,
+    "by_channel": {
+      "personal": {
+        "pairs": 5,
+        "shared": 3,
+        "control_pairs": 4,
+        "control_shared": 0
+      }
+    },
+    "api": {
+      "calls": 5,
+      "cache_hits": 0,
+      "errors": 0
+    },
+    "lift": null
+  },
+  "rows": [
+    {
+      "query_id": "TC-A-0020",
+      "scope": "personal",
+      "selected": 1,
+      "partners": 1,
+      "shared": 1,
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 0,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0081",
+      "scope": "personal",
+      "selected": 1,
+      "partners": 1,
+      "shared": 1,
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 1,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0057",
+      "scope": "personal",
+      "selected": 1,
+      "partners": 1,
+      "shared": 0,
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 1,
+      "control_shared": 0,
+      "hit": false
+    },
+    {
+      "query_id": "TC-A-0047",
+      "scope": "personal",
+      "selected": 1,
+      "partners": 1,
+      "shared": 1,
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 1,
+      "control_shared": 0,
+      "hit": true
+    },
+    {
+      "query_id": "TC-A-0128",
+      "scope": "personal",
+      "selected": 0,
+      "partners": 1,
+      "shared": 0,
+      "partner_entries": [
+        1
+      ],
+      "missing_entry": 0,
+      "control_pairs": 1,
+      "control_shared": 0,
+      "hit": false
+    }
+  ]
+}
