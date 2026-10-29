@@ -1,5 +1,5 @@
 {
-  "dataset_id": "validmem_v5",
+  "dataset_id": "validmem_v6",
   "task": "一个冻结旧记忆库 + 独立新记忆写入;每条写入需从旧库检索出可能冲突的旧记忆。冲突 = 同一通道 + 同一事项 + 取值不同。",
   "source": {
     "dataset": "ValidMem",
@@ -17,7 +17,7 @@
     "why": "不同用户的同类偏好不是同一件事,而用户说错一个公共事实仍是同一件事;因此可比性由通道决定,而不是由文本里有没有主体决定。"
   },
   "conversion": {
-    "content": "来源描述原文,不加任何主体前缀",
+    "content": "只将明确指向记录用户本人的泛称/第一人称替换为固定化名；已具名主体及学生、患者等第三方主体保留；公共正文不改；过敏陈述改为明确的唯一已知过敏原。",
     "owner": "user_id 只在 source_ref 中;world 通道为 null",
     "scope": "source_ref.scope = personal | world",
     "new_memory": "case.ground_truth[0].description",
@@ -611,18 +611,18 @@
     "meaning": "标签来自来源发布;通道、槽位、先后、取值与泄漏检查由构造脚本断言;未做独立人工复核"
   },
   "files": {
-    "memories.jsonl": "a9783f919b23ef92890765678e119a1c4511a1543363b50fd54da6b5d752a1d7",
-    "queries.jsonl": "db57ddf058cf600ad9434d14790f00fd8bea699854a56f7a605343d20ab95633",
-    "gold.jsonl": "4cc966109ec2768a8fc9e803bb2dd3b6768eac2e7b6a27941668f8653fa9b70c"
+    "memories.jsonl": "cadb06bdfc2ed989cd18c3e383a747462b4d67302d2c0745836da160acb8657f",
+    "queries.jsonl": "242b901b4a07f14be952daee7b4477e52d96f70b94f44edae99bddbd9a64106c",
+    "gold.jsonl": "f10c2b70834a8c5d6c28bbcf25038d5c2d621238a12be24d010b8b3522e1ed64"
   },
-  "dataset": "validmem_v6",
   "modifications": {
     "from": "validmem_v5",
-    "rule_subject": "个人记忆正文缺少明确人物主体时写入该 user_id 的固定化名；已有明确人名保留，公共记忆不改",
-    "rule_allergy": "含过敏的正文明确表达只有一个已知过敏原；药名保留",
+    "rule_subject": "只将明确指向记录用户本人的泛称/第一人称替换为固定化名；已有具名主体及学生、患者等第三方主体保留，公共正文不改",
+    "rule_allergy": "含过敏的正文明确表达只有一个已知过敏原；药名保留，修正文末 instead only 等错误表达",
     "stats": {
-      "subject_added": 768,
-      "allergy_rewritten": 27
+      "subject_added": 605,
+      "allergy_rewritten": 27,
+      "sentence_corrected": 9
     },
     "user_names": {
       "BG-0003": "Alice Chen",
