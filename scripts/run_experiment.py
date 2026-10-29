@@ -32,6 +32,7 @@ ARM_SPECS = {
     "no-rerank": {"method": "proposed", "rerank": False, "kind": "ablation"},
     "dense": {"method": "dense", "rerank": True, "kind": "retrieval_diagnostic"},
     "bm25": {"method": "bm25", "rerank": True, "kind": "retrieval_diagnostic"},
+    "hybrid": {"method": "hybrid", "rerank": True, "kind": "retrieval_diagnostic"},
 }
 
 

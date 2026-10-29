@@ -347,8 +347,10 @@ def hypotheses(client, content, descriptions, candidates=(), *, subject_context=
                 raise ValueError("只能返回 same_value、alternative 和 subject_relations")
             same = _string_list(result["same_value"], "same_value")
             other = _string_list(result["alternative"], "alternative")
-            if len(same) > len(descriptions) or len(other) > 2 * len(descriptions):
-                raise ValueError("假设句超出每事项一条同值、两条异值的预算")
+            # 预算只影响向量比较的成本，不影响语义：多出来的假设直接截断，
+            # 不能因为模型多写一条就让整条查询失败。
+            same = same[:len(descriptions)]
+            other = other[:2 * len(descriptions)]
             relations = result["subject_relations"]
             if not isinstance(relations, list):
                 raise ValueError("subject_relations 必须是数组")
