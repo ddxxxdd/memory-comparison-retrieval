@@ -142,6 +142,7 @@ def _run_one(index, settings, query, spec, judge, coarse_k, final_k):
     return retriever.query(
         query["query_id"], query["content"],
         retrieval_text=build_retrieval_text(query["content"], query.get("source_ref")),
+        query_source_ref=query.get("source_ref"),
         method=spec["method"], rerank=spec["rerank"], judge=judge,
         coarse_k=coarse_k, final_k=final_k)
 

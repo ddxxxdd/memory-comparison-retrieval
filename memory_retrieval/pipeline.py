@@ -9,6 +9,93 @@ from .data import RETRIEVAL_TEXT_VERSION, build_retrieval_text, nonempty_text
 from .prompts import INDEX_PROMPT_HASH, PROMPT_HASH, PROMPT_VERSION, describe, hypotheses, judge_pair
 
 
+def _personal_owner(source_ref):
+    ref = source_ref if isinstance(source_ref, dict) else {}
+    owner = ref.get("user_id")
+    if ref.get("scope") == "personal" and isinstance(owner, str) and owner.strip():
+        return owner.strip()
+    return None
+
+
+def _comparison_subject_context(source_ref):
+    ref = source_ref if isinstance(source_ref, dict) else {}
+    if ref.get("scope") == "personal":
+        return "个人记忆的记录者本人"
+    if ref.get("scope") == "world":
+        return "公共事实"
+    return None
+
+
+def _different_personal_owners(query_source_ref, memory_source_ref):
+    query_owner = _personal_owner(query_source_ref)
+    memory_owner = _personal_owner(memory_source_ref)
+    return query_owner is not None and memory_owner is not None and query_owner != memory_owner
+
+
+def _validate_subject_relations(relations, query_source_ref, candidates):
+    """本人身份由来源元数据确定，不由模型比较用户编号。"""
+    candidate_by_id = {item["memory_id"]: item for item in candidates}
+    query_owner = _personal_owner(query_source_ref)
+    issues = []
+    normalized = []
+    for relation in relations:
+        memory = candidate_by_id[relation["memory_id"]]
+        old_owner = _personal_owner(memory.get("source_ref"))
+        comparisons = []
+        for original in relation["comparisons"]:
+            comparison = dict(original)
+            if comparison["matter_relation"] == "corresponding":
+                new_kind = comparison["new_subject"]["kind"]
+                old_kind = comparison["old_subject"]["kind"]
+                current = comparison["subject_relation"]
+                issue_reason = None
+
+                if "unknown" in {new_kind, old_kind} and current != "uncertain":
+                    issue_reason = "至少一方主体解析为 unknown，却给出了确定的主体关系"
+                elif new_kind == old_kind == "self":
+                    if query_owner is None or old_owner is None:
+                        if current != "uncertain":
+                            comparison["model_subject_relation"] = current
+                        comparison["subject_relation"] = "uncertain"
+                    else:
+                        expected = "same" if query_owner == old_owner else "different"
+                        if current != expected:
+                            comparison["model_subject_relation"] = current
+                        comparison["subject_relation"] = expected
+                        comparison["subject_relation_resolution"] = "personal_owner_metadata"
+
+                if issue_reason:
+                    issue = {
+                        "memory_id": relation["memory_id"],
+                        "new_matter": comparison["new_matter"],
+                        "old_matter": comparison["old_matter"],
+                        "model_subject_relation": current,
+                        "validated_subject_relation": "uncertain",
+                        "reason": issue_reason,
+                    }
+                    issues.append(issue)
+                    comparison["subject_relation"] = "uncertain"
+                    comparison["validation_issue"] = issue_reason
+            comparisons.append(comparison)
+        normalized.append({"memory_id": relation["memory_id"], "comparisons": comparisons})
+
+    return normalized, issues
+
+
+def _candidate_may_match(comparisons):
+    """本人身份留给末端元数据判断；其它对应事项的明确主体差异可排除候选。"""
+    return any(
+        comparison["matter_relation"] == "uncertain"
+        or (comparison["matter_relation"] == "corresponding"
+            and (
+                comparison["new_subject"]["kind"] == "self"
+                and comparison["old_subject"]["kind"] == "self"
+                or comparison["subject_relation"] != "different"
+            ))
+        for comparison in comparisons
+    )
+
+
 class Retriever:
     def __init__(self, index, client):
         self.index = index
@@ -24,7 +111,8 @@ class Retriever:
         return vectors
 
     def query(self, query_id, content, *, retrieval_text=None, method="proposed", rerank=True,
-              judge=False, coarse_k=None, final_k=None, scope=None, user_id=None):
+              judge=False, coarse_k=None, final_k=None, scope=None, user_id=None,
+              query_source_ref=None):
         nonempty_text(query_id, "query_id")
         nonempty_text(content, "content")
         # 检索用文本：旧记忆与新记忆必须落在同一份表示上（建库侧用 Memory.retrieval_text）。
@@ -52,19 +140,9 @@ class Retriever:
         start, event_start = time.perf_counter(), len(self.client.events)
         stage_times, selection, probes, status = {}, None, None, "ok"
         memories = self.index.memories
-
-        # 可比性由通道决定:personal 只和同一 owner 比,world 不区分 owner。
-        # 用户 A 的偏好与用户 B 的偏好不是同一件事;而用户说错一个公共事实仍是同一件事。
-        allowed = None
-        if scope is not None:
-            allowed = np.zeros(len(memories), dtype=bool)
-            for position, memory in enumerate(memories):
-                ref = memory.source_ref if isinstance(memory.source_ref, dict) else {}
-                if ref.get("scope") != scope:
-                    continue
-                if scope == "personal" and ref.get("user_id") != user_id:
-                    continue
-                allowed[position] = True
+        query_identity_ref = query_source_ref
+        if query_identity_ref is None and (scope is not None or user_id is not None):
+            query_identity_ref = {"scope": scope, "user_id": user_id}
 
         def row(position, score, score_name):
             memory = memories[position]
@@ -108,8 +186,6 @@ class Retriever:
                     for memory_id in entry["memory_ids"]:
                         position = self.memory_positions[memory_id]
                         scores[position] = max(scores[position], entry_scores[i])
-                if allowed is not None:
-                    scores[~allowed] = -np.inf
                 coarse_positions = [i for i in rank(scores, memories) if scores[i] >= SIMILARITY_THRESHOLD]
                 coarse = [row(i, scores[i], "coarse_score") for i in coarse_positions]
                 stage_times["coarse_retrieval"] = time.perf_counter() - stage_start
@@ -117,23 +193,41 @@ class Retriever:
                     stage_start = time.perf_counter()
                     candidate_texts = [
                         {"memory_id": candidate["memory_id"],
-                         "content": build_retrieval_text(candidate["content"],
-                                                          candidate.get("source_ref"))}
+                         "content": candidate["content"],
+                         "subject_context": _comparison_subject_context(candidate.get("source_ref"))}
                         for candidate in coarse
                     ]
-                    probes = hypotheses(self.client, text, selection["descriptions"],
-                                        candidate_texts)
+                    # 原文用于判断事实主体；不把用户编号交给模型比较。
+                    probes = hypotheses(self.client, content, selection["descriptions"],
+                                        candidate_texts,
+                                        subject_context=_comparison_subject_context(query_identity_ref))
                     stage_times["hypotheses"] = time.perf_counter() - stage_start
                     stage_start = time.perf_counter()
+                    # 主体解析收到独立上下文；用于向量比较的基础探针仍使用与索引一致的检索文本。
+                    probes["probes"][0] = text
                     probe_vectors = self._embed(probes["probes"], "hypothesis_embedding")
                     fine_scores = (probe_vectors @ self.index.content_vectors[coarse_positions].T).max(axis=0)
-                    subject_relations = {item["memory_id"]: item["subject_relation"]
-                                         for item in probes["subject_relations"]}
+                    relations, relation_issues = _validate_subject_relations(
+                        probes["subject_relations"], query_identity_ref, coarse)
+                    probes["subject_relations"] = relations
+                    probes["subject_relation_issues"] = relation_issues
+                    probes["subject_relation_issue_count"] = len(relation_issues)
+                    subject_counts = {label: 0 for label in ("same", "different", "uncertain")}
+                    matter_counts = {label: 0 for label in
+                                     ("corresponding", "not_corresponding", "uncertain")}
+                    for relation in relations:
+                        for comparison in relation["comparisons"]:
+                            subject_counts[comparison["subject_relation"]] += 1
+                            matter_counts[comparison["matter_relation"]] += 1
+                    probes["subject_relation_counts"] = subject_counts
+                    probes["matter_relation_counts"] = matter_counts
+                    subject_relations = {item["memory_id"]: item["comparisons"]
+                                         for item in relations}
                     ordered = sorted(range(len(coarse)), key=lambda i: (
                         -float(fine_scores[i]), -coarse[i]["coarse_score"], coarse[i]["memory_id"]))
                     candidates = [{**coarse[i], "fine_score": float(fine_scores[i])}
                                   for i in ordered
-                                  if subject_relations[coarse[i]["memory_id"]] != "incompatible"
+                                  if _candidate_may_match(subject_relations[coarse[i]["memory_id"]])
                                   and fine_scores[i] >= SIMILARITY_THRESHOLD]
                     stage_times["fine_ranking"] = time.perf_counter() - stage_start
                 elif not rerank:
@@ -150,13 +244,21 @@ class Retriever:
                 dense_scores = (self._embed([text], "raw_query_embedding") @ self.index.content_vectors.T)[0]
             scores = (sparse_scores if method == "bm25" else dense_scores if method == "dense" else
                       reciprocal_rank_fusion(sparse_scores, dense_scores, memories))
-            if allowed is not None:
-                scores[~allowed] = -np.inf
-            # 只能从范围内取候选:范围外的分数是 -inf,不能因为它们排在后面就占掉预算。
             ranked = [i for i in rank(scores, memories) if np.isfinite(scores[i])]
             coarse = [row(i, scores[i], "score") for i in ranked[:coarse_k]]
-            candidates = coarse[:final_k]
+            candidates = coarse
             stage_times["retrieval"] = time.perf_counter() - stage_start
+
+        metadata_excluded_memory_ids = []
+        eligible_candidates = []
+        for candidate in candidates:
+            if _different_personal_owners(query_identity_ref, candidate.get("source_ref")):
+                metadata_excluded_memory_ids.append(candidate["memory_id"])
+            else:
+                eligible_candidates.append(candidate)
+        candidates = eligible_candidates
+        if not description_method:
+            candidates = candidates[:final_k]
 
         judgments = []
         if judge:
@@ -180,9 +282,10 @@ class Retriever:
             "embedding": self.index.manifest["embedding"],
             "library_size": len(memories),
             "scope": scope, "user_id": user_id,
-            "eligible_pool": int(allowed.sum()) if allowed is not None else len(memories),
+            "eligible_pool": len(memories),
             "selection": selection, "hypotheses": probes,
             "coarse_candidates": coarse, "candidates": candidates, "judgments": judgments,
+            "metadata_excluded_memory_ids": metadata_excluded_memory_ids,
             "timing": {**stage_times, "total_seconds": time.perf_counter() - start},
             "usage": usage_summary(events), "api_events": events,
         }

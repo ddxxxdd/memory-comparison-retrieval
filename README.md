@@ -304,7 +304,7 @@ EMBEDDING_MODEL=你的多语向量模型名称
 
 **记录在案的例外 1 条。** `TC-A-0081` 同主体同事项下的 `User mentions great deals at Costco` 只提到优惠、没有断言首选超市,不算同一件事,不标冲突。
 
-字段:`memories.jsonl` 为 `memory_id/content/source_ref`,`queries.jsonl` 为 `query_id/content/source_ref`;`source_ref` 保存 `user_id`、`scope`、`source_role`、`conflict_entity`、`conflict_attribute`、`created_day`,世界通道另有 `topic`。其中 `scope` 与 `user_id` 只用来限定合法候选池(个人通道只查同一 owner、世界通道只查公共池),不参与打分;`conflict_entity`、`conflict_attribute`、`topic`、`source_role`、`created_day` 检索完全不读。
+字段:`memories.jsonl` 为 `memory_id/content/source_ref`,`queries.jsonl` 为 `query_id/content/source_ref`;`source_ref` 保存 `user_id`、`scope`、`source_role`、`conflict_entity`、`conflict_attribute`、`created_day`,世界通道另有 `topic`。全库参与粗筛与内容细筛；`scope` 与 `user_id` 不再缩小粗筛候选池，最终候选阶段仅当新旧记录都明确为 `personal` 且具有不同的非空 `user_id` 时排除旧记录。公共记录、记忆类型或用户身份缺失的记录不因来源用户字段排除。检索文本仍按现有方式加入适用的主体上下文；`conflict_entity`、`conflict_attribute`、`topic`、`source_role`、`created_day` 检索完全不读。
 
 `human_reviewed` 仍为 `false`:topic 标签由模型按内容标注、随后人工抽查了与实验相关的家族,没有逐条人工复核;指标只能作为流程诊断。
 

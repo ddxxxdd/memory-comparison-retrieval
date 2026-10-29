@@ -118,12 +118,16 @@ class Handler(BaseHTTPRequestHandler):
                 answer = {"same_value": [payload["content"]],
                           "alternative": [payload["content"].replace("阿里", "腾讯")],
                           "subject_relations": [
-                              {"memory_id": candidate["memory_id"],
+                              {"memory_id": candidate["memory_id"], "comparisons": [{
+                               "new_matter": "测试事项", "old_matter": "测试事项",
+                               "matter_relation": "corresponding",
+                               "new_subject": {"kind": "explicit", "identity": "新主体", "basis": "测试桩"},
+                               "old_subject": {"kind": "explicit", "identity": "旧主体", "basis": "测试桩"},
                                "subject_relation": (
-                                   self.server.subject_relation_override.get(candidate["memory_id"], "compatible")
+                                   self.server.subject_relation_override.get(candidate["memory_id"], "same")
                                    if isinstance(self.server.subject_relation_override, dict)
-                                   else self.server.subject_relation_override or "compatible"),
-                               "reason": "测试桩的预设主体关系"}
+                                   else self.server.subject_relation_override or "same"),
+                               "reason": "测试桩的预设主体关系"}]}
                               for candidate in payload["candidates"]]}
             elif task == "judge_conflict":
                 new, old = payload["new_content"], payload["old_content"]
@@ -263,13 +267,13 @@ class FrameworkTests(unittest.TestCase):
         self.assertTrue(baseline["coarse_candidates"])
         baseline_ids = [row["memory_id"] for row in baseline["candidates"]]
 
-        self.server.subject_relation_override = "incompatible"
+        self.server.subject_relation_override = "different"
         incompatible_client = APIClient(replace(
             self.settings, cache_path=self.directory / "incompatible-cache.sqlite3"))
         incompatible = Retriever(index, incompatible_client).query(
             query["query_id"], query["content"])
         self.assertEqual(incompatible["candidates"], [])
-        self.assertEqual(incompatible["hypotheses"]["subject_relation_counts"]["incompatible"],
+        self.assertEqual(incompatible["hypotheses"]["subject_relation_counts"]["different"],
                          len(incompatible["coarse_candidates"]))
 
         self.server.subject_relation_override = "uncertain"
@@ -279,6 +283,57 @@ class FrameworkTests(unittest.TestCase):
         self.assertEqual([row["memory_id"] for row in uncertain["candidates"]], baseline_ids)
         self.assertEqual(uncertain["hypotheses"]["subject_relation_counts"]["uncertain"],
                          len(uncertain["coarse_candidates"]))
+
+    def test_personal_owner_metadata_filters_only_final_candidates(self):
+        content = "2026年10月13日，小林唯一的工作单位是腾讯。"
+        memories = [
+            Memory("same-owner", content, {"scope": "personal", "user_id": "U1"}),
+            Memory("other-owner", content, {"scope": "personal", "user_id": "U2"}),
+            Memory("public", content, {"scope": "world", "user_id": None}),
+            Memory("missing-user", content, {"scope": "personal"}),
+            Memory("missing-scope", content, {"user_id": "U2"}),
+        ]
+        index = build_index(memories, self.client, self.directory / "metadata-index", "independent")
+        retriever = Retriever(index, self.client)
+
+        result = retriever.query(
+            "metadata-query", content, method="dense", coarse_k=len(memories),
+            final_k=len(memories), query_source_ref={"scope": "personal", "user_id": "U1"},
+        )
+        self.assertEqual({row["memory_id"] for row in result["coarse_candidates"]},
+                         {memory.memory_id for memory in memories})
+        self.assertEqual({row["memory_id"] for row in result["candidates"]},
+                         {"same-owner", "public", "missing-user", "missing-scope"})
+        self.assertEqual(result["metadata_excluded_memory_ids"], ["other-owner"])
+
+        legacy_metadata = retriever.query(
+            "legacy-metadata-query", content, method="dense", coarse_k=len(memories),
+            final_k=len(memories), scope="personal", user_id="U1",
+        )
+        self.assertEqual({row["memory_id"] for row in legacy_metadata["coarse_candidates"]},
+                         {memory.memory_id for memory in memories})
+        self.assertEqual({row["memory_id"] for row in legacy_metadata["candidates"]},
+                         {"same-owner", "public", "missing-user", "missing-scope"})
+
+    def test_baseline_final_k_is_applied_after_metadata_filter(self):
+        content = "2026年10月13日，小林唯一的工作单位是腾讯。"
+        memories = [
+            Memory("a-other-owner", content, {"scope": "personal", "user_id": "U2"}),
+            Memory("b-same-owner", content, {"scope": "personal", "user_id": "U1"}),
+        ]
+        index = build_index(memories, self.client, self.directory / "metadata-final-k", "independent")
+
+        for method in ("dense", "bm25", "hybrid"):
+            result = Retriever(index, self.client).query(
+                f"metadata-final-k-{method}", content, method=method,
+                coarse_k=2, final_k=1,
+                query_source_ref={"scope": "personal", "user_id": "U1"},
+            )
+            self.assertEqual([row["memory_id"] for row in result["coarse_candidates"]],
+                             ["a-other-owner", "b-same-owner"])
+            self.assertEqual([row["memory_id"] for row in result["candidates"]],
+                             ["b-same-owner"])
+            self.assertEqual(result["metadata_excluded_memory_ids"], ["a-other-owner"])
 
     def test_graph_and_text_are_equivalent_and_qualifiers_cannot_be_lost(self):
         text = load_text(ROOT / "examples/memories.jsonl")
