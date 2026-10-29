@@ -618,10 +618,10 @@
   "dataset": "validmem_v6",
   "modifications": {
     "from": "validmem_v5",
-    "rule_subject": "个人记忆正文缺主体时写入该 user_id 的固定化名；公共记忆不改",
-    "rule_allergy": "含过敏的正文改为'仅对 X 过敏'，消除多过敏原并存的解释空间",
+    "rule_subject": "个人记忆正文缺少明确人物主体时写入该 user_id 的固定化名；已有明确人名保留，公共记忆不改",
+    "rule_allergy": "含过敏的正文明确表达只有一个已知过敏原；药名保留",
     "stats": {
-      "subject_added": 833,
+      "subject_added": 768,
       "allergy_rewritten": 27
     },
     "user_names": {

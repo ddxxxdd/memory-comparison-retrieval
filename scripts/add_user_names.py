@@ -67,9 +67,6 @@ def name_for(user_id, mapping):
     return mapping[user_id]
 
 
-# 数据集原有的单名（John/Emma/...）在多个用户之间重复使用，无法区分主体，统一换成本用户的固定全名。
-KNOWN_FIRST = re.compile(r"^(John|Jane|David|Daniel|Tom|Lily|Emma|Alice|Bob|Carol|"
-                         r"Jack|Mia|Noah|James|Mary|Robert|Sarah)\b")
 GENERIC_TOKENS = {"User", "The", "Patient", "My", "I", "A", "An", "This", "That", "Updated",
                   "Preferred", "Recommended", "Blood", "Home", "Email", "Phone", "Favorite",
                   "Yoga", "Team", "Project", "Student", "Assignment", "Exam", "Library",
@@ -79,20 +76,14 @@ GENERIC_TOKENS = {"User", "The", "Patient", "My", "I", "A", "An", "This", "That"
 def add_subject(text, name):
     """把正文改成带明确主体的表述。已有人名的主体原样返回。"""
     stripped = text.strip()
-    # "Patient John Doe ..." 这类"泛称+单名"在多个用户之间重复，整体换成本用户的固定全名。
-    patient = re.match(r"^(?:The patient|Patient)\s+(?:John Doe|Jane Doe|John|Jane)\b", stripped)
-    if patient:
-        return f"{name}{stripped[patient.end():]}"
-    known = KNOWN_FIRST.match(stripped)
-    if known:
-        return f"{name}{stripped[known.end():]}"
     for pattern, kind in GENERIC_SUBJECT:
         match = pattern.match(stripped)
         if not match:
             continue
         rest = stripped[match.end():]
         # 泛称后面已经跟着具体人名（如 "Patient John Doe"）时保留原主体。
-        if EXPLICIT_NAME.search(rest):
+        if (EXPLICIT_NAME.search(rest)
+                or re.search(rf"\b{re.escape(name)}\b", rest, re.I)):
             return text
         if kind == "possessive":
             return f"{name}'s{rest}"
@@ -132,6 +123,14 @@ def exclusive_allergy(text):
     """把"对 X 过敏"改成"仅对 X 过敏"，不动药名本身。"""
     if not ALLERGY.search(text) or ALLERGY_ALREADY_EXCLUSIVE.search(text):
         return text
+    noted = re.match(
+        r"^(?P<subject>.+?)'s allergy to (?P<allergen>[^.!?;]+?)"
+        r"(?P<note>\s+(?:noted|reported|recorded|documented)\b.*)?(?P<punct>[.!?]?)$",
+        text, re.I)
+    if noted:
+        note = f", {noted['note'].strip()}" if noted["note"] else ""
+        return (f"{noted['subject']}'s only known allergy is "
+                f"{noted['allergen'].strip()}{note}{noted['punct']}")
     if re.search(r"[\u4e00-\u9fff]", text):
         new = re.sub(r"对([^，。；]*)过敏", r"仅对\1过敏", text, count=1)
         return new if new != text else text
@@ -177,23 +176,23 @@ def main():
     mapping, stats = {}, {"subject_added": 0, "allergy_rewritten": 0}
     memories = [json.loads(line) for line in (SRC / "memories.jsonl").read_text(encoding="utf-8").splitlines() if line.strip()]
     queries = [json.loads(line) for line in (SRC / "queries.jsonl").read_text(encoding="utf-8").splitlines() if line.strip()]
-    gold = [json.loads(line) for line in (SRC / "gold.jsonl").read_text(encoding="utf-8").splitlines() if line.strip()]
-
     new_memories = transform(memories, mapping, stats, "memory")
     new_queries = transform(queries, mapping, stats, "query")
 
     DST.mkdir(parents=True, exist_ok=True)
-    for name, rows in (("memories.jsonl", new_memories), ("queries.jsonl", new_queries),
-                       ("gold.jsonl", gold)):
+    for name, rows in (("memories.jsonl", new_memories), ("queries.jsonl", new_queries)):
         (DST / name).write_text("".join(json.dumps(r, ensure_ascii=False) + "\n" for r in rows),
                                 encoding="utf-8")
+    gold_path = DST / "gold.jsonl"
+    if not gold_path.exists():
+        gold_path.write_bytes((SRC / "gold.jsonl").read_bytes())
 
     manifest = json.loads((SRC / "manifest.json").read_text(encoding="utf-8"))
     manifest["dataset"] = "validmem_v6"
     manifest["modifications"] = {
         "from": "validmem_v5",
-        "rule_subject": "个人记忆正文缺主体时写入该 user_id 的固定化名；公共记忆不改",
-        "rule_allergy": "含过敏的正文改为'仅对 X 过敏'，消除多过敏原并存的解释空间",
+        "rule_subject": "个人记忆正文缺少明确人物主体时写入该 user_id 的固定化名；已有明确人名保留，公共记忆不改",
+        "rule_allergy": "含过敏的正文明确表达只有一个已知过敏原；药名保留",
         "stats": stats,
         "user_names": mapping,
     }
