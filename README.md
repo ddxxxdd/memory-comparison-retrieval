@@ -247,74 +247,30 @@ EMBEDDING_MODEL=你的多语向量模型名称
 构造完成后 `fully_reviewed` 和 `human_reviewed` 都为 `false`；全库模型复核不等于人工审核。数据维护者完成人工核对后再更新这两个字段。实验不依据它们跳过查询，而是按提供的金标计算指标。构造请求使用现有 API 缓存，中断重跑复用成功响应，不覆盖非空数据目录。实验默认使用此共同旧库，随机抽 12 条查询并行运行；不同库容的召回率-时延曲线由 `scripts/scale_curve.py` 汇总多次运行，单个库容点不能支持规模复杂度结论。
 
 
-## 7. ValidMem 来源:大旧库 + 带主体的新写入 + 冲突金标
+## 7. ValidMem：统一旧记忆库与同主体冲突
 
-当前主数据集从 ValidMem 的事件更新分区构造。任务口径:
+当前修订版为 `data/validmem_v7`。任务是从完整旧记忆库中，为每条新写入找出“同一主体、同一事项、不同取值”的旧记忆。数据不再按 personal/world 或来源 `user_id` 切分；不同值包含后续更新，同值复述不算冲突。事项的适用条件和实例范围仍需一致。
 
-```text
-一个冻结的大旧记忆库 + 独立到来的新记忆写入
-每条写入:从旧库检索出可能冲突的旧记忆
-冲突 = 同一件事 + 取值不同(不比较时间:默认旧库整体早于写入)
-两条通道:
-  personal  关于某个具体人的记忆 → 只有同一个 owner 的旧记忆可比
-  world     关于公共事物的记忆(营业时间/价格/政策/教材/日程) → 谁说的都能比
-第一阶段只要求把可能冲突的旧记忆找全(召回优先);金标只标冲突,不再单独标注"可比较但没冲突"的一层
-```
+主体按正文判定：完全相同的姓名跨场景视为同一人；不同姓名视为不同人，不做近似姓名合并。某类主语只有匿名记录时，全库统一改写成一个姓名；如果该类同时有匿名和具名记录，则根据每条匿名记录原始的场景元数据为其分配新姓名，不与记录者姓名自动合并。映射保存在 `entity_aliases.jsonl`。
+
+从 v6 生成 v7：
 
 ```powershell
-.\.venv\Scripts\python.exe scripts\build_validmem_dataset.py `
-  --memories ..\tmp\validmem_memories.jsonl --cases ..\tmp\validmem_cases.jsonl `
-  --output data\validmem_v5 `
-  --scope-labels artifacts\validmem_bg_scope.json `
-  --world-writes data\validmem_world_writes_v3.json `
-  --slot-labels artifacts\world_slot_labels.json `
-  --label-overrides data\world_label_overrides.json
+.\.venv\Scripts\python.exe scripts\repair_validmem_v7.py
 ```
 
-只有一个正式数据集 `data/validmem_v5`:
+当前 v7 保留 1,225 条旧记忆；v6 原有 188 条写入中，7 条在主体复核后已无有效冲突，移出活动集并保留在 `provenance.jsonl`，因此活动集有 181 条写入和 301 个冲突金标配对。全部 288 个继承金标都已重新核对正文主体与事项：6 对因姓名不同而排除，另有 2 对处方记录经用户确认是不同患者；两对新会员折扣与通用折扣也按用户裁定为暂不冲突。另新增 23 个主体、事项和值均可明确对齐的冲突配对。Physics 101 教材版本与春季清仓商品范围两对按用户裁定保留为冲突；春季清仓旧记忆改写为“仅部分商品打 5 折”，原文保存在 `provenance.jsonl`。计划学习 Biology 与最终确定 Data Science 专业按用户裁定为不冲突。`gold_audit.jsonl` 记录了全部 288 个继承配对、23 个自动新增配对和 Biology 计划事项的用户裁定；当前没有待审配对。继承金标中可自动核对出不同取值的保留项按规则保留，人工裁定的例外逐条记录；这不代表全体金标已完成人工审核。脚本只会更新带有本脚本标识的 `validmem_v7` 目录中的固定生成文件；若目录不是本脚本生成的 v7，则会停止，不覆盖。`gold.jsonl` 的 `fully_reviewed`、`human_reviewed` 均为 `false`。
 
-| 项目 | 数值 |
-|---|---:|
-| 旧库 | 1225 |
-| ├ 个人通道 | 688 |
-| └ 世界通道(无主) | 537 |
-| 新写入 | 188 |
-| ├ 个人通道 | 166 |
-| └ 世界通道 | 22 |
-| 冲突配对 | 288 |
-| ├ 个人通道 | 202 |
-| └ 世界通道 | 86 |
-| 每条写入都有冲突旧记忆 | 是 |
-| 每写冲突数 | 1 条 138、2 条 42、3 条 4、5 条 1、6 条 1、14 条 1、29 条 1 |
-| 库 / 写入比 | 6.52 |
+v7 的 `memories.jsonl` 和 `queries.jsonl` 不含 `scope`、`user_id`、`source_role`。原始来源字段与正文保存在 `provenance.jsonl`，金标配对理由保存在 `pair_label_rationales.jsonl`。匿名主体使用独立新姓名，不会因为与记录者处于同一场景而被自动并成记录者；`John Doe` 在 v7 全局改名为 `Mara Voss`，与 John 明确区分；其他相同姓名保持统一。
 
-**主体不写进正文。** 主体和通道只存在 `source_ref`(`user_id`、`scope`)。早期版本把主体写进正文,实测同一槽位里不同主体的余弦中位数 0.814、同主体 0.861,嵌入几乎分不开主体,却让词法检索白捡一个 id 匹配,已废弃。
+`data/validmem_v5`、`data/validmem_v6` 是历史快照，不覆盖。此前基于 personal/world、owner 和 topic 边界得出的指标或索引均不代表 v7；本次不运行实验。
 
-**"同一件事"由内容决定,不看来源的槽位键。** 来源在每个 case 里各自命名,同一件事会被写成 `Physics` / `Physics 101` / `Physics course` 等 6 个键。现在先用一次内容标注把 382 个世界槽位键归成 `(subject, aspect)` 的 topic(311 个),topic 落盘冻结;金标按 topic 机械重算:同 topic + 更早 + 取值不同。
-
-**只提及不算主张。** 同 topic 里只提到补充材料、备选读物、学生反馈的记录没有给出竞争取值,按 `mention_pattern` 排除;另有 3 条逐条例外记在 `world_label_overrides.json`。
-
-**历史与计划表述不算冲突。** 句子自己把主张限定在过去(`was` / `lived` / `old` / `initial` / `previous`)或只表达计划(`plans to` / `planned`)时,它不否认写入的当前取值:`David's old address was 2A` 与 `new address is 3B` 可以同时为真。这类配对按 `non_assertive` 剔除;剔除后没有任何冲突的写入整条移出数据集(不为它们编造旧记忆),记录在 manifest 的 `dropped`。测量值(血压等)没有时间限定,仍算冲突。
-
-**8 条旧记忆按人工裁定改写为现在时。** 这些句子原本用过去时或计划语气写,经人工复核确认它们与新写入是同一件事、只是表述方式导致被排除;按需求改写为当前取值后,它们成为明确的冲突并在金标里打上标签。改写清单(before / after / 理由)记在 manifest 的 `rewrites`。
-
-**每条写入都有冲突。** 个人通道两个 near-miss case 各合成一条同主体不同值的旧记忆;世界通道 24 条写入从已有公共事实上合成,金标直接指回那些旧记忆。
-
-**金标只有一层。** `gold.jsonl` 为 `query_id / conflict_old_memory_ids / fully_reviewed / human_reviewed`。召回率看冲突记忆是否都被收进候选,候选纯度看候选中真冲突的占比。
-
-**记录在案的例外 1 条。** `TC-A-0081` 同主体同事项下的 `User mentions great deals at Costco` 只提到优惠、没有断言首选超市,不算同一件事,不标冲突。
-
-字段:`memories.jsonl` 为 `memory_id/content/source_ref`,`queries.jsonl` 为 `query_id/content/source_ref`;`source_ref` 保存 `user_id`、`scope`、`source_role`、`conflict_entity`、`conflict_attribute`、`created_day`,世界通道另有 `topic`。全库参与粗筛与内容细筛；`scope` 与 `user_id` 不再缩小粗筛候选池，最终候选阶段仅当新旧记录都明确为 `personal` 且具有不同的非空 `user_id` 时排除旧记录。公共记录、记忆类型或用户身份缺失的记录不因来源用户字段排除。检索文本仍按现有方式加入适用的主体上下文；`conflict_entity`、`conflict_attribute`、`topic`、`source_role`、`created_day` 检索完全不读。
-
-`human_reviewed` 仍为 `false`:topic 标签由模型按内容标注、随后人工抽查了与实验相关的家族,没有逐条人工复核;指标只能作为流程诊断。
-
-配套脚本:
+配套脚本：
 
 | 脚本 | 用途 |
 |---|---|
-| `scripts/build_validmem_dataset.py` | 构造并断言数据集 |
-| `scripts/score_validmem_run.py` | 冲突召回率、找全率、冲突纯度、库削减率 |
-| `scripts/classify_candidates.py` | 候选按冲突 / 同主体 / 其他主体 / 无关分类 |
-| `scripts/judge_gap_report.py` | 检索阶段与判定阶段的差距分解 |
-| `scripts/scale_compare.py` | 同一批写入的库容对比 |
-| `scripts/make_review_worksheet.py` | 导出人工核对表 |
+| `scripts/build_validmem_dataset.py` | 重建历史 v5 基础数据 |
+| `scripts/add_user_names.py` | 从 v5 生成历史 v6 |
+| `scripts/repair_validmem_v7.py` | 从 v6 生成统一库 v7、来源记录、逐对金标审计和待审配对 |
+| `scripts/verify_conflict_labels.py` | 按 v7 正文主体与事项抽样复核正负例；兼容 v5/v6 元数据采样，不在本次运行 |
+| `scripts/score_validmem_run.py` | 汇总候选冲突召回与纯度 |

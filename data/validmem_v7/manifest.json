@@ -1,0 +1,663 @@
+{
+  "dataset_id": "validmem_v7",
+  "task": "一个统一的冻结旧记忆库 + 独立新记忆写入；冲突 = 同一主体、同一事项的不同值。",
+  "source": {
+    "dataset": "ValidMem",
+    "url": "https://huggingface.co/datasets/Zhou11Alex/ValidMem",
+    "citation": "Validity Is Not Visibility: A Lifecycle FSM for Agent Memory (EMNLP 2026)",
+    "case_partition": [
+      "A"
+    ],
+    "memories_file_sha256": "46627076c4170070ef33aa2c036ade07fe83a827658c0e0a2e2b3602665ac521",
+    "cases_file_sha256": "1bccc39b48a644919baef45808ae7a318e30504b383e916ccee6a2c142bb4db0",
+    "derived_from": "validmem_v6"
+  },
+  "conversion": {
+    "active_identity": "只从正文解析；source_ref 不含 scope 或 user_id",
+    "provenance": "原始 source_ref 与原文独立保存在 provenance.jsonl",
+    "name_canonicalization": "相同姓名全局一致；匿名主体按主体类别是否另有具名实体决定共用或按场景取名；John Doe 统一重命名为 Mara Voss",
+    "new_memory": "保留 validmem_v6 查询文本"
+  },
+  "label_definition": {
+    "conflict": "同一主体 + 同一事项 + 不同取值",
+    "same_name": "精确姓名相同即可跨场景匹配，不按原 user_id 或 scope 区分",
+    "different_name": "不同姓名是不同主体；不做 John/John Doe 这类近似姓名推断",
+    "unqualified_subject": "匿名-only 主语全库统一；同时存在具名实体的类别按场景分配唯一匿名主体姓名",
+    "same_value": "同事项同值的改写或重复不算冲突",
+    "conditions": "若适用条件不同可能并存，需人工复核，不自动标冲突",
+    "time": "新旧顺序不改变不同值标签；时间字段只用于溯源"
+  },
+  "documented_exceptions": {
+    "count": 1,
+    "items": [
+      {
+        "query_id": "TC-A-0081",
+        "memory_id": "M-A-0196",
+        "reason": "同主体同事项但未断言该属性的取值,不算同一件事,不标冲突"
+      }
+    ],
+    "meaning": "这些记录与新写入同主体同事项,但没有断言该属性的取值(例如只说‘提到某店有优惠’),不构成同一件事,因此不标冲突,只作为普通干扰留在旧库"
+  },
+  "rewrites": {
+    "count": 9,
+    "items": [
+      {
+        "memory_id": "M-A-0380",
+        "before": "The user lived in New York.",
+        "after": "The user lives in New York.",
+        "reason": "原句是过去时,按需求改写为现在时表述"
+      },
+      {
+        "memory_id": "M-A-0395",
+        "before": "John's favorite coffee shop was 'Brew & Bean' on Main Street.",
+        "after": "John's favorite coffee shop is 'Brew & Bean' on Main Street.",
+        "reason": "原句是过去时,按需求改写为现在时表述"
+      },
+      {
+        "memory_id": "M-A-0402",
+        "before": "The course material was updated to the 2020 curriculum.",
+        "after": "The course material is based on the 2020 curriculum.",
+        "reason": "原句是过去时,按需求改写为现在时表述"
+      },
+      {
+        "memory_id": "M-B-0215",
+        "before": "Initial group project deadline set to day_115.",
+        "after": "The group project deadline is day_115.",
+        "reason": "去掉 Initial 这一历史限定,改写为当前取值"
+      },
+      {
+        "memory_id": "M-C-0076",
+        "before": "Recommended dosage for Medication A was 50mg daily.",
+        "after": "Recommended dosage for Medication A is 50mg daily.",
+        "reason": "原句是过去时,按需求改写为现在时表述"
+      },
+      {
+        "memory_id": "M-B-0199",
+        "before": "History essay deadline was day_35.",
+        "after": "History essay deadline is day_35.",
+        "reason": "原句是过去时,按需求改写为现在时表述"
+      },
+      {
+        "memory_id": "M-B-0157",
+        "before": "History essay submission deadline was day_80.",
+        "after": "History essay submission deadline is day_80.",
+        "reason": "原句是过去时,按需求改写为现在时表述"
+      },
+      {
+        "memory_id": "M-B-0115",
+        "before": "Gym membership renewal discount was available until day 50.",
+        "after": "Gym membership renewal deadline is day_50.",
+        "reason": "原句说的是折扣有效期,仅改时态仍与续费截止日不是同一属性,因此按用户要求改写为截止日取值"
+      },
+      {
+        "memory_id": "M-B-0014",
+        "before": "Spring clearance sale: 50% off select items",
+        "after": "Spring clearance sale: only select items are 50% off.",
+        "reason": "用户要求明确表达只有部分商品打 5 折，以凸显其与全部商品打 5 折的范围差异"
+      }
+    ],
+    "meaning": "这些旧记忆被改写成现在时/当前取值,使其与新写入构成明确冲突;原文保存在 before 字段,改写是人工裁定后的一次性动作。"
+  },
+  "dropped": {
+    "write_count": 6,
+    "writes": [
+      {
+        "query_id": "TC-A-0105",
+        "content": "Team lunch moved to Friday at 1pm at Cafe Delight.",
+        "reason": "剔除历史/计划表述后没有冲突旧记忆"
+      },
+      {
+        "query_id": "TC-A-0118",
+        "content": "Team lunch moved to Friday at 1pm, location: Cafe Blue",
+        "reason": "剔除历史/计划表述后没有冲突旧记忆"
+      },
+      {
+        "query_id": "TC-A-0134",
+        "content": "David's new address is 52 Maple Street, Apt 3B.",
+        "reason": "剔除历史/计划表述后没有冲突旧记忆"
+      },
+      {
+        "query_id": "TC-A-0138",
+        "content": "Mike's current email is mike.jones99@example.com.",
+        "reason": "剔除历史/计划表述后没有冲突旧记忆"
+      },
+      {
+        "query_id": "TW-0014",
+        "content": "Biology project deadline moved to day_70",
+        "reason": "topic 生物项目|deadline 下剔除历史/计划表述后没有冲突旧记忆"
+      },
+      {
+        "query_id": "TW-0015",
+        "content": "Calculus assignment due date moved to day_45",
+        "reason": "topic 微积分作业|deadline 下剔除历史/计划表述后没有冲突旧记忆"
+      }
+    ],
+    "pair_count": 8,
+    "pairs": [
+      {
+        "query_id": "TC-A-0105",
+        "memory_id": "M-A-0260",
+        "content": "Team lunch planned on Thursday at 1pm at Cafe Delight.",
+        "reason": "历史/计划表述,不构成当前取值的互斥"
+      },
+      {
+        "query_id": "TC-A-0118",
+        "memory_id": "M-A-0297",
+        "content": "Team lunch planned on Thursday at 1pm, location: Cafe Blue",
+        "reason": "历史/计划表述,不构成当前取值的互斥"
+      },
+      {
+        "query_id": "TC-A-0134",
+        "memory_id": "M-A-0343",
+        "content": "David's old address was 52 Maple Street, Apt 2A.",
+        "reason": "历史/计划表述,不构成当前取值的互斥"
+      },
+      {
+        "query_id": "TC-A-0138",
+        "memory_id": "M-A-0354",
+        "content": "Mike's old email was mike.jones@example.net.",
+        "reason": "历史/计划表述,不构成当前取值的互斥"
+      },
+      {
+        "query_id": "TC-A-0147",
+        "memory_id": "M-A-0380",
+        "content": "The user lived in New York.",
+        "reason": "历史/计划表述,不构成当前取值的互斥"
+      },
+      {
+        "query_id": "TC-A-0152",
+        "memory_id": "M-A-0395",
+        "content": "John's favorite coffee shop was 'Brew & Bean' on Main Street.",
+        "reason": "历史/计划表述,不构成当前取值的互斥"
+      },
+      {
+        "query_id": "TC-A-0154",
+        "memory_id": "M-A-0402",
+        "content": "The course material was updated to the 2020 curriculum.",
+        "reason": "历史/计划表述,不构成当前取值的互斥"
+      },
+      {
+        "query_id": "TC-A-0165",
+        "memory_id": "M-A-0434",
+        "content": "Student plans to study Biology as their major.",
+        "reason": "历史/计划表述,不构成当前取值的互斥"
+      }
+    ],
+    "meaning": "按口径不算冲突、被剔除的历史/计划表述(was / lived / old / initial / planned 等)。剔除后没有任何冲突的写入整条移出数据集,不为它编造旧记忆;测量值(血压等)没有时间限定,仍算冲突。"
+  },
+  "synthesized": {
+    "personal_count": 2,
+    "personal_items": [
+      {
+        "query_id": "TC-A-0123",
+        "memory_id": "SYN-TC-A-0123",
+        "content": "Patient John has a known allergy to ibuprofen.",
+        "reason": "来源只有不同主体(Jane)的同值记忆;补一条同主体不同值(ibuprofen)的旧记忆"
+      },
+      {
+        "query_id": "TC-A-0137",
+        "memory_id": "SYN-TC-A-0137",
+        "content": "Patient John Doe has an allergy to sulfa drugs.",
+        "reason": "来源只有不同主体(Jane Doe)的同值记忆;补一条同主体不同值(sulfa drugs)的旧记忆"
+      }
+    ],
+    "world_count": 22,
+    "world_items": [
+      {
+        "query_id": "TW-0001",
+        "memory_id": "TW-M-0001",
+        "content": "Gym promotion updated: 80% off membership fees",
+        "conflicts": [
+          "M-C-0104",
+          "M-C-0171",
+          "M-C-0105",
+          "M-C-0172",
+          "M-C-0106"
+        ],
+        "topic": "健身房促销|price",
+        "note": "同一健身房促销槽位,50/60/70% 三条旧说法都作废"
+      },
+      {
+        "query_id": "TW-0002",
+        "memory_id": "TW-M-0002",
+        "content": "Biology textbook edition is now 5th Edition",
+        "conflicts": [
+          "M-C-0126",
+          "M-C-0127",
+          "M-C-0128"
+        ],
+        "topic": "生物课教材|choice",
+        "note": "教材版本链 2nd/3rd/4th → 5th"
+      },
+      {
+        "query_id": "TW-0003",
+        "memory_id": "TW-M-0003",
+        "content": "Calculus textbook recommendation is Calculus by Apostol (16th Edition)",
+        "conflicts": [
+          "M-C-0065",
+          "M-C-0111",
+          "M-C-0149",
+          "M-C-0152",
+          "M-C-0165",
+          "M-B-0592",
+          "M-C-0112",
+          "M-C-0150",
+          "M-C-0153",
+          "M-C-0113",
+          "M-C-0066",
+          "M-C-0154",
+          "M-C-0166",
+          "M-C-0151"
+        ],
+        "topic": "微积分教材|choice",
+        "note": "微积分教材推荐链,三条旧推荐都作废"
+      },
+      {
+        "query_id": "TW-0004",
+        "memory_id": "TW-M-0004",
+        "content": "Group project deadline extended again to day_160",
+        "conflicts": [
+          "M-B-0215",
+          "M-B-0214"
+        ],
+        "topic": "小组项目|deadline",
+        "note": "同一小组项目截止日,day_115/day_130 两条都作废"
+      },
+      {
+        "query_id": "TW-0005",
+        "memory_id": "TW-M-0005",
+        "content": "Recommended dosage for Medication A is now 100mg daily",
+        "conflicts": [
+          "M-C-0076",
+          "M-C-0077"
+        ],
+        "topic": "药物A|quantity",
+        "note": "同一药物剂量 50mg/75mg → 100mg"
+      },
+      {
+        "query_id": "TW-0006",
+        "memory_id": "TW-M-0006",
+        "content": "Recommended study resource: 'Math Practice Workbook Edition 2024'",
+        "conflicts": [
+          "M-C-0133",
+          "M-C-0134"
+        ],
+        "topic": "数学学习资源|choice",
+        "note": "数学练习册推荐 2022/2023 → 2024"
+      },
+      {
+        "query_id": "TW-0007",
+        "memory_id": "TW-M-0007",
+        "content": "Recommended book: 'Advanced AI Concepts' (Edition 2)",
+        "conflicts": [
+          "M-C-0123",
+          "M-C-0124",
+          "M-C-0125"
+        ],
+        "topic": "AI书籍推荐|choice",
+        "note": "AI 书目版本链三条旧说法都作废"
+      },
+      {
+        "query_id": "TW-0008",
+        "memory_id": "TW-M-0008",
+        "content": "The best route to the park is now through Elm Street",
+        "conflicts": [
+          "M-C-0025",
+          "M-C-0026",
+          "M-C-0027"
+        ],
+        "topic": "公园路线|location",
+        "note": "去公园的路线 Oak/Pine → Elm"
+      },
+      {
+        "query_id": "TW-0009",
+        "memory_id": "TW-M-0009",
+        "content": "Park entry fee is now $15 per person",
+        "conflicts": [
+          "M-C-0185"
+        ],
+        "topic": "公园门票|price",
+        "note": "公园门票 $10 → $15"
+      },
+      {
+        "query_id": "TW-0010",
+        "memory_id": "TW-M-0010",
+        "content": "Library membership is now valid until day_150",
+        "conflicts": [
+          "M-B-0177"
+        ],
+        "topic": "图书馆会员|deadline",
+        "note": "借书证有效期延长"
+      },
+      {
+        "query_id": "TW-0011",
+        "memory_id": "TW-M-0011",
+        "content": "History study guide is now valid until day_90",
+        "conflicts": [
+          "M-B-0137"
+        ],
+        "topic": "历史学习指南|deadline",
+        "note": "历史复习资料有效期延长"
+      },
+      {
+        "query_id": "TW-0012",
+        "memory_id": "TW-M-0012",
+        "content": "The preferred textbook for the math course is now 'Advanced Algebra, 6th Edition'",
+        "conflicts": [
+          "M-B-0542"
+        ],
+        "topic": "数学课程|choice",
+        "note": "数学课教材 5th → 6th"
+      },
+      {
+        "query_id": "TW-0013",
+        "memory_id": "TW-M-0013",
+        "content": "Recommended textbook for physics is now 'Physics Concepts, 2nd Edition'",
+        "conflicts": [
+          "M-C-0188",
+          "M-C-0005",
+          "M-C-0079",
+          "M-C-0098",
+          "M-C-0136",
+          "M-C-0146",
+          "M-C-0067",
+          "M-C-0069",
+          "M-C-0008",
+          "M-C-0021",
+          "M-C-0055",
+          "M-C-0091",
+          "M-C-0099",
+          "M-B-0562",
+          "M-C-0137",
+          "M-C-0147",
+          "M-C-0080",
+          "M-C-0100",
+          "M-C-0107",
+          "M-C-0006",
+          "M-C-0009",
+          "M-C-0070",
+          "M-C-0189",
+          "M-C-0022",
+          "M-C-0092",
+          "M-C-0010",
+          "M-C-0071",
+          "M-C-0108",
+          "M-C-0023"
+        ],
+        "topic": "物理课教材|choice",
+        "note": "物理教材 1st → 2nd"
+      },
+      {
+        "query_id": "TW-0016",
+        "memory_id": "TW-M-0016",
+        "content": "Math test rescheduled to day_60",
+        "conflicts": [
+          "M-B-0161"
+        ],
+        "topic": "数学测验|schedule",
+        "note": "数学测验 day_40 → day_60"
+      },
+      {
+        "query_id": "TW-0017",
+        "memory_id": "TW-M-0017",
+        "content": "Midterm exam rescheduled to day_75",
+        "conflicts": [
+          "M-B-0216",
+          "M-B-0165"
+        ],
+        "topic": "期中考试|schedule",
+        "note": "期中考试 day_45 → day_75"
+      },
+      {
+        "query_id": "TW-0018",
+        "memory_id": "TW-M-0018",
+        "content": "Community event rescheduled to the weekend of day_35",
+        "conflicts": [
+          "M-B-0106",
+          "M-B-0114"
+        ],
+        "topic": "社区活动|schedule",
+        "note": "社区活动改期"
+      },
+      {
+        "query_id": "TW-0019",
+        "memory_id": "TW-M-0019",
+        "content": "Gym membership renewal deadline extended to day_110",
+        "conflicts": [
+          "M-B-0115",
+          "M-B-0206"
+        ],
+        "topic": "健身房会员|deadline",
+        "note": "健身房续费截止日延长"
+      },
+      {
+        "query_id": "TW-0020",
+        "memory_id": "TW-M-0020",
+        "content": "History essay submission deadline extended to day_75",
+        "conflicts": [
+          "M-B-0274",
+          "M-B-0321",
+          "M-B-0159",
+          "M-B-0199",
+          "M-B-0205",
+          "M-B-0157"
+        ],
+        "topic": "历史论文|deadline",
+        "note": "历史论文截止日延长"
+      },
+      {
+        "query_id": "TW-0021",
+        "memory_id": "TW-M-0021",
+        "content": "Flash sale extended: 70% off storewide",
+        "conflicts": [
+          "M-B-0080"
+        ],
+        "topic": "闪购活动|status",
+        "note": "闪购折扣 50% → 70%"
+      },
+      {
+        "query_id": "TW-0022",
+        "memory_id": "TW-M-0022",
+        "content": "Spring clearance sale now offers 50% off all items",
+        "conflicts": [
+          "M-B-0014",
+          "M-B-0028",
+          "M-B-0091"
+        ],
+        "topic": "春季清仓促销|price",
+        "note": "春季清仓 30% → 50%"
+      },
+      {
+        "query_id": "TW-0023",
+        "memory_id": "TW-M-0023",
+        "content": "Mid-season sale discount increased to 45% off",
+        "conflicts": [
+          "M-B-0096"
+        ],
+        "topic": "季中促销|price",
+        "note": "季中促销 30% → 45%"
+      },
+      {
+        "query_id": "TW-0024",
+        "memory_id": "TW-M-0024",
+        "content": "Restaurant discount reduced to 25% off all items",
+        "conflicts": [
+          "M-B-0001"
+        ],
+        "topic": "餐厅折扣|price",
+        "note": "餐厅折扣 50% → 25%"
+      }
+    ],
+    "reason": "个人通道补两条 near-miss 缺失记忆;世界通道按需求从已有公共事实上合成写入"
+  },
+  "totals": {
+    "memory_count": 1225,
+    "query_count": 181,
+    "conflict_pairs": 301,
+    "documented_exceptions": 1,
+    "writes_without_conflict": 0,
+    "multi_conflict_writes": 50,
+    "bank_to_write_ratio": 6.52,
+    "writes_dropped_after_revalidation": 7,
+    "automatic_cross_scenario_additions": 23,
+    "same_value_candidates_excluded": 1,
+    "pending_manual_review_pairs": 0,
+    "inherited_gold_pairs_revalidated": 288,
+    "inherited_subject_mismatch_pairs_excluded": 6
+  },
+  "checks": {
+    "scope_owner_absent_from_active_records": "memories/queries source_ref no longer contains scope or user_id",
+    "provenance_separate": "original source_ref and content saved in provenance.jsonl",
+    "same_name_identity": "exact content names are resolved globally",
+    "different_names_not_merged": "similar or partial names are not merged automatically",
+    "inherited_gold_revalidated": "all inherited pairs rechecked against content-resolved subjects and normalized items; decisions recorded in gold_audit.jsonl",
+    "every_write_has_conflict": "empty-gold writes removed after subject revalidation; active writes all retain at least one conflict"
+  },
+  "review_status": {
+    "fully_reviewed": false,
+    "human_reviewed": false,
+    "pending_pair_count": 0,
+    "meaning": "自动添加仅覆盖可抽取到不同取值的明确同主体同事项配对；其余边界配对在 manual_review.jsonl，裁定后再更新金标和状态。"
+  },
+  "files": {
+    "memories.jsonl": "814823499342fd09b409c6e5034ab87bb9f188b91aedd4259756a810a9592114",
+    "queries.jsonl": "7d89052274fbaa728987336d15351c0d653693146477e419ff04963e82b6a7c7",
+    "gold.jsonl": "d9d94348a1d09877accc322e0b333fe4f55789691974f128fdb281035cf193be",
+    "provenance.jsonl": "ae1733c59652dc325ce75e3876ad3ffcb0ee762835565715ad9f3b8b5cbf407c",
+    "entity_aliases.jsonl": "6dcb87db2988a5d6b6ce185ac583880b1cfd1b55f7a22a32c19931ded70ccf97",
+    "manual_review.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "pair_label_rationales.jsonl": "79f1e4bd9b6fa7ea1168253a0026583f01c2e5473fc0c35b7623ab218df3f1cb",
+    "gold_audit.jsonl": "f55e4144f1eeb329670fdc927000ad69f2a28f3a75e095f91c5aae1db6389570"
+  },
+  "identity_and_conflict_policy": {
+    "active_identity_source": "memory/query content only",
+    "same_exact_name": "相同姓名在所有场景中视为同一主体",
+    "different_names": "姓名不同则视为不同主体；不做近似姓名合并",
+    "unqualified_subjects": "匿名-only 类别共用一个姓名；若同类也有具名主体，每个匿名场景生成新姓名，不与记录者自动合并",
+    "alias_mapping": "混合类别按原始 user_id 分场景生成的新姓名及匿名-only 共用姓名记录在 entity_aliases.jsonl",
+    "conflict": "同一主体、同一事项、取值不同即冲突；不按 personal/world 或 source user 分割",
+    "same_value": "取值相同的重述不计冲突",
+    "time": "不使用 created_day 将旧值排除；created_day 仅为溯源字段"
+  },
+  "renamed_entities": [
+    {
+      "from": "John Doe",
+      "to": "Mara Voss",
+      "reason": "与 John 区分为不同主体，并降低姓名相似性"
+    }
+  ],
+  "human_decisions": [
+    {
+      "query_id": "TW-0013",
+      "memory_id": "M-C-0188",
+      "label": "conflict",
+      "reason": "用户裁定为同一教材事项的不同版本：Physics 101 第 5 版与 Physics Concepts 第 2 版。"
+    },
+    {
+      "query_id": "TW-0022",
+      "memory_id": "M-B-0014",
+      "label": "conflict",
+      "reason": "用户裁定同一春季清仓促销中，部分商品与全部商品适用范围不同，标为冲突。"
+    },
+    {
+      "query_id": "TW-0001",
+      "memory_id": "M-C-0171",
+      "label": "not_conflict_for_current_labeling",
+      "reason": "用户裁定新会员 20% 优惠与会员费 80% 通用优惠暂不计为冲突。"
+    },
+    {
+      "query_id": "TW-0001",
+      "memory_id": "M-C-0172",
+      "label": "not_conflict_for_current_labeling",
+      "reason": "用户确认沿用 20% 优惠的判断：新会员 25% 优惠与会员费 80% 通用优惠暂不计为冲突。"
+    },
+    {
+      "query_id": "TC-A-0165",
+      "memory_id": "M-A-0434",
+      "label": "not_conflict_for_current_labeling",
+      "reason": "用户裁定：计划学习 Biology 与最终确定 Data Science 不算冲突。"
+    },
+    {
+      "query_id": "TC-A-0086",
+      "memory_id": "M-A-0208",
+      "label": "not_conflict_for_current_labeling",
+      "reason": "用户确认两条处方记忆涉及不同患者，不冲突。"
+    },
+    {
+      "query_id": "TC-A-0089",
+      "memory_id": "M-A-0217",
+      "label": "not_conflict_for_current_labeling",
+      "reason": "用户确认两条处方记忆涉及不同患者，不冲突。"
+    }
+  ],
+  "revalidation_dropped_writes": [
+    {
+      "query_id": "TC-A-0052",
+      "content": "Uma Jensen's lisinopril dosage increased to 20 mg daily.",
+      "removed_conflict_old_memory_ids": [
+        "M-A-0110"
+      ],
+      "reason": "逐对复核后所有原冲突标签均不满足同一主体；活动冲突数据不保留空金标写入。原文仍在 provenance.jsonl。"
+    },
+    {
+      "query_id": "TC-A-0054",
+      "content": "David Owen updated preferred pharmacy to WellMed Pharmacy.",
+      "removed_conflict_old_memory_ids": [
+        "M-A-0116"
+      ],
+      "reason": "逐对复核后所有原冲突标签均不满足同一主体；活动冲突数据不保留空金标写入。原文仍在 provenance.jsonl。"
+    },
+    {
+      "query_id": "TC-A-0063",
+      "content": "Mia Chen's updated blood pressure: 130/85 mmHg.",
+      "removed_conflict_old_memory_ids": [
+        "M-A-0143"
+      ],
+      "reason": "逐对复核后所有原冲突标签均不满足同一主体；活动冲突数据不保留空金标写入。原文仍在 provenance.jsonl。"
+    },
+    {
+      "query_id": "TC-A-0074",
+      "content": "Ivy Garcia's dosage of Metoprolol increased to 10mg daily.",
+      "removed_conflict_old_memory_ids": [
+        "M-A-0174"
+      ],
+      "reason": "逐对复核后所有原冲突标签均不满足同一主体；活动冲突数据不保留空金标写入。原文仍在 provenance.jsonl。"
+    },
+    {
+      "query_id": "TC-A-0076",
+      "content": "Jack Garcia's dosage adjusted to 100mg of Metoprolol.",
+      "removed_conflict_old_memory_ids": [
+        "M-A-0179"
+      ],
+      "reason": "逐对复核后所有原冲突标签均不满足同一主体；活动冲突数据不保留空金标写入。原文仍在 provenance.jsonl。"
+    },
+    {
+      "query_id": "TC-A-0086",
+      "content": "Olivia Chen updated the patient's prescription to cefuroxime 250mg twice daily.",
+      "removed_conflict_old_memory_ids": [
+        "M-A-0208"
+      ],
+      "reason": "逐对复核后所有原冲突标签均不满足同一主体；活动冲突数据不保留空金标写入。原文仍在 provenance.jsonl。"
+    },
+    {
+      "query_id": "TC-A-0089",
+      "content": "Peter Chen updated prescription to Metformin 750mg daily",
+      "removed_conflict_old_memory_ids": [
+        "M-A-0217"
+      ],
+      "reason": "逐对复核后所有原冲突标签均不满足同一主体；活动冲突数据不保留空金标写入。原文仍在 provenance.jsonl。"
+    }
+  ],
+  "gold_audit": {
+    "file": "gold_audit.jsonl",
+    "inherited_pair_count": 288,
+    "status_counts": {
+      "conflict_revalidated_values_differ": 276,
+      "not_conflict_subject_mismatch": 6,
+      "not_conflict_user_confirmed": 5,
+      "conflict_user_confirmed": 2,
+      "conflict_auto_values_differ": 23
+    },
+    "meaning": "每个继承金标都重新检查正文主体与事项；不同主体已排除，无法解析的边界进入人工复核，完整证据保存在 gold_audit.jsonl。"
+  }
+}

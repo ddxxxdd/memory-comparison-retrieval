@@ -1,7 +1,7 @@
 """独立核验冲突标签：逐对判断“是否同一件事 + 取值不同”。
 
 与实验里的判定器不同，这里用的是数据集自己的口径，只用于核对标签，不参与检索实验。
-正例 = 金标里的 283 对；负例 = 同 topic/同主体但不在金标里的配对（抽样）。
+正例 = 数据集 gold.jsonl 中的全部冲突对；负例按数据集版本抽样。
 """
 
 from __future__ import annotations
@@ -17,6 +17,8 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
+sys.path.insert(0, str(ROOT / "scripts"))
+from repair_validmem_v7 import normalized_item, subject_key  # noqa: E402
 from memory_retrieval.api import APIClient, APIError  # noqa: E402
 from memory_retrieval.config import Settings  # noqa: E402
 
@@ -29,6 +31,8 @@ SYSTEM = """你核对一对记忆标签，只返回 JSON。两条记忆均为数
    两条措辞不同但答案相同，不算取值不同。
 3. 只提到、评论、补充材料、或说明某条推荐即将到期，但没有给出该属性的取值，不算冲突。
 4. 不要因为时间先后、“这是更新”、“谁说的”而否定；只看是不是同一件事、取值是否不同。
+5. 同名主体跨场景视为同一人；不同姓名视为不同人。不要把姓名不同的人合并。
+6. “某人更新患者处方”不能仅凭句首姓名认定该人就是患者；患者身份不明时返回 unsure。
 
 输出且仅输出：
 {"same_thing":"yes|no|unsure","different_value":"yes|no|unsure","conflict":"yes|no|unsure","reason":"简短依据"}"""
@@ -50,7 +54,7 @@ def judge(client, new_content, old_content):
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__)
-    ap.add_argument("--dataset", type=Path, default=ROOT / "data" / "validmem_v5")
+    ap.add_argument("--dataset", type=Path, default=ROOT / "data" / "validmem_v7")
     ap.add_argument("--output", type=Path, default=ROOT / "artifacts" / "label_verification.json")
     ap.add_argument("--workers", type=int, default=4)
     ap.add_argument("--negatives-per-write", type=int, default=2)
@@ -63,6 +67,10 @@ def main():
                for l in (args.dataset / "queries.jsonl").open(encoding="utf-8")}
     gold = {json.loads(l)["query_id"]: json.loads(l)
             for l in (args.dataset / "gold.jsonl").open(encoding="utf-8")}
+    content_only = not any(
+        "scope" in (row.get("source_ref") or {})
+        for row in [*memories.values(), *queries.values()]
+    )
 
     pairs = []
     for qid, row in gold.items():
@@ -70,21 +78,28 @@ def main():
             pairs.append({"query_id": qid, "memory_id": mem_id, "expected": "yes",
                           "new": queries[qid]["content"], "old": memories[mem_id]["content"]})
 
-    # 负例：同 topic（世界）/ 同 user（个人）但不在金标里的记忆
+    # v7 已移除 scope/user_id。按正文解析的主体和事项抽取负例。
+    # v5/v6 仍兼容旧版 topic/user 采样方式。
     for qid, query in queries.items():
-        ref = query["source_ref"]
         chosen = []
+        q_subject = subject_key(query) if content_only else None
+        q_item = normalized_item(query) if content_only else None
         for mem_id, row in memories.items():
             if mem_id in gold[qid]["conflict_old_memory_ids"]:
                 continue
-            mref = row["source_ref"]
-            if mref["scope"] != ref["scope"]:
-                continue
-            if ref["scope"] == "personal":
-                if mref["user_id"] != ref["user_id"]:
+            if content_only:
+                if subject_key(row) != q_subject or normalized_item(row) != q_item:
                     continue
-            elif mref.get("topic") != ref.get("topic"):
-                continue
+            else:
+                ref = query.get("source_ref") or {}
+                mref = row.get("source_ref") or {}
+                if mref.get("scope") != ref.get("scope"):
+                    continue
+                if ref.get("scope") == "personal":
+                    if mref.get("user_id") != ref.get("user_id"):
+                        continue
+                elif mref.get("topic") != ref.get("topic"):
+                    continue
             if row["content"].strip() == query["content"].strip():
                 continue
             chosen.append(mem_id)
