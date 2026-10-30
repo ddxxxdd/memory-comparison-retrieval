@@ -97,11 +97,14 @@ def _candidate_may_match(comparisons):
 
 
 class Retriever:
-    def __init__(self, index, client):
+    def __init__(self, index, client, *, bm25=None):
         self.index = index
         self.client = client
         self.memory_positions = {m.memory_id: i for i, m in enumerate(index.memories)}
-        self.bm25 = None
+        # BM25 is a fixed corpus index. Callers running many queries should build it once
+        # and inject the shared, read-only instance so its construction is not charged to
+        # every query's online latency.
+        self.bm25 = bm25
 
     def _embed(self, texts, stage):
         self.index.check_embedding(self.client.settings)
@@ -112,7 +115,7 @@ class Retriever:
 
     def query(self, query_id, content, *, retrieval_text=None, method="proposed", rerank=True,
               judge=False, coarse_k=None, final_k=None, scope=None, user_id=None,
-              query_source_ref=None):
+              query_source_ref=None, similarity_threshold=None):
         nonempty_text(query_id, "query_id")
         nonempty_text(content, "content")
         # 检索用文本：旧记忆与新记忆必须落在同一份表示上（建库侧用 Memory.retrieval_text）。
@@ -124,6 +127,10 @@ class Retriever:
             raise ValueError("scope 只能是 personal、world 或 None")
         coarse_k = self.client.settings.coarse_k if coarse_k is None else coarse_k
         final_k = self.client.settings.final_k if final_k is None else final_k
+        threshold = SIMILARITY_THRESHOLD if similarity_threshold is None else similarity_threshold
+        if (isinstance(threshold, bool) or not isinstance(threshold, (int, float))
+                or not np.isfinite(threshold) or not 0 <= threshold <= 1):
+            raise ValueError("similarity_threshold 必须是 0 到 1 之间的有限数值")
         description_method = method in {"proposed", "independent"}
         if not description_method:
             self.client.settings.validate_budget(coarse_k, final_k)
@@ -186,7 +193,7 @@ class Retriever:
                     for memory_id in entry["memory_ids"]:
                         position = self.memory_positions[memory_id]
                         scores[position] = max(scores[position], entry_scores[i])
-                coarse_positions = [i for i in rank(scores, memories) if scores[i] >= SIMILARITY_THRESHOLD]
+                coarse_positions = [i for i in rank(scores, memories) if scores[i] >= threshold]
                 coarse = [row(i, scores[i], "coarse_score") for i in coarse_positions]
                 stage_times["coarse_retrieval"] = time.perf_counter() - stage_start
                 if rerank and coarse_positions:
@@ -228,7 +235,7 @@ class Retriever:
                     candidates = [{**coarse[i], "fine_score": float(fine_scores[i])}
                                   for i in ordered
                                   if _candidate_may_match(subject_relations[coarse[i]["memory_id"]])
-                                  and fine_scores[i] >= SIMILARITY_THRESHOLD]
+                                  and fine_scores[i] >= threshold]
                     stage_times["fine_ranking"] = time.perf_counter() - stage_start
                 elif not rerank:
                     candidates = coarse
@@ -274,7 +281,7 @@ class Retriever:
             "index_id": self.index.manifest["index_id"],
             "method": method, "rerank": bool(description_method and rerank), "judged": judge,
             "selection_policy": "similarity_threshold" if description_method else "top_k",
-            "similarity_threshold": SIMILARITY_THRESHOLD if description_method else None,
+            "similarity_threshold": float(threshold) if description_method else None,
             "coarse_k": None if description_method else coarse_k,
             "final_k": None if description_method else final_k,
             "prompt_version": PROMPT_VERSION, "prompt_hash": PROMPT_HASH,

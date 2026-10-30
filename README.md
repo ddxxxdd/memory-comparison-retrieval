@@ -2,7 +2,7 @@
 
 此项目实现已定方法的首版框架：固定旧库、每条新记忆独立查询、完整目录选择、描述向量粗召回、假设句细筛、固定逐对冲突判定。LLM 和向量均通过 `.env` 中独立配置的 OpenAI 兼容 API 接入。没有硬编码真实模型、服务地址或 Key。
 
-`examples/` 仅用于检查流程与接口。当前第一版使用 Dialogue NLI 的已有混合配对构建 `data/dialogue_nli_mixed_v1/`：先核对来源候选组，再合并固定旧库，最后逐条核对新记忆与整个旧库的关系。标签仅为 `conflict`、`no_conflict`。来源及模型复核尚未经过本项目的人工核对，因此不等同于人工评估结果。
+当前主评估集为 `data/validmem_v7/`，用于同一冻结记忆库上的冲突候选检索比较；主实验协议见第 5 节。`data/dialogue_nli_mixed_v1/` 是另一条早期来源构造流程，不作为 ValidMem v7 的默认数据集。
 
 历史的 `data/combined_sources_v1/` 存在候选遗漏和新旧边界问题，不作为当前默认数据集。它早期写入的 `fully_reviewed=true` 不能证明金标完整，审计说明见工作区 `research_notes/dataset_audit_2026-10-15.md`。
 
@@ -160,7 +160,9 @@ EMBEDDING_MODEL=你的多语向量模型名称
 
 **当前建库协议为 `BUILD_PROTOCOL=7`（撤除新增准入，保留事项与取值分离），旧建库哈希不可再用于描述检索（`proposed`／`independent`）**：已有带值目录不会自动清理，应在重新建库时应用新约束；不会在查询时改写冻结目录。索引身份只绑定建库用的描述提示与协议；仅修改查询阶段的 hypothesis/judge 提示无需重建索引。`dense`/`bm25`/`hybrid` 不读描述，仍可用旧索引。
 
-两个机制的 2×2 消融（数据 `data/validmem_v5`，37 条写入、102 条冲突对，同一网关同一模型；`proposed` 臂，`scripts/score_validmem_run.py`）：
+历史 v5 机制消融（37 条写入、102 个旧金标对）：
+
+> 下表只记录旧版工程诊断，不是 ValidMem v7 的主 baseline 结果。数据、金标、索引和运行缓存均与当前协议不同；不得用它支持 v7 的方法优劣结论。
 
 | 配置 | 索引 | 候选召回 | 候选纯度 | 冲突 F1 | 误报率 | 平均候选 | 运行目录 |
 |---|---:|---:|---:|---:|---:|---:|---|
@@ -176,46 +178,46 @@ EMBEDDING_MODEL=你的多语向量模型名称
 
 主要模块：`adapters.py` 读取后端，`prompts.py` 固定提示，`index.py` 离线索引，`quality.py` 可判定校验与目录归并，`pipeline.py` 查询，`api.py` 两类接口与缓存，`evaluation.py` 评测。`index.json` 保存目录、完整旧内容、描述提取结果、模型/提示指纹；`vectors.npz` 保存归一化向量。加载时校验文件完整性，查询不改动二者。更换向量服务/模型必须重建索引。
 
-## 5. 当前代码路径
+## 5. v7 主 baseline 比较协议
 
-下表列出现有可运行的实现路径，不代表已经确认的论文 baseline 名单。正式对照方法需根据文献调研结果另行确定。
+主问题是比较“动态阈值候选”与原生 top-k 检索在候选召回和候选负担上的权衡。所有方法使用完全相同的冻结旧记忆库、查询和冲突金标；保持各方法原生候选策略，不给 baseline 添加主体判断或 LLM 筛选。
 
-使用相同旧库、查询和金标；主方法与文献 baseline 保留各自候选策略，统一交给同一个冲突判定器。主方法按相似度阈值产生变长候选，文献 baseline 使用其原生候选选择方法。比较时同时报告各阶段候选数量、检索指标和完整成本，不将不同候选数的结果表述成相同预算。
+| 方法 | 候选策略 | 比较设置 |
+|---|---|---|
+| `proposed` | 描述检索与细筛按冻结相似度阈值返回变长候选 | 阈值只在开发集选择，测试前冻结；报告一个工作点 |
+| `bm25` | 对完整记忆正文做 BM25 原生排序 | top-k ∈ `{1, 2, 3, 5, 10, 20, 30, 50}` |
+| `dense` | 对完整记忆正文做向量排序 | 使用与 proposed 相同的嵌入模型，报告同一组 top-k |
+| `hybrid` | BM25 与向量排序按 RRF（常数 60）融合 | 报告同一组 top-k，不加额外语义筛选 |
 
-| 参数 | 对应对照 |
-|---|---|
-| `--method proposed` | 完整目录先选后生＋假设句细筛，粗筛和细筛均按相似度阈值保留全部达标候选 |
-| `--method independent` | 查询独立生成描述＋相同阈值筛选；旧索引不变 |
-| `--method proposed --no-rerank` | 相同阈值粗候选直接输出，检验细筛作用 |
-| `--method dense` | 新旧完整内容向量检索 |
-| `--method bm25` | 完整内容 BM25，无在线模型调用；中文按字、其他文字按词 |
-| `--method hybrid` | 完整内容 BM25 与向量排序的 RRF 融合（常数 60） |
-| 建库 `--description-mode batch_reuse`（默认） | 旧库按批先选后生：批内同一事项收敛到同一份文本，批间引用已有编号；`--batch-size` 控制批大小 |
-| `scripts/probe_admission_contract.py` | 固定目录与固定批次对照旧／新输出合约的机制诊断脚本（见上文实测表） |
-| 建库 `--no-repair` | 关掉抽取校验后的重写（M1 消融）；仍然照常校验并把违规写进索引 |
-| 建库 `--consolidate` | 开启建库后的目录归并（M2）；默认关闭，理由见上文消融表 |
-| 建库 `--description-mode reuse` | 旧库逐条先选后生，完全串行；结果受输入顺序影响 |
-| 建库 `--description-mode independent` | 旧库逐条独立生成，不看已有描述，旧库之间不做任何合并 |
+统一报告：冲突配对 micro 召回、逐查询 macro 召回、完整找全率、候选纯度，以及候选数 mean/p95/max。主图用平均候选数作横轴、召回作纵轴，baseline 展示完整预算曲线，proposed 标出其阈值工作点。不同方法返回数量不同是设计本身；结论应表述为召回—候选负担权衡，不写成相同预算下的胜负。
 
-其中 `dense`、`bm25`、`hybrid` 是框架现有的检索诊断入口，不是已复现的 Mem0、MemLACE 或 SparseCL。所选文献 baseline 尚未全部接入；接入时应保留各自原生候选机制，并按 README 前述口径记录候选数量与成本。
+在线成本另列每查询时延 p50/p95、API 尝试、缓存命中与已知 token；BM25 索引和描述索引的离线建库时间单独记录。缓存按方法臂隔离，避免先运行的方法为后运行的方法预热。单次时延仍是诊断值；正式成本结论应重复运行并报告波动。当前项目的 BM25 与 Hybrid 在查询前各构建一次 BM25 索引，不把索引构建时间重复算进每条查询。
 
-`batch_reuse` 是默认建库方式：旧库描述在批内合并、批间复用，使同一事项尽量收敛到同一份文本。`reuse` 与 `batch_reuse` 都受输入顺序影响，测试不同顺序时须分别建库；`independent` 保留为旧库之间不合并的消融起点。查询默认始终是"先选已有描述、再生成未覆盖事项"。描述目录只在建库期间变化，查询生成的新描述永远不写回。
+当前 181 条 v7 查询已经用于数据修复和流程调试，因此只能作为探索/开发结果。正式测试需要新建、人工核验的查询与金标，并按来源场景或模板族整组留出；不能把同一模板的近似句拆到 dev 和 test。开发集确定 top-k 与动态阈值后冻结设置，测试集完整运行一次。测试集查询 ID 和正文必须与当前 v7 不重叠，金标需将 `fully_reviewed`、`human_reviewed` 设为 `true`；运行脚本会检查这些条件。
 
-例：
+开发阶段应对完整 dev 查询运行四个主方法，并保存完整 top-50 排序和覆盖每条查询的场景/模板族映射。可以用 v7 作为探索/开发数据；它不能再充当独立 test。仓库当前没有该分组映射，运行前需由数据维护者准备并核验 `<dev-group-map.json>`：
 
 ```powershell
-.\.venv\Scripts\python.exe -m memory_retrieval query --index artifacts/text-index --queries examples/queries.jsonl --method independent --output runs/independent.jsonl --judge
-.\.venv\Scripts\python.exe -m memory_retrieval query --index artifacts/text-index --queries examples/queries.jsonl --no-rerank --output runs/no-rerank.jsonl
-.\.venv\Scripts\python.exe -m memory_retrieval query --index artifacts/text-index --queries examples/queries.jsonl --method dense --output runs/dense.jsonl
+.\.venv\Scripts\python.exe scripts\run_experiment.py --dataset data\validmem_v7 --limit 0 --evaluation-split dev --query-groups <dev-group-map.json> --workers 4 --arms proposed bm25 dense hybrid --coarse-k 50 --final-k 50 --similarity-threshold 0.7 --run-name validmem-v7-dev
 ```
 
-查询输出包含候选策略与阈值（或 top-k 预算）、选中的编号、新描述、假设句、实际粗候选与最终候选、来源引用、可选冲突结果、模型/提示/索引版本、分阶段耗时和调用统计。
+先在 dev 上选定动态阈值与报告预算网格，再固定 `.env` 中的模型配置、提示、索引、阈值和并发设置。独立 test 使用新查询与金标，仅完整运行一次；查看 test 结果后不得据此改参数并把同一批数据继续称为未触碰测试集。
 
-评估只报告四项：人工核对写入上的候选召回率与候选纯度；逐对冲突/不冲突 F1、误报率与漏报率；每条写入的端到端时延中位数/p95 和抽取、检索、重排、大模型判定四阶段时延；以及不同库容下的召回率-时延曲线。时延单位为毫秒。当前 ValidMem 冲突-only 金标下，候选纯度为命中的冲突候选数除以返回候选总数；兼容旧两层金标时，则按其应比较集合计算候选指标。误报率在已送入判定器且金标不冲突的对中计算；漏报包括冲突对未召回或未判为冲突。`uncertain` 查询不计入主指标。
+对已保存且包含 top-50 排序的运行，可离线算完整预算曲线，无需重新请求模型：
 
-`memory_retrieval evaluate` 输出每次运行的库容和四项指标所需数据；多个库容的报告可用 `scripts/scale_curve.py` 汇总。规模曲线尚未完成，当前实现采用完整目录和精确相似度扫描，因此不能据现有代码宣称时延随库容次线性；该结论必须由后续规模实验实测支持。
+```powershell
+.\.venv\Scripts\python.exe scripts\analyze_v7_experiment.py --run-dir runs\experiments\v7-20261029 --dataset data\validmem_v7 --output reports\v7_experiment_2026-10-29.md
+```
 
-缓存位于 `artifacts/api_cache.sqlite3`，记录请求、响应，不保存鉴权头。输出显示实际 API 尝试次数、缓存命中和已知 token；服务缺少 usage 时单独计数，不能当成零费用。未配置单价，程序不猜测货币成本。比较耗时时须区分冷调用与缓存回放；冷调用可为各次实验设置新的 `CACHE_PATH`。失败记录保存在缓存目录下的 `last_error.json`。
+脚本会核对输入文件哈希和查询集合，生成 Markdown、JSON、CSV；如果运行保存了 `query_groups.json`，还会按场景/模板族做分组 bootstrap。新运行的标准入口为 `scripts/run_experiment.py`；`independent`、`no-rerank` 和目录建库参数属于其他诊断，不纳入本次主 baseline 比较。`dense`、`bm25`、`hybrid` 是本文实现的原生检索对照，不代表 Mem0、MemLACE 或 SparseCL 的完整复现。
+
+`batch_reuse` 是当前描述索引的建库方式：旧库描述在批内合并、批间复用；描述目录只在建库期间变化，查询生成的新描述永远不写回。查询结果保留排序、分数、提示/索引版本、阶段耗时、API 调用和 token 统计。
+
+`memory_retrieval evaluate` 可评估一次运行的固定候选集合；`scripts/analyze_v7_experiment.py` 从原生排序生成多预算曲线。候选检索主比较不报告逐对冲突分类 F1；如需评价下游冲突判定，应另设统一判定器实验。
+
+当前查询检索采用完整候选库精确扫描。单一库容点不能证明时延随库容次线性；只有完成多个库容的重复测量后，才能作规模复杂度结论。
+
+默认 `--cache-policy isolated` 为各方法臂创建独立临时缓存；`shared` 仅用于复用缓存的调试运行，不应与 isolated 的时延混在同一张比较表。输出记录 API 尝试、缓存命中和已知 token；服务未提供 usage 时单独计数。项目未固定单价，因此不猜测货币成本。
 
 ## 6. 数据转换与实验
 
@@ -225,16 +227,17 @@ EMBEDDING_MODEL=你的多语向量模型名称
 
 测试使用本地 HTTP 模拟服务，不需要真实 Key，也不调用外部付费模型；它验证数据流、接口、去重、预算、冻结、缓存、错误处理和指标计算，不验证语义效果。
 
-运行一次小规模实验（默认使用完整共同旧库，随机抽 12 条查询）。注意 `run_experiment.py` 的
-`--dataset` 默认值仍指向早期的 Dialogue NLI 目录，当前数据要显式指定：
+以下命令按当前 v7 主协议运行探索性比较：完整使用共同旧库和 181 条查询，保存 baseline top-50 排序，再离线汇总预算曲线。这个已反复查看的数据集不能作为独立测试集：
 
 ```powershell
-.\.venv\Scripts\python.exe scripts\run_experiment.py --dataset data\validmem_v5 --limit 12 --workers 4 --arms proposed
+.\.venv\Scripts\python.exe scripts\run_experiment.py --dataset data\validmem_v7 --limit 0 --evaluation-split exploratory --workers 4 --arms proposed bm25 dense hybrid --coarse-k 50 --final-k 50 --run-name validmem-v7-exploratory
 ```
 
-结果写入 `runs/experiments/<run-id>/`，包括运行配置、冻结索引、逐查询原始结果和指标摘要。当前默认只运行主方法，避免将尚未确认的实现路径当作正式 baseline。端到端运行可显式加 `--judge-arms proposed`；自动/来源标签只作为诊断结果，正式指标仍要求人工核对。
+结果写入 `runs/experiments/<run-id>/`，包含数据哈希、评估用途、冻结索引、逐查询排序和指标摘要。proposed 的阈值可用 `--similarity-threshold` 指定；在开发集确定后必须冻结。BM25/Hybrid 索引每次运行只构建一次，时间与在线查询分开；默认各方法臂隔离 API 缓存。此命令会发起 API 请求，但本次代码修复不运行它。
 
-当前构造源文件为工作区 `tmp/dialogue_nli/verified_test.jsonl`，来自 Dialogue NLI 已有三份标注的子集。原文件名中的 test 只是来源文件名称；本项目不划分训练、dev、test，也不训练或调参。先筛出共享同一句查询、已有两种关系且三份标注一致的来源组；排除相同句对标签矛盾的记录，优先核对明确数量对照，避免将不同职业等可并存值直接判为冲突。
+正式测试应准备独立数据目录：旧记忆库与 dev 使用相同哈希，查询和逐条人工核验金标全新。准备 JSON 分组映射 `query_id -> scene/template_family`，dev 与 test 的分组名不得重叠；该映射同时供分组 bootstrap 使用。测试金标必须设置 `fully_reviewed=true`、`human_reviewed=true`；ID 和正文不能与 v7 或 dev 重叠。运行时使用 `--evaluation-split test --dev-run runs/experiments/validmem-v7-dev --index-dir runs/experiments/validmem-v7-dev/index --query-groups <test-group-map.json> --limit 0`，并保持 dev 的 LLM、嵌入模型、查询/索引提示、阈值、top-50 深度、并发数、缓存策略、API 重试/超时设置、嵌入批大小和四个方法臂一致。脚本会核验这些可机器检查的条件；场景/模板组是否真正隔离仍由数据构造者确认。
+
+以下内容仅描述早期 Dialogue NLI 补充集的构造流程，不是 ValidMem v7 的实验划分方案。其源文件为工作区 `tmp/dialogue_nli/verified_test.jsonl`，来自 Dialogue NLI 已有三份标注的子集；原文件名中的 test 只是来源文件名称。该补充集构造流程本身不划分 train/dev/test，也不训练或调参。先筛出共享同一句查询、已有两种关系且三份标注一致的来源组；排除相同句对标签矛盾的记录，优先核对明确数量对照，避免将不同职业等可并存值直接判为冲突。
 
 经用户确认，入选原句统一重组为同一测试主体的记忆；保留原文，不补造人物、时间或事实，也不声称恢复了原始人物时间线。模型先独立核对来源组，只保留与来源标签一致的配对以及仍有两类候选的查询；再合库，并核对每条入选查询与全部旧记忆，补齐跨组候选。任一配对未解决、来源关系在全库复核中不一致的查询整条排除，不强制输出二元标签。
 
@@ -263,7 +266,7 @@ EMBEDDING_MODEL=你的多语向量模型名称
 
 v7 的 `memories.jsonl` 和 `queries.jsonl` 不含 `scope`、`user_id`、`source_role`。原始来源字段与正文保存在 `provenance.jsonl`，金标配对理由保存在 `pair_label_rationales.jsonl`。匿名主体使用独立新姓名，不会因为与记录者处于同一场景而被自动并成记录者；`John Doe` 在 v7 全局改名为 `Mara Voss`，与 John 明确区分；其他相同姓名保持统一。
 
-`data/validmem_v5`、`data/validmem_v6` 是历史快照，不覆盖。此前基于 personal/world、owner 和 topic 边界得出的指标或索引均不代表 v7；本次不运行实验。
+`data/validmem_v5`、`data/validmem_v6` 是历史快照，不覆盖。此前基于 personal/world、owner 和 topic 边界得出的指标或索引均不代表 v7。此次只修订运行协议，并离线重算已保存排序的预算指标；没有重新调用模型或向量服务。
 
 配套脚本：
 

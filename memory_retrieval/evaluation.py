@@ -2,7 +2,6 @@
 
 import numpy as np
 
-from .config import SIMILARITY_THRESHOLD
 from .data import canonical_json, nonempty_text
 
 
@@ -100,15 +99,19 @@ def evaluate(gold_rows, results):
             invalid_selection = (not isinstance(coarse_k, int) or not isinstance(final_k, int)
                                  or len(coarse_ids) > coarse_k or len(final_ids) > final_k)
         elif policy == "similarity_threshold":
-            invalid_selection = (result.get("similarity_threshold") != SIMILARITY_THRESHOLD
+            threshold = result.get("similarity_threshold")
+            invalid_selection = (isinstance(threshold, bool)
+                                 or not isinstance(threshold, (int, float))
+                                 or not np.isfinite(threshold)
+                                 or not 0 <= threshold <= 1
                                  or any(not isinstance(row.get("coarse_score"), (int, float))
                                         or not np.isfinite(row["coarse_score"])
-                                        or row["coarse_score"] < SIMILARITY_THRESHOLD
+                                        or row["coarse_score"] < threshold
                                         for row in result["coarse_candidates"])
                                  or any(not isinstance(row.get("fine_score" if result["rerank"] else "coarse_score"),
                                                       (int, float))
                                         or not np.isfinite(row["fine_score" if result["rerank"] else "coarse_score"])
-                                        or row["fine_score" if result["rerank"] else "coarse_score"] < SIMILARITY_THRESHOLD
+                                        or row["fine_score" if result["rerank"] else "coarse_score"] < threshold
                                         for row in result["candidates"]))
         else:
             invalid_selection = True
@@ -131,22 +134,35 @@ def evaluate(gold_rows, results):
             eligible.append((gold, result_by_id[gold["query_id"]]))
 
     matched = required = returned = false_candidates = 0
+    query_recalls = []
+    query_full_coverage = []
+    candidate_counts = []
     for gold, result in eligible:
         # 冲突-only 金标里,检索目标就是冲突旧记忆;两层金标仍以应比较集合为目标。
         targets = set(gold["gold_compare_ids"]) if "gold_compare_ids" in gold else set(target_ids(gold))
         candidates = {row["memory_id"] for row in result["candidates"]}
-        matched += len(targets & candidates)
+        query_hits = len(targets & candidates)
+        matched += query_hits
         required += len(targets)
         returned += len(candidates)
         false_candidates += len(candidates - targets)
+        query_recalls.append(query_hits / len(targets) if targets else 1.0)
+        query_full_coverage.append(int(targets <= candidates))
+        candidate_counts.append(len(candidates))
     retrieval = {
         "evaluated_queries": len(eligible),
         "retrieved_required_memories": matched,
         "required_memories": required,
         "candidate_recall": _rate(matched, required),
+        "candidate_recall_micro": _rate(matched, required),
+        "candidate_recall_macro": float(np.mean(query_recalls)) if query_recalls else None,
+        "full_coverage": float(np.mean(query_full_coverage)) if query_full_coverage else None,
         "returned_candidates": returned,
         "non_comparable_candidates": false_candidates,
         "candidate_purity": _rate(matched, returned),
+        "candidate_count_mean": float(np.mean(candidate_counts)) if candidate_counts else None,
+        "candidate_count_p95": float(np.percentile(candidate_counts, 95)) if candidate_counts else None,
+        "candidate_count_max": max(candidate_counts) if candidate_counts else None,
     }
 
     conflict = None
