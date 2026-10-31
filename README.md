@@ -188,17 +188,26 @@ EMBEDDING_MODEL=你的多语向量模型名称
 | `bm25` | 对完整记忆正文做 BM25 原生排序 | top-k ∈ `{1, 2, 3, 5, 10, 20, 30, 50}` |
 | `dense` | 对完整记忆正文做向量排序 | 使用与 proposed 相同的嵌入模型，报告同一组 top-k |
 | `hybrid` | BM25 与向量排序按 RRF（常数 60）融合 | 报告同一组 top-k，不加额外语义筛选 |
+| `sparsecl` | BGE cosine HNSW Top-1000 初召回，官方 SparseCL Hoyer 融合重排 | dev 选择并冻结 alpha；报告同一组 top-k、BGE 初召回 Recall@1000 与 NDCG@10 |
 
-统一报告：冲突配对 micro 召回、逐查询 macro 召回、完整找全率、候选纯度，以及候选数 mean/p95/max。主图用平均候选数作横轴、召回作纵轴，baseline 展示完整预算曲线，proposed 标出其阈值工作点。不同方法返回数量不同是设计本身；结论应表述为召回—候选负担权衡，不写成相同预算下的胜负。
+统一报告：冲突配对 micro 召回、逐查询 macro 召回、完整找全率、候选纯度，以及候选数 mean/p95/max。无冲突金标查询的 macro 召回记 1，NDCG@10 记 0 并保留在查询平均分母；micro 召回仍按冲突配对计分。SparseCL 另报告 NDCG@10、初召回 Recall@1000 和同一 BGE 的纯 cosine 排序对照。主图用平均候选数作横轴、召回作纵轴，baseline 展示完整预算曲线，proposed 标出其阈值工作点。不同方法返回数量不同是设计本身；结论应表述为召回—候选负担权衡，不写成相同预算下的胜负。
 
-在线成本另列每查询时延 p50/p95、API 尝试、缓存命中与已知 token；BM25 索引和描述索引的离线建库时间单独记录。缓存按方法臂隔离，避免先运行的方法为后运行的方法预热。单次时延仍是诊断值；正式成本结论应重复运行并报告波动。当前项目的 BM25 与 Hybrid 在查询前各构建一次 BM25 索引，不把索引构建时间重复算进每条查询。
+SparseCL 使用 `baselines/SparseCL` 中已固定版本的 `BAAI/bge-base-en-v1.5` 与官方 `SparseCL/BGE-SparseCL-arguana` 权重，属于官方预训练权重的迁移评估，不在 ValidMem 上重新训练。运行器通过现有 WSL 独立环境一次批量处理整组查询；默认 Ubuntu-22.04、用户 `dzp`、`/home/dzp/.venvs/sparsecl/bin/python`，可用 `--sparsecl-*` 参数指定本机路径。
+
+单独使用 `--arms sparsecl` 时不要求项目 LLM/embedding API 配置，也不加载或构建项目描述索引；SparseCL 使用自己的双编码与 HNSW 缓存。其 Top-B 由 `--final-k` 控制，与项目 `--coarse-k` 无关。
+
+SparseCL 只读取记忆和查询的 `content.strip()`，不拼接主体、标签、描述、标题或 instruction。BGE 用 CLS 池化，SparseCL 沿用官方 `our_BertForCL` attention-mask 平均池化，两套向量均 L2 归一化、FP32、最大长度 512。初召回为归一化 BGE 向量上的 `IndexHNSWFlat(768, 64)`，默认 L2，`efSearch=1000`，深度 `min(1000, 旧库条数)`；之后严格按 `cosine + alpha × Hoyer(归一化 SparseCL 向量差)` 对整个初召回集合重排，Hoyer 差向量 L2 范数小于 `1e-3` 时取 `-1e9`。项目 `--coarse-k` 不会缩小 SparseCL 的初召回深度。已复现模型是英文配置，而 v7 含有中文文本；完整共同查询结果会保留并应披露语言限制。若另做英文切片，须先人工核验切片，并让所有方法使用相同查询、原有完整旧库和金标，不由 SparseCL 单独删样本。
+
+完整 `dev` 运行以官方 `(0,10)`、10 bins、`eps=0.01` 搜索选择 NDCG@10 最优 alpha，并保留官方返回最终区间左端点的行为；test 只接受 dev 冻结的 alpha、模型/代码/资源签名和同一个旧库向量及 HNSW 缓存。test 配置缺失或不匹配时会在推理前失败。探索性运行同时使用已复现的 Arguana `alpha=0.18`，不读取探索集标签调参。开发结果另外保留 Arguana alpha=0.18 与 BGE cosine 的离线预算曲线；各变体都从同一 Top-1000 初召回集合产生，不另行运行模型。
+
+在线成本另列查询时延 p50/p95、API 尝试、缓存命中与已知 token；SparseCL 的编码批次耗时均摊到批内查询，只表示摊销成本，不作为单条查询响应时延。BM25 索引和描述索引的离线建库时间单独记录。缓存按方法臂隔离，避免先运行的方法为后运行的方法预热。单次时延仍是诊断值；正式成本结论应重复运行并报告波动。当前项目的 BM25 与 Hybrid 在查询前各构建一次 BM25 索引，不把索引构建时间重复算进每条查询。
 
 当前 181 条 v7 查询已经用于数据修复和流程调试，因此只能作为探索/开发结果。正式测试需要新建、人工核验的查询与金标，并按来源场景或模板族整组留出；不能把同一模板的近似句拆到 dev 和 test。开发集确定 top-k 与动态阈值后冻结设置，测试集完整运行一次。测试集查询 ID 和正文必须与当前 v7 不重叠，金标需将 `fully_reviewed`、`human_reviewed` 设为 `true`；运行脚本会检查这些条件。
 
-开发阶段应对完整 dev 查询运行四个主方法，并保存完整 top-50 排序和覆盖每条查询的场景/模板族映射。可以用 v7 作为探索/开发数据；它不能再充当独立 test。仓库当前没有该分组映射，运行前需由数据维护者准备并核验 `<dev-group-map.json>`：
+开发阶段应对完整 dev 查询运行五个主方法，并保存 BM25、Dense、Hybrid 的完整 top-50 排序、SparseCL 的完整融合排序和覆盖每条查询的场景/模板族映射。可以用 v7 作为探索/开发数据；它不能再充当独立 test。仓库当前没有该分组映射，运行前需由数据维护者准备并核验 `<dev-group-map.json>`：
 
 ```powershell
-.\.venv\Scripts\python.exe scripts\run_experiment.py --dataset data\validmem_v7 --limit 0 --evaluation-split dev --query-groups <dev-group-map.json> --workers 4 --arms proposed bm25 dense hybrid --coarse-k 50 --final-k 50 --similarity-threshold 0.7 --run-name validmem-v7-dev
+.\.venv\Scripts\python.exe scripts\run_experiment.py --dataset data\validmem_v7 --limit 0 --evaluation-split dev --query-groups <dev-group-map.json> --workers 4 --arms proposed bm25 dense hybrid sparsecl --coarse-k 50 --final-k 50 --similarity-threshold 0.7 --run-name validmem-v7-dev
 ```
 
 先在 dev 上选定动态阈值与报告预算网格，再固定 `.env` 中的模型配置、提示、索引、阈值和并发设置。独立 test 使用新查询与金标，仅完整运行一次；查看 test 结果后不得据此改参数并把同一批数据继续称为未触碰测试集。
@@ -209,7 +218,7 @@ EMBEDDING_MODEL=你的多语向量模型名称
 .\.venv\Scripts\python.exe scripts\analyze_v7_experiment.py --run-dir runs\experiments\v7-20261029 --dataset data\validmem_v7 --output reports\v7_experiment_2026-10-29.md
 ```
 
-脚本会核对输入文件哈希和查询集合，生成 Markdown、JSON、CSV；如果运行保存了 `query_groups.json`，还会按场景/模板族做分组 bootstrap。新运行的标准入口为 `scripts/run_experiment.py`；`independent`、`no-rerank` 和目录建库参数属于其他诊断，不纳入本次主 baseline 比较。`dense`、`bm25`、`hybrid` 是本文实现的原生检索对照，不代表 Mem0、MemLACE 或 SparseCL 的完整复现。
+脚本会核对输入文件哈希和查询集合，生成 Markdown、JSON、CSV；如果运行保存了 `query_groups.json`，还会按场景/模板族做分组 bootstrap。新运行的标准入口为 `scripts/run_experiment.py`；`independent`、`no-rerank` 和目录建库参数属于其他诊断，不纳入本次主 baseline 比较。`dense`、`bm25`、`hybrid` 是本文实现的原生检索对照；SparseCL 是基于已复现官方推理代码和固定权重实现的完整迁移 baseline，不包含重新训练。
 
 `batch_reuse` 是当前描述索引的建库方式：旧库描述在批内合并、批间复用；描述目录只在建库期间变化，查询生成的新描述永远不写回。查询结果保留排序、分数、提示/索引版本、阶段耗时、API 调用和 token 统计。
 
@@ -227,15 +236,15 @@ EMBEDDING_MODEL=你的多语向量模型名称
 
 测试使用本地 HTTP 模拟服务，不需要真实 Key，也不调用外部付费模型；它验证数据流、接口、去重、预算、冻结、缓存、错误处理和指标计算，不验证语义效果。
 
-以下命令按当前 v7 主协议运行探索性比较：完整使用共同旧库和 181 条查询，保存 baseline top-50 排序，再离线汇总预算曲线。这个已反复查看的数据集不能作为独立测试集：
+以下命令按当前 v7 主协议运行探索性比较：完整使用共同旧库和 181 条查询，保存 BM25、Dense、Hybrid top-50 原生排序及 SparseCL Top-1000 初召回后的完整融合排序，再离线汇总预算曲线。探索性 SparseCL 使用固定 Arguana alpha=0.18；这个已反复查看的数据集不能作为独立测试集：
 
 ```powershell
-.\.venv\Scripts\python.exe scripts\run_experiment.py --dataset data\validmem_v7 --limit 0 --evaluation-split exploratory --workers 4 --arms proposed bm25 dense hybrid --coarse-k 50 --final-k 50 --run-name validmem-v7-exploratory
+.\.venv\Scripts\python.exe scripts\run_experiment.py --dataset data\validmem_v7 --limit 0 --evaluation-split exploratory --workers 4 --arms proposed bm25 dense hybrid sparsecl --coarse-k 50 --final-k 50 --run-name validmem-v7-exploratory
 ```
 
 结果写入 `runs/experiments/<run-id>/`，包含数据哈希、评估用途、冻结索引、逐查询排序和指标摘要。proposed 的阈值可用 `--similarity-threshold` 指定；在开发集确定后必须冻结。BM25/Hybrid 索引每次运行只构建一次，时间与在线查询分开；默认各方法臂隔离 API 缓存。此命令会发起 API 请求，但本次代码修复不运行它。
 
-正式测试应准备独立数据目录：旧记忆库与 dev 使用相同哈希，查询和逐条人工核验金标全新。准备 JSON 分组映射 `query_id -> scene/template_family`，dev 与 test 的分组名不得重叠；该映射同时供分组 bootstrap 使用。测试金标必须设置 `fully_reviewed=true`、`human_reviewed=true`；ID 和正文不能与 v7 或 dev 重叠。运行时使用 `--evaluation-split test --dev-run runs/experiments/validmem-v7-dev --index-dir runs/experiments/validmem-v7-dev/index --query-groups <test-group-map.json> --limit 0`，并保持 dev 的 LLM、嵌入模型、查询/索引提示、阈值、top-50 深度、并发数、缓存策略、API 重试/超时设置、嵌入批大小和四个方法臂一致。脚本会核验这些可机器检查的条件；场景/模板组是否真正隔离仍由数据构造者确认。
+正式测试应准备独立数据目录：旧记忆库与 dev 使用相同哈希，查询和逐条人工核验金标全新。准备 JSON 分组映射 `query_id -> scene/template_family`，dev 与 test 的分组名不得重叠；该映射同时供分组 bootstrap 使用。测试金标必须设置 `fully_reviewed=true`、`human_reviewed=true`；ID 和正文不能与 v7 或 dev 重叠。运行时使用 `--evaluation-split test --dev-run runs/experiments/validmem-v7-dev --index-dir runs/experiments/validmem-v7-dev/index --query-groups <test-group-map.json> --limit 0 --arms proposed bm25 dense hybrid sparsecl`，并保持 dev 的 LLM、嵌入模型、查询/索引提示、阈值、top-50 深度、并发数、缓存策略、API 重试/超时设置、嵌入批大小、SparseCL WSL/批量/线程设置和五个方法臂一致。test 只接受带 `completion.json` 且未包含 `failure.json` 的完整 dev；完成标记绑定各方法结果哈希，并逐臂核验查询覆盖。脚本会核验这些可机器检查的条件；场景/模板组是否真正隔离仍由数据构造者确认。
 
 以下内容仅描述早期 Dialogue NLI 补充集的构造流程，不是 ValidMem v7 的实验划分方案。其源文件为工作区 `tmp/dialogue_nli/verified_test.jsonl`，来自 Dialogue NLI 已有三份标注的子集；原文件名中的 test 只是来源文件名称。该补充集构造流程本身不划分 train/dev/test，也不训练或调参。先筛出共享同一句查询、已有两种关系且三份标注一致的来源组；排除相同句对标签矛盾的记录，优先核对明确数量对照，避免将不同职业等可并存值直接判为冲突。
 
