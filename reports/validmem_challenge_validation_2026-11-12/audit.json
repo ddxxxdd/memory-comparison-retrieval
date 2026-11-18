@@ -1,0 +1,33 @@
+{
+  "primary": {
+    "cases": 5175,
+    "rankings_checked": 20700,
+    "paired_checks": {
+      "identical_wording_bank": 255,
+      "nested_scale_bank": 255,
+      "matched_identity_pair": 765,
+      "nested_distinct_gold": 210
+    },
+    "dataset_files_and_sources_unchanged": true,
+    "labels_recomputed_from_explicit_rules": true,
+    "complete_rankings_match_per_case": true,
+    "current_runtime_matches_executed": false,
+    "execution_snapshot_verified": true,
+    "protocol_and_frozen_copy_match": true,
+    "encoder_vector_hashes_verified": true
+  },
+  "attribute_specific": {
+    "cases": 480,
+    "rankings_checked": 1920,
+    "paired_checks": {
+      "matched_attribute_pair": 120
+    },
+    "dataset_files_and_sources_unchanged": true,
+    "labels_recomputed_from_explicit_rules": true,
+    "complete_rankings_match_per_case": true,
+    "current_runtime_matches_executed": true,
+    "execution_snapshot_verified": false,
+    "protocol_and_frozen_copy_match": true,
+    "encoder_vector_hashes_verified": true
+  }
+}

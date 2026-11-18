@@ -1,0 +1,4417 @@
+[
+  {
+    "query_id": "TC-A-0002",
+    "content": "Quinn Evans's preferred grocery store changed to Trader Joe's",
+    "gold": [
+      {
+        "query_id": "TC-A-0002",
+        "memory_id": "M-A-0003",
+        "gold_count": 1,
+        "bm25": 6,
+        "dense": 3,
+        "hybrid": 4,
+        "sparsecl": 3,
+        "query_text": "Quinn Evans's preferred grocery store changed to Trader Joe's",
+        "memory_text": "Quinn Evans's preferred grocery store set to Walmart"
+      }
+    ],
+    "distractors": [
+      {
+        "memory_id": "M-A-0009",
+        "content": "Tina Evans's preferred grocery store is Walmart.",
+        "ranks": {
+          "bm25": 11,
+          "dense": 10,
+          "hybrid": 8,
+          "sparsecl": 14
+        }
+      },
+      {
+        "memory_id": "M-A-0011",
+        "content": "Uma Evans's preferred grocery store is Walmart",
+        "ranks": {
+          "bm25": 12,
+          "dense": 13,
+          "hybrid": 10,
+          "sparsecl": 23
+        }
+      },
+      {
+        "memory_id": "M-A-0012",
+        "content": "Uma Evans's preferred grocery store is Trader Joe's",
+        "ranks": {
+          "bm25": 2,
+          "dense": 2,
+          "hybrid": 2,
+          "sparsecl": 2
+        }
+      },
+      {
+        "memory_id": "M-A-0068",
+        "content": "Peter Fisher changed preferred grocery store to Whole Foods.",
+        "ranks": {
+          "bm25": 10,
+          "dense": 20,
+          "hybrid": 13,
+          "sparsecl": 9
+        }
+      },
+      {
+        "memory_id": "M-A-0070",
+        "content": "Quinn Fisher's preferred grocery store is Walmart",
+        "ranks": {
+          "bm25": 18,
+          "dense": 8,
+          "hybrid": 11,
+          "sparsecl": 8
+        }
+      },
+      {
+        "memory_id": "M-A-0213",
+        "content": "Quinn Garcia's recently purchased apples from Costco",
+        "ranks": {
+          "bm25": ">50",
+          "dense": 4,
+          "hybrid": 24,
+          "sparsecl": 25
+        }
+      },
+      {
+        "memory_id": "M-A-0390",
+        "content": "Chloe Garcia's preferred grocery store changed to Costco.",
+        "ranks": {
+          "bm25": 7,
+          "dense": 11,
+          "hybrid": 7,
+          "sparsecl": 10
+        }
+      },
+      {
+        "memory_id": "M-A-0411",
+        "content": "Derek Chen's preferred grocery store changed to Trader Joe's.",
+        "ranks": {
+          "bm25": 1,
+          "dense": 1,
+          "hybrid": 1,
+          "sparsecl": 1
+        }
+      },
+      {
+        "memory_id": "M-A-0417",
+        "content": "David Hughes's preferred grocery store is Trader Joe's.",
+        "ranks": {
+          "bm25": 3,
+          "dense": 5,
+          "hybrid": 3,
+          "sparsecl": 5
+        }
+      },
+      {
+        "memory_id": "M-A-0438",
+        "content": "Karen Hughes's preferred grocery store changed to FreshFoods.",
+        "ranks": {
+          "bm25": 8,
+          "dense": 16,
+          "hybrid": 9,
+          "sparsecl": 7
+        }
+      },
+      {
+        "memory_id": "M-A-0441",
+        "content": "Liam Hughes's preferred grocery store is Trader Joe's.",
+        "ranks": {
+          "bm25": 4,
+          "dense": 7,
+          "hybrid": 5,
+          "sparsecl": 4
+        }
+      },
+      {
+        "memory_id": "M-A-0444",
+        "content": "Mia Hughes's preferred grocery store is Trader Joe's.",
+        "ranks": {
+          "bm25": 5,
+          "dense": 6,
+          "hybrid": 6,
+          "sparsecl": 6
+        }
+      },
+      {
+        "memory_id": "M-A-0447",
+        "content": "Victor Quinn's preferred grocery store is Whole Foods.",
+        "ranks": {
+          "bm25": 21,
+          "dense": 9,
+          "hybrid": 12,
+          "sparsecl": 12
+        }
+      },
+      {
+        "memory_id": "M-C-0086",
+        "content": "David Lopez's preferred grocery store changed to 'FreshGrocer'.",
+        "ranks": {
+          "bm25": 9,
+          "dense": 25,
+          "hybrid": 15,
+          "sparsecl": 13
+        }
+      }
+    ]
+  },
+  {
+    "query_id": "TC-A-0010",
+    "content": "Yara Evans changed preferred grocery store to Trader Joe's.",
+    "gold": [
+      {
+        "query_id": "TC-A-0010",
+        "memory_id": "M-A-0020",
+        "gold_count": 1,
+        "bm25": 6,
+        "dense": 3,
+        "hybrid": 3,
+        "sparsecl": 3,
+        "query_text": "Yara Evans changed preferred grocery store to Trader Joe's.",
+        "memory_text": "Yara Evans's preferred grocery store is Walmart."
+      }
+    ],
+    "distractors": [
+      {
+        "memory_id": "M-A-0003",
+        "content": "Quinn Evans's preferred grocery store set to Walmart",
+        "ranks": {
+          "bm25": 10,
+          "dense": 18,
+          "hybrid": 13,
+          "sparsecl": 13
+        }
+      },
+      {
+        "memory_id": "M-A-0009",
+        "content": "Tina Evans's preferred grocery store is Walmart.",
+        "ranks": {
+          "bm25": 14,
+          "dense": 8,
+          "hybrid": 10,
+          "sparsecl": 9
+        }
+      },
+      {
+        "memory_id": "M-A-0012",
+        "content": "Uma Evans's preferred grocery store is Trader Joe's",
+        "ranks": {
+          "bm25": 2,
+          "dense": 1,
+          "hybrid": 1,
+          "sparsecl": 1
+        }
+      },
+      {
+        "memory_id": "M-A-0068",
+        "content": "Peter Fisher changed preferred grocery store to Whole Foods.",
+        "ranks": {
+          "bm25": 11,
+          "dense": 10,
+          "hybrid": 9,
+          "sparsecl": 10
+        }
+      },
+      {
+        "memory_id": "M-A-0101",
+        "content": "Tina Jensen changed preferred grocery delivery service to Amazon Fresh",
+        "ranks": {
+          "bm25": 20,
+          "dense": 9,
+          "hybrid": 14,
+          "sparsecl": 20
+        }
+      },
+      {
+        "memory_id": "M-A-0390",
+        "content": "Chloe Garcia's preferred grocery store changed to Costco.",
+        "ranks": {
+          "bm25": 7,
+          "dense": 12,
+          "hybrid": 7,
+          "sparsecl": 8
+        }
+      },
+      {
+        "memory_id": "M-A-0411",
+        "content": "Derek Chen's preferred grocery store changed to Trader Joe's.",
+        "ranks": {
+          "bm25": 1,
+          "dense": 2,
+          "hybrid": 2,
+          "sparsecl": 2
+        }
+      },
+      {
+        "memory_id": "M-A-0417",
+        "content": "David Hughes's preferred grocery store is Trader Joe's.",
+        "ranks": {
+          "bm25": 3,
+          "dense": 6,
+          "hybrid": 4,
+          "sparsecl": 7
+        }
+      },
+      {
+        "memory_id": "M-A-0438",
+        "content": "Karen Hughes's preferred grocery store changed to FreshFoods.",
+        "ranks": {
+          "bm25": 8,
+          "dense": 16,
+          "hybrid": 11,
+          "sparsecl": 6
+        }
+      },
+      {
+        "memory_id": "M-A-0441",
+        "content": "Liam Hughes's preferred grocery store is Trader Joe's.",
+        "ranks": {
+          "bm25": 4,
+          "dense": 14,
+          "hybrid": 6,
+          "sparsecl": 5
+        }
+      },
+      {
+        "memory_id": "M-A-0444",
+        "content": "Mia Hughes's preferred grocery store is Trader Joe's.",
+        "ranks": {
+          "bm25": 5,
+          "dense": 4,
+          "hybrid": 5,
+          "sparsecl": 4
+        }
+      },
+      {
+        "memory_id": "M-B-0564",
+        "content": "Yara Irwin's preferred grocery store is FreshMart.",
+        "ranks": {
+          "bm25": 13,
+          "dense": 7,
+          "hybrid": 8,
+          "sparsecl": 21
+        }
+      },
+      {
+        "memory_id": "M-C-0004",
+        "content": "Yara Owen rated MegaStore as excellent for groceries.",
+        "ranks": {
+          "bm25": ">50",
+          "dense": 5,
+          "hybrid": 24,
+          "sparsecl": 42
+        }
+      },
+      {
+        "memory_id": "M-C-0086",
+        "content": "David Lopez's preferred grocery store changed to 'FreshGrocer'.",
+        "ranks": {
+          "bm25": 9,
+          "dense": 24,
+          "hybrid": 16,
+          "sparsecl": 16
+        }
+      }
+    ]
+  },
+  {
+    "query_id": "TC-A-0014",
+    "content": "Chloe Evans changed preferred grocery store to Trader Joe's.",
+    "gold": [
+      {
+        "query_id": "TC-A-0014",
+        "memory_id": "M-A-0028",
+        "gold_count": 1,
+        "bm25": 7,
+        "dense": 4,
+        "hybrid": 5,
+        "sparsecl": 4,
+        "query_text": "Chloe Evans changed preferred grocery store to Trader Joe's.",
+        "memory_text": "Chloe Evans's preferred grocery store is Walmart."
+      }
+    ],
+    "distractors": [
+      {
+        "memory_id": "M-A-0003",
+        "content": "Quinn Evans's preferred grocery store set to Walmart",
+        "ranks": {
+          "bm25": 10,
+          "dense": 12,
+          "hybrid": 9,
+          "sparsecl": 11
+        }
+      },
+      {
+        "memory_id": "M-A-0009",
+        "content": "Tina Evans's preferred grocery store is Walmart.",
+        "ranks": {
+          "bm25": 13,
+          "dense": 10,
+          "hybrid": 10,
+          "sparsecl": 14
+        }
+      },
+      {
+        "memory_id": "M-A-0012",
+        "content": "Uma Evans's preferred grocery store is Trader Joe's",
+        "ranks": {
+          "bm25": 2,
+          "dense": 2,
+          "hybrid": 2,
+          "sparsecl": 1
+        }
+      },
+      {
+        "memory_id": "M-A-0068",
+        "content": "Peter Fisher changed preferred grocery store to Whole Foods.",
+        "ranks": {
+          "bm25": 12,
+          "dense": 13,
+          "hybrid": 12,
+          "sparsecl": 9
+        }
+      },
+      {
+        "memory_id": "M-A-0101",
+        "content": "Tina Jensen changed preferred grocery delivery service to Amazon Fresh",
+        "ranks": {
+          "bm25": 19,
+          "dense": 15,
+          "hybrid": 16,
+          "sparsecl": 10
+        }
+      },
+      {
+        "memory_id": "M-A-0135",
+        "content": "Liam Chen updated preferred grocery store to Target",
+        "ranks": {
+          "bm25": 20,
+          "dense": 8,
+          "hybrid": 13,
+          "sparsecl": 12
+        }
+      },
+      {
+        "memory_id": "M-A-0389",
+        "content": "Chloe Garcia's preferred grocery store is Walmart.",
+        "ranks": {
+          "bm25": 11,
+          "dense": 7,
+          "hybrid": 8,
+          "sparsecl": 15
+        }
+      },
+      {
+        "memory_id": "M-A-0390",
+        "content": "Chloe Garcia's preferred grocery store changed to Costco.",
+        "ranks": {
+          "bm25": 3,
+          "dense": 3,
+          "hybrid": 3,
+          "sparsecl": 3
+        }
+      },
+      {
+        "memory_id": "M-A-0411",
+        "content": "Derek Chen's preferred grocery store changed to Trader Joe's.",
+        "ranks": {
+          "bm25": 1,
+          "dense": 1,
+          "hybrid": 1,
+          "sparsecl": 2
+        }
+      },
+      {
+        "memory_id": "M-A-0417",
+        "content": "David Hughes's preferred grocery store is Trader Joe's.",
+        "ranks": {
+          "bm25": 4,
+          "dense": 6,
+          "hybrid": 4,
+          "sparsecl": 8
+        }
+      },
+      {
+        "memory_id": "M-A-0438",
+        "content": "Karen Hughes's preferred grocery store changed to FreshFoods.",
+        "ranks": {
+          "bm25": 8,
+          "dense": 17,
+          "hybrid": 11,
+          "sparsecl": 6
+        }
+      },
+      {
+        "memory_id": "M-A-0441",
+        "content": "Liam Hughes's preferred grocery store is Trader Joe's.",
+        "ranks": {
+          "bm25": 5,
+          "dense": 9,
+          "hybrid": 7,
+          "sparsecl": 7
+        }
+      },
+      {
+        "memory_id": "M-A-0444",
+        "content": "Mia Hughes's preferred grocery store is Trader Joe's.",
+        "ranks": {
+          "bm25": 6,
+          "dense": 5,
+          "hybrid": 6,
+          "sparsecl": 5
+        }
+      },
+      {
+        "memory_id": "M-C-0086",
+        "content": "David Lopez's preferred grocery store changed to 'FreshGrocer'.",
+        "ranks": {
+          "bm25": 9,
+          "dense": 20,
+          "hybrid": 15,
+          "sparsecl": 17
+        }
+      }
+    ]
+  },
+  {
+    "query_id": "TC-A-0015",
+    "content": "Derek Evans changed preferred grocery store to Trader Joe's.",
+    "gold": [
+      {
+        "query_id": "TC-A-0015",
+        "memory_id": "M-A-0030",
+        "gold_count": 1,
+        "bm25": 6,
+        "dense": 3,
+        "hybrid": 4,
+        "sparsecl": 3,
+        "query_text": "Derek Evans changed preferred grocery store to Trader Joe's.",
+        "memory_text": "Derek Evans's preferred grocery store is Walmart."
+      }
+    ],
+    "distractors": [
+      {
+        "memory_id": "M-A-0003",
+        "content": "Quinn Evans's preferred grocery store set to Walmart",
+        "ranks": {
+          "bm25": 10,
+          "dense": 10,
+          "hybrid": 9,
+          "sparsecl": 10
+        }
+      },
+      {
+        "memory_id": "M-A-0012",
+        "content": "Uma Evans's preferred grocery store is Trader Joe's",
+        "ranks": {
+          "bm25": 2,
+          "dense": 2,
+          "hybrid": 2,
+          "sparsecl": 2
+        }
+      },
+      {
+        "memory_id": "M-A-0014",
+        "content": "Victor Evans's preferred grocery store is Walmart.",
+        "ranks": {
+          "bm25": 17,
+          "dense": 14,
+          "hybrid": 15,
+          "sparsecl": 8
+        }
+      },
+      {
+        "memory_id": "M-A-0022",
+        "content": "Zack Evans's preferred grocery store is Walmart.",
+        "ranks": {
+          "bm25": 19,
+          "dense": 5,
+          "hybrid": 11,
+          "sparsecl": 15
+        }
+      },
+      {
+        "memory_id": "M-A-0068",
+        "content": "Peter Fisher changed preferred grocery store to Whole Foods.",
+        "ranks": {
+          "bm25": 11,
+          "dense": 12,
+          "hybrid": 12,
+          "sparsecl": 7
+        }
+      },
+      {
+        "memory_id": "M-A-0390",
+        "content": "Chloe Garcia's preferred grocery store changed to Costco.",
+        "ranks": {
+          "bm25": 7,
+          "dense": 11,
+          "hybrid": 7,
+          "sparsecl": 12
+        }
+      },
+      {
+        "memory_id": "M-A-0410",
+        "content": "Derek Chen's preferred grocery store is Walmart.",
+        "ranks": {
+          "bm25": 14,
+          "dense": 8,
+          "hybrid": 10,
+          "sparsecl": 22
+        }
+      },
+      {
+        "memory_id": "M-A-0411",
+        "content": "Derek Chen's preferred grocery store changed to Trader Joe's.",
+        "ranks": {
+          "bm25": 1,
+          "dense": 1,
+          "hybrid": 1,
+          "sparsecl": 1
+        }
+      },
+      {
+        "memory_id": "M-A-0417",
+        "content": "David Hughes's preferred grocery store is Trader Joe's.",
+        "ranks": {
+          "bm25": 3,
+          "dense": 4,
+          "hybrid": 3,
+          "sparsecl": 4
+        }
+      },
+      {
+        "memory_id": "M-A-0438",
+        "content": "Karen Hughes's preferred grocery store changed to FreshFoods.",
+        "ranks": {
+          "bm25": 8,
+          "dense": 18,
+          "hybrid": 13,
+          "sparsecl": 9
+        }
+      },
+      {
+        "memory_id": "M-A-0441",
+        "content": "Liam Hughes's preferred grocery store is Trader Joe's.",
+        "ranks": {
+          "bm25": 4,
+          "dense": 6,
+          "hybrid": 5,
+          "sparsecl": 5
+        }
+      },
+      {
+        "memory_id": "M-A-0444",
+        "content": "Mia Hughes's preferred grocery store is Trader Joe's.",
+        "ranks": {
+          "bm25": 5,
+          "dense": 7,
+          "hybrid": 6,
+          "sparsecl": 6
+        }
+      },
+      {
+        "memory_id": "M-C-0086",
+        "content": "David Lopez's preferred grocery store changed to 'FreshGrocer'.",
+        "ranks": {
+          "bm25": 9,
+          "dense": 9,
+          "hybrid": 8,
+          "sparsecl": 11
+        }
+      }
+    ]
+  },
+  {
+    "query_id": "TC-A-0026",
+    "content": "Karen Fisher changed preferred grocery store to Trader Joe's.",
+    "gold": [
+      {
+        "query_id": "TC-A-0026",
+        "memory_id": "M-A-0052",
+        "gold_count": 1,
+        "bm25": 7,
+        "dense": 3,
+        "hybrid": 5,
+        "sparsecl": 5,
+        "query_text": "Karen Fisher changed preferred grocery store to Trader Joe's.",
+        "memory_text": "Karen Fisher's preferred grocery store is Walmart."
+      }
+    ],
+    "distractors": [
+      {
+        "memory_id": "M-A-0012",
+        "content": "Uma Evans's preferred grocery store is Trader Joe's",
+        "ranks": {
+          "bm25": 3,
+          "dense": 5,
+          "hybrid": 3,
+          "sparsecl": 7
+        }
+      },
+      {
+        "memory_id": "M-A-0059",
+        "content": "Mia Fisher's preferred grocery store is Whole Foods",
+        "ranks": {
+          "bm25": 24,
+          "dense": 7,
+          "hybrid": 13,
+          "sparsecl": 9
+        }
+      },
+      {
+        "memory_id": "M-A-0068",
+        "content": "Peter Fisher changed preferred grocery store to Whole Foods.",
+        "ranks": {
+          "bm25": 8,
+          "dense": 2,
+          "hybrid": 4,
+          "sparsecl": 2
+        }
+      },
+      {
+        "memory_id": "M-A-0390",
+        "content": "Chloe Garcia's preferred grocery store changed to Costco.",
+        "ranks": {
+          "bm25": 9,
+          "dense": 10,
+          "hybrid": 8,
+          "sparsecl": 10
+        }
+      },
+      {
+        "memory_id": "M-A-0411",
+        "content": "Derek Chen's preferred grocery store changed to Trader Joe's.",
+        "ranks": {
+          "bm25": 1,
+          "dense": 1,
+          "hybrid": 1,
+          "sparsecl": 1
+        }
+      },
+      {
+        "memory_id": "M-A-0417",
+        "content": "David Hughes's preferred grocery store is Trader Joe's.",
+        "ranks": {
+          "bm25": 4,
+          "dense": 8,
+          "hybrid": 6,
+          "sparsecl": 8
+        }
+      },
+      {
+        "memory_id": "M-A-0438",
+        "content": "Karen Hughes's preferred grocery store changed to FreshFoods.",
+        "ranks": {
+          "bm25": 2,
+          "dense": 4,
+          "hybrid": 2,
+          "sparsecl": 3
+        }
+      },
+      {
+        "memory_id": "M-A-0441",
+        "content": "Liam Hughes's preferred grocery store is Trader Joe's.",
+        "ranks": {
+          "bm25": 5,
+          "dense": 18,
+          "hybrid": 9,
+          "sparsecl": 6
+        }
+      },
+      {
+        "memory_id": "M-A-0444",
+        "content": "Mia Hughes's preferred grocery store is Trader Joe's.",
+        "ranks": {
+          "bm25": 6,
+          "dense": 6,
+          "hybrid": 7,
+          "sparsecl": 4
+        }
+      },
+      {
+        "memory_id": "M-C-0002",
+        "content": "Uma Lopez switched preference to shop at FreshMarket for groceries.",
+        "ranks": {
+          "bm25": ">50",
+          "dense": 9,
+          "hybrid": ">50",
+          "sparsecl": 20
+        }
+      },
+      {
+        "memory_id": "M-C-0086",
+        "content": "David Lopez's preferred grocery store changed to 'FreshGrocer'.",
+        "ranks": {
+          "bm25": 10,
+          "dense": 13,
+          "hybrid": 10,
+          "sparsecl": 16
+        }
+      }
+    ]
+  },
+  {
+    "query_id": "TC-A-0027",
+    "content": "Sam Jensen changed preferred grocery store to Trader Joe's.",
+    "gold": [
+      {
+        "query_id": "TC-A-0027",
+        "memory_id": "M-A-0054",
+        "gold_count": 1,
+        "bm25": 6,
+        "dense": 2,
+        "hybrid": 4,
+        "sparsecl": 3,
+        "query_text": "Sam Jensen changed preferred grocery store to Trader Joe's.",
+        "memory_text": "Sam Jensen's preferred grocery store is Walmart."
+      }
+    ],
+    "distractors": [
+      {
+        "memory_id": "M-A-0012",
+        "content": "Uma Evans's preferred grocery store is Trader Joe's",
+        "ranks": {
+          "bm25": 2,
+          "dense": 3,
+          "hybrid": 2,
+          "sparsecl": 7
+        }
+      },
+      {
+        "memory_id": "M-A-0068",
+        "content": "Peter Fisher changed preferred grocery store to Whole Foods.",
+        "ranks": {
+          "bm25": 11,
+          "dense": 9,
+          "hybrid": 9,
+          "sparsecl": 6
+        }
+      },
+      {
+        "memory_id": "M-A-0101",
+        "content": "Tina Jensen changed preferred grocery delivery service to Amazon Fresh",
+        "ranks": {
+          "bm25": 10,
+          "dense": 7,
+          "hybrid": 7,
+          "sparsecl": 9
+        }
+      },
+      {
+        "memory_id": "M-A-0135",
+        "content": "Liam Chen updated preferred grocery store to Target",
+        "ranks": {
+          "bm25": 16,
+          "dense": 10,
+          "hybrid": 13,
+          "sparsecl": 13
+        }
+      },
+      {
+        "memory_id": "M-A-0194",
+        "content": "Brian Jensen's preferred grocery store is Walmart.",
+        "ranks": {
+          "bm25": 13,
+          "dense": 8,
+          "hybrid": 10,
+          "sparsecl": 10
+        }
+      },
+      {
+        "memory_id": "M-A-0390",
+        "content": "Chloe Garcia's preferred grocery store changed to Costco.",
+        "ranks": {
+          "bm25": 7,
+          "dense": 11,
+          "hybrid": 8,
+          "sparsecl": 11
+        }
+      },
+      {
+        "memory_id": "M-A-0411",
+        "content": "Derek Chen's preferred grocery store changed to Trader Joe's.",
+        "ranks": {
+          "bm25": 1,
+          "dense": 1,
+          "hybrid": 1,
+          "sparsecl": 1
+        }
+      },
+      {
+        "memory_id": "M-A-0417",
+        "content": "David Hughes's preferred grocery store is Trader Joe's.",
+        "ranks": {
+          "bm25": 3,
+          "dense": 4,
+          "hybrid": 3,
+          "sparsecl": 5
+        }
+      },
+      {
+        "memory_id": "M-A-0438",
+        "content": "Karen Hughes's preferred grocery store changed to FreshFoods.",
+        "ranks": {
+          "bm25": 8,
+          "dense": 16,
+          "hybrid": 12,
+          "sparsecl": 8
+        }
+      },
+      {
+        "memory_id": "M-A-0441",
+        "content": "Liam Hughes's preferred grocery store is Trader Joe's.",
+        "ranks": {
+          "bm25": 4,
+          "dense": 5,
+          "hybrid": 5,
+          "sparsecl": 2
+        }
+      },
+      {
+        "memory_id": "M-A-0444",
+        "content": "Mia Hughes's preferred grocery store is Trader Joe's.",
+        "ranks": {
+          "bm25": 5,
+          "dense": 6,
+          "hybrid": 6,
+          "sparsecl": 4
+        }
+      },
+      {
+        "memory_id": "M-C-0086",
+        "content": "David Lopez's preferred grocery store changed to 'FreshGrocer'.",
+        "ranks": {
+          "bm25": 9,
+          "dense": 14,
+          "hybrid": 11,
+          "sparsecl": 12
+        }
+      }
+    ]
+  },
+  {
+    "query_id": "TC-A-0028",
+    "content": "Liam Fisher changed preferred grocery store to Trader Joe's.",
+    "gold": [
+      {
+        "query_id": "TC-A-0028",
+        "memory_id": "M-A-0056",
+        "gold_count": 1,
+        "bm25": 6,
+        "dense": 4,
+        "hybrid": 3,
+        "sparsecl": 5,
+        "query_text": "Liam Fisher changed preferred grocery store to Trader Joe's.",
+        "memory_text": "Liam Fisher's preferred grocery store is Walmart."
+      }
+    ],
+    "distractors": [
+      {
+        "memory_id": "M-A-0012",
+        "content": "Uma Evans's preferred grocery store is Trader Joe's",
+        "ranks": {
+          "bm25": 3,
+          "dense": 9,
+          "hybrid": 4,
+          "sparsecl": 7
+        }
+      },
+      {
+        "memory_id": "M-A-0068",
+        "content": "Peter Fisher changed preferred grocery store to Whole Foods.",
+        "ranks": {
+          "bm25": 7,
+          "dense": 5,
+          "hybrid": 6,
+          "sparsecl": 3
+        }
+      },
+      {
+        "memory_id": "M-A-0134",
+        "content": "Liam Chen's preferred grocery store is Walmart",
+        "ranks": {
+          "bm25": 12,
+          "dense": 6,
+          "hybrid": 9,
+          "sparsecl": 22
+        }
+      },
+      {
+        "memory_id": "M-A-0135",
+        "content": "Liam Chen updated preferred grocery store to Target",
+        "ranks": {
+          "bm25": 11,
+          "dense": 3,
+          "hybrid": 8,
+          "sparsecl": 9
+        }
+      },
+      {
+        "memory_id": "M-A-0185",
+        "content": "Liam Garcia's preferred grocery store is Walmart",
+        "ranks": {
+          "bm25": 13,
+          "dense": 10,
+          "hybrid": 11,
+          "sparsecl": 20
+        }
+      },
+      {
+        "memory_id": "M-A-0390",
+        "content": "Chloe Garcia's preferred grocery store changed to Costco.",
+        "ranks": {
+          "bm25": 8,
+          "dense": 19,
+          "hybrid": 13,
+          "sparsecl": 11
+        }
+      },
+      {
+        "memory_id": "M-A-0411",
+        "content": "Derek Chen's preferred grocery store changed to Trader Joe's.",
+        "ranks": {
+          "bm25": 1,
+          "dense": 2,
+          "hybrid": 1,
+          "sparsecl": 1
+        }
+      },
+      {
+        "memory_id": "M-A-0417",
+        "content": "David Hughes's preferred grocery store is Trader Joe's.",
+        "ranks": {
+          "bm25": 4,
+          "dense": 8,
+          "hybrid": 5,
+          "sparsecl": 4
+        }
+      },
+      {
+        "memory_id": "M-A-0438",
+        "content": "Karen Hughes's preferred grocery store changed to FreshFoods.",
+        "ranks": {
+          "bm25": 9,
+          "dense": 17,
+          "hybrid": 12,
+          "sparsecl": 8
+        }
+      },
+      {
+        "memory_id": "M-A-0441",
+        "content": "Liam Hughes's preferred grocery store is Trader Joe's.",
+        "ranks": {
+          "bm25": 2,
+          "dense": 1,
+          "hybrid": 2,
+          "sparsecl": 2
+        }
+      },
+      {
+        "memory_id": "M-A-0444",
+        "content": "Mia Hughes's preferred grocery store is Trader Joe's.",
+        "ranks": {
+          "bm25": 5,
+          "dense": 7,
+          "hybrid": 7,
+          "sparsecl": 6
+        }
+      },
+      {
+        "memory_id": "M-C-0086",
+        "content": "David Lopez's preferred grocery store changed to 'FreshGrocer'.",
+        "ranks": {
+          "bm25": 10,
+          "dense": 12,
+          "hybrid": 10,
+          "sparsecl": 10
+        }
+      }
+    ]
+  },
+  {
+    "query_id": "TC-A-0029",
+    "content": "Mia Fisher's preferred grocery store is Trader Joe's",
+    "gold": [
+      {
+        "query_id": "TC-A-0029",
+        "memory_id": "M-A-0058",
+        "gold_count": 2,
+        "bm25": 5,
+        "dense": 3,
+        "hybrid": 4,
+        "sparsecl": 4,
+        "query_text": "Mia Fisher's preferred grocery store is Trader Joe's",
+        "memory_text": "Mia Fisher's preferred grocery store is Walmart"
+      },
+      {
+        "query_id": "TC-A-0029",
+        "memory_id": "M-A-0059",
+        "gold_count": 2,
+        "bm25": 7,
+        "dense": 1,
+        "hybrid": 3,
+        "sparsecl": 2,
+        "query_text": "Mia Fisher's preferred grocery store is Trader Joe's",
+        "memory_text": "Mia Fisher's preferred grocery store is Whole Foods"
+      }
+    ],
+    "distractors": [
+      {
+        "memory_id": "M-A-0012",
+        "content": "Uma Evans's preferred grocery store is Trader Joe's",
+        "ranks": {
+          "bm25": 2,
+          "dense": 4,
+          "hybrid": 2,
+          "sparsecl": 3
+        }
+      },
+      {
+        "memory_id": "M-A-0046",
+        "content": "Henry Fisher's preferred grocery store is Walmart.",
+        "ranks": {
+          "bm25": 9,
+          "dense": 25,
+          "hybrid": 16,
+          "sparsecl": 14
+        }
+      },
+      {
+        "memory_id": "M-A-0050",
+        "content": "Jack Fisher's preferred grocery store is Walmart.",
+        "ranks": {
+          "bm25": 10,
+          "dense": 14,
+          "hybrid": 9,
+          "sparsecl": 13
+        }
+      },
+      {
+        "memory_id": "M-A-0052",
+        "content": "Karen Fisher's preferred grocery store is Walmart.",
+        "ranks": {
+          "bm25": 11,
+          "dense": 20,
+          "hybrid": 15,
+          "sparsecl": 9
+        }
+      },
+      {
+        "memory_id": "M-A-0070",
+        "content": "Quinn Fisher's preferred grocery store is Walmart",
+        "ranks": {
+          "bm25": 14,
+          "dense": 13,
+          "hybrid": 12,
+          "sparsecl": 10
+        }
+      },
+      {
+        "memory_id": "M-A-0072",
+        "content": "Rachel Fisher's default grocery store is Walmart",
+        "ranks": {
+          "bm25": 22,
+          "dense": 6,
+          "hybrid": 11,
+          "sparsecl": 22
+        }
+      },
+      {
+        "memory_id": "M-A-0088",
+        "content": "Yara Fisher's preferred grocery store is Walmart",
+        "ranks": {
+          "bm25": 18,
+          "dense": 7,
+          "hybrid": 10,
+          "sparsecl": 7
+        }
+      },
+      {
+        "memory_id": "M-A-0411",
+        "content": "Derek Chen's preferred grocery store changed to Trader Joe's.",
+        "ranks": {
+          "bm25": 6,
+          "dense": 5,
+          "hybrid": 5,
+          "sparsecl": 8
+        }
+      },
+      {
+        "memory_id": "M-A-0417",
+        "content": "David Hughes's preferred grocery store is Trader Joe's.",
+        "ranks": {
+          "bm25": 3,
+          "dense": 12,
+          "hybrid": 7,
+          "sparsecl": 6
+        }
+      },
+      {
+        "memory_id": "M-A-0441",
+        "content": "Liam Hughes's preferred grocery store is Trader Joe's.",
+        "ranks": {
+          "bm25": 4,
+          "dense": 9,
+          "hybrid": 6,
+          "sparsecl": 5
+        }
+      },
+      {
+        "memory_id": "M-A-0443",
+        "content": "Mia Hughes's preferred grocery store is Walmart.",
+        "ranks": {
+          "bm25": 8,
+          "dense": 8,
+          "hybrid": 8,
+          "sparsecl": 11
+        }
+      },
+      {
+        "memory_id": "M-A-0444",
+        "content": "Mia Hughes's preferred grocery store is Trader Joe's.",
+        "ranks": {
+          "bm25": 1,
+          "dense": 2,
+          "hybrid": 1,
+          "sparsecl": 1
+        }
+      },
+      {
+        "memory_id": "M-C-0004",
+        "content": "Yara Owen rated MegaStore as excellent for groceries.",
+        "ranks": {
+          "bm25": ">50",
+          "dense": 10,
+          "hybrid": ">50",
+          "sparsecl": 75
+        }
+      }
+    ]
+  },
+  {
+    "query_id": "TC-A-0033",
+    "content": "Peter Fisher updated preferred grocery store to Trader Joe's.",
+    "gold": [
+      {
+        "query_id": "TC-A-0033",
+        "memory_id": "M-A-0067",
+        "gold_count": 2,
+        "bm25": 6,
+        "dense": 9,
+        "hybrid": 7,
+        "sparsecl": 5,
+        "query_text": "Peter Fisher updated preferred grocery store to Trader Joe's.",
+        "memory_text": "Peter Fisher's preferred grocery store is Walmart."
+      },
+      {
+        "query_id": "TC-A-0033",
+        "memory_id": "M-A-0068",
+        "gold_count": 2,
+        "bm25": 7,
+        "dense": 1,
+        "hybrid": 4,
+        "sparsecl": 1,
+        "query_text": "Peter Fisher updated preferred grocery store to Trader Joe's.",
+        "memory_text": "Peter Fisher changed preferred grocery store to Whole Foods."
+      }
+    ],
+    "distractors": [
+      {
+        "memory_id": "M-A-0012",
+        "content": "Uma Evans's preferred grocery store is Trader Joe's",
+        "ranks": {
+          "bm25": 2,
+          "dense": 4,
+          "hybrid": 2,
+          "sparsecl": 6
+        }
+      },
+      {
+        "memory_id": "M-A-0046",
+        "content": "Henry Fisher's preferred grocery store is Walmart.",
+        "ranks": {
+          "bm25": 10,
+          "dense": 14,
+          "hybrid": 10,
+          "sparsecl": 10
+        }
+      },
+      {
+        "memory_id": "M-A-0050",
+        "content": "Jack Fisher's preferred grocery store is Walmart.",
+        "ranks": {
+          "bm25": 11,
+          "dense": 12,
+          "hybrid": 9,
+          "sparsecl": 14
+        }
+      },
+      {
+        "memory_id": "M-A-0059",
+        "content": "Mia Fisher's preferred grocery store is Whole Foods",
+        "ranks": {
+          "bm25": 22,
+          "dense": 8,
+          "hybrid": 11,
+          "sparsecl": 23
+        }
+      },
+      {
+        "memory_id": "M-A-0093",
+        "content": "Amber Fisher's preferred grocery store is FreshMart.",
+        "ranks": {
+          "bm25": 20,
+          "dense": 10,
+          "hybrid": 13,
+          "sparsecl": 27
+        }
+      },
+      {
+        "memory_id": "M-A-0135",
+        "content": "Liam Chen updated preferred grocery store to Target",
+        "ranks": {
+          "bm25": 9,
+          "dense": 7,
+          "hybrid": 8,
+          "sparsecl": 9
+        }
+      },
+      {
+        "memory_id": "M-A-0207",
+        "content": "Peter Garcia's preferred grocery store is SuperMart.",
+        "ranks": {
+          "bm25": 8,
+          "dense": 45,
+          "hybrid": 22,
+          "sparsecl": 25
+        }
+      },
+      {
+        "memory_id": "M-A-0411",
+        "content": "Derek Chen's preferred grocery store changed to Trader Joe's.",
+        "ranks": {
+          "bm25": 1,
+          "dense": 2,
+          "hybrid": 1,
+          "sparsecl": 2
+        }
+      },
+      {
+        "memory_id": "M-A-0417",
+        "content": "David Hughes's preferred grocery store is Trader Joe's.",
+        "ranks": {
+          "bm25": 3,
+          "dense": 3,
+          "hybrid": 3,
+          "sparsecl": 4
+        }
+      },
+      {
+        "memory_id": "M-A-0438",
+        "content": "Karen Hughes's preferred grocery store changed to FreshFoods.",
+        "ranks": {
+          "bm25": 25,
+          "dense": 17,
+          "hybrid": 20,
+          "sparsecl": 8
+        }
+      },
+      {
+        "memory_id": "M-A-0441",
+        "content": "Liam Hughes's preferred grocery store is Trader Joe's.",
+        "ranks": {
+          "bm25": 4,
+          "dense": 5,
+          "hybrid": 5,
+          "sparsecl": 3
+        }
+      },
+      {
+        "memory_id": "M-A-0444",
+        "content": "Mia Hughes's preferred grocery store is Trader Joe's.",
+        "ranks": {
+          "bm25": 5,
+          "dense": 6,
+          "hybrid": 6,
+          "sparsecl": 7
+        }
+      }
+    ]
+  },
+  {
+    "query_id": "TC-A-0034",
+    "content": "Quinn Fisher changed preferred grocery store to Trader Joe's",
+    "gold": [
+      {
+        "query_id": "TC-A-0034",
+        "memory_id": "M-A-0070",
+        "gold_count": 1,
+        "bm25": 7,
+        "dense": 2,
+        "hybrid": 3,
+        "sparsecl": 3,
+        "query_text": "Quinn Fisher changed preferred grocery store to Trader Joe's",
+        "memory_text": "Quinn Fisher's preferred grocery store is Walmart"
+      }
+    ],
+    "distractors": [
+      {
+        "memory_id": "M-A-0003",
+        "content": "Quinn Evans's preferred grocery store set to Walmart",
+        "ranks": {
+          "bm25": 11,
+          "dense": 9,
+          "hybrid": 8,
+          "sparsecl": 9
+        }
+      },
+      {
+        "memory_id": "M-A-0012",
+        "content": "Uma Evans's preferred grocery store is Trader Joe's",
+        "ranks": {
+          "bm25": 2,
+          "dense": 3,
+          "hybrid": 2,
+          "sparsecl": 5
+        }
+      },
+      {
+        "memory_id": "M-A-0068",
+        "content": "Peter Fisher changed preferred grocery store to Whole Foods.",
+        "ranks": {
+          "bm25": 6,
+          "dense": 5,
+          "hybrid": 5,
+          "sparsecl": 2
+        }
+      },
+      {
+        "memory_id": "M-A-0135",
+        "content": "Liam Chen updated preferred grocery store to Target",
+        "ranks": {
+          "bm25": 31,
+          "dense": 8,
+          "hybrid": 14,
+          "sparsecl": 10
+        }
+      },
+      {
+        "memory_id": "M-A-0213",
+        "content": "Quinn Garcia's recently purchased apples from Costco",
+        "ranks": {
+          "bm25": ">50",
+          "dense": 4,
+          "hybrid": 28,
+          "sparsecl": 32
+        }
+      },
+      {
+        "memory_id": "M-A-0390",
+        "content": "Chloe Garcia's preferred grocery store changed to Costco.",
+        "ranks": {
+          "bm25": 8,
+          "dense": 14,
+          "hybrid": 9,
+          "sparsecl": 11
+        }
+      },
+      {
+        "memory_id": "M-A-0411",
+        "content": "Derek Chen's preferred grocery store changed to Trader Joe's.",
+        "ranks": {
+          "bm25": 1,
+          "dense": 1,
+          "hybrid": 1,
+          "sparsecl": 1
+        }
+      },
+      {
+        "memory_id": "M-A-0417",
+        "content": "David Hughes's preferred grocery store is Trader Joe's.",
+        "ranks": {
+          "bm25": 3,
+          "dense": 7,
+          "hybrid": 4,
+          "sparsecl": 7
+        }
+      },
+      {
+        "memory_id": "M-A-0438",
+        "content": "Karen Hughes's preferred grocery store changed to FreshFoods.",
+        "ranks": {
+          "bm25": 9,
+          "dense": 15,
+          "hybrid": 10,
+          "sparsecl": 8
+        }
+      },
+      {
+        "memory_id": "M-A-0441",
+        "content": "Liam Hughes's preferred grocery store is Trader Joe's.",
+        "ranks": {
+          "bm25": 4,
+          "dense": 10,
+          "hybrid": 7,
+          "sparsecl": 4
+        }
+      },
+      {
+        "memory_id": "M-A-0444",
+        "content": "Mia Hughes's preferred grocery store is Trader Joe's.",
+        "ranks": {
+          "bm25": 5,
+          "dense": 6,
+          "hybrid": 6,
+          "sparsecl": 6
+        }
+      },
+      {
+        "memory_id": "M-C-0086",
+        "content": "David Lopez's preferred grocery store changed to 'FreshGrocer'.",
+        "ranks": {
+          "bm25": 10,
+          "dense": 19,
+          "hybrid": 11,
+          "sparsecl": 12
+        }
+      }
+    ]
+  },
+  {
+    "query_id": "TC-A-0036",
+    "content": "Sam Fisher changed preferred grocery store to Trader Joe's.",
+    "gold": [
+      {
+        "query_id": "TC-A-0036",
+        "memory_id": "M-A-0074",
+        "gold_count": 1,
+        "bm25": 7,
+        "dense": 3,
+        "hybrid": 5,
+        "sparsecl": 6,
+        "query_text": "Sam Fisher changed preferred grocery store to Trader Joe's.",
+        "memory_text": "Sam Fisher's preferred grocery store is Walmart."
+      }
+    ],
+    "distractors": [
+      {
+        "memory_id": "M-A-0012",
+        "content": "Uma Evans's preferred grocery store is Trader Joe's",
+        "ranks": {
+          "bm25": 2,
+          "dense": 4,
+          "hybrid": 2,
+          "sparsecl": 7
+        }
+      },
+      {
+        "memory_id": "M-A-0046",
+        "content": "Henry Fisher's preferred grocery store is Walmart.",
+        "ranks": {
+          "bm25": 12,
+          "dense": 16,
+          "hybrid": 13,
+          "sparsecl": 9
+        }
+      },
+      {
+        "memory_id": "M-A-0050",
+        "content": "Jack Fisher's preferred grocery store is Walmart.",
+        "ranks": {
+          "bm25": 13,
+          "dense": 5,
+          "hybrid": 9,
+          "sparsecl": 10
+        }
+      },
+      {
+        "memory_id": "M-A-0068",
+        "content": "Peter Fisher changed preferred grocery store to Whole Foods.",
+        "ranks": {
+          "bm25": 6,
+          "dense": 2,
+          "hybrid": 3,
+          "sparsecl": 2
+        }
+      },
+      {
+        "memory_id": "M-A-0390",
+        "content": "Chloe Garcia's preferred grocery store changed to Costco.",
+        "ranks": {
+          "bm25": 8,
+          "dense": 10,
+          "hybrid": 10,
+          "sparsecl": 15
+        }
+      },
+      {
+        "memory_id": "M-A-0411",
+        "content": "Derek Chen's preferred grocery store changed to Trader Joe's.",
+        "ranks": {
+          "bm25": 1,
+          "dense": 1,
+          "hybrid": 1,
+          "sparsecl": 1
+        }
+      },
+      {
+        "memory_id": "M-A-0417",
+        "content": "David Hughes's preferred grocery store is Trader Joe's.",
+        "ranks": {
+          "bm25": 3,
+          "dense": 6,
+          "hybrid": 4,
+          "sparsecl": 5
+        }
+      },
+      {
+        "memory_id": "M-A-0438",
+        "content": "Karen Hughes's preferred grocery store changed to FreshFoods.",
+        "ranks": {
+          "bm25": 9,
+          "dense": 7,
+          "hybrid": 8,
+          "sparsecl": 8
+        }
+      },
+      {
+        "memory_id": "M-A-0441",
+        "content": "Liam Hughes's preferred grocery store is Trader Joe's.",
+        "ranks": {
+          "bm25": 4,
+          "dense": 11,
+          "hybrid": 7,
+          "sparsecl": 3
+        }
+      },
+      {
+        "memory_id": "M-A-0444",
+        "content": "Mia Hughes's preferred grocery store is Trader Joe's.",
+        "ranks": {
+          "bm25": 5,
+          "dense": 9,
+          "hybrid": 6,
+          "sparsecl": 4
+        }
+      },
+      {
+        "memory_id": "M-C-0086",
+        "content": "David Lopez's preferred grocery store changed to 'FreshGrocer'.",
+        "ranks": {
+          "bm25": 10,
+          "dense": 8,
+          "hybrid": 11,
+          "sparsecl": 17
+        }
+      }
+    ]
+  },
+  {
+    "query_id": "TC-A-0041",
+    "content": "Wendy Fisher's preferred grocery store is now Trader Joe's.",
+    "gold": [
+      {
+        "query_id": "TC-A-0041",
+        "memory_id": "M-A-0084",
+        "gold_count": 1,
+        "bm25": 5,
+        "dense": 1,
+        "hybrid": 1,
+        "sparsecl": 7,
+        "query_text": "Wendy Fisher's preferred grocery store is now Trader Joe's.",
+        "memory_text": "Wendy Fisher's preferred grocery store is Walmart."
+      }
+    ],
+    "distractors": [
+      {
+        "memory_id": "M-A-0012",
+        "content": "Uma Evans's preferred grocery store is Trader Joe's",
+        "ranks": {
+          "bm25": 1,
+          "dense": 9,
+          "hybrid": 3,
+          "sparsecl": 4
+        }
+      },
+      {
+        "memory_id": "M-A-0036",
+        "content": "Carol Fisher's primary grocery store is Walmart.",
+        "ranks": {
+          "bm25": 22,
+          "dense": 6,
+          "hybrid": 13,
+          "sparsecl": 34
+        }
+      },
+      {
+        "memory_id": "M-A-0046",
+        "content": "Henry Fisher's preferred grocery store is Walmart.",
+        "ranks": {
+          "bm25": 8,
+          "dense": 11,
+          "hybrid": 6,
+          "sparsecl": 16
+        }
+      },
+      {
+        "memory_id": "M-A-0050",
+        "content": "Jack Fisher's preferred grocery store is Walmart.",
+        "ranks": {
+          "bm25": 9,
+          "dense": 7,
+          "hybrid": 5,
+          "sparsecl": 12
+        }
+      },
+      {
+        "memory_id": "M-A-0052",
+        "content": "Karen Fisher's preferred grocery store is Walmart.",
+        "ranks": {
+          "bm25": 10,
+          "dense": 4,
+          "hybrid": 4,
+          "sparsecl": 10
+        }
+      },
+      {
+        "memory_id": "M-A-0058",
+        "content": "Mia Fisher's preferred grocery store is Walmart",
+        "ranks": {
+          "bm25": 12,
+          "dense": 8,
+          "hybrid": 9,
+          "sparsecl": 21
+        }
+      },
+      {
+        "memory_id": "M-A-0059",
+        "content": "Mia Fisher's preferred grocery store is Whole Foods",
+        "ranks": {
+          "bm25": 20,
+          "dense": 5,
+          "hybrid": 10,
+          "sparsecl": 13
+        }
+      },
+      {
+        "memory_id": "M-A-0067",
+        "content": "Peter Fisher's preferred grocery store is Walmart.",
+        "ranks": {
+          "bm25": 13,
+          "dense": 12,
+          "hybrid": 12,
+          "sparsecl": 9
+        }
+      },
+      {
+        "memory_id": "M-A-0068",
+        "content": "Peter Fisher changed preferred grocery store to Whole Foods.",
+        "ranks": {
+          "bm25": 24,
+          "dense": 3,
+          "hybrid": 11,
+          "sparsecl": 2
+        }
+      },
+      {
+        "memory_id": "M-A-0095",
+        "content": "Brian Fisher's preferred grocery store is Walmart.",
+        "ranks": {
+          "bm25": 19,
+          "dense": 10,
+          "hybrid": 15,
+          "sparsecl": 18
+        }
+      },
+      {
+        "memory_id": "M-A-0411",
+        "content": "Derek Chen's preferred grocery store changed to Trader Joe's.",
+        "ranks": {
+          "bm25": 6,
+          "dense": 2,
+          "hybrid": 2,
+          "sparsecl": 1
+        }
+      },
+      {
+        "memory_id": "M-A-0417",
+        "content": "David Hughes's preferred grocery store is Trader Joe's.",
+        "ranks": {
+          "bm25": 2,
+          "dense": 19,
+          "hybrid": 7,
+          "sparsecl": 6
+        }
+      },
+      {
+        "memory_id": "M-A-0438",
+        "content": "Karen Hughes's preferred grocery store changed to FreshFoods.",
+        "ranks": {
+          "bm25": ">50",
+          "dense": 33,
+          "hybrid": 42,
+          "sparsecl": 8
+        }
+      },
+      {
+        "memory_id": "M-A-0441",
+        "content": "Liam Hughes's preferred grocery store is Trader Joe's.",
+        "ranks": {
+          "bm25": 3,
+          "dense": 28,
+          "hybrid": 14,
+          "sparsecl": 5
+        }
+      },
+      {
+        "memory_id": "M-A-0444",
+        "content": "Mia Hughes's preferred grocery store is Trader Joe's.",
+        "ranks": {
+          "bm25": 4,
+          "dense": 16,
+          "hybrid": 8,
+          "sparsecl": 3
+        }
+      },
+      {
+        "memory_id": "M-C-0087",
+        "content": "Victor Nelson's preferred grocery store is now 'MarketSquare'.",
+        "ranks": {
+          "bm25": 7,
+          "dense": ">50",
+          "hybrid": 27,
+          "sparsecl": 20
+        }
+      }
+    ]
+  },
+  {
+    "query_id": "TC-A-0042",
+    "content": "Xavier Fisher changed preferred grocery store to Trader Joe's.",
+    "gold": [
+      {
+        "query_id": "TC-A-0042",
+        "memory_id": "M-A-0086",
+        "gold_count": 1,
+        "bm25": 6,
+        "dense": 2,
+        "hybrid": 4,
+        "sparsecl": 5,
+        "query_text": "Xavier Fisher changed preferred grocery store to Trader Joe's.",
+        "memory_text": "Xavier Fisher's preferred grocery store is Walmart."
+      }
+    ],
+    "distractors": [
+      {
+        "memory_id": "M-A-0012",
+        "content": "Uma Evans's preferred grocery store is Trader Joe's",
+        "ranks": {
+          "bm25": 2,
+          "dense": 6,
+          "hybrid": 3,
+          "sparsecl": 6
+        }
+      },
+      {
+        "memory_id": "M-A-0068",
+        "content": "Peter Fisher changed preferred grocery store to Whole Foods.",
+        "ranks": {
+          "bm25": 7,
+          "dense": 3,
+          "hybrid": 5,
+          "sparsecl": 2
+        }
+      },
+      {
+        "memory_id": "M-A-0135",
+        "content": "Liam Chen updated preferred grocery store to Target",
+        "ranks": {
+          "bm25": 28,
+          "dense": 7,
+          "hybrid": 12,
+          "sparsecl": 18
+        }
+      },
+      {
+        "memory_id": "M-A-0390",
+        "content": "Chloe Garcia's preferred grocery store changed to Costco.",
+        "ranks": {
+          "bm25": 8,
+          "dense": 11,
+          "hybrid": 8,
+          "sparsecl": 10
+        }
+      },
+      {
+        "memory_id": "M-A-0411",
+        "content": "Derek Chen's preferred grocery store changed to Trader Joe's.",
+        "ranks": {
+          "bm25": 1,
+          "dense": 1,
+          "hybrid": 1,
+          "sparsecl": 1
+        }
+      },
+      {
+        "memory_id": "M-A-0417",
+        "content": "David Hughes's preferred grocery store is Trader Joe's.",
+        "ranks": {
+          "bm25": 3,
+          "dense": 4,
+          "hybrid": 2,
+          "sparsecl": 4
+        }
+      },
+      {
+        "memory_id": "M-A-0438",
+        "content": "Karen Hughes's preferred grocery store changed to FreshFoods.",
+        "ranks": {
+          "bm25": 9,
+          "dense": 10,
+          "hybrid": 9,
+          "sparsecl": 8
+        }
+      },
+      {
+        "memory_id": "M-A-0441",
+        "content": "Liam Hughes's preferred grocery store is Trader Joe's.",
+        "ranks": {
+          "bm25": 4,
+          "dense": 8,
+          "hybrid": 7,
+          "sparsecl": 3
+        }
+      },
+      {
+        "memory_id": "M-A-0444",
+        "content": "Mia Hughes's preferred grocery store is Trader Joe's.",
+        "ranks": {
+          "bm25": 5,
+          "dense": 5,
+          "hybrid": 6,
+          "sparsecl": 7
+        }
+      },
+      {
+        "memory_id": "M-C-0086",
+        "content": "David Lopez's preferred grocery store changed to 'FreshGrocer'.",
+        "ranks": {
+          "bm25": 10,
+          "dense": 9,
+          "hybrid": 10,
+          "sparsecl": 9
+        }
+      }
+    ]
+  },
+  {
+    "query_id": "TC-A-0077",
+    "content": "Karen Garcia's latest blood pressure reading is 125/80.",
+    "gold": [
+      {
+        "query_id": "TC-A-0077",
+        "memory_id": "M-A-0183",
+        "gold_count": 1,
+        "bm25": 6,
+        "dense": 1,
+        "hybrid": 3,
+        "sparsecl": 1,
+        "query_text": "Karen Garcia's latest blood pressure reading is 125/80.",
+        "memory_text": "Karen Garcia updated blood pressure to 140/90."
+      }
+    ],
+    "distractors": [
+      {
+        "memory_id": "M-A-0140",
+        "content": "Quill Pinecrest's blood pressure is 130/85.",
+        "ranks": {
+          "bm25": 10,
+          "dense": 8,
+          "hybrid": 8,
+          "sparsecl": 15
+        }
+      },
+      {
+        "memory_id": "M-A-0141",
+        "content": "Quill Pinecrest's blood pressure is 125/80.",
+        "ranks": {
+          "bm25": 2,
+          "dense": 4,
+          "hybrid": 2,
+          "sparsecl": 7
+        }
+      },
+      {
+        "memory_id": "M-A-0149",
+        "content": "Sable Everhart's blood pressure updated to 125/80.",
+        "ranks": {
+          "bm25": 3,
+          "dense": 19,
+          "hybrid": 10,
+          "sparsecl": 4
+        }
+      },
+      {
+        "memory_id": "M-A-0188",
+        "content": "Briony Foxglove's blood pressure is 130/85 mmHg",
+        "ranks": {
+          "bm25": 16,
+          "dense": 16,
+          "hybrid": 17,
+          "sparsecl": 8
+        }
+      },
+      {
+        "memory_id": "M-A-0200",
+        "content": "Noah Garcia's current blood pressure reading is 130/85 mmHg.",
+        "ranks": {
+          "bm25": 5,
+          "dense": 3,
+          "hybrid": 4,
+          "sparsecl": 3
+        }
+      },
+      {
+        "memory_id": "M-A-0201",
+        "content": "Noah Garcia updated blood pressure reading is 125/80 mmHg.",
+        "ranks": {
+          "bm25": 1,
+          "dense": 2,
+          "hybrid": 1,
+          "sparsecl": 2
+        }
+      },
+      {
+        "memory_id": "M-A-0214",
+        "content": "Fiora Junefield's blood pressure is 130/85 mmHg.",
+        "ranks": {
+          "bm25": 19,
+          "dense": 10,
+          "hybrid": 14,
+          "sparsecl": 9
+        }
+      },
+      {
+        "memory_id": "M-C-0195",
+        "content": "Isolde Hawkridge's blood pressure recorded as 120/80 mmHg.",
+        "ranks": {
+          "bm25": 7,
+          "dense": 9,
+          "hybrid": 7,
+          "sparsecl": 11
+        }
+      },
+      {
+        "memory_id": "M-C-0199",
+        "content": "Juniper Brookhaven's blood pressure reading recorded as 120/80.",
+        "ranks": {
+          "bm25": 4,
+          "dense": 5,
+          "hybrid": 5,
+          "sparsecl": 5
+        }
+      },
+      {
+        "memory_id": "M-C-0200",
+        "content": "Cormac Zinnwood's blood pressure reading updated to 140/90 for monitoring purposes.",
+        "ranks": {
+          "bm25": 9,
+          "dense": 17,
+          "hybrid": 12,
+          "sparsecl": 14
+        }
+      },
+      {
+        "memory_id": "M-C-0216",
+        "content": "Ysabel Larkspur's blood pressure recorded as 120/80 mmHg.",
+        "ranks": {
+          "bm25": 8,
+          "dense": 6,
+          "hybrid": 6,
+          "sparsecl": 6
+        }
+      },
+      {
+        "memory_id": "M-C-0225",
+        "content": "Marcelline Kestrelton's blood pressure was recorded as 120/80 mmHg during the first check-up.",
+        "ranks": {
+          "bm25": 13,
+          "dense": 7,
+          "hybrid": 9,
+          "sparsecl": 10
+        }
+      }
+    ]
+  },
+  {
+    "query_id": "TC-A-0122",
+    "content": "John's primary email is john.doe@email.com",
+    "gold": [
+      {
+        "query_id": "TC-A-0122",
+        "memory_id": "M-A-0308",
+        "gold_count": 5,
+        "bm25": 1,
+        "dense": 2,
+        "hybrid": 1,
+        "sparsecl": 1,
+        "query_text": "John's primary email is john.doe@email.com",
+        "memory_text": "John's primary email is johnny.doe@email.com"
+      },
+      {
+        "query_id": "TC-A-0122",
+        "memory_id": "M-A-0321",
+        "gold_count": 5,
+        "bm25": 5,
+        "dense": 1,
+        "hybrid": 2,
+        "sparsecl": 2,
+        "query_text": "John's primary email is john.doe@email.com",
+        "memory_text": "John's primary email is john_doe123@example.com"
+      },
+      {
+        "query_id": "TC-A-0122",
+        "memory_id": "M-A-0333",
+        "gold_count": 5,
+        "bm25": 4,
+        "dense": 5,
+        "hybrid": 5,
+        "sparsecl": 4,
+        "query_text": "John's primary email is john.doe@email.com",
+        "memory_text": "John's email address is john.doe@example.com"
+      },
+      {
+        "query_id": "TC-A-0122",
+        "memory_id": "M-A-0348",
+        "gold_count": 5,
+        "bm25": 6,
+        "dense": 7,
+        "hybrid": 7,
+        "sparsecl": 5,
+        "query_text": "John's primary email is john.doe@email.com",
+        "memory_text": "John's email is john.doe123@example.com"
+      },
+      {
+        "query_id": "TC-A-0122",
+        "memory_id": "M-A-0356",
+        "gold_count": 5,
+        "bm25": 2,
+        "dense": 4,
+        "hybrid": 3,
+        "sparsecl": 3,
+        "query_text": "John's primary email is john.doe@email.com",
+        "memory_text": "John's email is john.doe@example.com"
+      }
+    ],
+    "distractors": [
+      {
+        "memory_id": "M-A-0309",
+        "content": "Joan's primary email is joan.doe@email.com",
+        "ranks": {
+          "bm25": 3,
+          "dense": 6,
+          "hybrid": 4,
+          "sparsecl": 6
+        }
+      },
+      {
+        "memory_id": "M-A-0323",
+        "content": "Jane's primary email is jane_doe123@example.com",
+        "ranks": {
+          "bm25": 9,
+          "dense": 3,
+          "hybrid": 6,
+          "sparsecl": 9
+        }
+      },
+      {
+        "memory_id": "M-A-0335",
+        "content": "Jonathan's email address is jonathan.doe@example.com",
+        "ranks": {
+          "bm25": 8,
+          "dense": 9,
+          "hybrid": 9,
+          "sparsecl": 7
+        }
+      },
+      {
+        "memory_id": "M-A-0350",
+        "content": "Jonathan's email is jon.doe123@example.com",
+        "ranks": {
+          "bm25": 10,
+          "dense": 8,
+          "hybrid": 10,
+          "sparsecl": 8
+        }
+      },
+      {
+        "memory_id": "M-A-0358",
+        "content": "Jane's email is jane.doe@example.com",
+        "ranks": {
+          "bm25": 7,
+          "dense": 10,
+          "hybrid": 8,
+          "sparsecl": 10
+        }
+      }
+    ]
+  },
+  {
+    "query_id": "TC-A-0123",
+    "content": "Patient John is allergic only to penicillin.",
+    "gold": [
+      {
+        "query_id": "TC-A-0123",
+        "memory_id": "SYN-TC-A-0123",
+        "gold_count": 1,
+        "bm25": 4,
+        "dense": 6,
+        "hybrid": 5,
+        "sparsecl": 4,
+        "query_text": "Patient John is allergic only to penicillin.",
+        "memory_text": "Patient John is allergic only to ibuprofen."
+      }
+    ],
+    "distractors": [
+      {
+        "memory_id": "M-A-0112",
+        "content": "Isolde Ironwood had an allergy only to Penicillin, as reported on file.",
+        "ranks": {
+          "bm25": 15,
+          "dense": 7,
+          "hybrid": 8,
+          "sparsecl": 8
+        }
+      },
+      {
+        "memory_id": "M-A-0118",
+        "content": "Juniper Clearwater is allergic only to penicillin.",
+        "ranks": {
+          "bm25": 6,
+          "dense": 5,
+          "hybrid": 6,
+          "sparsecl": 6
+        }
+      },
+      {
+        "memory_id": "M-A-0122",
+        "content": "Lumen Ravenshade's only known allergy is Penicillin.",
+        "ranks": {
+          "bm25": 9,
+          "dense": 18,
+          "hybrid": 15,
+          "sparsecl": 15
+        }
+      },
+      {
+        "memory_id": "M-A-0131",
+        "content": "Oberon Ainsworth's only known allergy is Penicillin.",
+        "ranks": {
+          "bm25": 10,
+          "dense": 12,
+          "hybrid": 9,
+          "sparsecl": 12
+        }
+      },
+      {
+        "memory_id": "M-A-0151",
+        "content": "Tamsin Yarrowby's only known allergy is penicillin.",
+        "ranks": {
+          "bm25": 11,
+          "dense": 13,
+          "hybrid": 12,
+          "sparsecl": 10
+        }
+      },
+      {
+        "memory_id": "M-A-0165",
+        "content": "Vesper Northcott is allergic only to penicillin.",
+        "ranks": {
+          "bm25": 7,
+          "dense": 8,
+          "hybrid": 7,
+          "sparsecl": 7
+        }
+      },
+      {
+        "memory_id": "M-A-0168",
+        "content": "Yara Jensen's only known allergy is penicillin, as noted.",
+        "ranks": {
+          "bm25": 14,
+          "dense": 9,
+          "hybrid": 10,
+          "sparsecl": 11
+        }
+      },
+      {
+        "memory_id": "M-A-0210",
+        "content": "Evander Oakheart's history includes an allergy only to penicillin.",
+        "ranks": {
+          "bm25": 13,
+          "dense": 11,
+          "hybrid": 13,
+          "sparsecl": 5
+        }
+      },
+      {
+        "memory_id": "M-A-0311",
+        "content": "Patient Jane is allergic only to penicillin.",
+        "ranks": {
+          "bm25": 2,
+          "dense": 2,
+          "hybrid": 2,
+          "sparsecl": 2
+        }
+      },
+      {
+        "memory_id": "M-A-0312",
+        "content": "Patient John is allergic only to penicillin.",
+        "ranks": {
+          "bm25": 1,
+          "dense": 1,
+          "hybrid": 1,
+          "sparsecl": 1000
+        }
+      },
+      {
+        "memory_id": "M-A-0314",
+        "content": "Patient Jane is allergic only to penicillin.",
+        "ranks": {
+          "bm25": 3,
+          "dense": 3,
+          "hybrid": 3,
+          "sparsecl": 1
+        }
+      },
+      {
+        "memory_id": "M-A-0352",
+        "content": "Patient Jane Doe is allergic only to penicillin.",
+        "ranks": {
+          "bm25": 5,
+          "dense": 4,
+          "hybrid": 4,
+          "sparsecl": 3
+        }
+      },
+      {
+        "memory_id": "M-C-0168",
+        "content": "Amber Davis reported an allergy only to Amoxicillin.",
+        "ranks": {
+          "bm25": 25,
+          "dense": 10,
+          "hybrid": 17,
+          "sparsecl": 9
+        }
+      },
+      {
+        "memory_id": "SYN-TC-A-0137",
+        "content": "Patient Mara Voss is allergic only to sulfa drugs.",
+        "ranks": {
+          "bm25": 8,
+          "dense": 16,
+          "hybrid": 11,
+          "sparsecl": 20
+        }
+      }
+    ]
+  },
+  {
+    "query_id": "TC-A-0124",
+    "content": "Patient John is allergic only to amoxicillin.",
+    "gold": [
+      {
+        "query_id": "TC-A-0124",
+        "memory_id": "M-A-0312",
+        "gold_count": 2,
+        "bm25": 1,
+        "dense": 1,
+        "hybrid": 1,
+        "sparsecl": 1,
+        "query_text": "Patient John is allergic only to amoxicillin.",
+        "memory_text": "Patient John is allergic only to penicillin."
+      },
+      {
+        "query_id": "TC-A-0124",
+        "memory_id": "SYN-TC-A-0123",
+        "gold_count": 2,
+        "bm25": 2,
+        "dense": 6,
+        "hybrid": 4,
+        "sparsecl": 2,
+        "query_text": "Patient John is allergic only to amoxicillin.",
+        "memory_text": "Patient John is allergic only to ibuprofen."
+      }
+    ],
+    "distractors": [
+      {
+        "memory_id": "M-A-0112",
+        "content": "Isolde Ironwood had an allergy only to Penicillin, as reported on file.",
+        "ranks": {
+          "bm25": 39,
+          "dense": 9,
+          "hybrid": 16,
+          "sparsecl": 13
+        }
+      },
+      {
+        "memory_id": "M-A-0118",
+        "content": "Juniper Clearwater is allergic only to penicillin.",
+        "ranks": {
+          "bm25": 7,
+          "dense": 7,
+          "hybrid": 7,
+          "sparsecl": 10
+        }
+      },
+      {
+        "memory_id": "M-A-0132",
+        "content": "Oberon Ainsworth's only known allergy is Amoxicillin.",
+        "ranks": {
+          "bm25": 10,
+          "dense": 8,
+          "hybrid": 8,
+          "sparsecl": 9
+        }
+      },
+      {
+        "memory_id": "M-A-0165",
+        "content": "Vesper Northcott is allergic only to penicillin.",
+        "ranks": {
+          "bm25": 8,
+          "dense": 11,
+          "hybrid": 10,
+          "sparsecl": 11
+        }
+      },
+      {
+        "memory_id": "M-A-0210",
+        "content": "Evander Oakheart's history includes an allergy only to penicillin.",
+        "ranks": {
+          "bm25": 27,
+          "dense": 16,
+          "hybrid": 14,
+          "sparsecl": 7
+        }
+      },
+      {
+        "memory_id": "M-A-0311",
+        "content": "Patient Jane is allergic only to penicillin.",
+        "ranks": {
+          "bm25": 3,
+          "dense": 3,
+          "hybrid": 2,
+          "sparsecl": 4
+        }
+      },
+      {
+        "memory_id": "M-A-0314",
+        "content": "Patient Jane is allergic only to penicillin.",
+        "ranks": {
+          "bm25": 4,
+          "dense": 4,
+          "hybrid": 5,
+          "sparsecl": 3
+        }
+      },
+      {
+        "memory_id": "M-A-0352",
+        "content": "Patient Jane Doe is allergic only to penicillin.",
+        "ranks": {
+          "bm25": 5,
+          "dense": 2,
+          "hybrid": 3,
+          "sparsecl": 5
+        }
+      },
+      {
+        "memory_id": "M-C-0168",
+        "content": "Amber Davis reported an allergy only to Amoxicillin.",
+        "ranks": {
+          "bm25": 9,
+          "dense": 5,
+          "hybrid": 6,
+          "sparsecl": 6
+        }
+      },
+      {
+        "memory_id": "M-C-0169",
+        "content": "Henry Lopez reported an allergy only to Cefuroxime.",
+        "ranks": {
+          "bm25": 20,
+          "dense": 10,
+          "hybrid": 11,
+          "sparsecl": 8
+        }
+      },
+      {
+        "memory_id": "SYN-TC-A-0137",
+        "content": "Patient Mara Voss is allergic only to sulfa drugs.",
+        "ranks": {
+          "bm25": 6,
+          "dense": 14,
+          "hybrid": 9,
+          "sparsecl": 15
+        }
+      }
+    ]
+  },
+  {
+    "query_id": "TC-A-0127",
+    "content": "John's primary email is john_doe456@example.com",
+    "gold": [
+      {
+        "query_id": "TC-A-0127",
+        "memory_id": "M-A-0308",
+        "gold_count": 5,
+        "bm25": 5,
+        "dense": 2,
+        "hybrid": 2,
+        "sparsecl": 4,
+        "query_text": "John's primary email is john_doe456@example.com",
+        "memory_text": "John's primary email is johnny.doe@email.com"
+      },
+      {
+        "query_id": "TC-A-0127",
+        "memory_id": "M-A-0321",
+        "gold_count": 5,
+        "bm25": 1,
+        "dense": 1,
+        "hybrid": 1,
+        "sparsecl": 1,
+        "query_text": "John's primary email is john_doe456@example.com",
+        "memory_text": "John's primary email is john_doe123@example.com"
+      },
+      {
+        "query_id": "TC-A-0127",
+        "memory_id": "M-A-0333",
+        "gold_count": 5,
+        "bm25": 4,
+        "dense": 5,
+        "hybrid": 6,
+        "sparsecl": 3,
+        "query_text": "John's primary email is john_doe456@example.com",
+        "memory_text": "John's email address is john.doe@example.com"
+      },
+      {
+        "query_id": "TC-A-0127",
+        "memory_id": "M-A-0348",
+        "gold_count": 5,
+        "bm25": 2,
+        "dense": 6,
+        "hybrid": 4,
+        "sparsecl": 5,
+        "query_text": "John's primary email is john_doe456@example.com",
+        "memory_text": "John's email is john.doe123@example.com"
+      },
+      {
+        "query_id": "TC-A-0127",
+        "memory_id": "M-A-0356",
+        "gold_count": 5,
+        "bm25": 3,
+        "dense": 4,
+        "hybrid": 3,
+        "sparsecl": 2,
+        "query_text": "John's primary email is john_doe456@example.com",
+        "memory_text": "John's email is john.doe@example.com"
+      }
+    ],
+    "distractors": [
+      {
+        "memory_id": "M-A-0309",
+        "content": "Joan's primary email is joan.doe@email.com",
+        "ranks": {
+          "bm25": 7,
+          "dense": 7,
+          "hybrid": 7,
+          "sparsecl": 11
+        }
+      },
+      {
+        "memory_id": "M-A-0323",
+        "content": "Jane's primary email is jane_doe123@example.com",
+        "ranks": {
+          "bm25": 6,
+          "dense": 3,
+          "hybrid": 5,
+          "sparsecl": 7
+        }
+      },
+      {
+        "memory_id": "M-A-0335",
+        "content": "Jonathan's email address is jonathan.doe@example.com",
+        "ranks": {
+          "bm25": 15,
+          "dense": 9,
+          "hybrid": 11,
+          "sparsecl": 8
+        }
+      },
+      {
+        "memory_id": "M-A-0350",
+        "content": "Jonathan's email is jon.doe123@example.com",
+        "ranks": {
+          "bm25": 8,
+          "dense": 8,
+          "hybrid": 8,
+          "sparsecl": 6
+        }
+      },
+      {
+        "memory_id": "M-A-0355",
+        "content": "Michael's email is michael.jones@example.com.",
+        "ranks": {
+          "bm25": 9,
+          "dense": 11,
+          "hybrid": 9,
+          "sparsecl": 10
+        }
+      },
+      {
+        "memory_id": "M-A-0358",
+        "content": "Jane's email is jane.doe@example.com",
+        "ranks": {
+          "bm25": 10,
+          "dense": 10,
+          "hybrid": 10,
+          "sparsecl": 9
+        }
+      }
+    ]
+  },
+  {
+    "query_id": "TC-A-0131",
+    "content": "John's new email address is john.updated@example.com",
+    "gold": [
+      {
+        "query_id": "TC-A-0131",
+        "memory_id": "M-A-0308",
+        "gold_count": 5,
+        "bm25": 8,
+        "dense": 5,
+        "hybrid": 5,
+        "sparsecl": 8,
+        "query_text": "John's new email address is john.updated@example.com",
+        "memory_text": "John's primary email is johnny.doe@email.com"
+      },
+      {
+        "query_id": "TC-A-0131",
+        "memory_id": "M-A-0321",
+        "gold_count": 5,
+        "bm25": 4,
+        "dense": 4,
+        "hybrid": 4,
+        "sparsecl": 4,
+        "query_text": "John's new email address is john.updated@example.com",
+        "memory_text": "John's primary email is john_doe123@example.com"
+      },
+      {
+        "query_id": "TC-A-0131",
+        "memory_id": "M-A-0333",
+        "gold_count": 5,
+        "bm25": 1,
+        "dense": 1,
+        "hybrid": 1,
+        "sparsecl": 2,
+        "query_text": "John's new email address is john.updated@example.com",
+        "memory_text": "John's email address is john.doe@example.com"
+      },
+      {
+        "query_id": "TC-A-0131",
+        "memory_id": "M-A-0348",
+        "gold_count": 5,
+        "bm25": 2,
+        "dense": 3,
+        "hybrid": 2,
+        "sparsecl": 3,
+        "query_text": "John's new email address is john.updated@example.com",
+        "memory_text": "John's email is john.doe123@example.com"
+      },
+      {
+        "query_id": "TC-A-0131",
+        "memory_id": "M-A-0356",
+        "gold_count": 5,
+        "bm25": 3,
+        "dense": 2,
+        "hybrid": 3,
+        "sparsecl": 1,
+        "query_text": "John's new email address is john.updated@example.com",
+        "memory_text": "John's email is john.doe@example.com"
+      }
+    ],
+    "distractors": [
+      {
+        "memory_id": "M-A-0309",
+        "content": "Joan's primary email is joan.doe@email.com",
+        "ranks": {
+          "bm25": 15,
+          "dense": 10,
+          "hybrid": 13,
+          "sparsecl": 16
+        }
+      },
+      {
+        "memory_id": "M-A-0318",
+        "content": "Tom's email address is tom.smith23@example.com",
+        "ranks": {
+          "bm25": 5,
+          "dense": 13,
+          "hybrid": 8,
+          "sparsecl": 12
+        }
+      },
+      {
+        "memory_id": "M-A-0320",
+        "content": "Tim's email address is tim.smith23@example.com",
+        "ranks": {
+          "bm25": 6,
+          "dense": 15,
+          "hybrid": 10,
+          "sparsecl": 14
+        }
+      },
+      {
+        "memory_id": "M-A-0323",
+        "content": "Jane's primary email is jane_doe123@example.com",
+        "ranks": {
+          "bm25": 14,
+          "dense": 9,
+          "hybrid": 12,
+          "sparsecl": 15
+        }
+      },
+      {
+        "memory_id": "M-A-0335",
+        "content": "Jonathan's email address is jonathan.doe@example.com",
+        "ranks": {
+          "bm25": 7,
+          "dense": 6,
+          "hybrid": 6,
+          "sparsecl": 7
+        }
+      },
+      {
+        "memory_id": "M-A-0350",
+        "content": "Jonathan's email is jon.doe123@example.com",
+        "ranks": {
+          "bm25": 9,
+          "dense": 7,
+          "hybrid": 7,
+          "sparsecl": 5
+        }
+      },
+      {
+        "memory_id": "M-A-0354",
+        "content": "Mike's old email was mike.jones@example.net.",
+        "ranks": {
+          "bm25": 16,
+          "dense": 11,
+          "hybrid": 14,
+          "sparsecl": 9
+        }
+      },
+      {
+        "memory_id": "M-A-0355",
+        "content": "Michael's email is michael.jones@example.com.",
+        "ranks": {
+          "bm25": 10,
+          "dense": 12,
+          "hybrid": 11,
+          "sparsecl": 10
+        }
+      },
+      {
+        "memory_id": "M-A-0358",
+        "content": "Jane's email is jane.doe@example.com",
+        "ranks": {
+          "bm25": 11,
+          "dense": 8,
+          "hybrid": 9,
+          "sparsecl": 6
+        }
+      }
+    ]
+  },
+  {
+    "query_id": "TC-A-0136",
+    "content": "John's email is john.doe789@example.com",
+    "gold": [
+      {
+        "query_id": "TC-A-0136",
+        "memory_id": "M-A-0308",
+        "gold_count": 5,
+        "bm25": 5,
+        "dense": 6,
+        "hybrid": 5,
+        "sparsecl": 8,
+        "query_text": "John's email is john.doe789@example.com",
+        "memory_text": "John's primary email is johnny.doe@email.com"
+      },
+      {
+        "query_id": "TC-A-0136",
+        "memory_id": "M-A-0321",
+        "gold_count": 5,
+        "bm25": 3,
+        "dense": 4,
+        "hybrid": 3,
+        "sparsecl": 5,
+        "query_text": "John's email is john.doe789@example.com",
+        "memory_text": "John's primary email is john_doe123@example.com"
+      },
+      {
+        "query_id": "TC-A-0136",
+        "memory_id": "M-A-0333",
+        "gold_count": 5,
+        "bm25": 4,
+        "dense": 3,
+        "hybrid": 4,
+        "sparsecl": 3,
+        "query_text": "John's email is john.doe789@example.com",
+        "memory_text": "John's email address is john.doe@example.com"
+      },
+      {
+        "query_id": "TC-A-0136",
+        "memory_id": "M-A-0348",
+        "gold_count": 5,
+        "bm25": 1,
+        "dense": 2,
+        "hybrid": 1,
+        "sparsecl": 1,
+        "query_text": "John's email is john.doe789@example.com",
+        "memory_text": "John's email is john.doe123@example.com"
+      },
+      {
+        "query_id": "TC-A-0136",
+        "memory_id": "M-A-0356",
+        "gold_count": 5,
+        "bm25": 2,
+        "dense": 1,
+        "hybrid": 2,
+        "sparsecl": 2,
+        "query_text": "John's email is john.doe789@example.com",
+        "memory_text": "John's email is john.doe@example.com"
+      }
+    ],
+    "distractors": [
+      {
+        "memory_id": "M-A-0309",
+        "content": "Joan's primary email is joan.doe@email.com",
+        "ranks": {
+          "bm25": 15,
+          "dense": 9,
+          "hybrid": 13,
+          "sparsecl": 16
+        }
+      },
+      {
+        "memory_id": "M-A-0318",
+        "content": "Tom's email address is tom.smith23@example.com",
+        "ranks": {
+          "bm25": 11,
+          "dense": 11,
+          "hybrid": 10,
+          "sparsecl": 10
+        }
+      },
+      {
+        "memory_id": "M-A-0323",
+        "content": "Jane's primary email is jane_doe123@example.com",
+        "ranks": {
+          "bm25": 13,
+          "dense": 10,
+          "hybrid": 12,
+          "sparsecl": 13
+        }
+      },
+      {
+        "memory_id": "M-A-0335",
+        "content": "Jonathan's email address is jonathan.doe@example.com",
+        "ranks": {
+          "bm25": 14,
+          "dense": 7,
+          "hybrid": 9,
+          "sparsecl": 6
+        }
+      },
+      {
+        "memory_id": "M-A-0350",
+        "content": "Jonathan's email is jon.doe123@example.com",
+        "ranks": {
+          "bm25": 6,
+          "dense": 5,
+          "hybrid": 6,
+          "sparsecl": 4
+        }
+      },
+      {
+        "memory_id": "M-A-0355",
+        "content": "Michael's email is michael.jones@example.com.",
+        "ranks": {
+          "bm25": 7,
+          "dense": 12,
+          "hybrid": 8,
+          "sparsecl": 9
+        }
+      },
+      {
+        "memory_id": "M-A-0358",
+        "content": "Jane's email is jane.doe@example.com",
+        "ranks": {
+          "bm25": 8,
+          "dense": 8,
+          "hybrid": 7,
+          "sparsecl": 7
+        }
+      },
+      {
+        "memory_id": "M-A-0371",
+        "content": "Emma's email is emma.work@example.com",
+        "ranks": {
+          "bm25": 9,
+          "dense": 14,
+          "hybrid": 11,
+          "sparsecl": 14
+        }
+      },
+      {
+        "memory_id": "M-A-0373",
+        "content": "Emily's email is emily.work@example.com",
+        "ranks": {
+          "bm25": 10,
+          "dense": 15,
+          "hybrid": 14,
+          "sparsecl": 11
+        }
+      }
+    ]
+  },
+  {
+    "query_id": "TC-A-0139",
+    "content": "John's email is john.updated@example.com",
+    "gold": [
+      {
+        "query_id": "TC-A-0139",
+        "memory_id": "M-A-0308",
+        "gold_count": 5,
+        "bm25": 5,
+        "dense": 5,
+        "hybrid": 5,
+        "sparsecl": 8,
+        "query_text": "John's email is john.updated@example.com",
+        "memory_text": "John's primary email is johnny.doe@email.com"
+      },
+      {
+        "query_id": "TC-A-0139",
+        "memory_id": "M-A-0321",
+        "gold_count": 5,
+        "bm25": 3,
+        "dense": 2,
+        "hybrid": 3,
+        "sparsecl": 4,
+        "query_text": "John's email is john.updated@example.com",
+        "memory_text": "John's primary email is john_doe123@example.com"
+      },
+      {
+        "query_id": "TC-A-0139",
+        "memory_id": "M-A-0333",
+        "gold_count": 5,
+        "bm25": 4,
+        "dense": 3,
+        "hybrid": 4,
+        "sparsecl": 3,
+        "query_text": "John's email is john.updated@example.com",
+        "memory_text": "John's email address is john.doe@example.com"
+      },
+      {
+        "query_id": "TC-A-0139",
+        "memory_id": "M-A-0348",
+        "gold_count": 5,
+        "bm25": 1,
+        "dense": 4,
+        "hybrid": 2,
+        "sparsecl": 2,
+        "query_text": "John's email is john.updated@example.com",
+        "memory_text": "John's email is john.doe123@example.com"
+      },
+      {
+        "query_id": "TC-A-0139",
+        "memory_id": "M-A-0356",
+        "gold_count": 5,
+        "bm25": 2,
+        "dense": 1,
+        "hybrid": 1,
+        "sparsecl": 1,
+        "query_text": "John's email is john.updated@example.com",
+        "memory_text": "John's email is john.doe@example.com"
+      }
+    ],
+    "distractors": [
+      {
+        "memory_id": "M-A-0309",
+        "content": "Joan's primary email is joan.doe@email.com",
+        "ranks": {
+          "bm25": 15,
+          "dense": 8,
+          "hybrid": 11,
+          "sparsecl": 16
+        }
+      },
+      {
+        "memory_id": "M-A-0323",
+        "content": "Jane's primary email is jane_doe123@example.com",
+        "ranks": {
+          "bm25": 13,
+          "dense": 9,
+          "hybrid": 10,
+          "sparsecl": 15
+        }
+      },
+      {
+        "memory_id": "M-A-0335",
+        "content": "Jonathan's email address is jonathan.doe@example.com",
+        "ranks": {
+          "bm25": 14,
+          "dense": 6,
+          "hybrid": 9,
+          "sparsecl": 7
+        }
+      },
+      {
+        "memory_id": "M-A-0350",
+        "content": "Jonathan's email is jon.doe123@example.com",
+        "ranks": {
+          "bm25": 6,
+          "dense": 7,
+          "hybrid": 6,
+          "sparsecl": 5
+        }
+      },
+      {
+        "memory_id": "M-A-0355",
+        "content": "Michael's email is michael.jones@example.com.",
+        "ranks": {
+          "bm25": 7,
+          "dense": 12,
+          "hybrid": 8,
+          "sparsecl": 9
+        }
+      },
+      {
+        "memory_id": "M-A-0358",
+        "content": "Jane's email is jane.doe@example.com",
+        "ranks": {
+          "bm25": 8,
+          "dense": 10,
+          "hybrid": 7,
+          "sparsecl": 6
+        }
+      },
+      {
+        "memory_id": "M-A-0371",
+        "content": "Emma's email is emma.work@example.com",
+        "ranks": {
+          "bm25": 9,
+          "dense": 16,
+          "hybrid": 13,
+          "sparsecl": 11
+        }
+      },
+      {
+        "memory_id": "M-A-0373",
+        "content": "Emily's email is emily.work@example.com",
+        "ranks": {
+          "bm25": 10,
+          "dense": 17,
+          "hybrid": 15,
+          "sparsecl": 10
+        }
+      }
+    ]
+  },
+  {
+    "query_id": "TC-A-0150",
+    "content": "Chloe Garcia's preferred grocery store is now Trader Joe's.",
+    "gold": [
+      {
+        "query_id": "TC-A-0150",
+        "memory_id": "M-A-0389",
+        "gold_count": 2,
+        "bm25": 5,
+        "dense": 3,
+        "hybrid": 3,
+        "sparsecl": 4,
+        "query_text": "Chloe Garcia's preferred grocery store is now Trader Joe's.",
+        "memory_text": "Chloe Garcia's preferred grocery store is Walmart."
+      },
+      {
+        "query_id": "TC-A-0150",
+        "memory_id": "M-A-0390",
+        "gold_count": 2,
+        "bm25": 7,
+        "dense": 2,
+        "hybrid": 4,
+        "sparsecl": 1,
+        "query_text": "Chloe Garcia's preferred grocery store is now Trader Joe's.",
+        "memory_text": "Chloe Garcia's preferred grocery store changed to Costco."
+      }
+    ],
+    "distractors": [
+      {
+        "memory_id": "M-A-0012",
+        "content": "Uma Evans's preferred grocery store is Trader Joe's",
+        "ranks": {
+          "bm25": 1,
+          "dense": 4,
+          "hybrid": 1,
+          "sparsecl": 5
+        }
+      },
+      {
+        "memory_id": "M-A-0028",
+        "content": "Chloe Evans's preferred grocery store is Walmart.",
+        "ranks": {
+          "bm25": 9,
+          "dense": 6,
+          "hybrid": 8,
+          "sparsecl": 9
+        }
+      },
+      {
+        "memory_id": "M-A-0105",
+        "content": "Alice Garcia's preferred grocery store is Walmart.",
+        "ranks": {
+          "bm25": 10,
+          "dense": 18,
+          "hybrid": 10,
+          "sparsecl": 15
+        }
+      },
+      {
+        "memory_id": "M-A-0185",
+        "content": "Liam Garcia's preferred grocery store is Walmart",
+        "ranks": {
+          "bm25": 12,
+          "dense": 15,
+          "hybrid": 9,
+          "sparsecl": 19
+        }
+      },
+      {
+        "memory_id": "M-A-0211",
+        "content": "Quinn Garcia's preferred grocery store is Walmart",
+        "ranks": {
+          "bm25": 14,
+          "dense": 16,
+          "hybrid": 12,
+          "sparsecl": 10
+        }
+      },
+      {
+        "memory_id": "M-A-0213",
+        "content": "Quinn Garcia's recently purchased apples from Costco",
+        "ranks": {
+          "bm25": ">50",
+          "dense": 9,
+          "hybrid": 35,
+          "sparsecl": 20
+        }
+      },
+      {
+        "memory_id": "M-A-0411",
+        "content": "Derek Chen's preferred grocery store changed to Trader Joe's.",
+        "ranks": {
+          "bm25": 6,
+          "dense": 1,
+          "hybrid": 2,
+          "sparsecl": 2
+        }
+      },
+      {
+        "memory_id": "M-A-0417",
+        "content": "David Hughes's preferred grocery store is Trader Joe's.",
+        "ranks": {
+          "bm25": 2,
+          "dense": 7,
+          "hybrid": 5,
+          "sparsecl": 7
+        }
+      },
+      {
+        "memory_id": "M-A-0438",
+        "content": "Karen Hughes's preferred grocery store changed to FreshFoods.",
+        "ranks": {
+          "bm25": ">50",
+          "dense": 32,
+          "hybrid": 45,
+          "sparsecl": 8
+        }
+      },
+      {
+        "memory_id": "M-A-0441",
+        "content": "Liam Hughes's preferred grocery store is Trader Joe's.",
+        "ranks": {
+          "bm25": 3,
+          "dense": 8,
+          "hybrid": 7,
+          "sparsecl": 6
+        }
+      },
+      {
+        "memory_id": "M-A-0444",
+        "content": "Mia Hughes's preferred grocery store is Trader Joe's.",
+        "ranks": {
+          "bm25": 4,
+          "dense": 5,
+          "hybrid": 6,
+          "sparsecl": 3
+        }
+      },
+      {
+        "memory_id": "M-C-0003",
+        "content": "Tina Owen now shops at MegaStore for groceries.",
+        "ranks": {
+          "bm25": ">50",
+          "dense": 10,
+          "hybrid": 30,
+          "sparsecl": 36
+        }
+      },
+      {
+        "memory_id": "M-C-0087",
+        "content": "Victor Nelson's preferred grocery store is now 'MarketSquare'.",
+        "ranks": {
+          "bm25": 8,
+          "dense": ">50",
+          "hybrid": 26,
+          "sparsecl": 22
+        }
+      }
+    ]
+  },
+  {
+    "query_id": "TC-A-0169",
+    "content": "Victor Quinn's preferred grocery store is Trader Joe's.",
+    "gold": [
+      {
+        "query_id": "TC-A-0169",
+        "memory_id": "M-A-0446",
+        "gold_count": 2,
+        "bm25": 5,
+        "dense": 2,
+        "hybrid": 3,
+        "sparsecl": 2,
+        "query_text": "Victor Quinn's preferred grocery store is Trader Joe's.",
+        "memory_text": "Victor Quinn's preferred grocery store is Walmart."
+      },
+      {
+        "query_id": "TC-A-0169",
+        "memory_id": "M-A-0447",
+        "gold_count": 2,
+        "bm25": 7,
+        "dense": 1,
+        "hybrid": 4,
+        "sparsecl": 1,
+        "query_text": "Victor Quinn's preferred grocery store is Trader Joe's.",
+        "memory_text": "Victor Quinn's preferred grocery store is Whole Foods."
+      }
+    ],
+    "distractors": [
+      {
+        "memory_id": "M-A-0012",
+        "content": "Uma Evans's preferred grocery store is Trader Joe's",
+        "ranks": {
+          "bm25": 1,
+          "dense": 6,
+          "hybrid": 2,
+          "sparsecl": 6
+        }
+      },
+      {
+        "memory_id": "M-A-0014",
+        "content": "Victor Evans's preferred grocery store is Walmart.",
+        "ranks": {
+          "bm25": 8,
+          "dense": 9,
+          "hybrid": 8,
+          "sparsecl": 9
+        }
+      },
+      {
+        "memory_id": "M-A-0070",
+        "content": "Quinn Fisher's preferred grocery store is Walmart",
+        "ranks": {
+          "bm25": 10,
+          "dense": 10,
+          "hybrid": 9,
+          "sparsecl": 8
+        }
+      },
+      {
+        "memory_id": "M-A-0211",
+        "content": "Quinn Garcia's preferred grocery store is Walmart",
+        "ranks": {
+          "bm25": 11,
+          "dense": 12,
+          "hybrid": 12,
+          "sparsecl": 10
+        }
+      },
+      {
+        "memory_id": "M-A-0213",
+        "content": "Quinn Garcia's recently purchased apples from Costco",
+        "ranks": {
+          "bm25": ">50",
+          "dense": 7,
+          "hybrid": 26,
+          "sparsecl": 28
+        }
+      },
+      {
+        "memory_id": "M-A-0411",
+        "content": "Derek Chen's preferred grocery store changed to Trader Joe's.",
+        "ranks": {
+          "bm25": 6,
+          "dense": 3,
+          "hybrid": 6,
+          "sparsecl": 7
+        }
+      },
+      {
+        "memory_id": "M-A-0417",
+        "content": "David Hughes's preferred grocery store is Trader Joe's.",
+        "ranks": {
+          "bm25": 2,
+          "dense": 4,
+          "hybrid": 1,
+          "sparsecl": 4
+        }
+      },
+      {
+        "memory_id": "M-A-0441",
+        "content": "Liam Hughes's preferred grocery store is Trader Joe's.",
+        "ranks": {
+          "bm25": 3,
+          "dense": 5,
+          "hybrid": 5,
+          "sparsecl": 3
+        }
+      },
+      {
+        "memory_id": "M-A-0444",
+        "content": "Mia Hughes's preferred grocery store is Trader Joe's.",
+        "ranks": {
+          "bm25": 4,
+          "dense": 8,
+          "hybrid": 7,
+          "sparsecl": 5
+        }
+      },
+      {
+        "memory_id": "M-C-0087",
+        "content": "Victor Nelson's preferred grocery store is now 'MarketSquare'.",
+        "ranks": {
+          "bm25": 9,
+          "dense": 13,
+          "hybrid": 10,
+          "sparsecl": 13
+        }
+      }
+    ]
+  },
+  {
+    "query_id": "TW-0002",
+    "content": "Biology textbook edition is now 5th Edition",
+    "gold": [
+      {
+        "query_id": "TW-0002",
+        "memory_id": "M-C-0126",
+        "gold_count": 3,
+        "bm25": 1,
+        "dense": 1,
+        "hybrid": 1,
+        "sparsecl": 2,
+        "query_text": "Biology textbook edition is now 5th Edition",
+        "memory_text": "Recommended textbook edition: Biology 2nd Edition"
+      },
+      {
+        "query_id": "TW-0002",
+        "memory_id": "M-C-0127",
+        "gold_count": 3,
+        "bm25": 10,
+        "dense": 2,
+        "hybrid": 2,
+        "sparsecl": 1,
+        "query_text": "Biology textbook edition is now 5th Edition",
+        "memory_text": "Updated recommendation: Biology 3rd Edition"
+      },
+      {
+        "query_id": "TW-0002",
+        "memory_id": "M-C-0128",
+        "gold_count": 3,
+        "bm25": 11,
+        "dense": 5,
+        "hybrid": 3,
+        "sparsecl": 4,
+        "query_text": "Biology textbook edition is now 5th Edition",
+        "memory_text": "Final recommendation: Biology 4th Edition"
+      }
+    ],
+    "distractors": [
+      {
+        "memory_id": "M-A-0449",
+        "content": "Noah Hughes's recommended textbook for Biology 101 is 'Introduction to Biology, 3rd Edition'.",
+        "ranks": {
+          "bm25": 5,
+          "dense": ">50",
+          "hybrid": 18,
+          "sparsecl": 26
+        }
+      },
+      {
+        "memory_id": "M-A-0450",
+        "content": "Noah Hughes's recommended textbook for Biology 101 is 'Biology: Concepts and Connections, 8th Edition'.",
+        "ranks": {
+          "bm25": 6,
+          "dense": ">50",
+          "hybrid": 16,
+          "sparsecl": 28
+        }
+      },
+      {
+        "memory_id": "M-B-0126",
+        "content": "Biology handbook 'Cell Structure' with no expiry date.",
+        "ranks": {
+          "bm25": ">50",
+          "dense": 7,
+          "hybrid": 19,
+          "sparsecl": 18
+        }
+      },
+      {
+        "memory_id": "M-B-0242",
+        "content": "Frank Nelson's reviewed key concepts in Biology Unit 5",
+        "ranks": {
+          "bm25": ">50",
+          "dense": 6,
+          "hybrid": 20,
+          "sparsecl": 14
+        }
+      },
+      {
+        "memory_id": "M-B-0278",
+        "content": "Sam Klein's biology notes saved for Chapter 5.",
+        "ranks": {
+          "bm25": ">50",
+          "dense": 4,
+          "hybrid": 17,
+          "sparsecl": 10
+        }
+      },
+      {
+        "memory_id": "M-B-0402",
+        "content": "Textbook 'Advanced Biology' added to recommended list.",
+        "ranks": {
+          "bm25": 16,
+          "dense": 8,
+          "hybrid": 6,
+          "sparsecl": 6
+        }
+      },
+      {
+        "memory_id": "M-B-0445",
+        "content": "Physics textbook edition 3 was used for Chapter 5.",
+        "ranks": {
+          "bm25": 48,
+          "dense": 3,
+          "hybrid": 12,
+          "sparsecl": 5
+        }
+      },
+      {
+        "memory_id": "M-B-0483",
+        "content": "Calculus exercises from textbook Chapter 5 should be practiced.",
+        "ranks": {
+          "bm25": ">50",
+          "dense": 10,
+          "hybrid": 29,
+          "sparsecl": 38
+        }
+      },
+      {
+        "memory_id": "M-B-0510",
+        "content": "Kestrel Yardley has marked Chapter 5 of the physics textbook as review-pending.",
+        "ranks": {
+          "bm25": ">50",
+          "dense": 9,
+          "hybrid": 30,
+          "sparsecl": 51
+        }
+      },
+      {
+        "memory_id": "M-B-0535",
+        "content": "Recommended textbook for biology is 'Principles of Biology'.",
+        "ranks": {
+          "bm25": 7,
+          "dense": 14,
+          "hybrid": 4,
+          "sparsecl": 11
+        }
+      },
+      {
+        "memory_id": "M-B-0542",
+        "content": "The preferred textbook for the math course is 'Advanced Algebra, 5th Edition'.",
+        "ranks": {
+          "bm25": 3,
+          "dense": 36,
+          "hybrid": 9,
+          "sparsecl": 13
+        }
+      },
+      {
+        "memory_id": "M-C-0081",
+        "content": "Recommended textbook for Chemistry course: 'Organic Chemistry Principles 5th Edition'.",
+        "ranks": {
+          "bm25": 4,
+          "dense": 40,
+          "hybrid": 10,
+          "sparsecl": 8
+        }
+      },
+      {
+        "memory_id": "M-C-0122",
+        "content": "New Chemistry textbook recommendation: 'Essential Chemistry Principles, 5th Edition'.",
+        "ranks": {
+          "bm25": 2,
+          "dense": 33,
+          "hybrid": 8,
+          "sparsecl": 7
+        }
+      },
+      {
+        "memory_id": "M-C-0153",
+        "content": "Recommended textbook for calculus: 'Advanced Calculus, 5th Ed.'",
+        "ranks": {
+          "bm25": 9,
+          "dense": 43,
+          "hybrid": 15,
+          "sparsecl": 12
+        }
+      },
+      {
+        "memory_id": "M-C-0188",
+        "content": "The textbook edition for Physics 101 is Edition 5.",
+        "ranks": {
+          "bm25": 12,
+          "dense": 11,
+          "hybrid": 5,
+          "sparsecl": 3
+        }
+      },
+      {
+        "memory_id": "M-C-0190",
+        "content": "Physics 102 now uses Edition 6 instead of Edition 4.",
+        "ranks": {
+          "bm25": 8,
+          "dense": 18,
+          "hybrid": 7,
+          "sparsecl": 9
+        }
+      }
+    ]
+  },
+  {
+    "query_id": "TW-0003",
+    "content": "Calculus textbook recommendation is Calculus by Apostol (16th Edition)",
+    "gold": [
+      {
+        "query_id": "TW-0003",
+        "memory_id": "M-B-0592",
+        "gold_count": 14,
+        "bm25": 22,
+        "dense": 4,
+        "hybrid": 11,
+        "sparsecl": 14,
+        "query_text": "Calculus textbook recommendation is Calculus by Apostol (16th Edition)",
+        "memory_text": "Recommended math textbook is 'Calculus Made Easy'."
+      },
+      {
+        "query_id": "TW-0003",
+        "memory_id": "M-C-0065",
+        "gold_count": 14,
+        "bm25": 7,
+        "dense": 8,
+        "hybrid": 5,
+        "sparsecl": 11,
+        "query_text": "Calculus textbook recommendation is Calculus by Apostol (16th Edition)",
+        "memory_text": "Recommended textbook for calculus is 'Calculus Fundamentals, 2nd Edition'."
+      },
+      {
+        "query_id": "TW-0003",
+        "memory_id": "M-C-0066",
+        "gold_count": 14,
+        "bm25": 9,
+        "dense": 11,
+        "hybrid": 8,
+        "sparsecl": 13,
+        "query_text": "Calculus textbook recommendation is Calculus by Apostol (16th Edition)",
+        "memory_text": "Recommended textbook for calculus is 'Advanced Calculus Principles, 3rd Edition'."
+      },
+      {
+        "query_id": "TW-0003",
+        "memory_id": "M-C-0111",
+        "gold_count": 14,
+        "bm25": 3,
+        "dense": 3,
+        "hybrid": 2,
+        "sparsecl": 3,
+        "query_text": "Calculus textbook recommendation is Calculus by Apostol (16th Edition)",
+        "memory_text": "Recommended textbook for Calculus: Calculus by Stewart (7th Edition)."
+      },
+      {
+        "query_id": "TW-0003",
+        "memory_id": "M-C-0112",
+        "gold_count": 14,
+        "bm25": 2,
+        "dense": 6,
+        "hybrid": 3,
+        "sparsecl": 2,
+        "query_text": "Calculus textbook recommendation is Calculus by Apostol (16th Edition)",
+        "memory_text": "Updated textbook recommendation for Calculus: Calculus by Larson (11th Edition)."
+      },
+      {
+        "query_id": "TW-0003",
+        "memory_id": "M-C-0113",
+        "gold_count": 14,
+        "bm25": 1,
+        "dense": 1,
+        "hybrid": 1,
+        "sparsecl": 1,
+        "query_text": "Calculus textbook recommendation is Calculus by Apostol (16th Edition)",
+        "memory_text": "Further update: Calculus textbook recommendation is Calculus by Thomas (14th Edition)."
+      },
+      {
+        "query_id": "TW-0003",
+        "memory_id": "M-C-0149",
+        "gold_count": 14,
+        "bm25": 8,
+        "dense": 7,
+        "hybrid": 6,
+        "sparsecl": 4,
+        "query_text": "Calculus textbook recommendation is Calculus by Apostol (16th Edition)",
+        "memory_text": "Recommended textbook edition: Calculus, 7th Edition."
+      },
+      {
+        "query_id": "TW-0003",
+        "memory_id": "M-C-0150",
+        "gold_count": 14,
+        "bm25": 4,
+        "dense": 13,
+        "hybrid": 7,
+        "sparsecl": 5,
+        "query_text": "Calculus textbook recommendation is Calculus by Apostol (16th Edition)",
+        "memory_text": "Updated recommendation: Calculus, 8th Edition."
+      },
+      {
+        "query_id": "TW-0003",
+        "memory_id": "M-C-0151",
+        "gold_count": 14,
+        "bm25": 5,
+        "dense": 10,
+        "hybrid": 4,
+        "sparsecl": 10,
+        "query_text": "Calculus textbook recommendation is Calculus by Apostol (16th Edition)",
+        "memory_text": "Revised recommendation: Calculus, 9th Edition."
+      },
+      {
+        "query_id": "TW-0003",
+        "memory_id": "M-C-0152",
+        "gold_count": 14,
+        "bm25": 25,
+        "dense": 5,
+        "hybrid": 13,
+        "sparsecl": 7,
+        "query_text": "Calculus textbook recommendation is Calculus by Apostol (16th Edition)",
+        "memory_text": "Recommended textbook for calculus: 'Calculus Essentials, 2nd Ed.'"
+      },
+      {
+        "query_id": "TW-0003",
+        "memory_id": "M-C-0153",
+        "gold_count": 14,
+        "bm25": 26,
+        "dense": 2,
+        "hybrid": 12,
+        "sparsecl": 12,
+        "query_text": "Calculus textbook recommendation is Calculus by Apostol (16th Edition)",
+        "memory_text": "Recommended textbook for calculus: 'Advanced Calculus, 5th Ed.'"
+      },
+      {
+        "query_id": "TW-0003",
+        "memory_id": "M-C-0154",
+        "gold_count": 14,
+        "bm25": 30,
+        "dense": 9,
+        "hybrid": 16,
+        "sparsecl": 9,
+        "query_text": "Calculus textbook recommendation is Calculus by Apostol (16th Edition)",
+        "memory_text": "Recommended textbook for calculus: 'Modern Calculus Techniques, 3rd Ed.'"
+      },
+      {
+        "query_id": "TW-0003",
+        "memory_id": "M-C-0165",
+        "gold_count": 14,
+        "bm25": 10,
+        "dense": 12,
+        "hybrid": 10,
+        "sparsecl": 8,
+        "query_text": "Calculus textbook recommendation is Calculus by Apostol (16th Edition)",
+        "memory_text": "Recommended textbook for calculus: 'Calculus Basics, 1st Edition'."
+      },
+      {
+        "query_id": "TW-0003",
+        "memory_id": "M-C-0166",
+        "gold_count": 14,
+        "bm25": 6,
+        "dense": 15,
+        "hybrid": 9,
+        "sparsecl": 6,
+        "query_text": "Calculus textbook recommendation is Calculus by Apostol (16th Edition)",
+        "memory_text": "Updated recommendation: 'Calculus Advanced, 2nd Edition'."
+      }
+    ],
+    "distractors": []
+  },
+  {
+    "query_id": "TW-0013",
+    "content": "Recommended textbook for physics is now 'Physics Concepts, 2nd Edition'",
+    "gold": [
+      {
+        "query_id": "TW-0013",
+        "memory_id": "M-B-0562",
+        "gold_count": 29,
+        "bm25": 28,
+        "dense": 9,
+        "hybrid": 15,
+        "sparsecl": 8,
+        "query_text": "Recommended textbook for physics is now 'Physics Concepts, 2nd Edition'",
+        "memory_text": "Recommended textbook for physics is 'Fundamentals of Physics'."
+      },
+      {
+        "query_id": "TW-0013",
+        "memory_id": "M-C-0005",
+        "gold_count": 29,
+        "bm25": 39,
+        "dense": 21,
+        "hybrid": 29,
+        "sparsecl": 10,
+        "query_text": "Recommended textbook for physics is now 'Physics Concepts, 2nd Edition'",
+        "memory_text": "Recommended textbook for Physics: 'Introductory Physics Vol. 1'."
+      },
+      {
+        "query_id": "TW-0013",
+        "memory_id": "M-C-0006",
+        "gold_count": 29,
+        "bm25": ">50",
+        "dense": 2,
+        "hybrid": 26,
+        "sparsecl": 3,
+        "query_text": "Recommended textbook for physics is now 'Physics Concepts, 2nd Edition'",
+        "memory_text": "Updated Physics textbook recommendation: 'Advanced Physics Principles'."
+      },
+      {
+        "query_id": "TW-0013",
+        "memory_id": "M-C-0008",
+        "gold_count": 29,
+        "bm25": 33,
+        "dense": 37,
+        "hybrid": 35,
+        "sparsecl": 24,
+        "query_text": "Recommended textbook for physics is now 'Physics Concepts, 2nd Edition'",
+        "memory_text": "The recommended textbook for Physics 101 is 'Fundamentals of Physics'."
+      },
+      {
+        "query_id": "TW-0013",
+        "memory_id": "M-C-0009",
+        "gold_count": 29,
+        "bm25": 6,
+        "dense": 22,
+        "hybrid": 9,
+        "sparsecl": 17,
+        "query_text": "Recommended textbook for physics is now 'Physics Concepts, 2nd Edition'",
+        "memory_text": "The recommended textbook for Physics 101 is 'Advanced Physics Concepts'."
+      },
+      {
+        "query_id": "TW-0013",
+        "memory_id": "M-C-0010",
+        "gold_count": 29,
+        "bm25": 32,
+        "dense": 35,
+        "hybrid": 34,
+        "sparsecl": 26,
+        "query_text": "Recommended textbook for physics is now 'Physics Concepts, 2nd Edition'",
+        "memory_text": "The recommended textbook for Physics 101 is 'Physics Simplified'."
+      },
+      {
+        "query_id": "TW-0013",
+        "memory_id": "M-C-0021",
+        "gold_count": 29,
+        "bm25": 21,
+        "dense": 19,
+        "hybrid": 20,
+        "sparsecl": 20,
+        "query_text": "Recommended textbook for physics is now 'Physics Concepts, 2nd Edition'",
+        "memory_text": "Physics textbook recommended: 'Fundamentals of Physics' (6th edition)."
+      },
+      {
+        "query_id": "TW-0013",
+        "memory_id": "M-C-0022",
+        "gold_count": 29,
+        "bm25": 17,
+        "dense": 18,
+        "hybrid": 17,
+        "sparsecl": 13,
+        "query_text": "Recommended textbook for physics is now 'Physics Concepts, 2nd Edition'",
+        "memory_text": "Physics textbook recommended: 'University Physics' (3rd edition)."
+      },
+      {
+        "query_id": "TW-0013",
+        "memory_id": "M-C-0023",
+        "gold_count": 29,
+        "bm25": 22,
+        "dense": 11,
+        "hybrid": 13,
+        "sparsecl": 5,
+        "query_text": "Recommended textbook for physics is now 'Physics Concepts, 2nd Edition'",
+        "memory_text": "Physics textbook recommended: 'Principles of Physics' (7th edition)."
+      },
+      {
+        "query_id": "TW-0013",
+        "memory_id": "M-C-0055",
+        "gold_count": 29,
+        "bm25": 34,
+        "dense": 13,
+        "hybrid": 21,
+        "sparsecl": 15,
+        "query_text": "Recommended textbook for physics is now 'Physics Concepts, 2nd Edition'",
+        "memory_text": "Recommended textbook for Physics: 'Foundations of Physics'."
+      },
+      {
+        "query_id": "TW-0013",
+        "memory_id": "M-C-0067",
+        "gold_count": 29,
+        "bm25": 1,
+        "dense": 4,
+        "hybrid": 2,
+        "sparsecl": 1,
+        "query_text": "Recommended textbook for physics is now 'Physics Concepts, 2nd Edition'",
+        "memory_text": "Recommended textbook for physics is 'Physics Concepts, 1st Edition'."
+      },
+      {
+        "query_id": "TW-0013",
+        "memory_id": "M-C-0069",
+        "gold_count": 29,
+        "bm25": 7,
+        "dense": 7,
+        "hybrid": 4,
+        "sparsecl": 22,
+        "query_text": "Recommended textbook for physics is now 'Physics Concepts, 2nd Edition'",
+        "memory_text": "Recommended textbook for Physics is 'Fundamentals of Physics, 9th Edition'."
+      },
+      {
+        "query_id": "TW-0013",
+        "memory_id": "M-C-0070",
+        "gold_count": 29,
+        "bm25": 8,
+        "dense": 3,
+        "hybrid": 3,
+        "sparsecl": 6,
+        "query_text": "Recommended textbook for physics is now 'Physics Concepts, 2nd Edition'",
+        "memory_text": "Recommended textbook for Physics is 'Physics Principles with Applications, 7th Edition'."
+      },
+      {
+        "query_id": "TW-0013",
+        "memory_id": "M-C-0071",
+        "gold_count": 29,
+        "bm25": 10,
+        "dense": 10,
+        "hybrid": 8,
+        "sparsecl": 21,
+        "query_text": "Recommended textbook for physics is now 'Physics Concepts, 2nd Edition'",
+        "memory_text": "Recommended textbook for Physics is 'Physics for Scientists and Engineers, 10th Edition'."
+      },
+      {
+        "query_id": "TW-0013",
+        "memory_id": "M-C-0079",
+        "gold_count": 29,
+        "bm25": 18,
+        "dense": 12,
+        "hybrid": 11,
+        "sparsecl": 11,
+        "query_text": "Recommended textbook for physics is now 'Physics Concepts, 2nd Edition'",
+        "memory_text": "Recommended textbook for Physics course: 'Fundamentals of Physics 9th Edition'."
+      },
+      {
+        "query_id": "TW-0013",
+        "memory_id": "M-C-0080",
+        "gold_count": 29,
+        "bm25": 19,
+        "dense": 16,
+        "hybrid": 16,
+        "sparsecl": 14,
+        "query_text": "Recommended textbook for physics is now 'Physics Concepts, 2nd Edition'",
+        "memory_text": "Recommended textbook for Physics course: 'Fundamentals of Physics 10th Edition'."
+      },
+      {
+        "query_id": "TW-0013",
+        "memory_id": "M-C-0091",
+        "gold_count": 29,
+        "bm25": 15,
+        "dense": 32,
+        "hybrid": 22,
+        "sparsecl": 23,
+        "query_text": "Recommended textbook for physics is now 'Physics Concepts, 2nd Edition'",
+        "memory_text": "The recommended textbook for Physics 101 is 'Fundamentals of Physics, 9th Edition'."
+      },
+      {
+        "query_id": "TW-0013",
+        "memory_id": "M-C-0092",
+        "gold_count": 29,
+        "bm25": 16,
+        "dense": 17,
+        "hybrid": 14,
+        "sparsecl": 7,
+        "query_text": "Recommended textbook for physics is now 'Physics Concepts, 2nd Edition'",
+        "memory_text": "The updated recommended textbook for Physics 101 is 'Physics Principles, 10th Edition'."
+      },
+      {
+        "query_id": "TW-0013",
+        "memory_id": "M-C-0098",
+        "gold_count": 29,
+        "bm25": 11,
+        "dense": 5,
+        "hybrid": 6,
+        "sparsecl": 18,
+        "query_text": "Recommended textbook for physics is now 'Physics Concepts, 2nd Edition'",
+        "memory_text": "Recommended textbook for Physics course: 'Conceptual Physics, 10th Edition'."
+      },
+      {
+        "query_id": "TW-0013",
+        "memory_id": "M-C-0099",
+        "gold_count": 29,
+        "bm25": 12,
+        "dense": 6,
+        "hybrid": 7,
+        "sparsecl": 4,
+        "query_text": "Recommended textbook for physics is now 'Physics Concepts, 2nd Edition'",
+        "memory_text": "Recommended textbook for Physics course: 'Physics Principles, 12th Edition'."
+      },
+      {
+        "query_id": "TW-0013",
+        "memory_id": "M-C-0100",
+        "gold_count": 29,
+        "bm25": 13,
+        "dense": 15,
+        "hybrid": 10,
+        "sparsecl": 9,
+        "query_text": "Recommended textbook for physics is now 'Physics Concepts, 2nd Edition'",
+        "memory_text": "Recommended textbook for Physics course: 'Physics Essentials, 13th Edition'."
+      },
+      {
+        "query_id": "TW-0013",
+        "memory_id": "M-C-0107",
+        "gold_count": 29,
+        "bm25": 9,
+        "dense": 24,
+        "hybrid": 12,
+        "sparsecl": 25,
+        "query_text": "Recommended textbook for physics is now 'Physics Concepts, 2nd Edition'",
+        "memory_text": "Recommended textbook for Physics 101 is 'Fundamentals of Physics' 7th Edition."
+      },
+      {
+        "query_id": "TW-0013",
+        "memory_id": "M-C-0108",
+        "gold_count": 29,
+        "bm25": ">50",
+        "dense": 8,
+        "hybrid": 30,
+        "sparsecl": 12,
+        "query_text": "Recommended textbook for physics is now 'Physics Concepts, 2nd Edition'",
+        "memory_text": "Updated recommendation for Physics 101: 'Fundamentals of Physics' 8th Edition."
+      },
+      {
+        "query_id": "TW-0013",
+        "memory_id": "M-C-0136",
+        "gold_count": 29,
+        "bm25": 14,
+        "dense": 27,
+        "hybrid": 19,
+        "sparsecl": 19,
+        "query_text": "Recommended textbook for physics is now 'Physics Concepts, 2nd Edition'",
+        "memory_text": "Recommended textbook for Physics 101: 'Physics Fundamentals, 9th Edition'."
+      },
+      {
+        "query_id": "TW-0013",
+        "memory_id": "M-C-0137",
+        "gold_count": 29,
+        "bm25": 3,
+        "dense": 1,
+        "hybrid": 1,
+        "sparsecl": 2,
+        "query_text": "Recommended textbook for physics is now 'Physics Concepts, 2nd Edition'",
+        "memory_text": "Updated recommendation for Physics 101: 'Advanced Physics Concepts, 2nd Edition'."
+      },
+      {
+        "query_id": "TW-0013",
+        "memory_id": "M-C-0146",
+        "gold_count": 29,
+        "bm25": 2,
+        "dense": 14,
+        "hybrid": 5,
+        "sparsecl": 16,
+        "query_text": "Recommended textbook for physics is now 'Physics Concepts, 2nd Edition'",
+        "memory_text": "Recommended textbook for Physics: 'Quantum Fundamentals' (2nd Edition)."
+      },
+      {
+        "query_id": "TW-0013",
+        "memory_id": "M-C-0147",
+        "gold_count": 29,
+        "bm25": 35,
+        "dense": 20,
+        "hybrid": 27,
+        "sparsecl": 27,
+        "query_text": "Recommended textbook for physics is now 'Physics Concepts, 2nd Edition'",
+        "memory_text": "Updated recommended Physics textbook: 'Advanced Quantum Mechanics' (3rd Edition)."
+      },
+      {
+        "query_id": "TW-0013",
+        "memory_id": "M-C-0188",
+        "gold_count": 29,
+        "bm25": 24,
+        "dense": ">50",
+        "hybrid": 38,
+        "sparsecl": 45,
+        "query_text": "Recommended textbook for physics is now 'Physics Concepts, 2nd Edition'",
+        "memory_text": "The textbook edition for Physics 101 is Edition 5."
+      },
+      {
+        "query_id": "TW-0013",
+        "memory_id": "M-C-0189",
+        "gold_count": 29,
+        "bm25": 20,
+        "dense": 29,
+        "hybrid": 24,
+        "sparsecl": 32,
+        "query_text": "Recommended textbook for physics is now 'Physics Concepts, 2nd Edition'",
+        "memory_text": "New textbook Edition 7 is recommended for Physics 101 this semester."
+      }
+    ],
+    "distractors": [
+      {
+        "memory_id": "M-C-0065",
+        "content": "Recommended textbook for calculus is 'Calculus Fundamentals, 2nd Edition'.",
+        "ranks": {
+          "bm25": 5,
+          "dense": ">50",
+          "hybrid": 23,
+          "sparsecl": 38
+        }
+      },
+      {
+        "memory_id": "M-C-0126",
+        "content": "Recommended textbook edition: Biology 2nd Edition",
+        "ranks": {
+          "bm25": 4,
+          "dense": 45,
+          "hybrid": 18,
+          "sparsecl": 31
+        }
+      }
+    ]
+  },
+  {
+    "query_id": "TW-0018",
+    "content": "Community event rescheduled to the weekend of day_35",
+    "gold": [
+      {
+        "query_id": "TW-0018",
+        "memory_id": "M-B-0106",
+        "gold_count": 2,
+        "bm25": 1,
+        "dense": 1,
+        "hybrid": 1,
+        "sparsecl": 1,
+        "query_text": "Community event rescheduled to the weekend of day_35",
+        "memory_text": "Community event scheduled for the weekend of day 15"
+      },
+      {
+        "query_id": "TW-0018",
+        "memory_id": "M-B-0114",
+        "gold_count": 2,
+        "bm25": ">50",
+        "dense": 13,
+        "hybrid": 36,
+        "sparsecl": 23,
+        "query_text": "Community event rescheduled to the weekend of day_35",
+        "memory_text": "社区活动将在day 20举办。"
+      }
+    ],
+    "distractors": [
+      {
+        "memory_id": "M-A-0235",
+        "content": "Sam Chen's parent-teacher meeting rescheduled to Friday 9am in Hall C.",
+        "ranks": {
+          "bm25": 21,
+          "dense": 12,
+          "hybrid": 10,
+          "sparsecl": 10
+        }
+      },
+      {
+        "memory_id": "M-B-0020",
+        "content": "The neighborhood cleanup event was scheduled to happen.",
+        "ranks": {
+          "bm25": 8,
+          "dense": 4,
+          "hybrid": 4,
+          "sparsecl": 9
+        }
+      },
+      {
+        "memory_id": "M-B-0034",
+        "content": "Weekend 10% discount promotion active from day 60 to day 62.",
+        "ranks": {
+          "bm25": 10,
+          "dense": 41,
+          "hybrid": 16,
+          "sparsecl": 60
+        }
+      },
+      {
+        "memory_id": "M-B-0048",
+        "content": "Community garden cleanup scheduled for Saturday",
+        "ranks": {
+          "bm25": 30,
+          "dense": 16,
+          "hybrid": 15,
+          "sparsecl": 5
+        }
+      },
+      {
+        "memory_id": "M-B-0077",
+        "content": "The neighborhood recycling drive scheduled for the weekend of day 15.",
+        "ranks": {
+          "bm25": 5,
+          "dense": 9,
+          "hybrid": 6,
+          "sparsecl": 14
+        }
+      },
+      {
+        "memory_id": "M-B-0107",
+        "content": "Yoga class rescheduled to day 22",
+        "ranks": {
+          "bm25": 6,
+          "dense": 7,
+          "hybrid": 5,
+          "sparsecl": 6
+        }
+      },
+      {
+        "memory_id": "M-B-0108",
+        "content": "Community event guidelines for day 15 schedule",
+        "ranks": {
+          "bm25": 2,
+          "dense": 2,
+          "hybrid": 2,
+          "sparsecl": 2
+        }
+      },
+      {
+        "memory_id": "M-B-0121",
+        "content": "Community park maintenance scheduled for Monday to Wednesday.",
+        "ranks": {
+          "bm25": 19,
+          "dense": 8,
+          "hybrid": 9,
+          "sparsecl": 15
+        }
+      },
+      {
+        "memory_id": "M-B-0189",
+        "content": "Biology quiz rescheduled to day_130",
+        "ranks": {
+          "bm25": 7,
+          "dense": 10,
+          "hybrid": 8,
+          "sparsecl": 7
+        }
+      },
+      {
+        "memory_id": "M-B-0196",
+        "content": "Student club meeting scheduled on day_55",
+        "ranks": {
+          "bm25": ">50",
+          "dense": 5,
+          "hybrid": 27,
+          "sparsecl": 8
+        }
+      },
+      {
+        "memory_id": "M-B-0199",
+        "content": "History essay deadline is day_35.",
+        "ranks": {
+          "bm25": 9,
+          "dense": 31,
+          "hybrid": 13,
+          "sparsecl": 18
+        }
+      },
+      {
+        "memory_id": "M-B-0207",
+        "content": "Community event registration closed on day_45",
+        "ranks": {
+          "bm25": 3,
+          "dense": 3,
+          "hybrid": 3,
+          "sparsecl": 3
+        }
+      },
+      {
+        "memory_id": "M-C-0119",
+        "content": "Community yoga class rescheduled to 8 AM every Saturday.",
+        "ranks": {
+          "bm25": 4,
+          "dense": 36,
+          "hybrid": 12,
+          "sparsecl": 4
+        }
+      },
+      {
+        "memory_id": "M-C-0230",
+        "content": "The exam date is rescheduled to May 22nd due to holiday conflicts.",
+        "ranks": {
+          "bm25": 11,
+          "dense": 6,
+          "hybrid": 7,
+          "sparsecl": 21
+        }
+      }
+    ]
+  },
+  {
+    "query_id": "TW-0020",
+    "content": "History essay submission deadline extended to day_75",
+    "gold": [
+      {
+        "query_id": "TW-0020",
+        "memory_id": "M-B-0157",
+        "gold_count": 6,
+        "bm25": 1,
+        "dense": 2,
+        "hybrid": 1,
+        "sparsecl": 1,
+        "query_text": "History essay submission deadline extended to day_75",
+        "memory_text": "History essay submission deadline is day_80."
+      },
+      {
+        "query_id": "TW-0020",
+        "memory_id": "M-B-0159",
+        "gold_count": 6,
+        "bm25": ">50",
+        "dense": 11,
+        "hybrid": 19,
+        "sparsecl": 7,
+        "query_text": "History essay submission deadline extended to day_75",
+        "memory_text": "Reminder: Submit history research paper by day_50."
+      },
+      {
+        "query_id": "TW-0020",
+        "memory_id": "M-B-0199",
+        "gold_count": 6,
+        "bm25": 4,
+        "dense": 1,
+        "hybrid": 2,
+        "sparsecl": 2,
+        "query_text": "History essay submission deadline extended to day_75",
+        "memory_text": "History essay deadline is day_35."
+      },
+      {
+        "query_id": "TW-0020",
+        "memory_id": "M-B-0205",
+        "gold_count": 6,
+        "bm25": 27,
+        "dense": 10,
+        "hybrid": 11,
+        "sparsecl": 16,
+        "query_text": "History essay submission deadline extended to day_75",
+        "memory_text": "Final draft of the History essay is due on day_45."
+      },
+      {
+        "query_id": "TW-0020",
+        "memory_id": "M-B-0274",
+        "gold_count": 6,
+        "bm25": ">50",
+        "dense": 16,
+        "hybrid": 26,
+        "sparsecl": 44,
+        "query_text": "History essay submission deadline extended to day_75",
+        "memory_text": "The history paper is due on day 20."
+      },
+      {
+        "query_id": "TW-0020",
+        "memory_id": "M-B-0321",
+        "gold_count": 6,
+        "bm25": 16,
+        "dense": 4,
+        "hybrid": 7,
+        "sparsecl": 8,
+        "query_text": "History essay submission deadline extended to day_75",
+        "memory_text": "The history essay is due on day 20"
+      }
+    ],
+    "distractors": [
+      {
+        "memory_id": "M-B-0144",
+        "content": "Extra credit assignment available until day_70",
+        "ranks": {
+          "bm25": ">50",
+          "dense": 8,
+          "hybrid": 36,
+          "sparsecl": 15
+        }
+      },
+      {
+        "memory_id": "M-B-0156",
+        "content": "Chemistry project submission deadline was day_90.",
+        "ranks": {
+          "bm25": 8,
+          "dense": 44,
+          "hybrid": 15,
+          "sparsecl": 26
+        }
+      },
+      {
+        "memory_id": "M-B-0171",
+        "content": "Physics homework submission deadline is day_90.",
+        "ranks": {
+          "bm25": 9,
+          "dense": 32,
+          "hybrid": 13,
+          "sparsecl": 27
+        }
+      },
+      {
+        "memory_id": "M-B-0172",
+        "content": "Math assignment submission deadline was day_60.",
+        "ranks": {
+          "bm25": 10,
+          "dense": 49,
+          "hybrid": 17,
+          "sparsecl": 24
+        }
+      },
+      {
+        "memory_id": "M-B-0184",
+        "content": "Essay submission deadline for Literature class is on day_50.",
+        "ranks": {
+          "bm25": 6,
+          "dense": 31,
+          "hybrid": 10,
+          "sparsecl": 6
+        }
+      },
+      {
+        "memory_id": "M-B-0194",
+        "content": "History assignment essay due on day_50",
+        "ranks": {
+          "bm25": 12,
+          "dense": 3,
+          "hybrid": 5,
+          "sparsecl": 9
+        }
+      },
+      {
+        "memory_id": "M-B-0201",
+        "content": "History project guidelines available until day_25",
+        "ranks": {
+          "bm25": 50,
+          "dense": 15,
+          "hybrid": 25,
+          "sparsecl": 5
+        }
+      },
+      {
+        "memory_id": "M-B-0214",
+        "content": "Group project deadline extended to day_130.",
+        "ranks": {
+          "bm25": 5,
+          "dense": 14,
+          "hybrid": 6,
+          "sparsecl": 20
+        }
+      },
+      {
+        "memory_id": "M-B-0343",
+        "content": "Research paper submission window has been extended to 40 days.",
+        "ranks": {
+          "bm25": 11,
+          "dense": 9,
+          "hybrid": 8,
+          "sparsecl": 12
+        }
+      },
+      {
+        "memory_id": "M-B-0375",
+        "content": "Research paper submission deadline set to end on day 50.",
+        "ranks": {
+          "bm25": 7,
+          "dense": 19,
+          "hybrid": 9,
+          "sparsecl": 17
+        }
+      },
+      {
+        "memory_id": "M-B-0376",
+        "content": "Research paper submission deadline has been extended to day 55.",
+        "ranks": {
+          "bm25": 3,
+          "dense": 5,
+          "hybrid": 4,
+          "sparsecl": 3
+        }
+      },
+      {
+        "memory_id": "M-B-0391",
+        "content": "Research paper submission deadline is on day 100.",
+        "ranks": {
+          "bm25": 13,
+          "dense": 37,
+          "hybrid": 16,
+          "sparsecl": 10
+        }
+      },
+      {
+        "memory_id": "M-B-0392",
+        "content": "Research paper submission deadline was extended to day 90.",
+        "ranks": {
+          "bm25": 2,
+          "dense": 6,
+          "hybrid": 3,
+          "sparsecl": 4
+        }
+      },
+      {
+        "memory_id": "M-B-0433",
+        "content": "Research project extended for submissions until day 120.",
+        "ranks": {
+          "bm25": 33,
+          "dense": 7,
+          "hybrid": 12,
+          "sparsecl": 11
+        }
+      }
+    ]
+  }
+]

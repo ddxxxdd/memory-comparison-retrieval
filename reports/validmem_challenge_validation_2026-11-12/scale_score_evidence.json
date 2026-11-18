@@ -1,0 +1,224 @@
+[
+  {
+    "case_id": "P-2747117d1e1d74bf3ad7",
+    "bank_size": 50,
+    "query": "Chloe Garcia's preferred grocery store is Trader Joe's.",
+    "gold_text": "Chloe Garcia's preferred grocery store is Costco.",
+    "distractor_text": "Frank Hughes's preferred grocery store is Trader Joe's.",
+    "gold_score": 14.732097085769306,
+    "distractor_score": 12.369031501330435,
+    "terms": [
+      {
+        "term": "chloe",
+        "df": 1,
+        "idf": 3.5263605246161616,
+        "gold_contribution": 3.8487726171616967,
+        "distractor_contribution": 0.0
+      },
+      {
+        "term": "garcia",
+        "df": 4,
+        "idf": 2.4277482359480516,
+        "gold_contribution": 2.649715157214828,
+        "distractor_contribution": 0.0
+      },
+      {
+        "term": "grocery",
+        "df": 6,
+        "idf": 2.0600234558227344,
+        "gold_contribution": 2.248369618516065,
+        "distractor_contribution": 2.065062013056833
+      },
+      {
+        "term": "is",
+        "df": 21,
+        "idf": 0.8637726975907085,
+        "gold_contribution": 0.942746688188064,
+        "distractor_contribution": 0.8658853765321842
+      },
+      {
+        "term": "joe",
+        "df": 5,
+        "idf": 2.2270775404859005,
+        "gold_contribution": 0.0,
+        "distractor_contribution": 2.2325246909155703
+      },
+      {
+        "term": "preferred",
+        "df": 8,
+        "idf": 1.791759469228055,
+        "gold_contribution": 1.9555784876691642,
+        "distractor_contribution": 1.7961418866271996
+      },
+      {
+        "term": "s",
+        "df": 20,
+        "idf": 0.9114007465799633,
+        "gold_contribution": 0.9947293284992478,
+        "distractor_contribution": 1.2552816804597515
+      },
+      {
+        "term": "store",
+        "df": 7,
+        "idf": 1.916922612182061,
+        "gold_contribution": 2.092185188520238,
+        "distractor_contribution": 1.9216111628233257
+      },
+      {
+        "term": "trader",
+        "df": 5,
+        "idf": 2.2270775404859005,
+        "gold_contribution": 0.0,
+        "distractor_contribution": 2.2325246909155703
+      }
+    ]
+  },
+  {
+    "case_id": "P-289b4a65691b17b476be",
+    "bank_size": 200,
+    "query": "Chloe Garcia's preferred grocery store is Trader Joe's.",
+    "gold_text": "Chloe Garcia's preferred grocery store is Costco.",
+    "distractor_text": "Frank Hughes's preferred grocery store is Trader Joe's.",
+    "gold_score": 20.263383453455702,
+    "distractor_score": 18.836630530228973,
+    "terms": [
+      {
+        "term": "chloe",
+        "df": 3,
+        "idf": 4.050541939563708,
+        "gold_contribution": 4.286701486004956,
+        "distractor_contribution": 0.0
+      },
+      {
+        "term": "garcia",
+        "df": 7,
+        "idf": 3.288401887516811,
+        "gold_contribution": 3.4801262320266635,
+        "distractor_contribution": 0.0
+      },
+      {
+        "term": "grocery",
+        "df": 6,
+        "idf": 3.4315027311574844,
+        "gold_contribution": 3.631570312407945,
+        "distractor_contribution": 3.3205668363114444
+      },
+      {
+        "term": "is",
+        "df": 62,
+        "idf": 1.16813835131672,
+        "gold_contribution": 1.2362445522507362,
+        "distractor_contribution": 1.130374000401112
+      },
+      {
+        "term": "joe",
+        "df": 5,
+        "idf": 3.5985568158206505,
+        "gold_contribution": 0.0,
+        "distractor_contribution": 3.4822202857947158
+      },
+      {
+        "term": "preferred",
+        "df": 11,
+        "idf": 2.8609578726898715,
+        "gold_contribution": 3.0277608644087364,
+        "distractor_contribution": 2.7684669302109715
+      },
+      {
+        "term": "s",
+        "df": 61,
+        "idf": 1.1842677332466034,
+        "gold_contribution": 1.253314328719862,
+        "distractor_contribution": 1.5918067260232736
+      },
+      {
+        "term": "store",
+        "df": 8,
+        "idf": 3.163238744562805,
+        "gold_contribution": 3.3476656776368032,
+        "distractor_contribution": 3.0609754656927426
+      },
+      {
+        "term": "trader",
+        "df": 5,
+        "idf": 3.5985568158206505,
+        "gold_contribution": 0.0,
+        "distractor_contribution": 3.4822202857947158
+      }
+    ]
+  },
+  {
+    "case_id": "P-af44a46f5f5396a605dc",
+    "bank_size": 1000,
+    "query": "Chloe Garcia's preferred grocery store is Trader Joe's.",
+    "gold_text": "Chloe Garcia's preferred grocery store is Costco.",
+    "distractor_text": "Frank Hughes's preferred grocery store is Trader Joe's.",
+    "gold_score": 24.424976129101207,
+    "distractor_score": 25.250721838788138,
+    "terms": [
+      {
+        "term": "chloe",
+        "df": 12,
+        "idf": 4.383026135006965,
+        "gold_contribution": 4.7158704134448985,
+        "distractor_contribution": 0.0
+      },
+      {
+        "term": "garcia",
+        "df": 27,
+        "idf": 3.594568774642695,
+        "gold_contribution": 3.8675380915572464,
+        "distractor_contribution": 0.0
+      },
+      {
+        "term": "grocery",
+        "df": 10,
+        "idf": 4.557379522151743,
+        "gold_contribution": 4.903464088361158,
+        "distractor_contribution": 4.494243406296189
+      },
+      {
+        "term": "is",
+        "df": 267,
+        "idf": 1.3196352129791593,
+        "gold_contribution": 1.4198474902360092,
+        "distractor_contribution": 1.3013535137507433
+      },
+      {
+        "term": "joe",
+        "df": 5,
+        "idf": 5.204006687076795,
+        "gold_contribution": 0.0,
+        "distractor_contribution": 5.131912456716707
+      },
+      {
+        "term": "preferred",
+        "df": 34,
+        "idf": 3.3677954552779066,
+        "gold_contribution": 3.6235437473735335,
+        "distractor_contribution": 3.3211393620101153
+      },
+      {
+        "term": "s",
+        "df": 288,
+        "idf": 1.2440596933670662,
+        "gold_contribution": 1.3385328126727583,
+        "distractor_contribution": 1.6942190555915635
+      },
+      {
+        "term": "store",
+        "df": 14,
+        "idf": 4.234606129888692,
+        "gold_contribution": 4.556179485455602,
+        "distractor_contribution": 4.175941587706114
+      },
+      {
+        "term": "trader",
+        "df": 5,
+        "idf": 5.204006687076795,
+        "gold_contribution": 0.0,
+        "distractor_contribution": 5.131912456716707
+      }
+    ]
+  }
+]

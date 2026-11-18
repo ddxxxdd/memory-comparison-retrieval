@@ -1,0 +1,19 @@
+{
+  "status": "passed",
+  "date": "2026-11-12",
+  "report_sha256": "58432cc6adc23d52e48b58a8223d728d256b897bf79b2a505e33c7889c261437",
+  "verified_table_rows": {
+    "main_metric_rows": 20,
+    "rank_histogram_rows": 4,
+    "overlap_rows": 7,
+    "failure_query_rows": 5,
+    "common_pair_rank_rows": 14,
+    "semantic_type_rows": 9
+  },
+  "verbatim_quotes_matched_to_frozen_data": 19,
+  "local_link_count": 19,
+  "unchanged_source_hash_count": 27,
+  "all_32_budget_points_reproduced_existing_hits_and_purity": true,
+  "annotation_pairs": 106,
+  "note": "This checks artifacts and descriptive statistics, not independent human semantic agreement or causal explanations."
+}

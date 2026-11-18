@@ -1,0 +1,2440 @@
+{
+  "memory_count": 1225,
+  "query_count": 181,
+  "gold_pairs": 301,
+  "gold_count_histogram": {
+    "1": 124,
+    "2": 44,
+    "3": 5,
+    "5": 5,
+    "6": 1,
+    "14": 1,
+    "29": 1
+  },
+  "human_reviewed": 0,
+  "fully_reviewed": 0,
+  "metrics": [
+    {
+      "method": "bm25",
+      "k": 1,
+      "hits": 133,
+      "misses": 168,
+      "recall": 0.4418604651162791,
+      "non_gold": 48,
+      "purity": 0.7348066298342542,
+      "full_queries": 89,
+      "failed_queries": 92,
+      "zero_hit_queries": 48,
+      "capacity_deficit": 120,
+      "extra_deficit": 48,
+      "unavoidable_non_gold": 0
+    },
+    {
+      "method": "dense",
+      "k": 1,
+      "hits": 154,
+      "misses": 147,
+      "recall": 0.5116279069767442,
+      "non_gold": 27,
+      "purity": 0.850828729281768,
+      "full_queries": 100,
+      "failed_queries": 81,
+      "zero_hit_queries": 27,
+      "capacity_deficit": 120,
+      "extra_deficit": 27,
+      "unavoidable_non_gold": 0
+    },
+    {
+      "method": "hybrid",
+      "k": 1,
+      "hits": 145,
+      "misses": 156,
+      "recall": 0.48172757475083056,
+      "non_gold": 36,
+      "purity": 0.8011049723756906,
+      "full_queries": 100,
+      "failed_queries": 81,
+      "zero_hit_queries": 36,
+      "capacity_deficit": 120,
+      "extra_deficit": 36,
+      "unavoidable_non_gold": 0
+    },
+    {
+      "method": "sparsecl",
+      "k": 1,
+      "hits": 151,
+      "misses": 150,
+      "recall": 0.5016611295681063,
+      "non_gold": 30,
+      "purity": 0.8342541436464088,
+      "full_queries": 97,
+      "failed_queries": 84,
+      "zero_hit_queries": 30,
+      "capacity_deficit": 120,
+      "extra_deficit": 30,
+      "unavoidable_non_gold": 0
+    },
+    {
+      "method": "bm25",
+      "k": 2,
+      "hits": 188,
+      "misses": 113,
+      "recall": 0.6245847176079734,
+      "non_gold": 174,
+      "purity": 0.5193370165745856,
+      "full_queries": 131,
+      "failed_queries": 50,
+      "zero_hit_queries": 28,
+      "capacity_deficit": 63,
+      "extra_deficit": 50,
+      "unavoidable_non_gold": 124
+    },
+    {
+      "method": "dense",
+      "k": 2,
+      "hits": 214,
+      "misses": 87,
+      "recall": 0.7109634551495017,
+      "non_gold": 148,
+      "purity": 0.5911602209944752,
+      "full_queries": 144,
+      "failed_queries": 37,
+      "zero_hit_queries": 13,
+      "capacity_deficit": 63,
+      "extra_deficit": 24,
+      "unavoidable_non_gold": 124
+    },
+    {
+      "method": "hybrid",
+      "k": 2,
+      "hits": 202,
+      "misses": 99,
+      "recall": 0.6710963455149501,
+      "non_gold": 160,
+      "purity": 0.5580110497237569,
+      "full_queries": 137,
+      "failed_queries": 44,
+      "zero_hit_queries": 21,
+      "capacity_deficit": 63,
+      "extra_deficit": 36,
+      "unavoidable_non_gold": 124
+    },
+    {
+      "method": "sparsecl",
+      "k": 2,
+      "hits": 214,
+      "misses": 87,
+      "recall": 0.7109634551495017,
+      "non_gold": 148,
+      "purity": 0.5911602209944752,
+      "full_queries": 145,
+      "failed_queries": 36,
+      "zero_hit_queries": 14,
+      "capacity_deficit": 63,
+      "extra_deficit": 24,
+      "unavoidable_non_gold": 124
+    },
+    {
+      "method": "bm25",
+      "k": 3,
+      "hits": 207,
+      "misses": 94,
+      "recall": 0.6877076411960132,
+      "non_gold": 336,
+      "purity": 0.3812154696132597,
+      "full_queries": 142,
+      "failed_queries": 39,
+      "zero_hit_queries": 25,
+      "capacity_deficit": 50,
+      "extra_deficit": 44,
+      "unavoidable_non_gold": 292
+    },
+    {
+      "method": "dense",
+      "k": 3,
+      "hits": 239,
+      "misses": 62,
+      "recall": 0.7940199335548173,
+      "non_gold": 304,
+      "purity": 0.44014732965009207,
+      "full_queries": 164,
+      "failed_queries": 17,
+      "zero_hit_queries": 4,
+      "capacity_deficit": 50,
+      "extra_deficit": 12,
+      "unavoidable_non_gold": 292
+    },
+    {
+      "method": "hybrid",
+      "k": 3,
+      "hits": 232,
+      "misses": 69,
+      "recall": 0.770764119601329,
+      "non_gold": 311,
+      "purity": 0.427255985267035,
+      "full_queries": 156,
+      "failed_queries": 25,
+      "zero_hit_queries": 10,
+      "capacity_deficit": 50,
+      "extra_deficit": 19,
+      "unavoidable_non_gold": 292
+    },
+    {
+      "method": "sparsecl",
+      "k": 3,
+      "hits": 237,
+      "misses": 64,
+      "recall": 0.7873754152823921,
+      "non_gold": 306,
+      "purity": 0.43646408839779005,
+      "full_queries": 160,
+      "failed_queries": 21,
+      "zero_hit_queries": 7,
+      "capacity_deficit": 50,
+      "extra_deficit": 14,
+      "unavoidable_non_gold": 292
+    },
+    {
+      "method": "bm25",
+      "k": 5,
+      "hits": 241,
+      "misses": 60,
+      "recall": 0.8006644518272426,
+      "non_gold": 664,
+      "purity": 0.2662983425414365,
+      "full_queries": 159,
+      "failed_queries": 22,
+      "zero_hit_queries": 12,
+      "capacity_deficit": 34,
+      "extra_deficit": 26,
+      "unavoidable_non_gold": 638
+    },
+    {
+      "method": "dense",
+      "k": 5,
+      "hits": 258,
+      "misses": 43,
+      "recall": 0.8571428571428571,
+      "non_gold": 647,
+      "purity": 0.2850828729281768,
+      "full_queries": 171,
+      "failed_queries": 10,
+      "zero_hit_queries": 1,
+      "capacity_deficit": 34,
+      "extra_deficit": 9,
+      "unavoidable_non_gold": 638
+    },
+    {
+      "method": "hybrid",
+      "k": 5,
+      "hits": 260,
+      "misses": 41,
+      "recall": 0.8637873754152824,
+      "non_gold": 645,
+      "purity": 0.287292817679558,
+      "full_queries": 174,
+      "failed_queries": 7,
+      "zero_hit_queries": 0,
+      "capacity_deficit": 34,
+      "extra_deficit": 7,
+      "unavoidable_non_gold": 638
+    },
+    {
+      "method": "sparsecl",
+      "k": 5,
+      "hits": 258,
+      "misses": 43,
+      "recall": 0.8571428571428571,
+      "non_gold": 647,
+      "purity": 0.2850828729281768,
+      "full_queries": 172,
+      "failed_queries": 9,
+      "zero_hit_queries": 2,
+      "capacity_deficit": 34,
+      "extra_deficit": 9,
+      "unavoidable_non_gold": 638
+    },
+    {
+      "method": "bm25",
+      "k": 10,
+      "hits": 270,
+      "misses": 31,
+      "recall": 0.8970099667774086,
+      "non_gold": 1540,
+      "purity": 0.14917127071823205,
+      "full_queries": 176,
+      "failed_queries": 5,
+      "zero_hit_queries": 0,
+      "capacity_deficit": 23,
+      "extra_deficit": 8,
+      "unavoidable_non_gold": 1532
+    },
+    {
+      "method": "dense",
+      "k": 10,
+      "hits": 275,
+      "misses": 26,
+      "recall": 0.9136212624584718,
+      "non_gold": 1535,
+      "purity": 0.15193370165745856,
+      "full_queries": 177,
+      "failed_queries": 4,
+      "zero_hit_queries": 0,
+      "capacity_deficit": 23,
+      "extra_deficit": 3,
+      "unavoidable_non_gold": 1532
+    },
+    {
+      "method": "hybrid",
+      "k": 10,
+      "hits": 274,
+      "misses": 27,
+      "recall": 0.9102990033222591,
+      "non_gold": 1536,
+      "purity": 0.15138121546961325,
+      "full_queries": 177,
+      "failed_queries": 4,
+      "zero_hit_queries": 0,
+      "capacity_deficit": 23,
+      "extra_deficit": 4,
+      "unavoidable_non_gold": 1532
+    },
+    {
+      "method": "sparsecl",
+      "k": 10,
+      "hits": 275,
+      "misses": 26,
+      "recall": 0.9136212624584718,
+      "non_gold": 1535,
+      "purity": 0.15193370165745856,
+      "full_queries": 177,
+      "failed_queries": 4,
+      "zero_hit_queries": 0,
+      "capacity_deficit": 23,
+      "extra_deficit": 3,
+      "unavoidable_non_gold": 1532
+    },
+    {
+      "method": "bm25",
+      "k": 20,
+      "hits": 282,
+      "misses": 19,
+      "recall": 0.9368770764119602,
+      "non_gold": 3338,
+      "purity": 0.07790055248618785,
+      "full_queries": 177,
+      "failed_queries": 4,
+      "zero_hit_queries": 0,
+      "capacity_deficit": 9,
+      "extra_deficit": 10,
+      "unavoidable_non_gold": 3328
+    },
+    {
+      "method": "dense",
+      "k": 20,
+      "hits": 292,
+      "misses": 9,
+      "recall": 0.9700996677740864,
+      "non_gold": 3328,
+      "purity": 0.08066298342541436,
+      "full_queries": 180,
+      "failed_queries": 1,
+      "zero_hit_queries": 0,
+      "capacity_deficit": 9,
+      "extra_deficit": 0,
+      "unavoidable_non_gold": 3328
+    },
+    {
+      "method": "hybrid",
+      "k": 20,
+      "hits": 289,
+      "misses": 12,
+      "recall": 0.9601328903654485,
+      "non_gold": 3331,
+      "purity": 0.07983425414364641,
+      "full_queries": 178,
+      "failed_queries": 3,
+      "zero_hit_queries": 0,
+      "capacity_deficit": 9,
+      "extra_deficit": 3,
+      "unavoidable_non_gold": 3328
+    },
+    {
+      "method": "sparsecl",
+      "k": 20,
+      "hits": 290,
+      "misses": 11,
+      "recall": 0.9634551495016611,
+      "non_gold": 3330,
+      "purity": 0.08011049723756906,
+      "full_queries": 178,
+      "failed_queries": 3,
+      "zero_hit_queries": 0,
+      "capacity_deficit": 9,
+      "extra_deficit": 2,
+      "unavoidable_non_gold": 3328
+    },
+    {
+      "method": "bm25",
+      "k": 30,
+      "hits": 291,
+      "misses": 10,
+      "recall": 0.9667774086378738,
+      "non_gold": 5139,
+      "purity": 0.05359116022099448,
+      "full_queries": 178,
+      "failed_queries": 3,
+      "zero_hit_queries": 0,
+      "capacity_deficit": 0,
+      "extra_deficit": 10,
+      "unavoidable_non_gold": 5129
+    },
+    {
+      "method": "dense",
+      "k": 30,
+      "hits": 297,
+      "misses": 4,
+      "recall": 0.9867109634551495,
+      "non_gold": 5133,
+      "purity": 0.054696132596685085,
+      "full_queries": 180,
+      "failed_queries": 1,
+      "zero_hit_queries": 0,
+      "capacity_deficit": 0,
+      "extra_deficit": 4,
+      "unavoidable_non_gold": 5129
+    },
+    {
+      "method": "hybrid",
+      "k": 30,
+      "hits": 297,
+      "misses": 4,
+      "recall": 0.9867109634551495,
+      "non_gold": 5133,
+      "purity": 0.054696132596685085,
+      "full_queries": 179,
+      "failed_queries": 2,
+      "zero_hit_queries": 0,
+      "capacity_deficit": 0,
+      "extra_deficit": 4,
+      "unavoidable_non_gold": 5129
+    },
+    {
+      "method": "sparsecl",
+      "k": 30,
+      "hits": 298,
+      "misses": 3,
+      "recall": 0.9900332225913622,
+      "non_gold": 5132,
+      "purity": 0.05488029465930019,
+      "full_queries": 179,
+      "failed_queries": 2,
+      "zero_hit_queries": 0,
+      "capacity_deficit": 0,
+      "extra_deficit": 3,
+      "unavoidable_non_gold": 5129
+    },
+    {
+      "method": "bm25",
+      "k": 50,
+      "hits": 296,
+      "misses": 5,
+      "recall": 0.9833887043189369,
+      "non_gold": 8754,
+      "purity": 0.03270718232044199,
+      "full_queries": 178,
+      "failed_queries": 3,
+      "zero_hit_queries": 0,
+      "capacity_deficit": 0,
+      "extra_deficit": 5,
+      "unavoidable_non_gold": 8749
+    },
+    {
+      "method": "dense",
+      "k": 50,
+      "hits": 300,
+      "misses": 1,
+      "recall": 0.9966777408637874,
+      "non_gold": 8750,
+      "purity": 0.03314917127071823,
+      "full_queries": 180,
+      "failed_queries": 1,
+      "zero_hit_queries": 0,
+      "capacity_deficit": 0,
+      "extra_deficit": 1,
+      "unavoidable_non_gold": 8749
+    },
+    {
+      "method": "hybrid",
+      "k": 50,
+      "hits": 301,
+      "misses": 0,
+      "recall": 1.0,
+      "non_gold": 8749,
+      "purity": 0.03325966850828729,
+      "full_queries": 181,
+      "failed_queries": 0,
+      "zero_hit_queries": 0,
+      "capacity_deficit": 0,
+      "extra_deficit": 0,
+      "unavoidable_non_gold": 8749
+    },
+    {
+      "method": "sparsecl",
+      "k": 50,
+      "hits": 301,
+      "misses": 0,
+      "recall": 1.0,
+      "non_gold": 8749,
+      "purity": 0.03325966850828729,
+      "full_queries": 181,
+      "failed_queries": 0,
+      "zero_hit_queries": 0,
+      "capacity_deficit": 0,
+      "extra_deficit": 0,
+      "unavoidable_non_gold": 8749
+    }
+  ],
+  "common": [
+    {
+      "k": 1,
+      "pair_missed_by_n": {
+        "1": 25,
+        "2": 37,
+        "3": 26,
+        "4": 111
+      },
+      "query_failed_by_n": {
+        "1": 12,
+        "2": 7,
+        "4": 78
+      },
+      "all_four_queries": [
+        "TC-A-0002",
+        "TC-A-0005",
+        "TC-A-0006",
+        "TC-A-0010",
+        "TC-A-0011",
+        "TC-A-0014",
+        "TC-A-0015",
+        "TC-A-0018",
+        "TC-A-0026",
+        "TC-A-0027",
+        "TC-A-0028",
+        "TC-A-0029",
+        "TC-A-0033",
+        "TC-A-0034",
+        "TC-A-0036",
+        "TC-A-0042",
+        "TC-A-0048",
+        "TC-A-0050",
+        "TC-A-0059",
+        "TC-A-0060",
+        "TC-A-0062",
+        "TC-A-0065",
+        "TC-A-0066",
+        "TC-A-0071",
+        "TC-A-0078",
+        "TC-A-0081",
+        "TC-A-0082",
+        "TC-A-0083",
+        "TC-A-0087",
+        "TC-A-0096",
+        "TC-A-0122",
+        "TC-A-0123",
+        "TC-A-0124",
+        "TC-A-0125",
+        "TC-A-0127",
+        "TC-A-0131",
+        "TC-A-0132",
+        "TC-A-0133",
+        "TC-A-0136",
+        "TC-A-0139",
+        "TC-A-0146",
+        "TC-A-0147",
+        "TC-A-0148",
+        "TC-A-0149",
+        "TC-A-0150",
+        "TC-A-0151",
+        "TC-A-0152",
+        "TC-A-0153",
+        "TC-A-0154",
+        "TC-A-0155",
+        "TC-A-0156",
+        "TC-A-0157",
+        "TC-A-0158",
+        "TC-A-0159",
+        "TC-A-0160",
+        "TC-A-0161",
+        "TC-A-0162",
+        "TC-A-0163",
+        "TC-A-0164",
+        "TC-A-0166",
+        "TC-A-0167",
+        "TC-A-0168",
+        "TC-A-0169",
+        "TC-A-0170",
+        "TW-0001",
+        "TW-0002",
+        "TW-0003",
+        "TW-0004",
+        "TW-0005",
+        "TW-0006",
+        "TW-0007",
+        "TW-0008",
+        "TW-0013",
+        "TW-0017",
+        "TW-0018",
+        "TW-0019",
+        "TW-0020",
+        "TW-0022"
+      ],
+      "all_four_zero_hit_queries": [
+        "TC-A-0002",
+        "TC-A-0005",
+        "TC-A-0010",
+        "TC-A-0011",
+        "TC-A-0014",
+        "TC-A-0015",
+        "TC-A-0018",
+        "TC-A-0026",
+        "TC-A-0027",
+        "TC-A-0028",
+        "TC-A-0034",
+        "TC-A-0036",
+        "TC-A-0042",
+        "TC-A-0050",
+        "TC-A-0071",
+        "TC-A-0078",
+        "TC-A-0081",
+        "TC-A-0082",
+        "TC-A-0087",
+        "TC-A-0123",
+        "TC-A-0132"
+      ],
+      "any_failed_queries": [
+        "TC-A-0001",
+        "TC-A-0002",
+        "TC-A-0005",
+        "TC-A-0006",
+        "TC-A-0010",
+        "TC-A-0011",
+        "TC-A-0014",
+        "TC-A-0015",
+        "TC-A-0018",
+        "TC-A-0019",
+        "TC-A-0026",
+        "TC-A-0027",
+        "TC-A-0028",
+        "TC-A-0029",
+        "TC-A-0033",
+        "TC-A-0034",
+        "TC-A-0035",
+        "TC-A-0036",
+        "TC-A-0040",
+        "TC-A-0041",
+        "TC-A-0042",
+        "TC-A-0045",
+        "TC-A-0046",
+        "TC-A-0048",
+        "TC-A-0050",
+        "TC-A-0059",
+        "TC-A-0060",
+        "TC-A-0062",
+        "TC-A-0065",
+        "TC-A-0066",
+        "TC-A-0071",
+        "TC-A-0073",
+        "TC-A-0077",
+        "TC-A-0078",
+        "TC-A-0081",
+        "TC-A-0082",
+        "TC-A-0083",
+        "TC-A-0085",
+        "TC-A-0087",
+        "TC-A-0096",
+        "TC-A-0100",
+        "TC-A-0121",
+        "TC-A-0122",
+        "TC-A-0123",
+        "TC-A-0124",
+        "TC-A-0125",
+        "TC-A-0127",
+        "TC-A-0128",
+        "TC-A-0129",
+        "TC-A-0131",
+        "TC-A-0132",
+        "TC-A-0133",
+        "TC-A-0136",
+        "TC-A-0137",
+        "TC-A-0139",
+        "TC-A-0140",
+        "TC-A-0141",
+        "TC-A-0146",
+        "TC-A-0147",
+        "TC-A-0148",
+        "TC-A-0149",
+        "TC-A-0150",
+        "TC-A-0151",
+        "TC-A-0152",
+        "TC-A-0153",
+        "TC-A-0154",
+        "TC-A-0155",
+        "TC-A-0156",
+        "TC-A-0157",
+        "TC-A-0158",
+        "TC-A-0159",
+        "TC-A-0160",
+        "TC-A-0161",
+        "TC-A-0162",
+        "TC-A-0163",
+        "TC-A-0164",
+        "TC-A-0166",
+        "TC-A-0167",
+        "TC-A-0168",
+        "TC-A-0169",
+        "TC-A-0170",
+        "TW-0001",
+        "TW-0002",
+        "TW-0003",
+        "TW-0004",
+        "TW-0005",
+        "TW-0006",
+        "TW-0007",
+        "TW-0008",
+        "TW-0009",
+        "TW-0011",
+        "TW-0013",
+        "TW-0017",
+        "TW-0018",
+        "TW-0019",
+        "TW-0020",
+        "TW-0022"
+      ],
+      "all_four_pairs": [
+        [
+          "TC-A-0002",
+          "M-A-0003"
+        ],
+        [
+          "TC-A-0005",
+          "M-A-0009"
+        ],
+        [
+          "TC-A-0010",
+          "M-A-0020"
+        ],
+        [
+          "TC-A-0011",
+          "M-A-0022"
+        ],
+        [
+          "TC-A-0014",
+          "M-A-0028"
+        ],
+        [
+          "TC-A-0015",
+          "M-A-0030"
+        ],
+        [
+          "TC-A-0018",
+          "M-A-0036"
+        ],
+        [
+          "TC-A-0026",
+          "M-A-0052"
+        ],
+        [
+          "TC-A-0027",
+          "M-A-0054"
+        ],
+        [
+          "TC-A-0028",
+          "M-A-0056"
+        ],
+        [
+          "TC-A-0029",
+          "M-A-0058"
+        ],
+        [
+          "TC-A-0033",
+          "M-A-0067"
+        ],
+        [
+          "TC-A-0034",
+          "M-A-0070"
+        ],
+        [
+          "TC-A-0036",
+          "M-A-0074"
+        ],
+        [
+          "TC-A-0042",
+          "M-A-0086"
+        ],
+        [
+          "TC-A-0048",
+          "M-A-0100"
+        ],
+        [
+          "TC-A-0050",
+          "M-A-0105"
+        ],
+        [
+          "TC-A-0060",
+          "M-A-0134"
+        ],
+        [
+          "TC-A-0065",
+          "M-A-0148"
+        ],
+        [
+          "TC-A-0071",
+          "M-A-0166"
+        ],
+        [
+          "TC-A-0078",
+          "M-A-0185"
+        ],
+        [
+          "TC-A-0081",
+          "M-A-0194"
+        ],
+        [
+          "TC-A-0082",
+          "M-A-0197"
+        ],
+        [
+          "TC-A-0087",
+          "M-A-0211"
+        ],
+        [
+          "TC-A-0096",
+          "M-A-0234"
+        ],
+        [
+          "TC-A-0122",
+          "M-A-0333"
+        ],
+        [
+          "TC-A-0122",
+          "M-A-0348"
+        ],
+        [
+          "TC-A-0122",
+          "M-A-0356"
+        ],
+        [
+          "TC-A-0123",
+          "SYN-TC-A-0123"
+        ],
+        [
+          "TC-A-0124",
+          "SYN-TC-A-0123"
+        ],
+        [
+          "TC-A-0125",
+          "M-A-0339"
+        ],
+        [
+          "TC-A-0127",
+          "M-A-0308"
+        ],
+        [
+          "TC-A-0127",
+          "M-A-0333"
+        ],
+        [
+          "TC-A-0127",
+          "M-A-0348"
+        ],
+        [
+          "TC-A-0127",
+          "M-A-0356"
+        ],
+        [
+          "TC-A-0131",
+          "M-A-0308"
+        ],
+        [
+          "TC-A-0131",
+          "M-A-0321"
+        ],
+        [
+          "TC-A-0131",
+          "M-A-0348"
+        ],
+        [
+          "TC-A-0132",
+          "M-A-0336"
+        ],
+        [
+          "TC-A-0136",
+          "M-A-0308"
+        ],
+        [
+          "TC-A-0136",
+          "M-A-0321"
+        ],
+        [
+          "TC-A-0136",
+          "M-A-0333"
+        ],
+        [
+          "TC-A-0139",
+          "M-A-0308"
+        ],
+        [
+          "TC-A-0139",
+          "M-A-0321"
+        ],
+        [
+          "TC-A-0139",
+          "M-A-0333"
+        ],
+        [
+          "TC-A-0146",
+          "M-A-0377"
+        ],
+        [
+          "TC-A-0147",
+          "M-A-0380"
+        ],
+        [
+          "TC-A-0149",
+          "M-A-0386"
+        ],
+        [
+          "TC-A-0150",
+          "M-A-0389"
+        ],
+        [
+          "TC-A-0151",
+          "M-A-0393"
+        ],
+        [
+          "TC-A-0152",
+          "M-A-0396"
+        ],
+        [
+          "TC-A-0153",
+          "M-A-0398"
+        ],
+        [
+          "TC-A-0160",
+          "M-A-0420"
+        ],
+        [
+          "TC-A-0161",
+          "M-A-0423"
+        ],
+        [
+          "TC-A-0162",
+          "M-A-0426"
+        ],
+        [
+          "TC-A-0164",
+          "M-A-0431"
+        ],
+        [
+          "TC-A-0168",
+          "M-A-0443"
+        ],
+        [
+          "TC-A-0169",
+          "M-A-0446"
+        ],
+        [
+          "TW-0001",
+          "M-C-0104"
+        ],
+        [
+          "TW-0001",
+          "M-C-0106"
+        ],
+        [
+          "TW-0002",
+          "M-C-0128"
+        ],
+        [
+          "TW-0003",
+          "M-B-0592"
+        ],
+        [
+          "TW-0003",
+          "M-C-0065"
+        ],
+        [
+          "TW-0003",
+          "M-C-0066"
+        ],
+        [
+          "TW-0003",
+          "M-C-0111"
+        ],
+        [
+          "TW-0003",
+          "M-C-0112"
+        ],
+        [
+          "TW-0003",
+          "M-C-0149"
+        ],
+        [
+          "TW-0003",
+          "M-C-0150"
+        ],
+        [
+          "TW-0003",
+          "M-C-0151"
+        ],
+        [
+          "TW-0003",
+          "M-C-0152"
+        ],
+        [
+          "TW-0003",
+          "M-C-0153"
+        ],
+        [
+          "TW-0003",
+          "M-C-0154"
+        ],
+        [
+          "TW-0003",
+          "M-C-0165"
+        ],
+        [
+          "TW-0003",
+          "M-C-0166"
+        ],
+        [
+          "TW-0004",
+          "M-B-0215"
+        ],
+        [
+          "TW-0005",
+          "M-C-0076"
+        ],
+        [
+          "TW-0006",
+          "M-C-0134"
+        ],
+        [
+          "TW-0008",
+          "M-C-0026"
+        ],
+        [
+          "TW-0013",
+          "M-B-0562"
+        ],
+        [
+          "TW-0013",
+          "M-C-0005"
+        ],
+        [
+          "TW-0013",
+          "M-C-0006"
+        ],
+        [
+          "TW-0013",
+          "M-C-0008"
+        ],
+        [
+          "TW-0013",
+          "M-C-0009"
+        ],
+        [
+          "TW-0013",
+          "M-C-0010"
+        ],
+        [
+          "TW-0013",
+          "M-C-0021"
+        ],
+        [
+          "TW-0013",
+          "M-C-0022"
+        ],
+        [
+          "TW-0013",
+          "M-C-0023"
+        ],
+        [
+          "TW-0013",
+          "M-C-0055"
+        ],
+        [
+          "TW-0013",
+          "M-C-0069"
+        ],
+        [
+          "TW-0013",
+          "M-C-0070"
+        ],
+        [
+          "TW-0013",
+          "M-C-0071"
+        ],
+        [
+          "TW-0013",
+          "M-C-0079"
+        ],
+        [
+          "TW-0013",
+          "M-C-0080"
+        ],
+        [
+          "TW-0013",
+          "M-C-0091"
+        ],
+        [
+          "TW-0013",
+          "M-C-0092"
+        ],
+        [
+          "TW-0013",
+          "M-C-0098"
+        ],
+        [
+          "TW-0013",
+          "M-C-0099"
+        ],
+        [
+          "TW-0013",
+          "M-C-0100"
+        ],
+        [
+          "TW-0013",
+          "M-C-0107"
+        ],
+        [
+          "TW-0013",
+          "M-C-0108"
+        ],
+        [
+          "TW-0013",
+          "M-C-0136"
+        ],
+        [
+          "TW-0013",
+          "M-C-0146"
+        ],
+        [
+          "TW-0013",
+          "M-C-0147"
+        ],
+        [
+          "TW-0013",
+          "M-C-0188"
+        ],
+        [
+          "TW-0013",
+          "M-C-0189"
+        ],
+        [
+          "TW-0018",
+          "M-B-0114"
+        ],
+        [
+          "TW-0020",
+          "M-B-0159"
+        ],
+        [
+          "TW-0020",
+          "M-B-0205"
+        ],
+        [
+          "TW-0020",
+          "M-B-0274"
+        ],
+        [
+          "TW-0020",
+          "M-B-0321"
+        ],
+        [
+          "TW-0022",
+          "M-B-0028"
+        ]
+      ]
+    },
+    {
+      "k": 2,
+      "pair_missed_by_n": {
+        "1": 25,
+        "2": 28,
+        "3": 15,
+        "4": 65
+      },
+      "query_failed_by_n": {
+        "1": 10,
+        "2": 15,
+        "3": 5,
+        "4": 28
+      },
+      "all_four_queries": [
+        "TC-A-0002",
+        "TC-A-0010",
+        "TC-A-0014",
+        "TC-A-0015",
+        "TC-A-0026",
+        "TC-A-0028",
+        "TC-A-0029",
+        "TC-A-0033",
+        "TC-A-0036",
+        "TC-A-0122",
+        "TC-A-0123",
+        "TC-A-0127",
+        "TC-A-0131",
+        "TC-A-0136",
+        "TC-A-0139",
+        "TC-A-0146",
+        "TC-A-0150",
+        "TC-A-0161",
+        "TC-A-0168",
+        "TW-0001",
+        "TW-0002",
+        "TW-0003",
+        "TW-0007",
+        "TW-0008",
+        "TW-0013",
+        "TW-0018",
+        "TW-0020",
+        "TW-0022"
+      ],
+      "all_four_zero_hit_queries": [
+        "TC-A-0002",
+        "TC-A-0010",
+        "TC-A-0014",
+        "TC-A-0015",
+        "TC-A-0026",
+        "TC-A-0028",
+        "TC-A-0036",
+        "TC-A-0123"
+      ],
+      "any_failed_queries": [
+        "TC-A-0002",
+        "TC-A-0006",
+        "TC-A-0010",
+        "TC-A-0014",
+        "TC-A-0015",
+        "TC-A-0018",
+        "TC-A-0019",
+        "TC-A-0026",
+        "TC-A-0027",
+        "TC-A-0028",
+        "TC-A-0029",
+        "TC-A-0033",
+        "TC-A-0034",
+        "TC-A-0036",
+        "TC-A-0041",
+        "TC-A-0042",
+        "TC-A-0046",
+        "TC-A-0050",
+        "TC-A-0060",
+        "TC-A-0071",
+        "TC-A-0077",
+        "TC-A-0081",
+        "TC-A-0082",
+        "TC-A-0087",
+        "TC-A-0122",
+        "TC-A-0123",
+        "TC-A-0124",
+        "TC-A-0125",
+        "TC-A-0127",
+        "TC-A-0131",
+        "TC-A-0133",
+        "TC-A-0136",
+        "TC-A-0137",
+        "TC-A-0139",
+        "TC-A-0146",
+        "TC-A-0149",
+        "TC-A-0150",
+        "TC-A-0152",
+        "TC-A-0156",
+        "TC-A-0157",
+        "TC-A-0159",
+        "TC-A-0161",
+        "TC-A-0166",
+        "TC-A-0167",
+        "TC-A-0168",
+        "TC-A-0169",
+        "TW-0001",
+        "TW-0002",
+        "TW-0003",
+        "TW-0005",
+        "TW-0007",
+        "TW-0008",
+        "TW-0013",
+        "TW-0017",
+        "TW-0018",
+        "TW-0019",
+        "TW-0020",
+        "TW-0022"
+      ],
+      "all_four_pairs": [
+        [
+          "TC-A-0002",
+          "M-A-0003"
+        ],
+        [
+          "TC-A-0010",
+          "M-A-0020"
+        ],
+        [
+          "TC-A-0014",
+          "M-A-0028"
+        ],
+        [
+          "TC-A-0015",
+          "M-A-0030"
+        ],
+        [
+          "TC-A-0026",
+          "M-A-0052"
+        ],
+        [
+          "TC-A-0028",
+          "M-A-0056"
+        ],
+        [
+          "TC-A-0029",
+          "M-A-0058"
+        ],
+        [
+          "TC-A-0033",
+          "M-A-0067"
+        ],
+        [
+          "TC-A-0036",
+          "M-A-0074"
+        ],
+        [
+          "TC-A-0122",
+          "M-A-0333"
+        ],
+        [
+          "TC-A-0122",
+          "M-A-0348"
+        ],
+        [
+          "TC-A-0123",
+          "SYN-TC-A-0123"
+        ],
+        [
+          "TC-A-0127",
+          "M-A-0333"
+        ],
+        [
+          "TC-A-0131",
+          "M-A-0308"
+        ],
+        [
+          "TC-A-0131",
+          "M-A-0321"
+        ],
+        [
+          "TC-A-0136",
+          "M-A-0308"
+        ],
+        [
+          "TC-A-0136",
+          "M-A-0321"
+        ],
+        [
+          "TC-A-0136",
+          "M-A-0333"
+        ],
+        [
+          "TC-A-0139",
+          "M-A-0308"
+        ],
+        [
+          "TC-A-0139",
+          "M-A-0333"
+        ],
+        [
+          "TC-A-0150",
+          "M-A-0389"
+        ],
+        [
+          "TC-A-0161",
+          "M-A-0423"
+        ],
+        [
+          "TW-0001",
+          "M-C-0104"
+        ],
+        [
+          "TW-0002",
+          "M-C-0128"
+        ],
+        [
+          "TW-0003",
+          "M-B-0592"
+        ],
+        [
+          "TW-0003",
+          "M-C-0065"
+        ],
+        [
+          "TW-0003",
+          "M-C-0066"
+        ],
+        [
+          "TW-0003",
+          "M-C-0149"
+        ],
+        [
+          "TW-0003",
+          "M-C-0150"
+        ],
+        [
+          "TW-0003",
+          "M-C-0151"
+        ],
+        [
+          "TW-0003",
+          "M-C-0152"
+        ],
+        [
+          "TW-0003",
+          "M-C-0154"
+        ],
+        [
+          "TW-0003",
+          "M-C-0165"
+        ],
+        [
+          "TW-0003",
+          "M-C-0166"
+        ],
+        [
+          "TW-0013",
+          "M-B-0562"
+        ],
+        [
+          "TW-0013",
+          "M-C-0005"
+        ],
+        [
+          "TW-0013",
+          "M-C-0008"
+        ],
+        [
+          "TW-0013",
+          "M-C-0009"
+        ],
+        [
+          "TW-0013",
+          "M-C-0010"
+        ],
+        [
+          "TW-0013",
+          "M-C-0021"
+        ],
+        [
+          "TW-0013",
+          "M-C-0022"
+        ],
+        [
+          "TW-0013",
+          "M-C-0023"
+        ],
+        [
+          "TW-0013",
+          "M-C-0055"
+        ],
+        [
+          "TW-0013",
+          "M-C-0069"
+        ],
+        [
+          "TW-0013",
+          "M-C-0070"
+        ],
+        [
+          "TW-0013",
+          "M-C-0071"
+        ],
+        [
+          "TW-0013",
+          "M-C-0079"
+        ],
+        [
+          "TW-0013",
+          "M-C-0080"
+        ],
+        [
+          "TW-0013",
+          "M-C-0091"
+        ],
+        [
+          "TW-0013",
+          "M-C-0092"
+        ],
+        [
+          "TW-0013",
+          "M-C-0098"
+        ],
+        [
+          "TW-0013",
+          "M-C-0099"
+        ],
+        [
+          "TW-0013",
+          "M-C-0100"
+        ],
+        [
+          "TW-0013",
+          "M-C-0107"
+        ],
+        [
+          "TW-0013",
+          "M-C-0108"
+        ],
+        [
+          "TW-0013",
+          "M-C-0136"
+        ],
+        [
+          "TW-0013",
+          "M-C-0147"
+        ],
+        [
+          "TW-0013",
+          "M-C-0188"
+        ],
+        [
+          "TW-0013",
+          "M-C-0189"
+        ],
+        [
+          "TW-0018",
+          "M-B-0114"
+        ],
+        [
+          "TW-0020",
+          "M-B-0159"
+        ],
+        [
+          "TW-0020",
+          "M-B-0205"
+        ],
+        [
+          "TW-0020",
+          "M-B-0274"
+        ],
+        [
+          "TW-0020",
+          "M-B-0321"
+        ],
+        [
+          "TW-0022",
+          "M-B-0028"
+        ]
+      ]
+    },
+    {
+      "k": 3,
+      "pair_missed_by_n": {
+        "1": 31,
+        "2": 18,
+        "3": 10,
+        "4": 48
+      },
+      "query_failed_by_n": {
+        "1": 15,
+        "2": 9,
+        "3": 7,
+        "4": 12
+      },
+      "all_four_queries": [
+        "TC-A-0014",
+        "TC-A-0033",
+        "TC-A-0122",
+        "TC-A-0123",
+        "TC-A-0127",
+        "TC-A-0131",
+        "TC-A-0136",
+        "TC-A-0139",
+        "TW-0003",
+        "TW-0013",
+        "TW-0018",
+        "TW-0020"
+      ],
+      "all_four_zero_hit_queries": [
+        "TC-A-0014",
+        "TC-A-0123"
+      ],
+      "any_failed_queries": [
+        "TC-A-0002",
+        "TC-A-0006",
+        "TC-A-0010",
+        "TC-A-0014",
+        "TC-A-0015",
+        "TC-A-0026",
+        "TC-A-0027",
+        "TC-A-0028",
+        "TC-A-0029",
+        "TC-A-0033",
+        "TC-A-0034",
+        "TC-A-0036",
+        "TC-A-0041",
+        "TC-A-0042",
+        "TC-A-0046",
+        "TC-A-0060",
+        "TC-A-0077",
+        "TC-A-0081",
+        "TC-A-0082",
+        "TC-A-0122",
+        "TC-A-0123",
+        "TC-A-0124",
+        "TC-A-0127",
+        "TC-A-0131",
+        "TC-A-0136",
+        "TC-A-0137",
+        "TC-A-0139",
+        "TC-A-0149",
+        "TC-A-0150",
+        "TC-A-0156",
+        "TC-A-0157",
+        "TC-A-0159",
+        "TC-A-0167",
+        "TC-A-0168",
+        "TC-A-0169",
+        "TW-0002",
+        "TW-0003",
+        "TW-0007",
+        "TW-0013",
+        "TW-0017",
+        "TW-0018",
+        "TW-0020",
+        "TW-0022"
+      ],
+      "all_four_pairs": [
+        [
+          "TC-A-0014",
+          "M-A-0028"
+        ],
+        [
+          "TC-A-0033",
+          "M-A-0067"
+        ],
+        [
+          "TC-A-0122",
+          "M-A-0333"
+        ],
+        [
+          "TC-A-0122",
+          "M-A-0348"
+        ],
+        [
+          "TC-A-0123",
+          "SYN-TC-A-0123"
+        ],
+        [
+          "TC-A-0131",
+          "M-A-0308"
+        ],
+        [
+          "TC-A-0131",
+          "M-A-0321"
+        ],
+        [
+          "TC-A-0136",
+          "M-A-0308"
+        ],
+        [
+          "TC-A-0139",
+          "M-A-0308"
+        ],
+        [
+          "TW-0003",
+          "M-B-0592"
+        ],
+        [
+          "TW-0003",
+          "M-C-0065"
+        ],
+        [
+          "TW-0003",
+          "M-C-0066"
+        ],
+        [
+          "TW-0003",
+          "M-C-0149"
+        ],
+        [
+          "TW-0003",
+          "M-C-0150"
+        ],
+        [
+          "TW-0003",
+          "M-C-0151"
+        ],
+        [
+          "TW-0003",
+          "M-C-0152"
+        ],
+        [
+          "TW-0003",
+          "M-C-0154"
+        ],
+        [
+          "TW-0003",
+          "M-C-0165"
+        ],
+        [
+          "TW-0003",
+          "M-C-0166"
+        ],
+        [
+          "TW-0013",
+          "M-B-0562"
+        ],
+        [
+          "TW-0013",
+          "M-C-0005"
+        ],
+        [
+          "TW-0013",
+          "M-C-0008"
+        ],
+        [
+          "TW-0013",
+          "M-C-0009"
+        ],
+        [
+          "TW-0013",
+          "M-C-0010"
+        ],
+        [
+          "TW-0013",
+          "M-C-0021"
+        ],
+        [
+          "TW-0013",
+          "M-C-0022"
+        ],
+        [
+          "TW-0013",
+          "M-C-0023"
+        ],
+        [
+          "TW-0013",
+          "M-C-0055"
+        ],
+        [
+          "TW-0013",
+          "M-C-0069"
+        ],
+        [
+          "TW-0013",
+          "M-C-0071"
+        ],
+        [
+          "TW-0013",
+          "M-C-0079"
+        ],
+        [
+          "TW-0013",
+          "M-C-0080"
+        ],
+        [
+          "TW-0013",
+          "M-C-0091"
+        ],
+        [
+          "TW-0013",
+          "M-C-0092"
+        ],
+        [
+          "TW-0013",
+          "M-C-0098"
+        ],
+        [
+          "TW-0013",
+          "M-C-0099"
+        ],
+        [
+          "TW-0013",
+          "M-C-0100"
+        ],
+        [
+          "TW-0013",
+          "M-C-0107"
+        ],
+        [
+          "TW-0013",
+          "M-C-0108"
+        ],
+        [
+          "TW-0013",
+          "M-C-0136"
+        ],
+        [
+          "TW-0013",
+          "M-C-0147"
+        ],
+        [
+          "TW-0013",
+          "M-C-0188"
+        ],
+        [
+          "TW-0013",
+          "M-C-0189"
+        ],
+        [
+          "TW-0018",
+          "M-B-0114"
+        ],
+        [
+          "TW-0020",
+          "M-B-0159"
+        ],
+        [
+          "TW-0020",
+          "M-B-0205"
+        ],
+        [
+          "TW-0020",
+          "M-B-0274"
+        ],
+        [
+          "TW-0020",
+          "M-B-0321"
+        ]
+      ]
+    },
+    {
+      "k": 5,
+      "pair_missed_by_n": {
+        "1": 23,
+        "2": 8,
+        "3": 12,
+        "4": 28
+      },
+      "query_failed_by_n": {
+        "1": 18,
+        "2": 4,
+        "3": 2,
+        "4": 4
+      },
+      "all_four_queries": [
+        "TW-0003",
+        "TW-0013",
+        "TW-0018",
+        "TW-0020"
+      ],
+      "all_four_zero_hit_queries": [],
+      "any_failed_queries": [
+        "TC-A-0002",
+        "TC-A-0010",
+        "TC-A-0014",
+        "TC-A-0015",
+        "TC-A-0026",
+        "TC-A-0027",
+        "TC-A-0028",
+        "TC-A-0029",
+        "TC-A-0033",
+        "TC-A-0034",
+        "TC-A-0036",
+        "TC-A-0041",
+        "TC-A-0042",
+        "TC-A-0077",
+        "TC-A-0122",
+        "TC-A-0123",
+        "TC-A-0124",
+        "TC-A-0127",
+        "TC-A-0131",
+        "TC-A-0136",
+        "TC-A-0139",
+        "TC-A-0150",
+        "TC-A-0169",
+        "TW-0002",
+        "TW-0003",
+        "TW-0013",
+        "TW-0018",
+        "TW-0020"
+      ],
+      "all_four_pairs": [
+        [
+          "TW-0003",
+          "M-C-0066"
+        ],
+        [
+          "TW-0003",
+          "M-C-0154"
+        ],
+        [
+          "TW-0003",
+          "M-C-0165"
+        ],
+        [
+          "TW-0003",
+          "M-C-0166"
+        ],
+        [
+          "TW-0013",
+          "M-B-0562"
+        ],
+        [
+          "TW-0013",
+          "M-C-0005"
+        ],
+        [
+          "TW-0013",
+          "M-C-0008"
+        ],
+        [
+          "TW-0013",
+          "M-C-0009"
+        ],
+        [
+          "TW-0013",
+          "M-C-0010"
+        ],
+        [
+          "TW-0013",
+          "M-C-0021"
+        ],
+        [
+          "TW-0013",
+          "M-C-0022"
+        ],
+        [
+          "TW-0013",
+          "M-C-0055"
+        ],
+        [
+          "TW-0013",
+          "M-C-0071"
+        ],
+        [
+          "TW-0013",
+          "M-C-0079"
+        ],
+        [
+          "TW-0013",
+          "M-C-0080"
+        ],
+        [
+          "TW-0013",
+          "M-C-0091"
+        ],
+        [
+          "TW-0013",
+          "M-C-0092"
+        ],
+        [
+          "TW-0013",
+          "M-C-0100"
+        ],
+        [
+          "TW-0013",
+          "M-C-0107"
+        ],
+        [
+          "TW-0013",
+          "M-C-0108"
+        ],
+        [
+          "TW-0013",
+          "M-C-0136"
+        ],
+        [
+          "TW-0013",
+          "M-C-0147"
+        ],
+        [
+          "TW-0013",
+          "M-C-0188"
+        ],
+        [
+          "TW-0013",
+          "M-C-0189"
+        ],
+        [
+          "TW-0018",
+          "M-B-0114"
+        ],
+        [
+          "TW-0020",
+          "M-B-0159"
+        ],
+        [
+          "TW-0020",
+          "M-B-0205"
+        ],
+        [
+          "TW-0020",
+          "M-B-0274"
+        ]
+      ]
+    },
+    {
+      "k": 10,
+      "pair_missed_by_n": {
+        "1": 9,
+        "2": 9,
+        "3": 9,
+        "4": 14
+      },
+      "query_failed_by_n": {
+        "1": 1,
+        "4": 4
+      },
+      "all_four_queries": [
+        "TW-0003",
+        "TW-0013",
+        "TW-0018",
+        "TW-0020"
+      ],
+      "all_four_zero_hit_queries": [],
+      "any_failed_queries": [
+        "TW-0002",
+        "TW-0003",
+        "TW-0013",
+        "TW-0018",
+        "TW-0020"
+      ],
+      "all_four_pairs": [
+        [
+          "TW-0013",
+          "M-C-0008"
+        ],
+        [
+          "TW-0013",
+          "M-C-0010"
+        ],
+        [
+          "TW-0013",
+          "M-C-0021"
+        ],
+        [
+          "TW-0013",
+          "M-C-0022"
+        ],
+        [
+          "TW-0013",
+          "M-C-0055"
+        ],
+        [
+          "TW-0013",
+          "M-C-0079"
+        ],
+        [
+          "TW-0013",
+          "M-C-0080"
+        ],
+        [
+          "TW-0013",
+          "M-C-0091"
+        ],
+        [
+          "TW-0013",
+          "M-C-0136"
+        ],
+        [
+          "TW-0013",
+          "M-C-0147"
+        ],
+        [
+          "TW-0013",
+          "M-C-0188"
+        ],
+        [
+          "TW-0013",
+          "M-C-0189"
+        ],
+        [
+          "TW-0018",
+          "M-B-0114"
+        ],
+        [
+          "TW-0020",
+          "M-B-0274"
+        ]
+      ]
+    },
+    {
+      "k": 20,
+      "pair_missed_by_n": {
+        "1": 13,
+        "2": 4,
+        "3": 6,
+        "4": 3
+      },
+      "query_failed_by_n": {
+        "1": 1,
+        "3": 2,
+        "4": 1
+      },
+      "all_four_queries": [
+        "TW-0013"
+      ],
+      "all_four_zero_hit_queries": [],
+      "any_failed_queries": [
+        "TW-0003",
+        "TW-0013",
+        "TW-0018",
+        "TW-0020"
+      ],
+      "all_four_pairs": [
+        [
+          "TW-0013",
+          "M-C-0008"
+        ],
+        [
+          "TW-0013",
+          "M-C-0010"
+        ],
+        [
+          "TW-0013",
+          "M-C-0188"
+        ]
+      ]
+    },
+    {
+      "k": 30,
+      "pair_missed_by_n": {
+        "1": 8,
+        "2": 2,
+        "3": 3
+      },
+      "query_failed_by_n": {
+        "2": 2,
+        "4": 1
+      },
+      "all_four_queries": [
+        "TW-0013"
+      ],
+      "all_four_zero_hit_queries": [],
+      "any_failed_queries": [
+        "TW-0013",
+        "TW-0018",
+        "TW-0020"
+      ],
+      "all_four_pairs": []
+    },
+    {
+      "k": 50,
+      "pair_missed_by_n": {
+        "1": 6
+      },
+      "query_failed_by_n": {
+        "1": 2,
+        "2": 1
+      },
+      "all_four_queries": [],
+      "all_four_zero_hit_queries": [],
+      "any_failed_queries": [
+        "TW-0013",
+        "TW-0018",
+        "TW-0020"
+      ],
+      "all_four_pairs": []
+    }
+  ],
+  "rank_histograms": {
+    "bm25": {
+      "2": 55,
+      "10": 29,
+      "1": 133,
+      "3": 19,
+      "5": 34,
+      "20": 12,
+      "30": 9,
+      "50": 5,
+      ">50": 5
+    },
+    "dense": {
+      "1": 154,
+      "3": 25,
+      "2": 60,
+      "5": 19,
+      "10": 17,
+      "20": 17,
+      "30": 5,
+      "50": 3,
+      ">50": 1
+    },
+    "hybrid": {
+      "1": 145,
+      "5": 28,
+      "2": 57,
+      "3": 30,
+      "10": 14,
+      "20": 15,
+      "30": 8,
+      "50": 4
+    },
+    "sparsecl": {
+      "1": 151,
+      "3": 23,
+      "2": 63,
+      "5": 21,
+      "10": 17,
+      "20": 15,
+      "30": 8,
+      "50": 3
+    }
+  },
+  "bge_comparison": {
+    "initial_gold_hits": 301,
+    "gold_rank_change": {
+      "same": 281,
+      "up": 10,
+      "down": 10
+    },
+    "budgets": [
+      {
+        "k": 1,
+        "gold_changed_queries": 2,
+        "gained": 1,
+        "lost": 2,
+        "candidate_sets_changed": 3
+      },
+      {
+        "k": 2,
+        "gold_changed_queries": 0,
+        "gained": 0,
+        "lost": 0,
+        "candidate_sets_changed": 2
+      },
+      {
+        "k": 3,
+        "gold_changed_queries": 0,
+        "gained": 0,
+        "lost": 0,
+        "candidate_sets_changed": 4
+      },
+      {
+        "k": 5,
+        "gold_changed_queries": 1,
+        "gained": 1,
+        "lost": 1,
+        "candidate_sets_changed": 14
+      },
+      {
+        "k": 10,
+        "gold_changed_queries": 0,
+        "gained": 0,
+        "lost": 0,
+        "candidate_sets_changed": 24
+      },
+      {
+        "k": 20,
+        "gold_changed_queries": 0,
+        "gained": 0,
+        "lost": 0,
+        "candidate_sets_changed": 48
+      },
+      {
+        "k": 30,
+        "gold_changed_queries": 0,
+        "gained": 0,
+        "lost": 0,
+        "candidate_sets_changed": 68
+      },
+      {
+        "k": 50,
+        "gold_changed_queries": 0,
+        "gained": 0,
+        "lost": 0,
+        "candidate_sets_changed": 92
+      }
+    ]
+  },
+  "audit_cohorts": {
+    "top1_non_gold": {
+      "unique_pairs": 68,
+      "method_pair_occurrences": 141
+    },
+    "top10_failed_query_non_gold": {
+      "unique_pairs": 38,
+      "method_pair_occurrences": 73
+    }
+  },
+  "prefix_groups": {
+    "TC-A": {
+      "bm25": {
+        "queries": 159,
+        "gold_pairs": 217,
+        "hits_at_10": 217
+      },
+      "dense": {
+        "queries": 159,
+        "gold_pairs": 217,
+        "hits_at_10": 217
+      },
+      "hybrid": {
+        "queries": 159,
+        "gold_pairs": 217,
+        "hits_at_10": 217
+      },
+      "sparsecl": {
+        "queries": 159,
+        "gold_pairs": 217,
+        "hits_at_10": 217
+      }
+    },
+    "TW": {
+      "bm25": {
+        "queries": 22,
+        "gold_pairs": 84,
+        "hits_at_10": 53
+      },
+      "dense": {
+        "queries": 22,
+        "gold_pairs": 84,
+        "hits_at_10": 58
+      },
+      "hybrid": {
+        "queries": 22,
+        "gold_pairs": 84,
+        "hits_at_10": 57
+      },
+      "sparsecl": {
+        "queries": 22,
+        "gold_pairs": 84,
+        "hits_at_10": 58
+      }
+    }
+  },
+  "han_presence_mismatch_gold_pairs": [
+    {
+      "query_id": "TW-0018",
+      "memory_id": "M-B-0114"
+    }
+  ],
+  "top1_audit_concentration": {
+    "unique_queries": 55,
+    "pairs_with_literal_grocery_in_query": 44,
+    "candidate_memory_frequency": {
+      "M-A-0411": 14,
+      "M-A-0390": 6,
+      "M-A-0012": 6,
+      "M-A-0059": 5,
+      "M-A-0338": 4,
+      "M-A-0068": 3,
+      "M-A-0447": 3,
+      "M-A-0441": 2,
+      "M-A-0001": 2,
+      "M-A-0393": 2,
+      "M-A-0426": 2,
+      "M-A-0171": 1,
+      "M-A-0076": 1,
+      "M-A-0444": 1,
+      "M-A-0201": 1,
+      "M-A-0213": 1,
+      "M-A-0268": 1,
+      "M-A-0312": 1,
+      "M-A-0314": 1,
+      "M-A-0091": 1,
+      "M-A-0311": 1,
+      "M-A-0352": 1,
+      "M-A-0361": 1,
+      "M-A-0364": 1,
+      "M-A-0408": 1,
+      "M-A-0387": 1,
+      "M-A-0417": 1,
+      "M-C-0078": 1,
+      "M-C-0187": 1,
+      "M-B-0142": 1
+    }
+  },
+  "extra_deficit_context_at_10": {
+    "cross_language_case": {
+      "bm25": 1,
+      "dense": 1,
+      "hybrid": 1,
+      "sparsecl": 1
+    },
+    "paraphrase_and_scope_case": {
+      "bm25": 4,
+      "dense": 2,
+      "hybrid": 3,
+      "sparsecl": 2
+    },
+    "cross_course_cases": {
+      "bm25": 3,
+      "dense": 0,
+      "hybrid": 0,
+      "sparsecl": 0
+    }
+  },
+  "duplicate_case_score_check": {
+    "query_id": "TC-A-0123",
+    "memory_id": "M-A-0312",
+    "cosine": 1.0000001192092896,
+    "fused": -179999998.99999988,
+    "inferred_hoyer": -1000000000.0
+  },
+  "semantic_counts": {
+    "top1_non_gold": {
+      "unique_pairs": {
+        "different_named_referent": 63,
+        "different_attribute": 1,
+        "same_value": 2,
+        "different_object": 1,
+        "unresolved_scope_or_assertion": 1
+      },
+      "by_method": {
+        "bm25": {
+          "different_named_referent": 46,
+          "same_value": 1,
+          "unresolved_scope_or_assertion": 1
+        },
+        "dense": {
+          "different_named_referent": 24,
+          "different_attribute": 1,
+          "same_value": 2
+        },
+        "hybrid": {
+          "different_named_referent": 35,
+          "same_value": 1
+        },
+        "sparsecl": {
+          "different_named_referent": 28,
+          "different_object": 1,
+          "same_value": 1
+        }
+      }
+    },
+    "top10_failed_query_non_gold": {
+      "unique_pairs": {
+        "unresolved_scope_or_assertion": 16,
+        "different_attribute": 4,
+        "different_object": 17,
+        "possible_missing_gold": 1
+      },
+      "by_method": {
+        "bm25": {
+          "unresolved_scope_or_assertion": 10,
+          "different_attribute": 3,
+          "different_object": 14
+        },
+        "dense": {
+          "different_attribute": 2,
+          "unresolved_scope_or_assertion": 9,
+          "different_object": 3,
+          "possible_missing_gold": 1
+        },
+        "hybrid": {
+          "different_object": 5,
+          "different_attribute": 2,
+          "unresolved_scope_or_assertion": 8,
+          "possible_missing_gold": 1
+        },
+        "sparsecl": {
+          "different_object": 3,
+          "different_attribute": 3,
+          "unresolved_scope_or_assertion": 8,
+          "possible_missing_gold": 1
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,992 @@
+{
+  "date": "2026-11-02",
+  "scope": "Saved-output replay only; no model inference or data/code changes.",
+  "dataset": {
+    "path": "C:\\Users\\dzp\\project\\paper\\memory-comparison-retrieval\\data\\validmem_v7",
+    "files_sha256": {
+      "memories.jsonl": "814823499342fd09b409c6e5034ab87bb9f188b91aedd4259756a810a9592114",
+      "queries.jsonl": "7d89052274fbaa728987336d15351c0d653693146477e419ff04963e82b6a7c7",
+      "gold.jsonl": "d9d94348a1d09877accc322e0b333fe4f55789691974f128fdb281035cf193be"
+    },
+    "memory_count": 1225,
+    "query_count": 181,
+    "gold_count": 181
+  },
+  "hashes": {
+    "memory-comparison-retrieval\\runs\\experiments\\validmem-v7-main-20261030\\run_config.json": "9998715de5f453e62f116779089a0602b1b63cd4fa90b965bc8a650c25f2946f",
+    "memory-comparison-retrieval\\runs\\experiments\\validmem-v7-sparsecl-exploratory-20261031-retry1\\run_config.json": "35e4777267d21b1bca757b838cb53183c95cd8626f5dcb8c8651c5bc2155b5e1",
+    "memory-comparison-retrieval\\runs\\experiments\\validmem-v7-main-20261030\\input\\gold.jsonl": "d9d94348a1d09877accc322e0b333fe4f55789691974f128fdb281035cf193be",
+    "memory-comparison-retrieval\\runs\\experiments\\validmem-v7-main-20261030\\input\\queries.jsonl": "7d89052274fbaa728987336d15351c0d653693146477e419ff04963e82b6a7c7",
+    "memory-comparison-retrieval\\runs\\experiments\\validmem-v7-main-20261030\\index\\index.json": "e161d0795c46536e36bd7796fd87c980b69684cbef3cd75d9b47b583811113a8",
+    "memory-comparison-retrieval\\runs\\experiments\\validmem-v7-main-20261030\\arms\\proposed.jsonl": "1fc93dc88b18bd261219b8cafbe9f2e381b042c28cc73779465a8dae1d0eb88a",
+    "memory-comparison-retrieval\\runs\\experiments\\validmem-v7-main-20261030\\arms\\bm25.jsonl": "38ccd544f3220d3198f96b4e4421c4322343b033b0e5cf86f88d956bda51aee8",
+    "memory-comparison-retrieval\\runs\\experiments\\validmem-v7-main-20261030\\arms\\dense.jsonl": "8047f648c827a1ceab0b21987b55597d889d494f2bc9dd44e6637b7444778c82",
+    "memory-comparison-retrieval\\runs\\experiments\\validmem-v7-main-20261030\\arms\\hybrid.jsonl": "d2623e8cdb1b2e2d10e9f0a2177645c33f38f6a389ce89dd0977dc98baa19fbe",
+    "memory-comparison-retrieval\\runs\\experiments\\validmem-v7-sparsecl-exploratory-20261031-retry1\\arms\\sparsecl.jsonl": "20a014097537e0369f8230e7183f3c522ef7d8e3f1b70a76ae90b0780dcbd754"
+  },
+  "gold_multiplicity": {
+    "1": 124,
+    "2": 44,
+    "5": 5,
+    "3": 5,
+    "14": 1,
+    "29": 1,
+    "6": 1
+  },
+  "catalog_count": 952,
+  "metrics": {
+    "proposed": {
+      "queries": 181,
+      "hits": 289,
+      "gold_pairs": 301,
+      "candidates": 411,
+      "recall_micro": 0.9601328903654485,
+      "recall_macro": 0.9773290150504859,
+      "full_count": 175,
+      "full_coverage": 0.9668508287292817,
+      "purity": 0.7031630170316302,
+      "mean_candidates": 2.270718232044199
+    },
+    "bm25@1": {
+      "queries": 181,
+      "hits": 133,
+      "gold_pairs": 301,
+      "candidates": 181,
+      "recall_micro": 0.4418604651162791,
+      "recall_macro": 0.5935869870905116,
+      "full_count": 89,
+      "full_coverage": 0.49171270718232046,
+      "purity": 0.7348066298342542,
+      "mean_candidates": 1.0
+    },
+    "bm25@2": {
+      "queries": 181,
+      "hits": 188,
+      "gold_pairs": 301,
+      "candidates": 362,
+      "recall_micro": 0.6245847176079734,
+      "recall_macro": 0.7783341951754983,
+      "full_count": 131,
+      "full_coverage": 0.7237569060773481,
+      "purity": 0.5193370165745856,
+      "mean_candidates": 2.0
+    },
+    "bm25@3": {
+      "queries": 181,
+      "hits": 207,
+      "gold_pairs": 301,
+      "candidates": 543,
+      "recall_micro": 0.6877076411960132,
+      "recall_macro": 0.8192508323580909,
+      "full_count": 142,
+      "full_coverage": 0.7845303867403315,
+      "purity": 0.3812154696132597,
+      "mean_candidates": 3.0
+    },
+    "bm25@5": {
+      "queries": 181,
+      "hits": 241,
+      "gold_pairs": 301,
+      "candidates": 905,
+      "recall_micro": 0.8006644518272426,
+      "recall_macro": 0.9045704850810585,
+      "full_count": 159,
+      "full_coverage": 0.8784530386740331,
+      "purity": 0.2662983425414365,
+      "mean_candidates": 5.0
+    },
+    "bm25@10": {
+      "queries": 181,
+      "hits": 270,
+      "gold_pairs": 301,
+      "candidates": 1810,
+      "recall_micro": 0.8970099667774086,
+      "recall_macro": 0.9861334131671339,
+      "full_count": 176,
+      "full_coverage": 0.9723756906077348,
+      "purity": 0.14917127071823205,
+      "mean_candidates": 10.0
+    },
+    "bm25@20": {
+      "queries": 181,
+      "hits": 282,
+      "gold_pairs": 301,
+      "candidates": 3620,
+      "recall_micro": 0.9368770764119602,
+      "recall_macro": 0.9908009688920338,
+      "full_count": 177,
+      "full_coverage": 0.9779005524861878,
+      "purity": 0.07790055248618785,
+      "mean_candidates": 20.0
+    },
+    "bm25@30": {
+      "queries": 181,
+      "hits": 291,
+      "gold_pairs": 301,
+      "candidates": 5430,
+      "recall_micro": 0.9667774086378738,
+      "recall_macro": 0.9940623610846511,
+      "full_count": 178,
+      "full_coverage": 0.9834254143646409,
+      "purity": 0.05359116022099448,
+      "mean_candidates": 30.0
+    },
+    "bm25@50": {
+      "queries": 181,
+      "hits": 296,
+      "gold_pairs": 301,
+      "candidates": 9050,
+      "recall_micro": 0.9833887043189369,
+      "recall_macro": 0.9950149234774878,
+      "full_count": 178,
+      "full_coverage": 0.9834254143646409,
+      "purity": 0.03270718232044199,
+      "mean_candidates": 50.0
+    },
+    "dense@1": {
+      "queries": 181,
+      "hits": 154,
+      "gold_pairs": 301,
+      "candidates": 181,
+      "recall_micro": 0.5116279069767442,
+      "recall_macro": 0.6819847771457602,
+      "full_count": 100,
+      "full_coverage": 0.5524861878453039,
+      "purity": 0.850828729281768,
+      "mean_candidates": 1.0
+    },
+    "dense@2": {
+      "queries": 181,
+      "hits": 214,
+      "gold_pairs": 301,
+      "candidates": 362,
+      "recall_micro": 0.7109634551495017,
+      "recall_macro": 0.8584446924130673,
+      "full_count": 144,
+      "full_coverage": 0.7955801104972375,
+      "purity": 0.5911602209944752,
+      "mean_candidates": 2.0
+    },
+    "dense@3": {
+      "queries": 181,
+      "hits": 239,
+      "gold_pairs": 301,
+      "candidates": 543,
+      "recall_micro": 0.7940199335548173,
+      "recall_macro": 0.9387720109952916,
+      "full_count": 164,
+      "full_coverage": 0.9060773480662984,
+      "purity": 0.44014732965009207,
+      "mean_candidates": 3.0
+    },
+    "dense@5": {
+      "queries": 181,
+      "hits": 258,
+      "gold_pairs": 301,
+      "candidates": 905,
+      "recall_micro": 0.8571428571428571,
+      "recall_macro": 0.9719865008300901,
+      "full_count": 171,
+      "full_coverage": 0.9447513812154696,
+      "purity": 0.2850828729281768,
+      "mean_candidates": 5.0
+    },
+    "dense@10": {
+      "queries": 181,
+      "hits": 275,
+      "gold_pairs": 301,
+      "candidates": 1810,
+      "recall_micro": 0.9136212624584718,
+      "recall_macro": 0.9901976793765705,
+      "full_count": 177,
+      "full_coverage": 0.9779005524861878,
+      "purity": 0.15193370165745856,
+      "mean_candidates": 10.0
+    },
+    "dense@20": {
+      "queries": 181,
+      "hits": 292,
+      "gold_pairs": 301,
+      "candidates": 3620,
+      "recall_micro": 0.9700996677740864,
+      "recall_macro": 0.9982853876928939,
+      "full_count": 180,
+      "full_coverage": 0.994475138121547,
+      "purity": 0.08066298342541436,
+      "mean_candidates": 20.0
+    },
+    "dense@30": {
+      "queries": 181,
+      "hits": 297,
+      "gold_pairs": 301,
+      "candidates": 5430,
+      "recall_micro": 0.9867109634551495,
+      "recall_macro": 0.9992379500857306,
+      "full_count": 180,
+      "full_coverage": 0.994475138121547,
+      "purity": 0.054696132596685085,
+      "mean_candidates": 30.0
+    },
+    "dense@50": {
+      "queries": 181,
+      "hits": 300,
+      "gold_pairs": 301,
+      "candidates": 9050,
+      "recall_micro": 0.9966777408637874,
+      "recall_macro": 0.9998094875214326,
+      "full_count": 180,
+      "full_coverage": 0.994475138121547,
+      "purity": 0.03314917127071823,
+      "mean_candidates": 50.0
+    },
+    "hybrid@1": {
+      "queries": 181,
+      "hits": 145,
+      "gold_pairs": 301,
+      "candidates": 181,
+      "recall_micro": 0.48172757475083056,
+      "recall_macro": 0.6571228986927216,
+      "full_count": 100,
+      "full_coverage": 0.5524861878453039,
+      "purity": 0.8011049723756906,
+      "mean_candidates": 1.0
+    },
+    "hybrid@2": {
+      "queries": 181,
+      "hits": 202,
+      "gold_pairs": 301,
+      "candidates": 362,
+      "recall_micro": 0.6710963455149501,
+      "recall_macro": 0.8170082283246696,
+      "full_count": 137,
+      "full_coverage": 0.7569060773480663,
+      "purity": 0.5580110497237569,
+      "mean_candidates": 2.0
+    },
+    "hybrid@3": {
+      "queries": 181,
+      "hits": 232,
+      "gold_pairs": 301,
+      "candidates": 543,
+      "recall_micro": 0.770764119601329,
+      "recall_macro": 0.901387112284426,
+      "full_count": 156,
+      "full_coverage": 0.861878453038674,
+      "purity": 0.427255985267035,
+      "mean_candidates": 3.0
+    },
+    "hybrid@5": {
+      "queries": 181,
+      "hits": 260,
+      "gold_pairs": 301,
+      "candidates": 905,
+      "recall_micro": 0.8637873754152824,
+      "recall_macro": 0.9804579557103847,
+      "full_count": 174,
+      "full_coverage": 0.9613259668508287,
+      "purity": 0.287292817679558,
+      "mean_candidates": 5.0
+    },
+    "hybrid@10": {
+      "queries": 181,
+      "hits": 274,
+      "gold_pairs": 301,
+      "candidates": 1810,
+      "recall_micro": 0.9102990033222591,
+      "recall_macro": 0.9892768690634951,
+      "full_count": 177,
+      "full_coverage": 0.9779005524861878,
+      "purity": 0.15138121546961325,
+      "mean_candidates": 10.0
+    },
+    "hybrid@20": {
+      "queries": 181,
+      "hits": 289,
+      "gold_pairs": 301,
+      "candidates": 3620,
+      "recall_micro": 0.9601328903654485,
+      "recall_macro": 0.9944116339620245,
+      "full_count": 178,
+      "full_coverage": 0.9834254143646409,
+      "purity": 0.07983425414364641,
+      "mean_candidates": 20.0
+    },
+    "hybrid@30": {
+      "queries": 181,
+      "hits": 297,
+      "gold_pairs": 301,
+      "candidates": 5430,
+      "recall_micro": 0.9867109634551495,
+      "recall_macro": 0.9966660316250714,
+      "full_count": 179,
+      "full_coverage": 0.988950276243094,
+      "purity": 0.054696132596685085,
+      "mean_candidates": 30.0
+    },
+    "hybrid@50": {
+      "queries": 181,
+      "hits": 301,
+      "gold_pairs": 301,
+      "candidates": 9050,
+      "recall_micro": 1.0,
+      "recall_macro": 1.0,
+      "full_count": 181,
+      "full_coverage": 1.0,
+      "purity": 0.03325966850828729,
+      "mean_candidates": 50.0
+    },
+    "sparsecl@1": {
+      "queries": 181,
+      "hits": 151,
+      "gold_pairs": 301,
+      "candidates": 181,
+      "recall_micro": 0.5016611295681063,
+      "recall_macro": 0.665410191510401,
+      "full_count": 97,
+      "full_coverage": 0.5359116022099447,
+      "purity": 0.8342541436464088,
+      "mean_candidates": 1.0
+    },
+    "sparsecl@2": {
+      "queries": 181,
+      "hits": 214,
+      "gold_pairs": 301,
+      "candidates": 362,
+      "recall_micro": 0.7109634551495017,
+      "recall_macro": 0.8566030717869163,
+      "full_count": 145,
+      "full_coverage": 0.8011049723756906,
+      "purity": 0.5911602209944752,
+      "mean_candidates": 2.0
+    },
+    "sparsecl@3": {
+      "queries": 181,
+      "hits": 237,
+      "gold_pairs": 301,
+      "candidates": 543,
+      "recall_micro": 0.7873754152823921,
+      "recall_macro": 0.9225657494851627,
+      "full_count": 160,
+      "full_coverage": 0.8839779005524862,
+      "purity": 0.43646408839779005,
+      "mean_candidates": 3.0
+    },
+    "sparsecl@5": {
+      "queries": 181,
+      "hits": 258,
+      "gold_pairs": 301,
+      "candidates": 905,
+      "recall_micro": 0.8571428571428571,
+      "recall_macro": 0.9710656905170146,
+      "full_count": 172,
+      "full_coverage": 0.9502762430939227,
+      "purity": 0.2850828729281768,
+      "mean_candidates": 5.0
+    },
+    "sparsecl@10": {
+      "queries": 181,
+      "hits": 275,
+      "gold_pairs": 301,
+      "candidates": 1810,
+      "recall_micro": 0.9136212624584718,
+      "recall_macro": 0.9901976793765705,
+      "full_count": 177,
+      "full_coverage": 0.9779005524861878,
+      "purity": 0.15193370165745856,
+      "mean_candidates": 10.0
+    },
+    "sparsecl@20": {
+      "queries": 181,
+      "hits": 290,
+      "gold_pairs": 301,
+      "candidates": 3620,
+      "recall_micro": 0.9634551495016611,
+      "recall_macro": 0.9946021464405919,
+      "full_count": 178,
+      "full_coverage": 0.9834254143646409,
+      "purity": 0.08011049723756906,
+      "mean_candidates": 20.0
+    },
+    "sparsecl@30": {
+      "queries": 181,
+      "hits": 298,
+      "gold_pairs": 301,
+      "candidates": 5430,
+      "recall_micro": 0.9900332225913622,
+      "recall_macro": 0.9986981647297898,
+      "full_count": 179,
+      "full_coverage": 0.988950276243094,
+      "purity": 0.05488029465930019,
+      "mean_candidates": 30.0
+    },
+    "sparsecl@50": {
+      "queries": 181,
+      "hits": 301,
+      "gold_pairs": 301,
+      "candidates": 9050,
+      "recall_micro": 1.0,
+      "recall_macro": 1.0,
+      "full_count": 181,
+      "full_coverage": 1.0,
+      "purity": 0.03325966850828729,
+      "mean_candidates": 50.0
+    }
+  },
+  "stage_funnel": {
+    "coarse": {
+      "queries": 181,
+      "hits": 295,
+      "gold_pairs": 301,
+      "candidates": 2807,
+      "recall_micro": 0.9800664451827242,
+      "recall_macro": 0.9815837937384899,
+      "full_count": 177,
+      "full_coverage": 0.9779005524861878,
+      "purity": 0.10509440684004275,
+      "mean_candidates": 15.508287292817679
+    },
+    "subject_matter": {
+      "queries": 181,
+      "hits": 293,
+      "gold_pairs": 301,
+      "candidates": 565,
+      "recall_micro": 0.973421926910299,
+      "recall_macro": 0.9788213627992634,
+      "full_count": 176,
+      "full_coverage": 0.9723756906077348,
+      "purity": 0.5185840707964602,
+      "mean_candidates": 3.1215469613259668
+    },
+    "final": {
+      "queries": 181,
+      "hits": 289,
+      "gold_pairs": 301,
+      "candidates": 411,
+      "recall_micro": 0.9601328903654485,
+      "recall_macro": 0.9773290150504859,
+      "full_count": 175,
+      "full_coverage": 0.9668508287292817,
+      "purity": 0.7031630170316302,
+      "mean_candidates": 2.270718232044199
+    }
+  },
+  "stage_costs": {
+    "select_descriptions": {
+      "events": 181,
+      "status_ok": 181,
+      "seconds_sum": 1274.935589700006,
+      "prompt_tokens": 3179527,
+      "completion_tokens": 3291,
+      "total_tokens": 3182818
+    },
+    "generate_hypotheses": {
+      "events": 478,
+      "status_ok": 461,
+      "seconds_sum": 3287.340752298478,
+      "prompt_tokens": 621675,
+      "completion_tokens": 423462,
+      "total_tokens": 1045137,
+      "status_invalid_output": 17
+    },
+    "hypothesis_embedding": {
+      "events": 184,
+      "status_ok": 180,
+      "seconds_sum": 271.98685280093923,
+      "prompt_tokens": 11448,
+      "completion_tokens": 0,
+      "total_tokens": 11448,
+      "status_http_error": 4
+    },
+    "query_description_embedding": {
+      "events": 16,
+      "status_ok": 16,
+      "seconds_sum": 17.916937899775803,
+      "prompt_tokens": 151,
+      "completion_tokens": 0,
+      "total_tokens": 151
+    }
+  },
+  "count_matched_diagnostic": {
+    "bm25": {
+      "queries": 181,
+      "hits": 215,
+      "gold_pairs": 301,
+      "candidates": 411,
+      "recall_micro": 0.7142857142857143,
+      "recall_macro": 0.7057434976276661,
+      "full_count": 120,
+      "full_coverage": 0.6629834254143646,
+      "purity": 0.5231143552311436,
+      "mean_candidates": 2.270718232044199
+    },
+    "dense": {
+      "queries": 181,
+      "hits": 253,
+      "gold_pairs": 301,
+      "candidates": 411,
+      "recall_micro": 0.840531561461794,
+      "recall_macro": 0.8264939353527656,
+      "full_count": 141,
+      "full_coverage": 0.7790055248618785,
+      "purity": 0.6155717761557178,
+      "mean_candidates": 2.270718232044199
+    },
+    "hybrid": {
+      "queries": 181,
+      "hits": 241,
+      "gold_pairs": 301,
+      "candidates": 411,
+      "recall_micro": 0.8006644518272426,
+      "recall_macro": 0.7877999437534587,
+      "full_count": 133,
+      "full_coverage": 0.7348066298342542,
+      "purity": 0.5863746958637469,
+      "mean_candidates": 2.270718232044199
+    },
+    "sparsecl": {
+      "queries": 181,
+      "hits": 250,
+      "gold_pairs": 301,
+      "candidates": 411,
+      "recall_micro": 0.8305647840531561,
+      "recall_macro": 0.8038547024830126,
+      "full_count": 137,
+      "full_coverage": 0.7569060773480663,
+      "purity": 0.6082725060827251,
+      "mean_candidates": 2.270718232044199
+    }
+  },
+  "dense_threshold_diagnostic": {
+    "0.66": {
+      "queries": 181,
+      "hits": 298,
+      "gold_pairs": 301,
+      "candidates": 2142,
+      "recall_micro": 0.9900332225913622,
+      "recall_macro": 0.9915221947037531,
+      "full_count": 178,
+      "full_coverage": 0.9834254143646409,
+      "purity": 0.13912231559290383,
+      "mean_candidates": 11.834254143646408
+    },
+    "0.675": {
+      "queries": 181,
+      "hits": 297,
+      "gold_pairs": 301,
+      "candidates": 1803,
+      "recall_micro": 0.9867109634551495,
+      "recall_macro": 0.9906013843906776,
+      "full_count": 177,
+      "full_coverage": 0.9779005524861878,
+      "purity": 0.16472545757071547,
+      "mean_candidates": 9.96132596685083
+    },
+    "0.7": {
+      "queries": 181,
+      "hits": 295,
+      "gold_pairs": 301,
+      "candidates": 1370,
+      "recall_micro": 0.9800664451827242,
+      "recall_macro": 0.9902203594335429,
+      "full_count": 177,
+      "full_coverage": 0.9779005524861878,
+      "purity": 0.21532846715328466,
+      "mean_candidates": 7.569060773480663
+    },
+    "0.725": {
+      "queries": 181,
+      "hits": 286,
+      "gold_pairs": 301,
+      "candidates": 1001,
+      "recall_micro": 0.9501661129568106,
+      "recall_macro": 0.9668190766495205,
+      "full_count": 172,
+      "full_coverage": 0.9502762430939227,
+      "purity": 0.2857142857142857,
+      "mean_candidates": 5.530386740331492
+    },
+    "0.75": {
+      "queries": 181,
+      "hits": 278,
+      "gold_pairs": 301,
+      "candidates": 687,
+      "recall_micro": 0.9235880398671097,
+      "recall_macro": 0.9509357791506772,
+      "full_count": 167,
+      "full_coverage": 0.9226519337016574,
+      "purity": 0.40465793304221254,
+      "mean_candidates": 3.7955801104972378
+    },
+    "0.775": {
+      "queries": 181,
+      "hits": 254,
+      "gold_pairs": 301,
+      "candidates": 490,
+      "recall_micro": 0.8438538205980066,
+      "recall_macro": 0.8713260575710566,
+      "full_count": 151,
+      "full_coverage": 0.8342541436464088,
+      "purity": 0.5183673469387755,
+      "mean_candidates": 2.707182320441989
+    },
+    "0.8": {
+      "queries": 181,
+      "hits": 213,
+      "gold_pairs": 301,
+      "candidates": 350,
+      "recall_micro": 0.707641196013289,
+      "recall_macro": 0.769657712580174,
+      "full_count": 131,
+      "full_coverage": 0.7237569060773481,
+      "purity": 0.6085714285714285,
+      "mean_candidates": 1.9337016574585635
+    }
+  },
+  "threshold_completeness": {
+    "max_saved_rank50_score": 0.6581796407699585,
+    "condition": "All replay thresholds exceed maximum saved rank-50 score, so no unseen rank>50 can exceed a replay threshold under the saved native ordering."
+  },
+  "raw_probe_proxy": {
+    "metrics": {
+      "queries": 181,
+      "hits": 287,
+      "gold_pairs": 301,
+      "candidates": 404,
+      "recall_micro": 0.9534883720930233,
+      "recall_macro": 0.9690417222328063,
+      "full_count": 173,
+      "full_coverage": 0.9558011049723757,
+      "purity": 0.7103960396039604,
+      "mean_candidates": 2.2320441988950277
+    },
+    "added_gold_pairs_by_recorded_full_method": 2,
+    "removed_gold_pairs_by_recorded_full_method": 0,
+    "limitation": "Uses independently recorded Dense scores and already generated subject/matter decisions; not a new no-hypothesis run, not a causal ablation, and no latency/cost saving is measured."
+  },
+  "dense_union_diagnostic": {
+    "1": {
+      "queries": 181,
+      "hits": 293,
+      "gold_pairs": 301,
+      "candidates": 440,
+      "recall_micro": 0.973421926910299,
+      "recall_macro": 0.9920619800596939,
+      "full_count": 177,
+      "full_coverage": 0.9779005524861878,
+      "purity": 0.6659090909090909,
+      "mean_candidates": 2.430939226519337
+    },
+    "3": {
+      "queries": 181,
+      "hits": 295,
+      "gold_pairs": 301,
+      "candidates": 703,
+      "recall_micro": 0.9800664451827242,
+      "recall_macro": 0.9957452213119959,
+      "full_count": 178,
+      "full_coverage": 0.9834254143646409,
+      "purity": 0.41963015647226176,
+      "mean_candidates": 3.883977900552486
+    },
+    "5": {
+      "queries": 181,
+      "hits": 296,
+      "gold_pairs": 301,
+      "candidates": 1037,
+      "recall_micro": 0.9833887043189369,
+      "recall_macro": 0.997586841938147,
+      "full_count": 179,
+      "full_coverage": 0.988950276243094,
+      "purity": 0.2854387656702025,
+      "mean_candidates": 5.7292817679558015
+    },
+    "10": {
+      "queries": 181,
+      "hits": 296,
+      "gold_pairs": 301,
+      "candidates": 1898,
+      "recall_micro": 0.9833887043189369,
+      "recall_macro": 0.997586841938147,
+      "full_count": 179,
+      "full_coverage": 0.988950276243094,
+      "purity": 0.1559536354056902,
+      "mean_candidates": 10.486187845303867
+    },
+    "20": {
+      "queries": 181,
+      "hits": 298,
+      "gold_pairs": 301,
+      "candidates": 3659,
+      "recall_micro": 0.9900332225913622,
+      "recall_macro": 0.999428462564298,
+      "full_count": 180,
+      "full_coverage": 0.994475138121547,
+      "purity": 0.08144301721781907,
+      "mean_candidates": 20.215469613259668
+    }
+  },
+  "leave_one_query_out_diagnostic": {
+    "proposed": {
+      "queries": 180,
+      "hits": 263,
+      "gold_pairs": 272,
+      "candidates": 380,
+      "recall_micro": 0.9669117647058824,
+      "recall_macro": 0.9777777777777777,
+      "full_count": 175,
+      "full_coverage": 0.9722222222222222,
+      "purity": 0.6921052631578948,
+      "mean_candidates": 2.111111111111111
+    },
+    "dense@10": {
+      "queries": 180,
+      "hits": 265,
+      "gold_pairs": 272,
+      "candidates": 1800,
+      "recall_micro": 0.9742647058823529,
+      "recall_macro": 0.9937830687830688,
+      "full_count": 177,
+      "full_coverage": 0.9833333333333333,
+      "purity": 0.14722222222222223,
+      "mean_candidates": 10.0
+    },
+    "dense@20": {
+      "queries": 180,
+      "hits": 272,
+      "gold_pairs": 272,
+      "candidates": 3600,
+      "recall_micro": 1.0,
+      "recall_macro": 1.0,
+      "full_count": 180,
+      "full_coverage": 1.0,
+      "purity": 0.07555555555555556,
+      "mean_candidates": 20.0
+    },
+    "dense@30": {
+      "queries": 180,
+      "hits": 272,
+      "gold_pairs": 272,
+      "candidates": 5400,
+      "recall_micro": 1.0,
+      "recall_macro": 1.0,
+      "full_count": 180,
+      "full_coverage": 1.0,
+      "purity": 0.05037037037037037,
+      "mean_candidates": 30.0
+    }
+  },
+  "misses": [
+    {
+      "query_id": "TC-A-0070",
+      "content": "Vesper Northcott's blood pressure updated to 130/85 mmHg.",
+      "memory_id": "M-A-0163",
+      "first_exclusion": "coarse",
+      "dense_rank": 1,
+      "relation": null
+    },
+    {
+      "query_id": "TC-A-0145",
+      "content": "John's chemistry final exam is rescheduled to Day 130.",
+      "memory_id": "M-A-0374",
+      "first_exclusion": "coarse",
+      "dense_rank": 1,
+      "relation": null
+    },
+    {
+      "query_id": "TW-0002",
+      "content": "Biology textbook edition is now 5th Edition",
+      "memory_id": "M-C-0126",
+      "first_exclusion": "coarse",
+      "dense_rank": 1,
+      "relation": null
+    },
+    {
+      "query_id": "TW-0002",
+      "content": "Biology textbook edition is now 5th Edition",
+      "memory_id": "M-C-0127",
+      "first_exclusion": "coarse",
+      "dense_rank": 2,
+      "relation": null
+    },
+    {
+      "query_id": "TW-0002",
+      "content": "Biology textbook edition is now 5th Edition",
+      "memory_id": "M-C-0128",
+      "first_exclusion": "coarse",
+      "dense_rank": 5,
+      "relation": null
+    },
+    {
+      "query_id": "TW-0007",
+      "content": "Recommended book: 'Advanced AI Concepts' (Edition 2)",
+      "memory_id": "M-C-0123",
+      "first_exclusion": "subject_matter",
+      "dense_rank": 1,
+      "relation": [
+        {
+          "matter_relation": "not_corresponding",
+          "new_matter": "推荐书籍《Advanced AI Concepts》第2版",
+          "new_subject": {
+            "basis": "正文省略主语，subject_context 为空",
+            "identity": "",
+            "kind": "unknown"
+          },
+          "old_matter": "推荐书籍《Introduction to AI》第1版",
+          "old_subject": {
+            "basis": "正文省略推荐者，subject_context 为空",
+            "identity": "",
+            "kind": "unknown"
+          },
+          "reason": "书名不同，各自为不同书目的推荐，事项不对应",
+          "subject_relation": "uncertain"
+        }
+      ]
+    },
+    {
+      "query_id": "TW-0007",
+      "content": "Recommended book: 'Advanced AI Concepts' (Edition 2)",
+      "memory_id": "M-C-0125",
+      "first_exclusion": "coarse",
+      "dense_rank": 3,
+      "relation": null
+    },
+    {
+      "query_id": "TW-0013",
+      "content": "Recommended textbook for physics is now 'Physics Concepts, 2nd Edition'",
+      "memory_id": "M-C-0008",
+      "first_exclusion": "fine",
+      "dense_rank": 37,
+      "relation": [
+        {
+          "matter_relation": "corresponding",
+          "new_matter": "recommended textbook for physics",
+          "new_subject": {
+            "basis": "No subject mentioned; recommendation source unspecified",
+            "identity": "",
+            "kind": "unknown"
+          },
+          "old_matter": "recommended textbook for Physics 101",
+          "old_subject": {
+            "basis": "No subject mentioned; recommendation source unspecified",
+            "identity": "",
+            "kind": "unknown"
+          },
+          "reason": "Both are generic recommendations without a stated subject",
+          "subject_relation": "uncertain"
+        }
+      ]
+    },
+    {
+      "query_id": "TW-0013",
+      "content": "Recommended textbook for physics is now 'Physics Concepts, 2nd Edition'",
+      "memory_id": "M-C-0010",
+      "first_exclusion": "fine",
+      "dense_rank": 35,
+      "relation": [
+        {
+          "matter_relation": "corresponding",
+          "new_matter": "the recommended textbook for physics",
+          "new_subject": {
+            "basis": "No explicit subject; it is unclear whose recommendation this is.",
+            "identity": "",
+            "kind": "unknown"
+          },
+          "old_matter": "the recommended textbook for Physics 101",
+          "old_subject": {
+            "basis": "No explicit subject or context identifying the recommender.",
+            "identity": "",
+            "kind": "unknown"
+          },
+          "reason": "Both sides lack an identifiable subject.",
+          "subject_relation": "uncertain"
+        }
+      ]
+    },
+    {
+      "query_id": "TW-0013",
+      "content": "Recommended textbook for physics is now 'Physics Concepts, 2nd Edition'",
+      "memory_id": "M-C-0188",
+      "first_exclusion": "fine",
+      "dense_rank": null,
+      "relation": [
+        {
+          "matter_relation": "uncertain",
+          "new_matter": "物理课程当前推荐使用的教材",
+          "new_subject": {
+            "basis": "正文省略主语，未指明推荐者或适用课程，无法确定主体",
+            "identity": "",
+            "kind": "unknown"
+          },
+          "old_matter": "Physics 101 课程的教材版本",
+          "old_subject": {
+            "basis": "正文未指明教材版本的归属主体，无法确定主体",
+            "identity": "",
+            "kind": "unknown"
+          },
+          "reason": "新事项为推荐教材，旧事项为教材版本，且主体均不明",
+          "subject_relation": "uncertain"
+        }
+      ]
+    },
+    {
+      "query_id": "TW-0020",
+      "content": "History essay submission deadline extended to day_75",
+      "memory_id": "M-B-0159",
+      "first_exclusion": "subject_matter",
+      "dense_rank": 11,
+      "relation": [
+        {
+          "matter_relation": "not_corresponding",
+          "new_matter": "History essay submission deadline (extended to day_75)",
+          "new_subject": {
+            "basis": "正文未指明提交者",
+            "identity": "",
+            "kind": "unknown"
+          },
+          "old_matter": "Submit history research paper by day_50",
+          "old_subject": {
+            "basis": "正文未指明提交者",
+            "identity": "",
+            "kind": "unknown"
+          },
+          "reason": "essay 与 research paper 属不同事项，不能确定对应",
+          "subject_relation": "uncertain"
+        }
+      ]
+    },
+    {
+      "query_id": "TW-0020",
+      "content": "History essay submission deadline extended to day_75",
+      "memory_id": "M-B-0274",
+      "first_exclusion": "fine",
+      "dense_rank": 16,
+      "relation": [
+        {
+          "matter_relation": "corresponding",
+          "new_matter": "History essay submission deadline (extended to day_75)",
+          "new_subject": {
+            "basis": "正文未指明提交者",
+            "identity": "",
+            "kind": "unknown"
+          },
+          "old_matter": "History paper due day 20",
+          "old_subject": {
+            "basis": "正文未指明提交者",
+            "identity": "",
+            "kind": "unknown"
+          },
+          "reason": "均为历史论文截止事项，主体未具名",
+          "subject_relation": "uncertain"
+        }
+      ]
+    }
+  ],
+  "warnings": [
+    "All 181 queries are exploratory, all have positive gold, and all human_reviewed/fully_reviewed flags are false.",
+    "Count-matched diagnostic borrows proposed output lengths; not a deployable free baseline.",
+    "Stage exclusion uses an accounting order, not a causal ablation.",
+    "Source-family TC-A and TW are diagnostic labels; all current queries share the full 1225-record pool.",
+    "SparseCL uses fixed Arguana alpha=0.18 and English pretrained weights; local CPU batch-amortized costs are not API latency equivalents.",
+    "No currency prices are fixed; tokens are not monetary cost."
+  ]
+}

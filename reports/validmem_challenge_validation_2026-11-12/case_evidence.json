@@ -1,0 +1,3358 @@
+[
+  {
+    "label": "identity_pressure",
+    "experiment": "primary",
+    "selection": "Post-result illustrative case; hash-selected within stated condition, seed 17 if available",
+    "case": {
+      "added_distractors": 15,
+      "anchor_id": "TC-A-0152",
+      "bank_id": "B-0fcb1eb5d73573a6f978",
+      "bank_size": 200,
+      "case_id": "P-89fc22a15098c6608570",
+      "family": "coffee_shop",
+      "gold_count": 1,
+      "gold_ids": [
+        "C-695d25e0c6b4ab97b063"
+      ],
+      "module": "identity",
+      "query_text_id": "T-0fc5dfd9fdefde68086e",
+      "relation_counts": {
+        "conflict": 1,
+        "different_explicit_subject_or_no_target_subject": 184,
+        "different_subject": 15
+      },
+      "seed": 17,
+      "variant": "other_entity_query_value",
+      "wording": "canonical"
+    },
+    "anchor": {
+      "anchor_id": "TC-A-0152",
+      "query_fact": {
+        "attribute": "coffee_shop",
+        "entity": "John",
+        "value": "'Espresso Haven' on Elm Street"
+      },
+      "source_gold_ids": [
+        "M-A-0395",
+        "M-A-0396"
+      ],
+      "source_query": "John's favorite coffee shop is now 'Espresso Haven' on Elm Street.",
+      "source_target": "John's favorite coffee shop changed to 'The Daily Grind' on 2nd Avenue.",
+      "source_target_id": "M-A-0396",
+      "target_fact": {
+        "attribute": "coffee_shop",
+        "entity": "John",
+        "value": "'The Daily Grind' on 2nd Avenue"
+      }
+    },
+    "query": "John's favorite coffee shop is 'Espresso Haven' on Elm Street.",
+    "gold": [
+      {
+        "id": "C-695d25e0c6b4ab97b063",
+        "text": "John's favorite coffee shop is 'The Daily Grind' on 2nd Avenue.",
+        "fact": {
+          "attribute": "coffee_shop",
+          "entity": "John",
+          "value": "'The Daily Grind' on 2nd Avenue"
+        }
+      }
+    ],
+    "controlled_foreground": [
+      {
+        "id": "C-e2420fb3f51b16f5a59e",
+        "text": "Bob Garcia's favorite coffee shop is 'Espresso Haven' on Elm Street.",
+        "fact": {
+          "attribute": "coffee_shop",
+          "entity": "Bob Garcia",
+          "value": "'Espresso Haven' on Elm Street"
+        }
+      },
+      {
+        "id": "C-9a07337d15e5c3955e67",
+        "text": "Brian Jensen's favorite coffee shop is 'Espresso Haven' on Elm Street.",
+        "fact": {
+          "attribute": "coffee_shop",
+          "entity": "Brian Jensen",
+          "value": "'Espresso Haven' on Elm Street"
+        }
+      },
+      {
+        "id": "C-9e710996a9637c9ceb49",
+        "text": "Emma's favorite coffee shop is 'Espresso Haven' on Elm Street.",
+        "fact": {
+          "attribute": "coffee_shop",
+          "entity": "Emma",
+          "value": "'Espresso Haven' on Elm Street"
+        }
+      },
+      {
+        "id": "C-7570f6757f99fd6b6ef5",
+        "text": "Rachel Evans's favorite coffee shop is 'Espresso Haven' on Elm Street.",
+        "fact": {
+          "attribute": "coffee_shop",
+          "entity": "Rachel Evans",
+          "value": "'Espresso Haven' on Elm Street"
+        }
+      },
+      {
+        "id": "C-53c434a3f7f8bb214352",
+        "text": "Zack Garcia's favorite coffee shop is 'Espresso Haven' on Elm Street.",
+        "fact": {
+          "attribute": "coffee_shop",
+          "entity": "Zack Garcia",
+          "value": "'Espresso Haven' on Elm Street"
+        }
+      },
+      {
+        "id": "C-58a1aa636ffc379a1ac7",
+        "text": "Ivy Chen's favorite coffee shop is 'Espresso Haven' on Elm Street.",
+        "fact": {
+          "attribute": "coffee_shop",
+          "entity": "Ivy Chen",
+          "value": "'Espresso Haven' on Elm Street"
+        }
+      },
+      {
+        "id": "C-96901c606ca058029d35",
+        "text": "Mia Fisher's favorite coffee shop is 'Espresso Haven' on Elm Street.",
+        "fact": {
+          "attribute": "coffee_shop",
+          "entity": "Mia Fisher",
+          "value": "'Espresso Haven' on Elm Street"
+        }
+      },
+      {
+        "id": "C-ad8fedd9c3e1793ffbd2",
+        "text": "Carol Fisher's favorite coffee shop is 'Espresso Haven' on Elm Street.",
+        "fact": {
+          "attribute": "coffee_shop",
+          "entity": "Carol Fisher",
+          "value": "'Espresso Haven' on Elm Street"
+        }
+      },
+      {
+        "id": "C-a0b313f6297e92f67eeb",
+        "text": "Quinn Evans's favorite coffee shop is 'Espresso Haven' on Elm Street.",
+        "fact": {
+          "attribute": "coffee_shop",
+          "entity": "Quinn Evans",
+          "value": "'Espresso Haven' on Elm Street"
+        }
+      },
+      {
+        "id": "C-695d25e0c6b4ab97b063",
+        "text": "John's favorite coffee shop is 'The Daily Grind' on 2nd Avenue.",
+        "fact": {
+          "attribute": "coffee_shop",
+          "entity": "John",
+          "value": "'The Daily Grind' on 2nd Avenue"
+        }
+      },
+      {
+        "id": "C-9aef987b8526cd119d0c",
+        "text": "Chloe Evans's favorite coffee shop is 'Espresso Haven' on Elm Street.",
+        "fact": {
+          "attribute": "coffee_shop",
+          "entity": "Chloe Evans",
+          "value": "'Espresso Haven' on Elm Street"
+        }
+      },
+      {
+        "id": "C-b47407c237476b60a6e8",
+        "text": "Amber Fisher's favorite coffee shop is 'Espresso Haven' on Elm Street.",
+        "fact": {
+          "attribute": "coffee_shop",
+          "entity": "Amber Fisher",
+          "value": "'Espresso Haven' on Elm Street"
+        }
+      },
+      {
+        "id": "C-72cf30c52c72d2a33a2a",
+        "text": "Liam Fisher's favorite coffee shop is 'Espresso Haven' on Elm Street.",
+        "fact": {
+          "attribute": "coffee_shop",
+          "entity": "Liam Fisher",
+          "value": "'Espresso Haven' on Elm Street"
+        }
+      },
+      {
+        "id": "C-51072cb9dcf999becd06",
+        "text": "Mia Hughes's favorite coffee shop is 'Espresso Haven' on Elm Street.",
+        "fact": {
+          "attribute": "coffee_shop",
+          "entity": "Mia Hughes",
+          "value": "'Espresso Haven' on Elm Street"
+        }
+      },
+      {
+        "id": "C-9380d9febf09548cb4dd",
+        "text": "Quinn Garcia's favorite coffee shop is 'Espresso Haven' on Elm Street.",
+        "fact": {
+          "attribute": "coffee_shop",
+          "entity": "Quinn Garcia",
+          "value": "'Espresso Haven' on Elm Street"
+        }
+      },
+      {
+        "id": "C-82303b02293f72e10cbb",
+        "text": "Wendy Evans's favorite coffee shop is 'Espresso Haven' on Elm Street.",
+        "fact": {
+          "attribute": "coffee_shop",
+          "entity": "Wendy Evans",
+          "value": "'Espresso Haven' on Elm Street"
+        }
+      }
+    ],
+    "retrieval": {
+      "bm25": {
+        "gold_ranks": {
+          "C-695d25e0c6b4ab97b063": 16
+        },
+        "top5": [
+          {
+            "id": "C-9e710996a9637c9ceb49",
+            "text": "Emma's favorite coffee shop is 'Espresso Haven' on Elm Street.",
+            "fact": {
+              "attribute": "coffee_shop",
+              "entity": "Emma",
+              "value": "'Espresso Haven' on Elm Street"
+            }
+          },
+          {
+            "id": "C-51072cb9dcf999becd06",
+            "text": "Mia Hughes's favorite coffee shop is 'Espresso Haven' on Elm Street.",
+            "fact": {
+              "attribute": "coffee_shop",
+              "entity": "Mia Hughes",
+              "value": "'Espresso Haven' on Elm Street"
+            }
+          },
+          {
+            "id": "C-53c434a3f7f8bb214352",
+            "text": "Zack Garcia's favorite coffee shop is 'Espresso Haven' on Elm Street.",
+            "fact": {
+              "attribute": "coffee_shop",
+              "entity": "Zack Garcia",
+              "value": "'Espresso Haven' on Elm Street"
+            }
+          },
+          {
+            "id": "C-58a1aa636ffc379a1ac7",
+            "text": "Ivy Chen's favorite coffee shop is 'Espresso Haven' on Elm Street.",
+            "fact": {
+              "attribute": "coffee_shop",
+              "entity": "Ivy Chen",
+              "value": "'Espresso Haven' on Elm Street"
+            }
+          },
+          {
+            "id": "C-72cf30c52c72d2a33a2a",
+            "text": "Liam Fisher's favorite coffee shop is 'Espresso Haven' on Elm Street.",
+            "fact": {
+              "attribute": "coffee_shop",
+              "entity": "Liam Fisher",
+              "value": "'Espresso Haven' on Elm Street"
+            }
+          }
+        ]
+      },
+      "dense": {
+        "gold_ranks": {
+          "C-695d25e0c6b4ab97b063": 9
+        },
+        "top5": [
+          {
+            "id": "C-9e710996a9637c9ceb49",
+            "text": "Emma's favorite coffee shop is 'Espresso Haven' on Elm Street.",
+            "fact": {
+              "attribute": "coffee_shop",
+              "entity": "Emma",
+              "value": "'Espresso Haven' on Elm Street"
+            }
+          },
+          {
+            "id": "C-9a07337d15e5c3955e67",
+            "text": "Brian Jensen's favorite coffee shop is 'Espresso Haven' on Elm Street.",
+            "fact": {
+              "attribute": "coffee_shop",
+              "entity": "Brian Jensen",
+              "value": "'Espresso Haven' on Elm Street"
+            }
+          },
+          {
+            "id": "C-e2420fb3f51b16f5a59e",
+            "text": "Bob Garcia's favorite coffee shop is 'Espresso Haven' on Elm Street.",
+            "fact": {
+              "attribute": "coffee_shop",
+              "entity": "Bob Garcia",
+              "value": "'Espresso Haven' on Elm Street"
+            }
+          },
+          {
+            "id": "C-58a1aa636ffc379a1ac7",
+            "text": "Ivy Chen's favorite coffee shop is 'Espresso Haven' on Elm Street.",
+            "fact": {
+              "attribute": "coffee_shop",
+              "entity": "Ivy Chen",
+              "value": "'Espresso Haven' on Elm Street"
+            }
+          },
+          {
+            "id": "C-9380d9febf09548cb4dd",
+            "text": "Quinn Garcia's favorite coffee shop is 'Espresso Haven' on Elm Street.",
+            "fact": {
+              "attribute": "coffee_shop",
+              "entity": "Quinn Garcia",
+              "value": "'Espresso Haven' on Elm Street"
+            }
+          }
+        ]
+      },
+      "hybrid": {
+        "gold_ranks": {
+          "C-695d25e0c6b4ab97b063": 14
+        },
+        "top5": [
+          {
+            "id": "C-9e710996a9637c9ceb49",
+            "text": "Emma's favorite coffee shop is 'Espresso Haven' on Elm Street.",
+            "fact": {
+              "attribute": "coffee_shop",
+              "entity": "Emma",
+              "value": "'Espresso Haven' on Elm Street"
+            }
+          },
+          {
+            "id": "C-58a1aa636ffc379a1ac7",
+            "text": "Ivy Chen's favorite coffee shop is 'Espresso Haven' on Elm Street.",
+            "fact": {
+              "attribute": "coffee_shop",
+              "entity": "Ivy Chen",
+              "value": "'Espresso Haven' on Elm Street"
+            }
+          },
+          {
+            "id": "C-9a07337d15e5c3955e67",
+            "text": "Brian Jensen's favorite coffee shop is 'Espresso Haven' on Elm Street.",
+            "fact": {
+              "attribute": "coffee_shop",
+              "entity": "Brian Jensen",
+              "value": "'Espresso Haven' on Elm Street"
+            }
+          },
+          {
+            "id": "C-9380d9febf09548cb4dd",
+            "text": "Quinn Garcia's favorite coffee shop is 'Espresso Haven' on Elm Street.",
+            "fact": {
+              "attribute": "coffee_shop",
+              "entity": "Quinn Garcia",
+              "value": "'Espresso Haven' on Elm Street"
+            }
+          },
+          {
+            "id": "C-72cf30c52c72d2a33a2a",
+            "text": "Liam Fisher's favorite coffee shop is 'Espresso Haven' on Elm Street.",
+            "fact": {
+              "attribute": "coffee_shop",
+              "entity": "Liam Fisher",
+              "value": "'Espresso Haven' on Elm Street"
+            }
+          }
+        ]
+      },
+      "sparsecl": {
+        "gold_ranks": {
+          "C-695d25e0c6b4ab97b063": 16
+        },
+        "top5": [
+          {
+            "id": "C-e2420fb3f51b16f5a59e",
+            "text": "Bob Garcia's favorite coffee shop is 'Espresso Haven' on Elm Street.",
+            "fact": {
+              "attribute": "coffee_shop",
+              "entity": "Bob Garcia",
+              "value": "'Espresso Haven' on Elm Street"
+            }
+          },
+          {
+            "id": "C-9a07337d15e5c3955e67",
+            "text": "Brian Jensen's favorite coffee shop is 'Espresso Haven' on Elm Street.",
+            "fact": {
+              "attribute": "coffee_shop",
+              "entity": "Brian Jensen",
+              "value": "'Espresso Haven' on Elm Street"
+            }
+          },
+          {
+            "id": "C-72cf30c52c72d2a33a2a",
+            "text": "Liam Fisher's favorite coffee shop is 'Espresso Haven' on Elm Street.",
+            "fact": {
+              "attribute": "coffee_shop",
+              "entity": "Liam Fisher",
+              "value": "'Espresso Haven' on Elm Street"
+            }
+          },
+          {
+            "id": "C-9e710996a9637c9ceb49",
+            "text": "Emma's favorite coffee shop is 'Espresso Haven' on Elm Street.",
+            "fact": {
+              "attribute": "coffee_shop",
+              "entity": "Emma",
+              "value": "'Espresso Haven' on Elm Street"
+            }
+          },
+          {
+            "id": "C-53c434a3f7f8bb214352",
+            "text": "Zack Garcia's favorite coffee shop is 'Espresso Haven' on Elm Street.",
+            "fact": {
+              "attribute": "coffee_shop",
+              "entity": "Zack Garcia",
+              "value": "'Espresso Haven' on Elm Street"
+            }
+          }
+        ]
+      }
+    },
+    "paired_conditions": [
+      {
+        "case_id": "P-96f5291c0b9b99e81b5f",
+        "variant": "no_injection",
+        "bank_size": 200,
+        "gold_count": 1,
+        "added_distractors": 0,
+        "query": "John's favorite coffee shop is 'Espresso Haven' on Elm Street.",
+        "ranks": {
+          "bm25": {
+            "C-695d25e0c6b4ab97b063": 1
+          },
+          "dense": {
+            "C-695d25e0c6b4ab97b063": 1
+          },
+          "hybrid": {
+            "C-695d25e0c6b4ab97b063": 1
+          },
+          "sparsecl": {
+            "C-695d25e0c6b4ab97b063": 1
+          }
+        }
+      },
+      {
+        "case_id": "P-dce6c7ce7c105a36b6f2",
+        "variant": "other_entity_query_value",
+        "bank_size": 200,
+        "gold_count": 1,
+        "added_distractors": 1,
+        "query": "John's favorite coffee shop is 'Espresso Haven' on Elm Street.",
+        "ranks": {
+          "bm25": {
+            "C-695d25e0c6b4ab97b063": 2
+          },
+          "dense": {
+            "C-695d25e0c6b4ab97b063": 1
+          },
+          "hybrid": {
+            "C-695d25e0c6b4ab97b063": 1
+          },
+          "sparsecl": {
+            "C-695d25e0c6b4ab97b063": 2
+          }
+        }
+      },
+      {
+        "case_id": "P-03e190d54e666c60944b",
+        "variant": "other_entity_old_value",
+        "bank_size": 200,
+        "gold_count": 1,
+        "added_distractors": 1,
+        "query": "John's favorite coffee shop is 'Espresso Haven' on Elm Street.",
+        "ranks": {
+          "bm25": {
+            "C-695d25e0c6b4ab97b063": 1
+          },
+          "dense": {
+            "C-695d25e0c6b4ab97b063": 1
+          },
+          "hybrid": {
+            "C-695d25e0c6b4ab97b063": 1
+          },
+          "sparsecl": {
+            "C-695d25e0c6b4ab97b063": 1
+          }
+        }
+      },
+      {
+        "case_id": "P-752612d89b7076076406",
+        "variant": "other_entity_query_value",
+        "bank_size": 200,
+        "gold_count": 1,
+        "added_distractors": 5,
+        "query": "John's favorite coffee shop is 'Espresso Haven' on Elm Street.",
+        "ranks": {
+          "bm25": {
+            "C-695d25e0c6b4ab97b063": 6
+          },
+          "dense": {
+            "C-695d25e0c6b4ab97b063": 3
+          },
+          "hybrid": {
+            "C-695d25e0c6b4ab97b063": 5
+          },
+          "sparsecl": {
+            "C-695d25e0c6b4ab97b063": 6
+          }
+        }
+      },
+      {
+        "case_id": "P-d9ec228e5347d009c3a3",
+        "variant": "other_entity_old_value",
+        "bank_size": 200,
+        "gold_count": 1,
+        "added_distractors": 5,
+        "query": "John's favorite coffee shop is 'Espresso Haven' on Elm Street.",
+        "ranks": {
+          "bm25": {
+            "C-695d25e0c6b4ab97b063": 1
+          },
+          "dense": {
+            "C-695d25e0c6b4ab97b063": 1
+          },
+          "hybrid": {
+            "C-695d25e0c6b4ab97b063": 1
+          },
+          "sparsecl": {
+            "C-695d25e0c6b4ab97b063": 1
+          }
+        }
+      },
+      {
+        "case_id": "P-89fc22a15098c6608570",
+        "variant": "other_entity_query_value",
+        "bank_size": 200,
+        "gold_count": 1,
+        "added_distractors": 15,
+        "query": "John's favorite coffee shop is 'Espresso Haven' on Elm Street.",
+        "ranks": {
+          "bm25": {
+            "C-695d25e0c6b4ab97b063": 16
+          },
+          "dense": {
+            "C-695d25e0c6b4ab97b063": 9
+          },
+          "hybrid": {
+            "C-695d25e0c6b4ab97b063": 14
+          },
+          "sparsecl": {
+            "C-695d25e0c6b4ab97b063": 16
+          }
+        }
+      },
+      {
+        "case_id": "P-bb8a9fe56d75e209996a",
+        "variant": "other_entity_old_value",
+        "bank_size": 200,
+        "gold_count": 1,
+        "added_distractors": 15,
+        "query": "John's favorite coffee shop is 'Espresso Haven' on Elm Street.",
+        "ranks": {
+          "bm25": {
+            "C-695d25e0c6b4ab97b063": 1
+          },
+          "dense": {
+            "C-695d25e0c6b4ab97b063": 1
+          },
+          "hybrid": {
+            "C-695d25e0c6b4ab97b063": 1
+          },
+          "sparsecl": {
+            "C-695d25e0c6b4ab97b063": 1
+          }
+        }
+      }
+    ]
+  },
+  {
+    "label": "identity_small_budget_success",
+    "experiment": "primary",
+    "selection": "Post-result illustrative case; hash-selected within stated condition, seed 17 if available",
+    "case": {
+      "added_distractors": 5,
+      "anchor_id": "TC-A-0060",
+      "bank_id": "B-e53f2800f7b0e40ca82f",
+      "bank_size": 200,
+      "case_id": "P-da6a652c2d303cffc328",
+      "family": "grocery",
+      "gold_count": 1,
+      "gold_ids": [
+        "C-eecd9c503a9067d29587"
+      ],
+      "module": "identity",
+      "query_text_id": "T-5c552842cec600ff2876",
+      "relation_counts": {
+        "conflict": 1,
+        "different_explicit_subject_or_no_target_subject": 194,
+        "different_subject": 5
+      },
+      "seed": 17,
+      "variant": "other_entity_query_value",
+      "wording": "canonical"
+    },
+    "anchor": {
+      "anchor_id": "TC-A-0060",
+      "query_fact": {
+        "attribute": "grocery",
+        "entity": "Liam Chen",
+        "value": "Whole Foods"
+      },
+      "source_gold_ids": [
+        "M-A-0134",
+        "M-A-0135"
+      ],
+      "source_query": "Liam Chen changed preferred grocery store to Whole Foods",
+      "source_target": "Liam Chen updated preferred grocery store to Target",
+      "source_target_id": "M-A-0135",
+      "target_fact": {
+        "attribute": "grocery",
+        "entity": "Liam Chen",
+        "value": "Target"
+      }
+    },
+    "query": "Liam Chen's preferred grocery store is Whole Foods.",
+    "gold": [
+      {
+        "id": "C-eecd9c503a9067d29587",
+        "text": "Liam Chen's preferred grocery store is Target.",
+        "fact": {
+          "attribute": "grocery",
+          "entity": "Liam Chen",
+          "value": "Target"
+        }
+      }
+    ],
+    "controlled_foreground": [
+      {
+        "id": "C-d0df6e14d76cc7d0fec0",
+        "text": "Jack Fisher's preferred grocery store is Whole Foods.",
+        "fact": {
+          "attribute": "grocery",
+          "entity": "Jack Fisher",
+          "value": "Whole Foods"
+        }
+      },
+      {
+        "id": "C-eecd9c503a9067d29587",
+        "text": "Liam Chen's preferred grocery store is Target.",
+        "fact": {
+          "attribute": "grocery",
+          "entity": "Liam Chen",
+          "value": "Target"
+        }
+      },
+      {
+        "id": "C-c4323a7a7774da9d396d",
+        "text": "Yara Evans's preferred grocery store is Whole Foods.",
+        "fact": {
+          "attribute": "grocery",
+          "entity": "Yara Evans",
+          "value": "Whole Foods"
+        }
+      },
+      {
+        "id": "C-a16c37aa97c39ce0debb",
+        "text": "Emma's preferred grocery store is Whole Foods.",
+        "fact": {
+          "attribute": "grocery",
+          "entity": "Emma",
+          "value": "Whole Foods"
+        }
+      },
+      {
+        "id": "C-34a59c365b2a2365e74a",
+        "text": "John's preferred grocery store is Whole Foods.",
+        "fact": {
+          "attribute": "grocery",
+          "entity": "John",
+          "value": "Whole Foods"
+        }
+      },
+      {
+        "id": "C-3f7fb0c16d978fd169f6",
+        "text": "Chloe Evans's preferred grocery store is Whole Foods.",
+        "fact": {
+          "attribute": "grocery",
+          "entity": "Chloe Evans",
+          "value": "Whole Foods"
+        }
+      }
+    ],
+    "retrieval": {
+      "bm25": {
+        "gold_ranks": {
+          "C-eecd9c503a9067d29587": 1
+        },
+        "top5": [
+          {
+            "id": "C-eecd9c503a9067d29587",
+            "text": "Liam Chen's preferred grocery store is Target.",
+            "fact": {
+              "attribute": "grocery",
+              "entity": "Liam Chen",
+              "value": "Target"
+            }
+          },
+          {
+            "id": "C-34a59c365b2a2365e74a",
+            "text": "John's preferred grocery store is Whole Foods.",
+            "fact": {
+              "attribute": "grocery",
+              "entity": "John",
+              "value": "Whole Foods"
+            }
+          },
+          {
+            "id": "C-a16c37aa97c39ce0debb",
+            "text": "Emma's preferred grocery store is Whole Foods.",
+            "fact": {
+              "attribute": "grocery",
+              "entity": "Emma",
+              "value": "Whole Foods"
+            }
+          },
+          {
+            "id": "C-3f7fb0c16d978fd169f6",
+            "text": "Chloe Evans's preferred grocery store is Whole Foods.",
+            "fact": {
+              "attribute": "grocery",
+              "entity": "Chloe Evans",
+              "value": "Whole Foods"
+            }
+          },
+          {
+            "id": "C-c4323a7a7774da9d396d",
+            "text": "Yara Evans's preferred grocery store is Whole Foods.",
+            "fact": {
+              "attribute": "grocery",
+              "entity": "Yara Evans",
+              "value": "Whole Foods"
+            }
+          }
+        ]
+      },
+      "dense": {
+        "gold_ranks": {
+          "C-eecd9c503a9067d29587": 1
+        },
+        "top5": [
+          {
+            "id": "C-eecd9c503a9067d29587",
+            "text": "Liam Chen's preferred grocery store is Target.",
+            "fact": {
+              "attribute": "grocery",
+              "entity": "Liam Chen",
+              "value": "Target"
+            }
+          },
+          {
+            "id": "C-3f7fb0c16d978fd169f6",
+            "text": "Chloe Evans's preferred grocery store is Whole Foods.",
+            "fact": {
+              "attribute": "grocery",
+              "entity": "Chloe Evans",
+              "value": "Whole Foods"
+            }
+          },
+          {
+            "id": "C-a16c37aa97c39ce0debb",
+            "text": "Emma's preferred grocery store is Whole Foods.",
+            "fact": {
+              "attribute": "grocery",
+              "entity": "Emma",
+              "value": "Whole Foods"
+            }
+          },
+          {
+            "id": "C-34a59c365b2a2365e74a",
+            "text": "John's preferred grocery store is Whole Foods.",
+            "fact": {
+              "attribute": "grocery",
+              "entity": "John",
+              "value": "Whole Foods"
+            }
+          },
+          {
+            "id": "C-d0df6e14d76cc7d0fec0",
+            "text": "Jack Fisher's preferred grocery store is Whole Foods.",
+            "fact": {
+              "attribute": "grocery",
+              "entity": "Jack Fisher",
+              "value": "Whole Foods"
+            }
+          }
+        ]
+      },
+      "hybrid": {
+        "gold_ranks": {
+          "C-eecd9c503a9067d29587": 1
+        },
+        "top5": [
+          {
+            "id": "C-eecd9c503a9067d29587",
+            "text": "Liam Chen's preferred grocery store is Target.",
+            "fact": {
+              "attribute": "grocery",
+              "entity": "Liam Chen",
+              "value": "Target"
+            }
+          },
+          {
+            "id": "C-34a59c365b2a2365e74a",
+            "text": "John's preferred grocery store is Whole Foods.",
+            "fact": {
+              "attribute": "grocery",
+              "entity": "John",
+              "value": "Whole Foods"
+            }
+          },
+          {
+            "id": "C-3f7fb0c16d978fd169f6",
+            "text": "Chloe Evans's preferred grocery store is Whole Foods.",
+            "fact": {
+              "attribute": "grocery",
+              "entity": "Chloe Evans",
+              "value": "Whole Foods"
+            }
+          },
+          {
+            "id": "C-a16c37aa97c39ce0debb",
+            "text": "Emma's preferred grocery store is Whole Foods.",
+            "fact": {
+              "attribute": "grocery",
+              "entity": "Emma",
+              "value": "Whole Foods"
+            }
+          },
+          {
+            "id": "C-c4323a7a7774da9d396d",
+            "text": "Yara Evans's preferred grocery store is Whole Foods.",
+            "fact": {
+              "attribute": "grocery",
+              "entity": "Yara Evans",
+              "value": "Whole Foods"
+            }
+          }
+        ]
+      },
+      "sparsecl": {
+        "gold_ranks": {
+          "C-eecd9c503a9067d29587": 1
+        },
+        "top5": [
+          {
+            "id": "C-eecd9c503a9067d29587",
+            "text": "Liam Chen's preferred grocery store is Target.",
+            "fact": {
+              "attribute": "grocery",
+              "entity": "Liam Chen",
+              "value": "Target"
+            }
+          },
+          {
+            "id": "C-34a59c365b2a2365e74a",
+            "text": "John's preferred grocery store is Whole Foods.",
+            "fact": {
+              "attribute": "grocery",
+              "entity": "John",
+              "value": "Whole Foods"
+            }
+          },
+          {
+            "id": "C-d0df6e14d76cc7d0fec0",
+            "text": "Jack Fisher's preferred grocery store is Whole Foods.",
+            "fact": {
+              "attribute": "grocery",
+              "entity": "Jack Fisher",
+              "value": "Whole Foods"
+            }
+          },
+          {
+            "id": "C-a16c37aa97c39ce0debb",
+            "text": "Emma's preferred grocery store is Whole Foods.",
+            "fact": {
+              "attribute": "grocery",
+              "entity": "Emma",
+              "value": "Whole Foods"
+            }
+          },
+          {
+            "id": "C-3f7fb0c16d978fd169f6",
+            "text": "Chloe Evans's preferred grocery store is Whole Foods.",
+            "fact": {
+              "attribute": "grocery",
+              "entity": "Chloe Evans",
+              "value": "Whole Foods"
+            }
+          }
+        ]
+      }
+    },
+    "paired_conditions": [
+      {
+        "case_id": "P-a6d7640047b9304ca441",
+        "variant": "no_injection",
+        "bank_size": 200,
+        "gold_count": 1,
+        "added_distractors": 0,
+        "query": "Liam Chen's preferred grocery store is Whole Foods.",
+        "ranks": {
+          "bm25": {
+            "C-eecd9c503a9067d29587": 1
+          },
+          "dense": {
+            "C-eecd9c503a9067d29587": 1
+          },
+          "hybrid": {
+            "C-eecd9c503a9067d29587": 1
+          },
+          "sparsecl": {
+            "C-eecd9c503a9067d29587": 1
+          }
+        }
+      },
+      {
+        "case_id": "P-76fdf347b623a4ab7249",
+        "variant": "other_entity_query_value",
+        "bank_size": 200,
+        "gold_count": 1,
+        "added_distractors": 1,
+        "query": "Liam Chen's preferred grocery store is Whole Foods.",
+        "ranks": {
+          "bm25": {
+            "C-eecd9c503a9067d29587": 2
+          },
+          "dense": {
+            "C-eecd9c503a9067d29587": 1
+          },
+          "hybrid": {
+            "C-eecd9c503a9067d29587": 2
+          },
+          "sparsecl": {
+            "C-eecd9c503a9067d29587": 1
+          }
+        }
+      },
+      {
+        "case_id": "P-b70f878984a9ade57195",
+        "variant": "other_entity_old_value",
+        "bank_size": 200,
+        "gold_count": 1,
+        "added_distractors": 1,
+        "query": "Liam Chen's preferred grocery store is Whole Foods.",
+        "ranks": {
+          "bm25": {
+            "C-eecd9c503a9067d29587": 1
+          },
+          "dense": {
+            "C-eecd9c503a9067d29587": 1
+          },
+          "hybrid": {
+            "C-eecd9c503a9067d29587": 1
+          },
+          "sparsecl": {
+            "C-eecd9c503a9067d29587": 1
+          }
+        }
+      },
+      {
+        "case_id": "P-da6a652c2d303cffc328",
+        "variant": "other_entity_query_value",
+        "bank_size": 200,
+        "gold_count": 1,
+        "added_distractors": 5,
+        "query": "Liam Chen's preferred grocery store is Whole Foods.",
+        "ranks": {
+          "bm25": {
+            "C-eecd9c503a9067d29587": 1
+          },
+          "dense": {
+            "C-eecd9c503a9067d29587": 1
+          },
+          "hybrid": {
+            "C-eecd9c503a9067d29587": 1
+          },
+          "sparsecl": {
+            "C-eecd9c503a9067d29587": 1
+          }
+        }
+      },
+      {
+        "case_id": "P-ab87fa1003b0903aa18d",
+        "variant": "other_entity_old_value",
+        "bank_size": 200,
+        "gold_count": 1,
+        "added_distractors": 5,
+        "query": "Liam Chen's preferred grocery store is Whole Foods.",
+        "ranks": {
+          "bm25": {
+            "C-eecd9c503a9067d29587": 1
+          },
+          "dense": {
+            "C-eecd9c503a9067d29587": 1
+          },
+          "hybrid": {
+            "C-eecd9c503a9067d29587": 1
+          },
+          "sparsecl": {
+            "C-eecd9c503a9067d29587": 1
+          }
+        }
+      },
+      {
+        "case_id": "P-68c1d34a34be38d3c833",
+        "variant": "other_entity_query_value",
+        "bank_size": 200,
+        "gold_count": 1,
+        "added_distractors": 15,
+        "query": "Liam Chen's preferred grocery store is Whole Foods.",
+        "ranks": {
+          "bm25": {
+            "C-eecd9c503a9067d29587": 1
+          },
+          "dense": {
+            "C-eecd9c503a9067d29587": 1
+          },
+          "hybrid": {
+            "C-eecd9c503a9067d29587": 1
+          },
+          "sparsecl": {
+            "C-eecd9c503a9067d29587": 1
+          }
+        }
+      },
+      {
+        "case_id": "P-228048cb86af3df28b91",
+        "variant": "other_entity_old_value",
+        "bank_size": 200,
+        "gold_count": 1,
+        "added_distractors": 15,
+        "query": "Liam Chen's preferred grocery store is Whole Foods.",
+        "ranks": {
+          "bm25": {
+            "C-eecd9c503a9067d29587": 1
+          },
+          "dense": {
+            "C-eecd9c503a9067d29587": 1
+          },
+          "hybrid": {
+            "C-eecd9c503a9067d29587": 1
+          },
+          "sparsecl": {
+            "C-eecd9c503a9067d29587": 1
+          }
+        }
+      }
+    ]
+  },
+  {
+    "label": "chinese_configuration_gap",
+    "experiment": "primary",
+    "selection": "Post-result illustrative case; hash-selected within stated condition, seed 17 if available",
+    "case": {
+      "added_distractors": 5,
+      "anchor_id": "TC-A-0161",
+      "bank_id": "B-59a556de99997bbe1a48",
+      "bank_size": 200,
+      "case_id": "P-ef325dba55579bba46b3",
+      "family": "coffee_brand",
+      "gold_count": 1,
+      "gold_ids": [
+        "C-d350cfe721d32b96f1a4"
+      ],
+      "module": "wording",
+      "query_text_id": "T-f1ffd47dbfc79e1b4d0c",
+      "relation_counts": {
+        "conflict": 1,
+        "different_explicit_subject_or_no_target_subject": 194,
+        "different_subject": 5
+      },
+      "seed": 17,
+      "variant": "chinese",
+      "wording": "chinese"
+    },
+    "anchor": {
+      "anchor_id": "TC-A-0161",
+      "query_fact": {
+        "attribute": "coffee_brand",
+        "entity": "Frank Hughes",
+        "value": "Blue Bottle"
+      },
+      "source_gold_ids": [
+        "M-A-0422",
+        "M-A-0423"
+      ],
+      "source_query": "Frank Hughes's preferred coffee brand is Blue Bottle.",
+      "source_target": "Frank Hughes's preferred coffee brand is Starbucks.",
+      "source_target_id": "M-A-0422",
+      "target_fact": {
+        "attribute": "coffee_brand",
+        "entity": "Frank Hughes",
+        "value": "Starbucks"
+      }
+    },
+    "query": "Frank Hughes首选的咖啡品牌是Blue Bottle。",
+    "gold": [
+      {
+        "id": "C-d350cfe721d32b96f1a4",
+        "text": "Frank Hughes's preferred coffee brand is Starbucks.",
+        "fact": {
+          "attribute": "coffee_brand",
+          "entity": "Frank Hughes",
+          "value": "Starbucks"
+        }
+      }
+    ],
+    "controlled_foreground": [
+      {
+        "id": "C-10d45f16f273445e163d",
+        "text": "Quinn Garcia's preferred coffee brand is Blue Bottle.",
+        "fact": {
+          "attribute": "coffee_brand",
+          "entity": "Quinn Garcia",
+          "value": "Blue Bottle"
+        }
+      },
+      {
+        "id": "C-d350cfe721d32b96f1a4",
+        "text": "Frank Hughes's preferred coffee brand is Starbucks.",
+        "fact": {
+          "attribute": "coffee_brand",
+          "entity": "Frank Hughes",
+          "value": "Starbucks"
+        }
+      },
+      {
+        "id": "C-d5866274358a4085fd36",
+        "text": "Noah Fisher's preferred coffee brand is Blue Bottle.",
+        "fact": {
+          "attribute": "coffee_brand",
+          "entity": "Noah Fisher",
+          "value": "Blue Bottle"
+        }
+      },
+      {
+        "id": "C-d65f36e766a1bbfc7026",
+        "text": "Liam Hughes's preferred coffee brand is Blue Bottle.",
+        "fact": {
+          "attribute": "coffee_brand",
+          "entity": "Liam Hughes",
+          "value": "Blue Bottle"
+        }
+      },
+      {
+        "id": "C-21102baddf45cad508ce",
+        "text": "Ivy Chen's preferred coffee brand is Blue Bottle.",
+        "fact": {
+          "attribute": "coffee_brand",
+          "entity": "Ivy Chen",
+          "value": "Blue Bottle"
+        }
+      },
+      {
+        "id": "C-dd0c7ba29ca46b507c1c",
+        "text": "Sam Jensen's preferred coffee brand is Blue Bottle.",
+        "fact": {
+          "attribute": "coffee_brand",
+          "entity": "Sam Jensen",
+          "value": "Blue Bottle"
+        }
+      }
+    ],
+    "retrieval": {
+      "bm25": {
+        "gold_ranks": {
+          "C-d350cfe721d32b96f1a4": 4
+        },
+        "top5": [
+          {
+            "id": "C-d65f36e766a1bbfc7026",
+            "text": "Liam Hughes's preferred coffee brand is Blue Bottle.",
+            "fact": {
+              "attribute": "coffee_brand",
+              "entity": "Liam Hughes",
+              "value": "Blue Bottle"
+            }
+          },
+          {
+            "id": "M-A-0359",
+            "text": "Sam Patel的张伟的微信号是 zhangwei123",
+            "fact": null
+          },
+          {
+            "id": "M-A-0361",
+            "text": "Sam Patel的张薇的微信号是 zhangwei_001",
+            "fact": null
+          },
+          {
+            "id": "C-d350cfe721d32b96f1a4",
+            "text": "Frank Hughes's preferred coffee brand is Starbucks.",
+            "fact": {
+              "attribute": "coffee_brand",
+              "entity": "Frank Hughes",
+              "value": "Starbucks"
+            }
+          },
+          {
+            "id": "C-10d45f16f273445e163d",
+            "text": "Quinn Garcia's preferred coffee brand is Blue Bottle.",
+            "fact": {
+              "attribute": "coffee_brand",
+              "entity": "Quinn Garcia",
+              "value": "Blue Bottle"
+            }
+          }
+        ]
+      },
+      "dense": {
+        "gold_ranks": {
+          "C-d350cfe721d32b96f1a4": 1
+        },
+        "top5": [
+          {
+            "id": "C-d350cfe721d32b96f1a4",
+            "text": "Frank Hughes's preferred coffee brand is Starbucks.",
+            "fact": {
+              "attribute": "coffee_brand",
+              "entity": "Frank Hughes",
+              "value": "Starbucks"
+            }
+          },
+          {
+            "id": "C-d65f36e766a1bbfc7026",
+            "text": "Liam Hughes's preferred coffee brand is Blue Bottle.",
+            "fact": {
+              "attribute": "coffee_brand",
+              "entity": "Liam Hughes",
+              "value": "Blue Bottle"
+            }
+          },
+          {
+            "id": "C-10d45f16f273445e163d",
+            "text": "Quinn Garcia's preferred coffee brand is Blue Bottle.",
+            "fact": {
+              "attribute": "coffee_brand",
+              "entity": "Quinn Garcia",
+              "value": "Blue Bottle"
+            }
+          },
+          {
+            "id": "C-d5866274358a4085fd36",
+            "text": "Noah Fisher's preferred coffee brand is Blue Bottle.",
+            "fact": {
+              "attribute": "coffee_brand",
+              "entity": "Noah Fisher",
+              "value": "Blue Bottle"
+            }
+          },
+          {
+            "id": "C-dd0c7ba29ca46b507c1c",
+            "text": "Sam Jensen's preferred coffee brand is Blue Bottle.",
+            "fact": {
+              "attribute": "coffee_brand",
+              "entity": "Sam Jensen",
+              "value": "Blue Bottle"
+            }
+          }
+        ]
+      },
+      "hybrid": {
+        "gold_ranks": {
+          "C-d350cfe721d32b96f1a4": 2
+        },
+        "top5": [
+          {
+            "id": "C-d65f36e766a1bbfc7026",
+            "text": "Liam Hughes's preferred coffee brand is Blue Bottle.",
+            "fact": {
+              "attribute": "coffee_brand",
+              "entity": "Liam Hughes",
+              "value": "Blue Bottle"
+            }
+          },
+          {
+            "id": "C-d350cfe721d32b96f1a4",
+            "text": "Frank Hughes's preferred coffee brand is Starbucks.",
+            "fact": {
+              "attribute": "coffee_brand",
+              "entity": "Frank Hughes",
+              "value": "Starbucks"
+            }
+          },
+          {
+            "id": "C-10d45f16f273445e163d",
+            "text": "Quinn Garcia's preferred coffee brand is Blue Bottle.",
+            "fact": {
+              "attribute": "coffee_brand",
+              "entity": "Quinn Garcia",
+              "value": "Blue Bottle"
+            }
+          },
+          {
+            "id": "C-d5866274358a4085fd36",
+            "text": "Noah Fisher's preferred coffee brand is Blue Bottle.",
+            "fact": {
+              "attribute": "coffee_brand",
+              "entity": "Noah Fisher",
+              "value": "Blue Bottle"
+            }
+          },
+          {
+            "id": "C-21102baddf45cad508ce",
+            "text": "Ivy Chen's preferred coffee brand is Blue Bottle.",
+            "fact": {
+              "attribute": "coffee_brand",
+              "entity": "Ivy Chen",
+              "value": "Blue Bottle"
+            }
+          }
+        ]
+      },
+      "sparsecl": {
+        "gold_ranks": {
+          "C-d350cfe721d32b96f1a4": 18
+        },
+        "top5": [
+          {
+            "id": "M-B-0336",
+            "text": "Sam Irwin上周买了两瓶牛奶，放在冰箱里。",
+            "fact": null
+          },
+          {
+            "id": "M-B-0223",
+            "text": "Bob Nelson学习数学章节4-6：练习题完成一半",
+            "fact": null
+          },
+          {
+            "id": "M-B-0239",
+            "text": "Victor Miller今天早晨洗了衣服。",
+            "fact": null
+          },
+          {
+            "id": "M-B-0318",
+            "text": "Noah Nelson今天开始浇灌阳台的绿植",
+            "fact": null
+          },
+          {
+            "id": "M-A-0361",
+            "text": "Sam Patel的张薇的微信号是 zhangwei_001",
+            "fact": null
+          }
+        ]
+      }
+    },
+    "paired_conditions": [
+      {
+        "case_id": "P-8ef7081c7811d82033c1",
+        "variant": "original",
+        "bank_size": 200,
+        "gold_count": 1,
+        "added_distractors": 5,
+        "query": "Frank Hughes's preferred coffee brand is Blue Bottle.",
+        "ranks": {
+          "bm25": {
+            "C-d350cfe721d32b96f1a4": 2
+          },
+          "dense": {
+            "C-d350cfe721d32b96f1a4": 1
+          },
+          "hybrid": {
+            "C-d350cfe721d32b96f1a4": 1
+          },
+          "sparsecl": {
+            "C-d350cfe721d32b96f1a4": 2
+          }
+        }
+      },
+      {
+        "case_id": "P-ff5eee04ed097822482a",
+        "variant": "canonical",
+        "bank_size": 200,
+        "gold_count": 1,
+        "added_distractors": 5,
+        "query": "Frank Hughes's preferred coffee brand is Blue Bottle.",
+        "ranks": {
+          "bm25": {
+            "C-d350cfe721d32b96f1a4": 2
+          },
+          "dense": {
+            "C-d350cfe721d32b96f1a4": 1
+          },
+          "hybrid": {
+            "C-d350cfe721d32b96f1a4": 1
+          },
+          "sparsecl": {
+            "C-d350cfe721d32b96f1a4": 2
+          }
+        }
+      },
+      {
+        "case_id": "P-2d7f38a7f4ada72d3cd8",
+        "variant": "paraphrase",
+        "bank_size": 200,
+        "gold_count": 1,
+        "added_distractors": 5,
+        "query": "For Frank Hughes, the first choice of coffee brand is Blue Bottle.",
+        "ranks": {
+          "bm25": {
+            "C-d350cfe721d32b96f1a4": 2
+          },
+          "dense": {
+            "C-d350cfe721d32b96f1a4": 2
+          },
+          "hybrid": {
+            "C-d350cfe721d32b96f1a4": 2
+          },
+          "sparsecl": {
+            "C-d350cfe721d32b96f1a4": 2
+          }
+        }
+      },
+      {
+        "case_id": "P-ef325dba55579bba46b3",
+        "variant": "chinese",
+        "bank_size": 200,
+        "gold_count": 1,
+        "added_distractors": 5,
+        "query": "Frank Hughes首选的咖啡品牌是Blue Bottle。",
+        "ranks": {
+          "bm25": {
+            "C-d350cfe721d32b96f1a4": 4
+          },
+          "dense": {
+            "C-d350cfe721d32b96f1a4": 1
+          },
+          "hybrid": {
+            "C-d350cfe721d32b96f1a4": 2
+          },
+          "sparsecl": {
+            "C-d350cfe721d32b96f1a4": 18
+          }
+        }
+      }
+    ]
+  },
+  {
+    "label": "multiple_targets_without_capacity_deficit",
+    "experiment": "primary",
+    "selection": "Post-result illustrative case; hash-selected within stated condition, seed 17 if available",
+    "case": {
+      "added_distractors": 5,
+      "anchor_id": "TC-A-0033",
+      "bank_id": "B-55caab35c65b729e72f6",
+      "bank_size": 200,
+      "case_id": "P-f5c3a0a8c46be9ad1da3",
+      "family": "grocery",
+      "gold_count": 4,
+      "gold_ids": [
+        "C-64d68c06dc210985654c",
+        "C-8e708ffa6e3e0d8c3be3",
+        "C-a5dc985416f90f19294e",
+        "C-d20c6ff9df2b244366be"
+      ],
+      "module": "cardinality",
+      "query_text_id": "T-1cfed87d895beefa40fc",
+      "relation_counts": {
+        "conflict": 4,
+        "different_explicit_subject_or_no_target_subject": 191,
+        "different_subject": 5
+      },
+      "seed": 17,
+      "variant": "distinct_observed_values",
+      "wording": "canonical"
+    },
+    "anchor": {
+      "anchor_id": "TC-A-0033",
+      "query_fact": {
+        "attribute": "grocery",
+        "entity": "Peter Fisher",
+        "value": "Trader Joe's"
+      },
+      "source_gold_ids": [
+        "M-A-0067",
+        "M-A-0068"
+      ],
+      "source_query": "Peter Fisher updated preferred grocery store to Trader Joe's.",
+      "source_target": "Peter Fisher's preferred grocery store is Walmart.",
+      "source_target_id": "M-A-0067",
+      "target_fact": {
+        "attribute": "grocery",
+        "entity": "Peter Fisher",
+        "value": "Walmart"
+      }
+    },
+    "query": "Peter Fisher's preferred grocery store is Trader Joe's.",
+    "gold": [
+      {
+        "id": "C-64d68c06dc210985654c",
+        "text": "Peter Fisher's preferred grocery store is FreshFoods.",
+        "fact": {
+          "attribute": "grocery",
+          "entity": "Peter Fisher",
+          "value": "FreshFoods"
+        }
+      },
+      {
+        "id": "C-8e708ffa6e3e0d8c3be3",
+        "text": "Peter Fisher's preferred grocery store is GreenGrocers.",
+        "fact": {
+          "attribute": "grocery",
+          "entity": "Peter Fisher",
+          "value": "GreenGrocers"
+        }
+      },
+      {
+        "id": "C-a5dc985416f90f19294e",
+        "text": "Peter Fisher's preferred grocery store is FreshMart.",
+        "fact": {
+          "attribute": "grocery",
+          "entity": "Peter Fisher",
+          "value": "FreshMart"
+        }
+      },
+      {
+        "id": "C-d20c6ff9df2b244366be",
+        "text": "Peter Fisher's preferred grocery store is Costco.",
+        "fact": {
+          "attribute": "grocery",
+          "entity": "Peter Fisher",
+          "value": "Costco"
+        }
+      }
+    ],
+    "controlled_foreground": [
+      {
+        "id": "C-a5dc985416f90f19294e",
+        "text": "Peter Fisher's preferred grocery store is FreshMart.",
+        "fact": {
+          "attribute": "grocery",
+          "entity": "Peter Fisher",
+          "value": "FreshMart"
+        }
+      },
+      {
+        "id": "C-8e708ffa6e3e0d8c3be3",
+        "text": "Peter Fisher's preferred grocery store is GreenGrocers.",
+        "fact": {
+          "attribute": "grocery",
+          "entity": "Peter Fisher",
+          "value": "GreenGrocers"
+        }
+      },
+      {
+        "id": "C-6e27da3fd464dd9dd76c",
+        "text": "Henry Hughes's preferred grocery store is Trader Joe's.",
+        "fact": {
+          "attribute": "grocery",
+          "entity": "Henry Hughes",
+          "value": "Trader Joe's"
+        }
+      },
+      {
+        "id": "C-64d68c06dc210985654c",
+        "text": "Peter Fisher's preferred grocery store is FreshFoods.",
+        "fact": {
+          "attribute": "grocery",
+          "entity": "Peter Fisher",
+          "value": "FreshFoods"
+        }
+      },
+      {
+        "id": "C-1bfe6d6ebb6dcb2b03e5",
+        "text": "Yara Fisher's preferred grocery store is Trader Joe's.",
+        "fact": {
+          "attribute": "grocery",
+          "entity": "Yara Fisher",
+          "value": "Trader Joe's"
+        }
+      },
+      {
+        "id": "C-49c659a5ec47d7c24073",
+        "text": "Bob Garcia's preferred grocery store is Trader Joe's.",
+        "fact": {
+          "attribute": "grocery",
+          "entity": "Bob Garcia",
+          "value": "Trader Joe's"
+        }
+      },
+      {
+        "id": "C-994fa93488f00269e94f",
+        "text": "Emma's preferred grocery store is Trader Joe's.",
+        "fact": {
+          "attribute": "grocery",
+          "entity": "Emma",
+          "value": "Trader Joe's"
+        }
+      },
+      {
+        "id": "C-d20c6ff9df2b244366be",
+        "text": "Peter Fisher's preferred grocery store is Costco.",
+        "fact": {
+          "attribute": "grocery",
+          "entity": "Peter Fisher",
+          "value": "Costco"
+        }
+      },
+      {
+        "id": "C-c5ce48f16dae645b64ff",
+        "text": "Jack Fisher's preferred grocery store is Trader Joe's.",
+        "fact": {
+          "attribute": "grocery",
+          "entity": "Jack Fisher",
+          "value": "Trader Joe's"
+        }
+      }
+    ],
+    "retrieval": {
+      "bm25": {
+        "gold_ranks": {
+          "C-64d68c06dc210985654c": 4,
+          "C-8e708ffa6e3e0d8c3be3": 5,
+          "C-a5dc985416f90f19294e": 6,
+          "C-d20c6ff9df2b244366be": 7
+        },
+        "top5": [
+          {
+            "id": "C-1bfe6d6ebb6dcb2b03e5",
+            "text": "Yara Fisher's preferred grocery store is Trader Joe's.",
+            "fact": {
+              "attribute": "grocery",
+              "entity": "Yara Fisher",
+              "value": "Trader Joe's"
+            }
+          },
+          {
+            "id": "C-c5ce48f16dae645b64ff",
+            "text": "Jack Fisher's preferred grocery store is Trader Joe's.",
+            "fact": {
+              "attribute": "grocery",
+              "entity": "Jack Fisher",
+              "value": "Trader Joe's"
+            }
+          },
+          {
+            "id": "C-994fa93488f00269e94f",
+            "text": "Emma's preferred grocery store is Trader Joe's.",
+            "fact": {
+              "attribute": "grocery",
+              "entity": "Emma",
+              "value": "Trader Joe's"
+            }
+          },
+          {
+            "id": "C-64d68c06dc210985654c",
+            "text": "Peter Fisher's preferred grocery store is FreshFoods.",
+            "fact": {
+              "attribute": "grocery",
+              "entity": "Peter Fisher",
+              "value": "FreshFoods"
+            }
+          },
+          {
+            "id": "C-8e708ffa6e3e0d8c3be3",
+            "text": "Peter Fisher's preferred grocery store is GreenGrocers.",
+            "fact": {
+              "attribute": "grocery",
+              "entity": "Peter Fisher",
+              "value": "GreenGrocers"
+            }
+          }
+        ]
+      },
+      "dense": {
+        "gold_ranks": {
+          "C-64d68c06dc210985654c": 2,
+          "C-8e708ffa6e3e0d8c3be3": 6,
+          "C-a5dc985416f90f19294e": 4,
+          "C-d20c6ff9df2b244366be": 3
+        },
+        "top5": [
+          {
+            "id": "C-c5ce48f16dae645b64ff",
+            "text": "Jack Fisher's preferred grocery store is Trader Joe's.",
+            "fact": {
+              "attribute": "grocery",
+              "entity": "Jack Fisher",
+              "value": "Trader Joe's"
+            }
+          },
+          {
+            "id": "C-64d68c06dc210985654c",
+            "text": "Peter Fisher's preferred grocery store is FreshFoods.",
+            "fact": {
+              "attribute": "grocery",
+              "entity": "Peter Fisher",
+              "value": "FreshFoods"
+            }
+          },
+          {
+            "id": "C-d20c6ff9df2b244366be",
+            "text": "Peter Fisher's preferred grocery store is Costco.",
+            "fact": {
+              "attribute": "grocery",
+              "entity": "Peter Fisher",
+              "value": "Costco"
+            }
+          },
+          {
+            "id": "C-a5dc985416f90f19294e",
+            "text": "Peter Fisher's preferred grocery store is FreshMart.",
+            "fact": {
+              "attribute": "grocery",
+              "entity": "Peter Fisher",
+              "value": "FreshMart"
+            }
+          },
+          {
+            "id": "C-1bfe6d6ebb6dcb2b03e5",
+            "text": "Yara Fisher's preferred grocery store is Trader Joe's.",
+            "fact": {
+              "attribute": "grocery",
+              "entity": "Yara Fisher",
+              "value": "Trader Joe's"
+            }
+          }
+        ]
+      },
+      "hybrid": {
+        "gold_ranks": {
+          "C-64d68c06dc210985654c": 3,
+          "C-8e708ffa6e3e0d8c3be3": 7,
+          "C-a5dc985416f90f19294e": 5,
+          "C-d20c6ff9df2b244366be": 4
+        },
+        "top5": [
+          {
+            "id": "C-c5ce48f16dae645b64ff",
+            "text": "Jack Fisher's preferred grocery store is Trader Joe's.",
+            "fact": {
+              "attribute": "grocery",
+              "entity": "Jack Fisher",
+              "value": "Trader Joe's"
+            }
+          },
+          {
+            "id": "C-1bfe6d6ebb6dcb2b03e5",
+            "text": "Yara Fisher's preferred grocery store is Trader Joe's.",
+            "fact": {
+              "attribute": "grocery",
+              "entity": "Yara Fisher",
+              "value": "Trader Joe's"
+            }
+          },
+          {
+            "id": "C-64d68c06dc210985654c",
+            "text": "Peter Fisher's preferred grocery store is FreshFoods.",
+            "fact": {
+              "attribute": "grocery",
+              "entity": "Peter Fisher",
+              "value": "FreshFoods"
+            }
+          },
+          {
+            "id": "C-d20c6ff9df2b244366be",
+            "text": "Peter Fisher's preferred grocery store is Costco.",
+            "fact": {
+              "attribute": "grocery",
+              "entity": "Peter Fisher",
+              "value": "Costco"
+            }
+          },
+          {
+            "id": "C-a5dc985416f90f19294e",
+            "text": "Peter Fisher's preferred grocery store is FreshMart.",
+            "fact": {
+              "attribute": "grocery",
+              "entity": "Peter Fisher",
+              "value": "FreshMart"
+            }
+          }
+        ]
+      },
+      "sparsecl": {
+        "gold_ranks": {
+          "C-64d68c06dc210985654c": 6,
+          "C-8e708ffa6e3e0d8c3be3": 5,
+          "C-a5dc985416f90f19294e": 9,
+          "C-d20c6ff9df2b244366be": 4
+        },
+        "top5": [
+          {
+            "id": "C-c5ce48f16dae645b64ff",
+            "text": "Jack Fisher's preferred grocery store is Trader Joe's.",
+            "fact": {
+              "attribute": "grocery",
+              "entity": "Jack Fisher",
+              "value": "Trader Joe's"
+            }
+          },
+          {
+            "id": "C-1bfe6d6ebb6dcb2b03e5",
+            "text": "Yara Fisher's preferred grocery store is Trader Joe's.",
+            "fact": {
+              "attribute": "grocery",
+              "entity": "Yara Fisher",
+              "value": "Trader Joe's"
+            }
+          },
+          {
+            "id": "C-6e27da3fd464dd9dd76c",
+            "text": "Henry Hughes's preferred grocery store is Trader Joe's.",
+            "fact": {
+              "attribute": "grocery",
+              "entity": "Henry Hughes",
+              "value": "Trader Joe's"
+            }
+          },
+          {
+            "id": "C-d20c6ff9df2b244366be",
+            "text": "Peter Fisher's preferred grocery store is Costco.",
+            "fact": {
+              "attribute": "grocery",
+              "entity": "Peter Fisher",
+              "value": "Costco"
+            }
+          },
+          {
+            "id": "C-8e708ffa6e3e0d8c3be3",
+            "text": "Peter Fisher's preferred grocery store is GreenGrocers.",
+            "fact": {
+              "attribute": "grocery",
+              "entity": "Peter Fisher",
+              "value": "GreenGrocers"
+            }
+          }
+        ]
+      }
+    },
+    "paired_conditions": [
+      {
+        "case_id": "P-9e746ab71cbb122baac0",
+        "variant": "distinct_observed_values",
+        "bank_size": 200,
+        "gold_count": 1,
+        "added_distractors": 5,
+        "query": "Peter Fisher's preferred grocery store is Trader Joe's.",
+        "ranks": {
+          "bm25": {
+            "C-d20c6ff9df2b244366be": 3
+          },
+          "dense": {
+            "C-d20c6ff9df2b244366be": 2
+          },
+          "hybrid": {
+            "C-d20c6ff9df2b244366be": 3
+          },
+          "sparsecl": {
+            "C-d20c6ff9df2b244366be": 4
+          }
+        }
+      },
+      {
+        "case_id": "P-80cfb444ad3795139205",
+        "variant": "distinct_observed_values",
+        "bank_size": 200,
+        "gold_count": 2,
+        "added_distractors": 5,
+        "query": "Peter Fisher's preferred grocery store is Trader Joe's.",
+        "ranks": {
+          "bm25": {
+            "C-8e708ffa6e3e0d8c3be3": 4,
+            "C-d20c6ff9df2b244366be": 5
+          },
+          "dense": {
+            "C-8e708ffa6e3e0d8c3be3": 4,
+            "C-d20c6ff9df2b244366be": 2
+          },
+          "hybrid": {
+            "C-8e708ffa6e3e0d8c3be3": 4,
+            "C-d20c6ff9df2b244366be": 3
+          },
+          "sparsecl": {
+            "C-8e708ffa6e3e0d8c3be3": 5,
+            "C-d20c6ff9df2b244366be": 4
+          }
+        }
+      },
+      {
+        "case_id": "P-f5c3a0a8c46be9ad1da3",
+        "variant": "distinct_observed_values",
+        "bank_size": 200,
+        "gold_count": 4,
+        "added_distractors": 5,
+        "query": "Peter Fisher's preferred grocery store is Trader Joe's.",
+        "ranks": {
+          "bm25": {
+            "C-64d68c06dc210985654c": 4,
+            "C-8e708ffa6e3e0d8c3be3": 5,
+            "C-a5dc985416f90f19294e": 6,
+            "C-d20c6ff9df2b244366be": 7
+          },
+          "dense": {
+            "C-64d68c06dc210985654c": 2,
+            "C-8e708ffa6e3e0d8c3be3": 6,
+            "C-a5dc985416f90f19294e": 4,
+            "C-d20c6ff9df2b244366be": 3
+          },
+          "hybrid": {
+            "C-64d68c06dc210985654c": 3,
+            "C-8e708ffa6e3e0d8c3be3": 7,
+            "C-a5dc985416f90f19294e": 5,
+            "C-d20c6ff9df2b244366be": 4
+          },
+          "sparsecl": {
+            "C-64d68c06dc210985654c": 6,
+            "C-8e708ffa6e3e0d8c3be3": 5,
+            "C-a5dc985416f90f19294e": 9,
+            "C-d20c6ff9df2b244366be": 4
+          }
+        }
+      },
+      {
+        "case_id": "P-9e8194788c91df775ad2",
+        "variant": "distinct_observed_values",
+        "bank_size": 200,
+        "gold_count": 6,
+        "added_distractors": 5,
+        "query": "Peter Fisher's preferred grocery store is Trader Joe's.",
+        "ranks": {
+          "bm25": {
+            "C-13f58f19948612f87ab9": 11,
+            "C-64d68c06dc210985654c": 6,
+            "C-8e708ffa6e3e0d8c3be3": 7,
+            "C-a5dc985416f90f19294e": 8,
+            "C-c60f1646670c8bdb71a2": 9,
+            "C-d20c6ff9df2b244366be": 10
+          },
+          "dense": {
+            "C-13f58f19948612f87ab9": 3,
+            "C-64d68c06dc210985654c": 2,
+            "C-8e708ffa6e3e0d8c3be3": 8,
+            "C-a5dc985416f90f19294e": 5,
+            "C-c60f1646670c8bdb71a2": 7,
+            "C-d20c6ff9df2b244366be": 4
+          },
+          "hybrid": {
+            "C-13f58f19948612f87ab9": 7,
+            "C-64d68c06dc210985654c": 3,
+            "C-8e708ffa6e3e0d8c3be3": 9,
+            "C-a5dc985416f90f19294e": 6,
+            "C-c60f1646670c8bdb71a2": 11,
+            "C-d20c6ff9df2b244366be": 8
+          },
+          "sparsecl": {
+            "C-13f58f19948612f87ab9": 3,
+            "C-64d68c06dc210985654c": 7,
+            "C-8e708ffa6e3e0d8c3be3": 6,
+            "C-a5dc985416f90f19294e": 11,
+            "C-c60f1646670c8bdb71a2": 8,
+            "C-d20c6ff9df2b244366be": 5
+          }
+        }
+      }
+    ]
+  },
+  {
+    "label": "scale_bm25_sensitivity",
+    "experiment": "primary",
+    "selection": "Post-result illustrative case; hash-selected within stated condition, seed 17 if available",
+    "case": {
+      "added_distractors": 5,
+      "anchor_id": "TC-A-0150",
+      "bank_id": "B-6d15def783f90a0faf8d",
+      "bank_size": 1000,
+      "case_id": "P-af44a46f5f5396a605dc",
+      "family": "grocery",
+      "gold_count": 1,
+      "gold_ids": [
+        "C-e46b12a3d16cc8188043"
+      ],
+      "module": "scale",
+      "query_text_id": "T-0da7d5df876677fde5d7",
+      "relation_counts": {
+        "conflict": 1,
+        "different_explicit_subject_or_no_target_subject": 994,
+        "different_subject": 5
+      },
+      "seed": 17,
+      "variant": "fixed_five_added_distractors",
+      "wording": "canonical"
+    },
+    "anchor": {
+      "anchor_id": "TC-A-0150",
+      "query_fact": {
+        "attribute": "grocery",
+        "entity": "Chloe Garcia",
+        "value": "Trader Joe's"
+      },
+      "source_gold_ids": [
+        "M-A-0389",
+        "M-A-0390"
+      ],
+      "source_query": "Chloe Garcia's preferred grocery store is now Trader Joe's.",
+      "source_target": "Chloe Garcia's preferred grocery store changed to Costco.",
+      "source_target_id": "M-A-0390",
+      "target_fact": {
+        "attribute": "grocery",
+        "entity": "Chloe Garcia",
+        "value": "Costco"
+      }
+    },
+    "query": "Chloe Garcia's preferred grocery store is Trader Joe's.",
+    "gold": [
+      {
+        "id": "C-e46b12a3d16cc8188043",
+        "text": "Chloe Garcia's preferred grocery store is Costco.",
+        "fact": {
+          "attribute": "grocery",
+          "entity": "Chloe Garcia",
+          "value": "Costco"
+        }
+      }
+    ],
+    "controlled_foreground": [
+      {
+        "id": "C-c8b393c894d66c6098bd",
+        "text": "Ivy Chen's preferred grocery store is Trader Joe's.",
+        "fact": {
+          "attribute": "grocery",
+          "entity": "Ivy Chen",
+          "value": "Trader Joe's"
+        }
+      },
+      {
+        "id": "C-902fd9014077d8c28cb0",
+        "text": "Frank Hughes's preferred grocery store is Trader Joe's.",
+        "fact": {
+          "attribute": "grocery",
+          "entity": "Frank Hughes",
+          "value": "Trader Joe's"
+        }
+      },
+      {
+        "id": "C-2cf428b3df221180e752",
+        "text": "Liam Hughes's preferred grocery store is Trader Joe's.",
+        "fact": {
+          "attribute": "grocery",
+          "entity": "Liam Hughes",
+          "value": "Trader Joe's"
+        }
+      },
+      {
+        "id": "C-49c659a5ec47d7c24073",
+        "text": "Bob Garcia's preferred grocery store is Trader Joe's.",
+        "fact": {
+          "attribute": "grocery",
+          "entity": "Bob Garcia",
+          "value": "Trader Joe's"
+        }
+      },
+      {
+        "id": "C-3a3920d6be6f241040d6",
+        "text": "Alice Garcia's preferred grocery store is Trader Joe's.",
+        "fact": {
+          "attribute": "grocery",
+          "entity": "Alice Garcia",
+          "value": "Trader Joe's"
+        }
+      },
+      {
+        "id": "C-e46b12a3d16cc8188043",
+        "text": "Chloe Garcia's preferred grocery store is Costco.",
+        "fact": {
+          "attribute": "grocery",
+          "entity": "Chloe Garcia",
+          "value": "Costco"
+        }
+      }
+    ],
+    "retrieval": {
+      "bm25": {
+        "gold_ranks": {
+          "C-e46b12a3d16cc8188043": 6
+        },
+        "top5": [
+          {
+            "id": "C-3a3920d6be6f241040d6",
+            "text": "Alice Garcia's preferred grocery store is Trader Joe's.",
+            "fact": {
+              "attribute": "grocery",
+              "entity": "Alice Garcia",
+              "value": "Trader Joe's"
+            }
+          },
+          {
+            "id": "C-49c659a5ec47d7c24073",
+            "text": "Bob Garcia's preferred grocery store is Trader Joe's.",
+            "fact": {
+              "attribute": "grocery",
+              "entity": "Bob Garcia",
+              "value": "Trader Joe's"
+            }
+          },
+          {
+            "id": "C-2cf428b3df221180e752",
+            "text": "Liam Hughes's preferred grocery store is Trader Joe's.",
+            "fact": {
+              "attribute": "grocery",
+              "entity": "Liam Hughes",
+              "value": "Trader Joe's"
+            }
+          },
+          {
+            "id": "C-902fd9014077d8c28cb0",
+            "text": "Frank Hughes's preferred grocery store is Trader Joe's.",
+            "fact": {
+              "attribute": "grocery",
+              "entity": "Frank Hughes",
+              "value": "Trader Joe's"
+            }
+          },
+          {
+            "id": "C-c8b393c894d66c6098bd",
+            "text": "Ivy Chen's preferred grocery store is Trader Joe's.",
+            "fact": {
+              "attribute": "grocery",
+              "entity": "Ivy Chen",
+              "value": "Trader Joe's"
+            }
+          }
+        ]
+      },
+      "dense": {
+        "gold_ranks": {
+          "C-e46b12a3d16cc8188043": 1
+        },
+        "top5": [
+          {
+            "id": "C-e46b12a3d16cc8188043",
+            "text": "Chloe Garcia's preferred grocery store is Costco.",
+            "fact": {
+              "attribute": "grocery",
+              "entity": "Chloe Garcia",
+              "value": "Costco"
+            }
+          },
+          {
+            "id": "C-3a3920d6be6f241040d6",
+            "text": "Alice Garcia's preferred grocery store is Trader Joe's.",
+            "fact": {
+              "attribute": "grocery",
+              "entity": "Alice Garcia",
+              "value": "Trader Joe's"
+            }
+          },
+          {
+            "id": "C-49c659a5ec47d7c24073",
+            "text": "Bob Garcia's preferred grocery store is Trader Joe's.",
+            "fact": {
+              "attribute": "grocery",
+              "entity": "Bob Garcia",
+              "value": "Trader Joe's"
+            }
+          },
+          {
+            "id": "C-c8b393c894d66c6098bd",
+            "text": "Ivy Chen's preferred grocery store is Trader Joe's.",
+            "fact": {
+              "attribute": "grocery",
+              "entity": "Ivy Chen",
+              "value": "Trader Joe's"
+            }
+          },
+          {
+            "id": "C-902fd9014077d8c28cb0",
+            "text": "Frank Hughes's preferred grocery store is Trader Joe's.",
+            "fact": {
+              "attribute": "grocery",
+              "entity": "Frank Hughes",
+              "value": "Trader Joe's"
+            }
+          }
+        ]
+      },
+      "hybrid": {
+        "gold_ranks": {
+          "C-e46b12a3d16cc8188043": 3
+        },
+        "top5": [
+          {
+            "id": "C-3a3920d6be6f241040d6",
+            "text": "Alice Garcia's preferred grocery store is Trader Joe's.",
+            "fact": {
+              "attribute": "grocery",
+              "entity": "Alice Garcia",
+              "value": "Trader Joe's"
+            }
+          },
+          {
+            "id": "C-49c659a5ec47d7c24073",
+            "text": "Bob Garcia's preferred grocery store is Trader Joe's.",
+            "fact": {
+              "attribute": "grocery",
+              "entity": "Bob Garcia",
+              "value": "Trader Joe's"
+            }
+          },
+          {
+            "id": "C-e46b12a3d16cc8188043",
+            "text": "Chloe Garcia's preferred grocery store is Costco.",
+            "fact": {
+              "attribute": "grocery",
+              "entity": "Chloe Garcia",
+              "value": "Costco"
+            }
+          },
+          {
+            "id": "C-2cf428b3df221180e752",
+            "text": "Liam Hughes's preferred grocery store is Trader Joe's.",
+            "fact": {
+              "attribute": "grocery",
+              "entity": "Liam Hughes",
+              "value": "Trader Joe's"
+            }
+          },
+          {
+            "id": "C-902fd9014077d8c28cb0",
+            "text": "Frank Hughes's preferred grocery store is Trader Joe's.",
+            "fact": {
+              "attribute": "grocery",
+              "entity": "Frank Hughes",
+              "value": "Trader Joe's"
+            }
+          }
+        ]
+      },
+      "sparsecl": {
+        "gold_ranks": {
+          "C-e46b12a3d16cc8188043": 2
+        },
+        "top5": [
+          {
+            "id": "C-3a3920d6be6f241040d6",
+            "text": "Alice Garcia's preferred grocery store is Trader Joe's.",
+            "fact": {
+              "attribute": "grocery",
+              "entity": "Alice Garcia",
+              "value": "Trader Joe's"
+            }
+          },
+          {
+            "id": "C-e46b12a3d16cc8188043",
+            "text": "Chloe Garcia's preferred grocery store is Costco.",
+            "fact": {
+              "attribute": "grocery",
+              "entity": "Chloe Garcia",
+              "value": "Costco"
+            }
+          },
+          {
+            "id": "C-49c659a5ec47d7c24073",
+            "text": "Bob Garcia's preferred grocery store is Trader Joe's.",
+            "fact": {
+              "attribute": "grocery",
+              "entity": "Bob Garcia",
+              "value": "Trader Joe's"
+            }
+          },
+          {
+            "id": "C-c8b393c894d66c6098bd",
+            "text": "Ivy Chen's preferred grocery store is Trader Joe's.",
+            "fact": {
+              "attribute": "grocery",
+              "entity": "Ivy Chen",
+              "value": "Trader Joe's"
+            }
+          },
+          {
+            "id": "C-2cf428b3df221180e752",
+            "text": "Liam Hughes's preferred grocery store is Trader Joe's.",
+            "fact": {
+              "attribute": "grocery",
+              "entity": "Liam Hughes",
+              "value": "Trader Joe's"
+            }
+          }
+        ]
+      }
+    },
+    "paired_conditions": [
+      {
+        "case_id": "P-2747117d1e1d74bf3ad7",
+        "variant": "fixed_five_added_distractors",
+        "bank_size": 50,
+        "gold_count": 1,
+        "added_distractors": 5,
+        "query": "Chloe Garcia's preferred grocery store is Trader Joe's.",
+        "ranks": {
+          "bm25": {
+            "C-e46b12a3d16cc8188043": 3
+          },
+          "dense": {
+            "C-e46b12a3d16cc8188043": 1
+          },
+          "hybrid": {
+            "C-e46b12a3d16cc8188043": 2
+          },
+          "sparsecl": {
+            "C-e46b12a3d16cc8188043": 2
+          }
+        }
+      },
+      {
+        "case_id": "P-289b4a65691b17b476be",
+        "variant": "fixed_five_added_distractors",
+        "bank_size": 200,
+        "gold_count": 1,
+        "added_distractors": 5,
+        "query": "Chloe Garcia's preferred grocery store is Trader Joe's.",
+        "ranks": {
+          "bm25": {
+            "C-e46b12a3d16cc8188043": 3
+          },
+          "dense": {
+            "C-e46b12a3d16cc8188043": 1
+          },
+          "hybrid": {
+            "C-e46b12a3d16cc8188043": 2
+          },
+          "sparsecl": {
+            "C-e46b12a3d16cc8188043": 2
+          }
+        }
+      },
+      {
+        "case_id": "P-af44a46f5f5396a605dc",
+        "variant": "fixed_five_added_distractors",
+        "bank_size": 1000,
+        "gold_count": 1,
+        "added_distractors": 5,
+        "query": "Chloe Garcia's preferred grocery store is Trader Joe's.",
+        "ranks": {
+          "bm25": {
+            "C-e46b12a3d16cc8188043": 6
+          },
+          "dense": {
+            "C-e46b12a3d16cc8188043": 1
+          },
+          "hybrid": {
+            "C-e46b12a3d16cc8188043": 3
+          },
+          "sparsecl": {
+            "C-e46b12a3d16cc8188043": 2
+          }
+        }
+      }
+    ]
+  },
+  {
+    "label": "restatement_sparsecl_success",
+    "experiment": "primary",
+    "selection": "Post-result illustrative case; hash-selected within stated condition, seed 17 if available",
+    "case": {
+      "added_distractors": 1,
+      "anchor_id": "TC-A-0027",
+      "bank_id": "B-cd006d7d635cd0e75ef0",
+      "bank_size": 200,
+      "case_id": "P-8ee0adf607693997c5bd",
+      "family": "grocery",
+      "gold_count": 1,
+      "gold_ids": [
+        "C-8a857c1284d43c53a288"
+      ],
+      "module": "attribute",
+      "query_text_id": "T-acf4272f429ac1f01447",
+      "relation_counts": {
+        "conflict": 1,
+        "different_explicit_subject_or_no_target_subject": 198,
+        "same_value": 1
+      },
+      "seed": 17,
+      "variant": "same_value_restatement",
+      "wording": "canonical"
+    },
+    "anchor": {
+      "anchor_id": "TC-A-0027",
+      "query_fact": {
+        "attribute": "grocery",
+        "entity": "Sam Jensen",
+        "value": "Trader Joe's"
+      },
+      "source_gold_ids": [
+        "M-A-0054"
+      ],
+      "source_query": "Sam Jensen changed preferred grocery store to Trader Joe's.",
+      "source_target": "Sam Jensen's preferred grocery store is Walmart.",
+      "source_target_id": "M-A-0054",
+      "target_fact": {
+        "attribute": "grocery",
+        "entity": "Sam Jensen",
+        "value": "Walmart"
+      }
+    },
+    "query": "Sam Jensen's preferred grocery store is Trader Joe's.",
+    "gold": [
+      {
+        "id": "C-8a857c1284d43c53a288",
+        "text": "Sam Jensen's preferred grocery store is Walmart.",
+        "fact": {
+          "attribute": "grocery",
+          "entity": "Sam Jensen",
+          "value": "Walmart"
+        }
+      }
+    ],
+    "controlled_foreground": [
+      {
+        "id": "C-8a857c1284d43c53a288",
+        "text": "Sam Jensen's preferred grocery store is Walmart.",
+        "fact": {
+          "attribute": "grocery",
+          "entity": "Sam Jensen",
+          "value": "Walmart"
+        }
+      },
+      {
+        "id": "C-3c85a1ebd6c047b51d64",
+        "text": "Sam Jensen's preferred grocery store is Trader Joe's.",
+        "fact": {
+          "attribute": "grocery",
+          "entity": "Sam Jensen",
+          "value": "Trader Joe's"
+        }
+      }
+    ],
+    "retrieval": {
+      "bm25": {
+        "gold_ranks": {
+          "C-8a857c1284d43c53a288": 2
+        },
+        "top5": [
+          {
+            "id": "C-3c85a1ebd6c047b51d64",
+            "text": "Sam Jensen's preferred grocery store is Trader Joe's.",
+            "fact": {
+              "attribute": "grocery",
+              "entity": "Sam Jensen",
+              "value": "Trader Joe's"
+            }
+          },
+          {
+            "id": "C-8a857c1284d43c53a288",
+            "text": "Sam Jensen's preferred grocery store is Walmart.",
+            "fact": {
+              "attribute": "grocery",
+              "entity": "Sam Jensen",
+              "value": "Walmart"
+            }
+          },
+          {
+            "id": "M-C-0085",
+            "text": "Wendy Davis's preferred grocery store was 'GreenMart'.",
+            "fact": null
+          },
+          {
+            "id": "M-A-0116",
+            "text": "Juniper Clearwater's preferred pharmacy is HealthFirst Pharmacy.",
+            "fact": null
+          },
+          {
+            "id": "M-A-0124",
+            "text": "Lumen Ravenshade's preferred pharmacy is Downtown Pharmacy.",
+            "fact": null
+          }
+        ]
+      },
+      "dense": {
+        "gold_ranks": {
+          "C-8a857c1284d43c53a288": 2
+        },
+        "top5": [
+          {
+            "id": "C-3c85a1ebd6c047b51d64",
+            "text": "Sam Jensen's preferred grocery store is Trader Joe's.",
+            "fact": {
+              "attribute": "grocery",
+              "entity": "Sam Jensen",
+              "value": "Trader Joe's"
+            }
+          },
+          {
+            "id": "C-8a857c1284d43c53a288",
+            "text": "Sam Jensen's preferred grocery store is Walmart.",
+            "fact": {
+              "attribute": "grocery",
+              "entity": "Sam Jensen",
+              "value": "Walmart"
+            }
+          },
+          {
+            "id": "M-C-0085",
+            "text": "Wendy Davis's preferred grocery store was 'GreenMart'.",
+            "fact": null
+          },
+          {
+            "id": "M-B-0074",
+            "text": "Juniper Client review: 'Great service at checkout.'",
+            "fact": null
+          },
+          {
+            "id": "M-A-0329",
+            "text": "Ethan's favorite coffee shop is Cafe Bliss.",
+            "fact": null
+          }
+        ]
+      },
+      "hybrid": {
+        "gold_ranks": {
+          "C-8a857c1284d43c53a288": 2
+        },
+        "top5": [
+          {
+            "id": "C-3c85a1ebd6c047b51d64",
+            "text": "Sam Jensen's preferred grocery store is Trader Joe's.",
+            "fact": {
+              "attribute": "grocery",
+              "entity": "Sam Jensen",
+              "value": "Trader Joe's"
+            }
+          },
+          {
+            "id": "C-8a857c1284d43c53a288",
+            "text": "Sam Jensen's preferred grocery store is Walmart.",
+            "fact": {
+              "attribute": "grocery",
+              "entity": "Sam Jensen",
+              "value": "Walmart"
+            }
+          },
+          {
+            "id": "M-C-0085",
+            "text": "Wendy Davis's preferred grocery store was 'GreenMart'.",
+            "fact": null
+          },
+          {
+            "id": "M-A-0116",
+            "text": "Juniper Clearwater's preferred pharmacy is HealthFirst Pharmacy.",
+            "fact": null
+          },
+          {
+            "id": "M-A-0124",
+            "text": "Lumen Ravenshade's preferred pharmacy is Downtown Pharmacy.",
+            "fact": null
+          }
+        ]
+      },
+      "sparsecl": {
+        "gold_ranks": {
+          "C-8a857c1284d43c53a288": 1
+        },
+        "top5": [
+          {
+            "id": "C-8a857c1284d43c53a288",
+            "text": "Sam Jensen's preferred grocery store is Walmart.",
+            "fact": {
+              "attribute": "grocery",
+              "entity": "Sam Jensen",
+              "value": "Walmart"
+            }
+          },
+          {
+            "id": "M-C-0085",
+            "text": "Wendy Davis's preferred grocery store was 'GreenMart'.",
+            "fact": null
+          },
+          {
+            "id": "M-C-0282",
+            "text": "Henry Jensen's first programming language studied was Python.",
+            "fact": null
+          },
+          {
+            "id": "M-A-0116",
+            "text": "Juniper Clearwater's preferred pharmacy is HealthFirst Pharmacy.",
+            "fact": null
+          },
+          {
+            "id": "M-A-0329",
+            "text": "Ethan's favorite coffee shop is Cafe Bliss.",
+            "fact": null
+          }
+        ]
+      }
+    },
+    "paired_conditions": [
+      {
+        "case_id": "P-94ccd1de5d6c6ecaf0a9",
+        "variant": "same_entity_mention",
+        "bank_size": 200,
+        "gold_count": 1,
+        "added_distractors": 1,
+        "query": "Sam Jensen's preferred grocery store is Trader Joe's.",
+        "ranks": {
+          "bm25": {
+            "C-8a857c1284d43c53a288": 1
+          },
+          "dense": {
+            "C-8a857c1284d43c53a288": 1
+          },
+          "hybrid": {
+            "C-8a857c1284d43c53a288": 1
+          },
+          "sparsecl": {
+            "C-8a857c1284d43c53a288": 2
+          }
+        }
+      },
+      {
+        "case_id": "P-c926c4d901b09584aa9a",
+        "variant": "other_entity_mention",
+        "bank_size": 200,
+        "gold_count": 1,
+        "added_distractors": 1,
+        "query": "Sam Jensen's preferred grocery store is Trader Joe's.",
+        "ranks": {
+          "bm25": {
+            "C-8a857c1284d43c53a288": 1
+          },
+          "dense": {
+            "C-8a857c1284d43c53a288": 1
+          },
+          "hybrid": {
+            "C-8a857c1284d43c53a288": 1
+          },
+          "sparsecl": {
+            "C-8a857c1284d43c53a288": 1
+          }
+        }
+      },
+      {
+        "case_id": "P-8ee0adf607693997c5bd",
+        "variant": "same_value_restatement",
+        "bank_size": 200,
+        "gold_count": 1,
+        "added_distractors": 1,
+        "query": "Sam Jensen's preferred grocery store is Trader Joe's.",
+        "ranks": {
+          "bm25": {
+            "C-8a857c1284d43c53a288": 2
+          },
+          "dense": {
+            "C-8a857c1284d43c53a288": 2
+          },
+          "hybrid": {
+            "C-8a857c1284d43c53a288": 2
+          },
+          "sparsecl": {
+            "C-8a857c1284d43c53a288": 1
+          }
+        }
+      }
+    ]
+  },
+  {
+    "label": "event_attribute",
+    "experiment": "attribute_specific",
+    "selection": "Post-result illustrative case; hash-selected within stated condition, seed 17 if available",
+    "case": {
+      "added_distractors": 1,
+      "anchor_id": "AF-event_registration-05",
+      "bank_id": "B-00770775fcae7cefa708",
+      "bank_size": 200,
+      "case_id": "P-f7ffbdc520485fed729c",
+      "family": "event_registration",
+      "gold_count": 1,
+      "gold_ids": [
+        "A-6894f74da2b054fa4c7a"
+      ],
+      "module": "attribute_specific",
+      "query_text_id": "T-b9c237c88dd648bf0af9",
+      "seed": 17,
+      "variant": "same_entity_other_attribute",
+      "wording": "canonical"
+    },
+    "anchor": {
+      "anchor_id": "AF-event_registration-05",
+      "non_conflict_text": "Registration for the community event organized by Chloe Garcia closes on day 20.",
+      "query_fact": {
+        "attribute": "event_registration",
+        "entity": "Chloe Garcia",
+        "value": "20"
+      },
+      "query_text": "The community event organized by Chloe Garcia is scheduled for day 20.",
+      "recipe": {
+        "pairs": [
+          [
+            "45",
+            "35"
+          ],
+          [
+            "50",
+            "20"
+          ],
+          [
+            "55",
+            "15"
+          ]
+        ],
+        "proof": "Registration closes at or before the newly scheduled event; its deadline is a different attribute from the event date.",
+        "slots": [
+          "event_date",
+          "registration_closing_date"
+        ],
+        "sources": [
+          "M-B-0106",
+          "M-B-0114",
+          "M-B-0207"
+        ]
+      },
+      "review": "fixed explicit slot proof; not human-reviewed natural gold",
+      "source_ids": [
+        "M-B-0106",
+        "M-B-0114",
+        "M-B-0207"
+      ],
+      "target_text": "The community event organized by Chloe Garcia is scheduled for day 50.",
+      "target_value": "50"
+    },
+    "query": "The community event organized by Chloe Garcia is scheduled for day 20.",
+    "gold": [
+      {
+        "id": "A-6894f74da2b054fa4c7a",
+        "text": "The community event organized by Chloe Garcia is scheduled for day 50.",
+        "fact": {
+          "attribute": "event_date",
+          "entity": "Chloe Garcia",
+          "value": "50"
+        }
+      }
+    ],
+    "controlled_foreground": [
+      {
+        "id": "A-f5812d4a8c06d218f201",
+        "text": "Registration for the community event organized by Chloe Garcia closes on day 20.",
+        "fact": {
+          "attribute": "registration_closing_date",
+          "entity": "Chloe Garcia",
+          "value": "20"
+        }
+      },
+      {
+        "id": "A-6894f74da2b054fa4c7a",
+        "text": "The community event organized by Chloe Garcia is scheduled for day 50.",
+        "fact": {
+          "attribute": "event_date",
+          "entity": "Chloe Garcia",
+          "value": "50"
+        }
+      }
+    ],
+    "retrieval": {
+      "bm25": {
+        "gold_ranks": {
+          "A-6894f74da2b054fa4c7a": 2
+        },
+        "top5": [
+          {
+            "id": "A-f5812d4a8c06d218f201",
+            "text": "Registration for the community event organized by Chloe Garcia closes on day 20.",
+            "fact": {
+              "attribute": "registration_closing_date",
+              "entity": "Chloe Garcia",
+              "value": "20"
+            }
+          },
+          {
+            "id": "A-6894f74da2b054fa4c7a",
+            "text": "The community event organized by Chloe Garcia is scheduled for day 50.",
+            "fact": {
+              "attribute": "event_date",
+              "entity": "Chloe Garcia",
+              "value": "50"
+            }
+          },
+          {
+            "id": "M-A-0273",
+            "text": "Wendy Garcia's reminder: Bring your own food for the team outing on the scheduled day",
+            "fact": null
+          },
+          {
+            "id": "M-A-0228",
+            "text": "Tina Garcia's yoga class every Thursday 5pm at the Community Center",
+            "fact": null
+          },
+          {
+            "id": "M-A-0181",
+            "text": "Zephyr Quillane's next appointment is scheduled for day 60.",
+            "fact": null
+          }
+        ]
+      },
+      "dense": {
+        "gold_ranks": {
+          "A-6894f74da2b054fa4c7a": 2
+        },
+        "top5": [
+          {
+            "id": "A-f5812d4a8c06d218f201",
+            "text": "Registration for the community event organized by Chloe Garcia closes on day 20.",
+            "fact": {
+              "attribute": "registration_closing_date",
+              "entity": "Chloe Garcia",
+              "value": "20"
+            }
+          },
+          {
+            "id": "A-6894f74da2b054fa4c7a",
+            "text": "The community event organized by Chloe Garcia is scheduled for day 50.",
+            "fact": {
+              "attribute": "event_date",
+              "entity": "Chloe Garcia",
+              "value": "50"
+            }
+          },
+          {
+            "id": "M-A-0287",
+            "text": "Yara Chen's studio A can accommodate 20 participants per session",
+            "fact": null
+          },
+          {
+            "id": "M-A-0273",
+            "text": "Wendy Garcia's reminder: Bring your own food for the team outing on the scheduled day",
+            "fact": null
+          },
+          {
+            "id": "M-A-0296",
+            "text": "Yara Garcia's study session planned for October 18th to prepare for the midterm.",
+            "fact": null
+          }
+        ]
+      },
+      "hybrid": {
+        "gold_ranks": {
+          "A-6894f74da2b054fa4c7a": 2
+        },
+        "top5": [
+          {
+            "id": "A-f5812d4a8c06d218f201",
+            "text": "Registration for the community event organized by Chloe Garcia closes on day 20.",
+            "fact": {
+              "attribute": "registration_closing_date",
+              "entity": "Chloe Garcia",
+              "value": "20"
+            }
+          },
+          {
+            "id": "A-6894f74da2b054fa4c7a",
+            "text": "The community event organized by Chloe Garcia is scheduled for day 50.",
+            "fact": {
+              "attribute": "event_date",
+              "entity": "Chloe Garcia",
+              "value": "50"
+            }
+          },
+          {
+            "id": "M-A-0273",
+            "text": "Wendy Garcia's reminder: Bring your own food for the team outing on the scheduled day",
+            "fact": null
+          },
+          {
+            "id": "M-A-0296",
+            "text": "Yara Garcia's study session planned for October 18th to prepare for the midterm.",
+            "fact": null
+          },
+          {
+            "id": "M-A-0228",
+            "text": "Tina Garcia's yoga class every Thursday 5pm at the Community Center",
+            "fact": null
+          }
+        ]
+      },
+      "sparsecl": {
+        "gold_ranks": {
+          "A-6894f74da2b054fa4c7a": 2
+        },
+        "top5": [
+          {
+            "id": "A-f5812d4a8c06d218f201",
+            "text": "Registration for the community event organized by Chloe Garcia closes on day 20.",
+            "fact": {
+              "attribute": "registration_closing_date",
+              "entity": "Chloe Garcia",
+              "value": "20"
+            }
+          },
+          {
+            "id": "A-6894f74da2b054fa4c7a",
+            "text": "The community event organized by Chloe Garcia is scheduled for day 50.",
+            "fact": {
+              "attribute": "event_date",
+              "entity": "Chloe Garcia",
+              "value": "50"
+            }
+          },
+          {
+            "id": "M-A-0271",
+            "text": "Wendy Garcia's team outing scheduled for Saturday at 5pm in Central Park",
+            "fact": null
+          },
+          {
+            "id": "M-A-0287",
+            "text": "Yara Chen's studio A can accommodate 20 participants per session",
+            "fact": null
+          },
+          {
+            "id": "M-A-0273",
+            "text": "Wendy Garcia's reminder: Bring your own food for the team outing on the scheduled day",
+            "fact": null
+          }
+        ]
+      }
+    },
+    "paired_conditions": [
+      {
+        "case_id": "P-843a92b3dc3a06f9103d",
+        "variant": "no_injection",
+        "bank_size": 200,
+        "gold_count": 1,
+        "added_distractors": 0,
+        "query": "The community event organized by Chloe Garcia is scheduled for day 20.",
+        "ranks": {
+          "bm25": {
+            "A-6894f74da2b054fa4c7a": 1
+          },
+          "dense": {
+            "A-6894f74da2b054fa4c7a": 1
+          },
+          "hybrid": {
+            "A-6894f74da2b054fa4c7a": 1
+          },
+          "sparsecl": {
+            "A-6894f74da2b054fa4c7a": 1
+          }
+        }
+      },
+      {
+        "case_id": "P-f7ffbdc520485fed729c",
+        "variant": "same_entity_other_attribute",
+        "bank_size": 200,
+        "gold_count": 1,
+        "added_distractors": 1,
+        "query": "The community event organized by Chloe Garcia is scheduled for day 20.",
+        "ranks": {
+          "bm25": {
+            "A-6894f74da2b054fa4c7a": 2
+          },
+          "dense": {
+            "A-6894f74da2b054fa4c7a": 2
+          },
+          "hybrid": {
+            "A-6894f74da2b054fa4c7a": 2
+          },
+          "sparsecl": {
+            "A-6894f74da2b054fa4c7a": 2
+          }
+        }
+      },
+      {
+        "case_id": "P-66e0d58b149296976a71",
+        "variant": "other_entity_other_attribute",
+        "bank_size": 200,
+        "gold_count": 1,
+        "added_distractors": 1,
+        "query": "The community event organized by Chloe Garcia is scheduled for day 20.",
+        "ranks": {
+          "bm25": {
+            "A-6894f74da2b054fa4c7a": 1
+          },
+          "dense": {
+            "A-6894f74da2b054fa4c7a": 1
+          },
+          "hybrid": {
+            "A-6894f74da2b054fa4c7a": 1
+          },
+          "sparsecl": {
+            "A-6894f74da2b054fa4c7a": 1
+          }
+        }
+      },
+      {
+        "case_id": "P-a30ce89c1856734023d7",
+        "variant": "same_value_restatement",
+        "bank_size": 200,
+        "gold_count": 1,
+        "added_distractors": 1,
+        "query": "The community event organized by Chloe Garcia is scheduled for day 20.",
+        "ranks": {
+          "bm25": {
+            "A-6894f74da2b054fa4c7a": 2
+          },
+          "dense": {
+            "A-6894f74da2b054fa4c7a": 2
+          },
+          "hybrid": {
+            "A-6894f74da2b054fa4c7a": 2
+          },
+          "sparsecl": {
+            "A-6894f74da2b054fa4c7a": 1
+          }
+        }
+      }
+    ]
+  },
+  {
+    "label": "adult_child_scope",
+    "experiment": "attribute_specific",
+    "selection": "Post-result illustrative case; hash-selected within stated condition, seed 17 if available",
+    "case": {
+      "added_distractors": 1,
+      "anchor_id": "AF-adult_child_fee-02",
+      "bank_id": "B-3268119b3d996893cf87",
+      "bank_size": 200,
+      "case_id": "P-fac287bc4bf2ba3235dd",
+      "family": "adult_child_fee",
+      "gold_count": 1,
+      "gold_ids": [
+        "A-70cf8fa619888720b69f"
+      ],
+      "module": "attribute_specific",
+      "query_text_id": "T-e8e6c90e58523cdc086f",
+      "seed": 17,
+      "variant": "same_entity_other_attribute",
+      "wording": "canonical"
+    },
+    "anchor": {
+      "anchor_id": "AF-adult_child_fee-02",
+      "non_conflict_text": "Child entry to the park managed by Zack Fisher costs $5 per person.",
+      "query_fact": {
+        "attribute": "adult_child_fee",
+        "entity": "Zack Fisher",
+        "value": "5"
+      },
+      "query_text": "Adult entry to the park managed by Zack Fisher costs $5 per person.",
+      "recipe": {
+        "pairs": [
+          [
+            "15",
+            "5"
+          ],
+          [
+            "10",
+            "5"
+          ],
+          [
+            "15",
+            "10"
+          ]
+        ],
+        "proof": "Adult and child prices have separate applicability conditions. Child price is no greater than the old adult price and equals the new adult price.",
+        "slots": [
+          "adult_entry_fee",
+          "child_entry_fee"
+        ],
+        "sources": [
+          "M-C-0185",
+          "M-C-0186",
+          "M-C-0187"
+        ]
+      },
+      "review": "fixed explicit slot proof; not human-reviewed natural gold",
+      "source_ids": [
+        "M-C-0185",
+        "M-C-0186",
+        "M-C-0187"
+      ],
+      "target_text": "Adult entry to the park managed by Zack Fisher costs $10 per person.",
+      "target_value": "10"
+    },
+    "query": "Adult entry to the park managed by Zack Fisher costs $5 per person.",
+    "gold": [
+      {
+        "id": "A-70cf8fa619888720b69f",
+        "text": "Adult entry to the park managed by Zack Fisher costs $10 per person.",
+        "fact": {
+          "attribute": "adult_entry_fee",
+          "entity": "Zack Fisher",
+          "value": "10"
+        }
+      }
+    ],
+    "controlled_foreground": [
+      {
+        "id": "A-70cf8fa619888720b69f",
+        "text": "Adult entry to the park managed by Zack Fisher costs $10 per person.",
+        "fact": {
+          "attribute": "adult_entry_fee",
+          "entity": "Zack Fisher",
+          "value": "10"
+        }
+      },
+      {
+        "id": "A-7b7c48d871ac371ac1c2",
+        "text": "Child entry to the park managed by Zack Fisher costs $5 per person.",
+        "fact": {
+          "attribute": "child_entry_fee",
+          "entity": "Zack Fisher",
+          "value": "5"
+        }
+      }
+    ],
+    "retrieval": {
+      "bm25": {
+        "gold_ranks": {
+          "A-70cf8fa619888720b69f": 1
+        },
+        "top5": [
+          {
+            "id": "A-70cf8fa619888720b69f",
+            "text": "Adult entry to the park managed by Zack Fisher costs $10 per person.",
+            "fact": {
+              "attribute": "adult_entry_fee",
+              "entity": "Zack Fisher",
+              "value": "10"
+            }
+          },
+          {
+            "id": "A-7b7c48d871ac371ac1c2",
+            "text": "Child entry to the park managed by Zack Fisher costs $5 per person.",
+            "fact": {
+              "attribute": "child_entry_fee",
+              "entity": "Zack Fisher",
+              "value": "5"
+            }
+          },
+          {
+            "id": "M-A-0378",
+            "text": "Zack Garcia's preferred coffee brand has changed to Dunkin'.",
+            "fact": null
+          },
+          {
+            "id": "M-A-0294",
+            "text": "Yara Garcia's midterm exam scheduled on October 15th, covering chapters 1 to 5.",
+            "fact": null
+          },
+          {
+            "id": "M-A-0242",
+            "text": "Noah Evans's students prefer the midterm to stay in Room B.",
+            "fact": null
+          }
+        ]
+      },
+      "dense": {
+        "gold_ranks": {
+          "A-70cf8fa619888720b69f": 1
+        },
+        "top5": [
+          {
+            "id": "A-70cf8fa619888720b69f",
+            "text": "Adult entry to the park managed by Zack Fisher costs $10 per person.",
+            "fact": {
+              "attribute": "adult_entry_fee",
+              "entity": "Zack Fisher",
+              "value": "10"
+            }
+          },
+          {
+            "id": "A-7b7c48d871ac371ac1c2",
+            "text": "Child entry to the park managed by Zack Fisher costs $5 per person.",
+            "fact": {
+              "attribute": "child_entry_fee",
+              "entity": "Zack Fisher",
+              "value": "5"
+            }
+          },
+          {
+            "id": "M-A-0022",
+            "text": "Zack Evans's preferred grocery store is Walmart.",
+            "fact": null
+          },
+          {
+            "id": "M-A-0072",
+            "text": "Rachel Fisher's default grocery store is Walmart",
+            "fact": null
+          },
+          {
+            "id": "M-A-0213",
+            "text": "Quinn Garcia's recently purchased apples from Costco",
+            "fact": null
+          }
+        ]
+      },
+      "hybrid": {
+        "gold_ranks": {
+          "A-70cf8fa619888720b69f": 1
+        },
+        "top5": [
+          {
+            "id": "A-70cf8fa619888720b69f",
+            "text": "Adult entry to the park managed by Zack Fisher costs $10 per person.",
+            "fact": {
+              "attribute": "adult_entry_fee",
+              "entity": "Zack Fisher",
+              "value": "10"
+            }
+          },
+          {
+            "id": "A-7b7c48d871ac371ac1c2",
+            "text": "Child entry to the park managed by Zack Fisher costs $5 per person.",
+            "fact": {
+              "attribute": "child_entry_fee",
+              "entity": "Zack Fisher",
+              "value": "5"
+            }
+          },
+          {
+            "id": "M-A-0378",
+            "text": "Zack Garcia's preferred coffee brand has changed to Dunkin'.",
+            "fact": null
+          },
+          {
+            "id": "M-A-0022",
+            "text": "Zack Evans's preferred grocery store is Walmart.",
+            "fact": null
+          },
+          {
+            "id": "M-A-0377",
+            "text": "Zack Garcia's preferred coffee brand is Starbucks.",
+            "fact": null
+          }
+        ]
+      },
+      "sparsecl": {
+        "gold_ranks": {
+          "A-70cf8fa619888720b69f": 2
+        },
+        "top5": [
+          {
+            "id": "A-7b7c48d871ac371ac1c2",
+            "text": "Child entry to the park managed by Zack Fisher costs $5 per person.",
+            "fact": {
+              "attribute": "child_entry_fee",
+              "entity": "Zack Fisher",
+              "value": "5"
+            }
+          },
+          {
+            "id": "A-70cf8fa619888720b69f",
+            "text": "Adult entry to the park managed by Zack Fisher costs $10 per person.",
+            "fact": {
+              "attribute": "adult_entry_fee",
+              "entity": "Zack Fisher",
+              "value": "10"
+            }
+          },
+          {
+            "id": "M-A-0038",
+            "text": "David Fisher's gym membership is at FitnessPro Club.",
+            "fact": null
+          },
+          {
+            "id": "M-A-0271",
+            "text": "Wendy Garcia's team outing scheduled for Saturday at 5pm in Central Park",
+            "fact": null
+          },
+          {
+            "id": "M-A-0061",
+            "text": "Noah Fisher's preferred workout location is the community gym.",
+            "fact": null
+          }
+        ]
+      }
+    },
+    "paired_conditions": [
+      {
+        "case_id": "P-8c8139d6eb67a7c48f9c",
+        "variant": "no_injection",
+        "bank_size": 200,
+        "gold_count": 1,
+        "added_distractors": 0,
+        "query": "Adult entry to the park managed by Zack Fisher costs $5 per person.",
+        "ranks": {
+          "bm25": {
+            "A-70cf8fa619888720b69f": 1
+          },
+          "dense": {
+            "A-70cf8fa619888720b69f": 1
+          },
+          "hybrid": {
+            "A-70cf8fa619888720b69f": 1
+          },
+          "sparsecl": {
+            "A-70cf8fa619888720b69f": 1
+          }
+        }
+      },
+      {
+        "case_id": "P-fac287bc4bf2ba3235dd",
+        "variant": "same_entity_other_attribute",
+        "bank_size": 200,
+        "gold_count": 1,
+        "added_distractors": 1,
+        "query": "Adult entry to the park managed by Zack Fisher costs $5 per person.",
+        "ranks": {
+          "bm25": {
+            "A-70cf8fa619888720b69f": 1
+          },
+          "dense": {
+            "A-70cf8fa619888720b69f": 1
+          },
+          "hybrid": {
+            "A-70cf8fa619888720b69f": 1
+          },
+          "sparsecl": {
+            "A-70cf8fa619888720b69f": 2
+          }
+        }
+      },
+      {
+        "case_id": "P-f4b13ab8c40e15bf14f2",
+        "variant": "other_entity_other_attribute",
+        "bank_size": 200,
+        "gold_count": 1,
+        "added_distractors": 1,
+        "query": "Adult entry to the park managed by Zack Fisher costs $5 per person.",
+        "ranks": {
+          "bm25": {
+            "A-70cf8fa619888720b69f": 1
+          },
+          "dense": {
+            "A-70cf8fa619888720b69f": 1
+          },
+          "hybrid": {
+            "A-70cf8fa619888720b69f": 1
+          },
+          "sparsecl": {
+            "A-70cf8fa619888720b69f": 1
+          }
+        }
+      },
+      {
+        "case_id": "P-577242704c9154ab9bbd",
+        "variant": "same_value_restatement",
+        "bank_size": 200,
+        "gold_count": 1,
+        "added_distractors": 1,
+        "query": "Adult entry to the park managed by Zack Fisher costs $5 per person.",
+        "ranks": {
+          "bm25": {
+            "A-70cf8fa619888720b69f": 2
+          },
+          "dense": {
+            "A-70cf8fa619888720b69f": 2
+          },
+          "hybrid": {
+            "A-70cf8fa619888720b69f": 2
+          },
+          "sparsecl": {
+            "A-70cf8fa619888720b69f": 1
+          }
+        }
+      }
+    ]
+  }
+]
