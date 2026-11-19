@@ -7,14 +7,6 @@ from dotenv import dotenv_values
 
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
-SIMILARITY_THRESHOLD = 0.7
-
-# 建库阶段的三个固定先验阈值，只在"判定两个东西是不是同一事项"时使用，
-# 不参与查询打分，也不按评测结果调整。
-#   两条记忆内容的相似度达到此值，视为"同一事项的不同取值"，必须共用描述；
-MEMORY_TEMPLATE_THRESHOLD = 0.90
-#   两条描述文本的相似度达到此值，视为同一事项的不同措辞，必须收成一条；
-DESCRIPTION_DUPLICATE_THRESHOLD = 0.95
 
 
 @dataclass(frozen=True)
@@ -32,9 +24,7 @@ class Settings:
     max_retries: int = 4
     rate_limit_backoff: float = 8.0
     embedding_batch_size: int = 32
-    coarse_k: int = 50
-    final_k: int = 10
-    cache_path: Path = PROJECT_ROOT / "artifacts/api_cache.sqlite3"
+    cache_path: Path = PROJECT_ROOT / "artifacts/ocsp_qr_cache.sqlite3"
 
     @classmethod
     def from_env(cls, path: Path | None = None):
@@ -54,7 +44,7 @@ class Settings:
         if reasoning_effort is not None and reasoning_effort not in {
                 "none", "minimal", "low", "medium", "high"}:
             raise ValueError("LLM_REASONING_EFFORT 只能是 none/minimal/low/medium/high 或留空")
-        cache_path = Path(value("CACHE_PATH", "artifacts/api_cache.sqlite3"))
+        cache_path = Path(value("CACHE_PATH", "artifacts/ocsp_qr_cache.sqlite3"))
         if not cache_path.is_absolute():
             cache_path = PROJECT_ROOT / cache_path
         settings = cls(
@@ -71,8 +61,6 @@ class Settings:
             max_retries=int(value("API_MAX_RETRIES", "4")),
             rate_limit_backoff=float(value("API_RATE_LIMIT_BACKOFF", "8")),
             embedding_batch_size=int(value("EMBEDDING_BATCH_SIZE", "32")),
-            coarse_k=int(value("COARSE_K", "50")),
-            final_k=int(value("FINAL_K", "10")),
             cache_path=cache_path,
         )
         if settings.timeout <= 0 or settings.max_retries < 0:
@@ -81,13 +69,7 @@ class Settings:
             raise ValueError("API_RATE_LIMIT_BACKOFF 不能为负")
         if settings.embedding_batch_size < 1:
             raise ValueError("EMBEDDING_BATCH_SIZE 必须大于 0")
-        settings.validate_budget(settings.coarse_k, settings.final_k)
         return settings
-
-    @staticmethod
-    def validate_budget(coarse_k, final_k):
-        if not 1 <= final_k <= coarse_k:
-            raise ValueError("候选预算必须满足 1 <= FINAL_K <= COARSE_K")
 
     def require(self, *, llm=False, embedding=False):
         for prefix, needed in (("llm", llm), ("embedding", embedding)):
@@ -111,7 +93,6 @@ class Settings:
             "model": self.llm_model,
             "temperature": self.llm_temperature,
             "json_mode": self.llm_json_mode,
-            # 关掉思维链会改变调用语义,所以必须进索引身份,避免两次建库被当成同一配置。
             "reasoning_effort": self.llm_reasoning_effort,
         }
 

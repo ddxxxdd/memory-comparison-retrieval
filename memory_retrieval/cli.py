@@ -1,127 +1,94 @@
+"""Evaluate write-time conflict retrieval in the selected memory banks."""
+
 import argparse
-import json
+from datetime import datetime, timezone
+import math
 from pathlib import Path
 import sys
 
-from .adapters import load_graph, load_text
-from .api import APIClient, APIError
-from .config import DESCRIPTION_DUPLICATE_THRESHOLD, MEMORY_TEMPLATE_THRESHOLD, Settings
-from .data import build_retrieval_text, canonical_json, load_queries, read_jsonl, write_json
-from .evaluation import evaluate, validate_gold
-from .index import MemoryIndex, build_index
-from .pipeline import Retriever
+from .config import PROJECT_ROOT
+from .data import read_jsonl
+from .dataset import load_dataset
+from .encoders import MODEL_ROOT
+from .experiment import ABLATION, BASELINES, MAIN_METHOD, run
+from .ocsp import ORTHO_GAMMA
 
 
-def parser():
-    root = argparse.ArgumentParser(description="固定旧库的可比较记忆检索（先选已有描述，再生成未覆盖事项）")
-    root.add_argument("--env", type=Path, help=".env 路径，默认项目根目录的 .env")
-    sub = root.add_subparsers(dest="command", required=True)
-    build = sub.add_parser("build", help="离线适配、抽取描述、建立冻结索引")
-    build.add_argument("--input", type=Path, required=True)
-    build.add_argument("--adapter", choices=["text", "graph"], default="text")
-    build.add_argument("--output", type=Path, required=True)
-    build.add_argument("--description-mode", choices=["independent", "reuse", "batch_reuse"],
-                       default="batch_reuse",
-                       help="默认批式复用：一批记忆共用一次请求，先引用已有描述，批内同一事项收敛到同一份文本")
-    build.add_argument("--batch-size", type=int, default=16, help="batch_reuse 每批处理的记忆条数")
-    build.add_argument("--no-repair", action="store_true",
-                       help="关掉抽取校验后的重写（M1 消融；仍会记录违规，但不改输出）")
-    build.add_argument("--consolidate", action="store_true",
-                       help="开启建库后的目录归并（M2；默认关闭，实测会降低候选召回）")
-    query = sub.add_parser("query", help="每条新记忆独立检索同一个冻结旧库")
-    query.add_argument("--index", type=Path, required=True)
-    query.add_argument("--queries", type=Path, required=True)
-    query.add_argument("--output", type=Path, required=True)
-    query.add_argument("--method", choices=["proposed", "independent", "dense", "bm25", "hybrid"], default="proposed")
-    query.add_argument("--no-rerank", action="store_true", help="描述检索的无假设句重排消融")
-    query.add_argument("--judge", action="store_true", help="候选输出后运行固定逐对冲突判定器")
-    query.add_argument("--coarse-k", type=int, help="top-k 对照的粗候选预算")
-    query.add_argument("--final-k", type=int, help="top-k 对照的最终候选预算")
-    metric = sub.add_parser("evaluate", help="计算四项实验指标")
-    metric.add_argument("--gold", type=Path, required=True)
-    metric.add_argument("--results", type=Path, required=True)
-    metric.add_argument("--output", type=Path, required=True)
-    check = sub.add_parser("validate-data", help="不调用模型，检查输入与金标引用")
-    check.add_argument("--memories", type=Path, required=True)
-    check.add_argument("--adapter", choices=["text", "graph"], default="text")
-    check.add_argument("--queries", type=Path)
-    check.add_argument("--gold", type=Path)
-    return root
+def validate_translation(source, dataset):
+    """The bilingual pilot uses identical IDs, metadata and labels in both languages."""
+    if (source / "gold.jsonl").read_bytes() != (dataset / "gold.jsonl").read_bytes():
+        raise ValueError("The two datasets have different gold labels")
+    for filename in ("queries.jsonl", "memories.jsonl"):
+        original, translated = read_jsonl(source / filename), read_jsonl(dataset / filename)
+        for a, b in zip(original, translated, strict=True):
+            if {k: v for k, v in a.items() if k != "content"} != {k: v for k, v in b.items() if k != "content"}:
+                raise ValueError(f"Bilingual records differ outside content in {filename}")
+            if not b["content"].strip() or any("\u4e00" <= c <= "\u9fff" for c in b["content"]):
+                raise ValueError(f"Expected English content in {filename}")
 
 
-def main(argv=None):
-    # Windows 重定向输出也保持 UTF-8，与输入/输出文件的编码一致。
+def split_ids(values):
+    if values is None:
+        return None
+    return [item.strip() for value in values for item in value.split(",") if item.strip()]
+
+
+def run_cli(argv=None, *, default_methods=(MAIN_METHOD,)):
     for stream in (sys.stdout, sys.stderr):
         if hasattr(stream, "reconfigure"):
             stream.reconfigure(encoding="utf-8")
-    args = parser().parse_args(argv)
-    client = None
-    try:
-        if args.command == "validate-data":
-            memories = (load_text if args.adapter == "text" else load_graph)(args.memories)
-            queries = load_queries(args.queries) if args.queries else []
-            gold = validate_gold(read_jsonl(args.gold), {m.memory_id for m in memories}) if args.gold else []
-            if gold and queries and {q["query_id"] for q in queries} != {g["query_id"] for g in gold}:
-                raise ValueError("查询与金标 query_id 不一致")
-            print(f"输入有效：{len(memories)} 条旧记忆，{len(queries)} 条查询，{len(gold)} 条金标。")
-            return
-        if args.command == "evaluate":
-            if args.output.exists():
-                raise ValueError("输出文件已存在，请使用新的输出路径")
-            report = evaluate(read_jsonl(args.gold), read_jsonl(args.results))
-            write_json(args.output, report)
-            print(json.dumps(report, ensure_ascii=False, indent=2))
-            return
-        settings = Settings.from_env(args.env)
-        if args.command == "build":
-            settings.require(llm=True, embedding=True)
-            if args.output.exists():
-                raise ValueError("索引目录已存在，请使用新目录")
-            memories = (load_text if args.adapter == "text" else load_graph)(args.input)
-            client = APIClient(settings)
-            index = build_index(memories, client, args.output, args.description_mode,
-                                batch_size=args.batch_size,
-                                description_threshold=(DESCRIPTION_DUPLICATE_THRESHOLD
-                                                       if args.consolidate else None),
-                                template_threshold=(MEMORY_TEMPLATE_THRESHOLD
-                                                    if args.consolidate else None),
-                                repair_rounds=0 if args.no_repair else 1)
-            print(f"索引已冻结：{len(index.memories)} 条旧记忆，{len(index.catalog)} 个描述入口。")
-            print(f"描述模式：{index.manifest['description_mode']}"
-                  + (f"，每批 {index.manifest['batch_size']} 条" if index.manifest.get("batch_size") else ""))
-            print(f"目录：{args.output.resolve()}")
-            return
-        index = MemoryIndex.load(args.index)
-        queries = load_queries(args.queries)
-        if args.output.exists():
-            raise ValueError("结果文件已存在，请使用新的输出路径")
-        settings.require(llm=args.method in {"proposed", "independent"} or args.judge,
-                         embedding=args.method != "bm25")
-        if args.method != "bm25":
-            index.check_embedding(settings)
-        if args.method not in {"proposed", "independent"}:
-            settings.validate_budget(args.coarse_k if args.coarse_k is not None else settings.coarse_k,
-                                     args.final_k if args.final_k is not None else settings.final_k)
-        client = APIClient(settings)
-        retriever = Retriever(index, client)
-        args.output.parent.mkdir(parents=True, exist_ok=True)
-        # 逐查询保存，长批次失败时保留已完成记录；再次执行可利用 API 缓存。
-        with args.output.open("x", encoding="utf-8") as stream:
-            for query in queries:
-                result = retriever.query(
-                    query["query_id"], query["content"],
-                    retrieval_text=build_retrieval_text(query["content"], query.get("source_ref")),
-                    query_source_ref=query.get("source_ref"),
-                    method=args.method, rerank=not args.no_rerank, judge=args.judge,
-                    coarse_k=args.coarse_k, final_k=args.final_k)
-                stream.write(canonical_json(result) + "\n")
-                stream.flush()
-                print(f"{query['query_id']}: {len(result['coarse_candidates'])} 条粗候选 → {len(result['candidates'])} 条候选")
-        print(f"结果：{args.output.resolve()}")
-    except (ValueError, APIError, KeyError, OSError, TypeError) as exc:
-        # 失败调用也留下可审查的调用统计；不写 API Key 或 HTTP 错误正文。
-        if client is not None:
-            error_path = client.settings.cache_path.parent / "last_error.json"
-            write_json(error_path, {"error": str(exc), "events": client.events})
-        print(f"错误：{exc}", file=sys.stderr)
-        raise SystemExit(1) from None
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--dataset", type=Path, required=True, help="输入数据集或单个 STALE 场景目录")
+    parser.add_argument("--arms", nargs="+", choices=(*BASELINES, MAIN_METHOD, ABLATION, "all"),
+                        default=default_methods, help=f"默认 {' '.join(default_methods)}。all 运行主方法和六个基线")
+    select = parser.add_mutually_exclusive_group()
+    select.add_argument("--scenario-ids", nargs="+", metavar="ID")
+    select.add_argument("--query-ids", nargs="+", metavar="ID", help="支持空格或逗号分隔的查询 ID")
+    parser.add_argument("--limit", type=int, default=0, help="随机抽取查询数，默认全部；指定 ID 时使用全部指定项")
+    parser.add_argument("--seed", type=int, default=20261014)
+    parser.add_argument("--output", type=Path, help="本次实验的新目录")
+    parser.add_argument("--output-root", type=Path, default=PROJECT_ROOT / "runs/experiments")
+    parser.add_argument("--run-name", help="在 --output-root 下使用的目录名，默认使用 UTC 时间戳")
+    parser.add_argument("--env", type=Path, help="LLM 或可选向量 API 的 .env 文件")
+    parser.add_argument("--cache", type=Path, help="可复用的探针响应缓存，默认在本次实验目录创建")
+    parser.add_argument("--embedding-backend", choices=("bge", "api"), default="bge")
+    parser.add_argument("--model-root", "--sparsecl-root", dest="model_root", type=Path, default=MODEL_ROOT,
+                        help="包含冻结权重和官方 SparseCL 源码的本地目录")
+    parser.add_argument("--gamma", type=float, default=ORTHO_GAMMA)
+    for name in ("queries", "memories", "gold"):
+        parser.add_argument(f"--{name}", type=Path, help=f"显式指定 {name}.jsonl")
+    source_mode = parser.add_mutually_exclusive_group()
+    source_mode.add_argument("--source", type=Path, help="可选，与英文翻译数据逐行核对的原文目录")
+    source_mode.add_argument("--original-text", action="store_true", help="直接使用数据集正文（默认）")
+    args = parser.parse_args(argv)
+    if args.limit < 0:
+        parser.error("--limit 必须大于等于 0")
+    if not math.isfinite(args.gamma):
+        parser.error("--gamma 必须是有限数")
+    if args.output and args.run_name:
+        parser.error("--output 和 --run-name 只能选一项")
+    if args.run_name and (Path(args.run_name).name != args.run_name or args.run_name in (".", "..")):
+        parser.error("--run-name 必须是目录名")
+    methods = []
+    for name in args.arms:
+        methods.extend((MAIN_METHOD, *BASELINES) if name == "all" else (name,))
+    methods = tuple(dict.fromkeys(methods))
+    if args.embedding_backend == "api" and any(name.startswith("sparsecl_") for name in methods):
+        parser.error("SparseCL 的初召回需要冻结 BGE，请使用 --embedding-backend bge")
+    scenario_ids, query_ids = split_ids(args.scenario_ids), split_ids(args.query_ids)
+    if scenario_ids == [] or query_ids == []:
+        parser.error("至少指定一个有效 ID")
+    if args.source:
+        if args.queries or args.memories or args.gold:
+            parser.error("--source 需要完整数据集目录")
+        validate_translation(args.source, args.dataset)
+    dataset = load_dataset(args.dataset, scenario_ids=scenario_ids, query_ids=query_ids, limit=args.limit,
+                           seed=args.seed, queries_file=args.queries, memories_file=args.memories, gold_file=args.gold)
+    name = args.run_name or datetime.now(timezone.utc).strftime("retrieval-%Y%m%dT%H%M%S%fZ")
+    output = (args.output or args.output_root / name).resolve()
+    args.model_root = args.model_root.resolve()
+    return run(dataset, args, output, methods)
+
+
+def main():
+    run_cli()

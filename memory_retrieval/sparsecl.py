@@ -1,4 +1,4 @@
-"""SparseCL scoring and ranking primitives shared by the WSL worker and tests."""
+"""Frozen SparseCL cosine/Hoyer reranking and binary NDCG."""
 
 from __future__ import annotations
 
@@ -8,7 +8,6 @@ import numpy as np
 
 
 INITIAL_RETRIEVAL_DEPTH = 1000
-FIXED_ARGUANA_ALPHA = 0.18
 SPARSECL_UPSTREAM_COMMIT = "14fcd8bcfeef2603f37b1e805cd3626800430711"
 SPARSECL_SCORE_FORMULA = "cosine + alpha * hoyer(normalized_sparsecl_query - normalized_sparsecl_memory)"
 

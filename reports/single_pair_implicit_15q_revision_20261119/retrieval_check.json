@@ -1,0 +1,1339 @@
+{
+  "config": {
+    "model": "BAAI/bge-base-en-v1.5",
+    "revision": "a5beb1e3e68b9ab74eb54cfd186867f64f240e1a",
+    "model_files_sha256": {
+      "results/bge-base-en-v1.5/config.json": "bc00af31a4a31b74040d73370aa83b62da34c90b75eb77bfa7db039d90abd591",
+      "results/bge-base-en-v1.5/model.safetensors": "c7c1988aae201f80cf91a5dbbd5866409503b89dcaba877ca6dba7dd0a5167d7",
+      "results/bge-base-en-v1.5/special_tokens_map.json": "b6d346be366a7d1d48332dbc9fdf3bf8960b5d879522b7799ddba59e76237ee3",
+      "results/bge-base-en-v1.5/tokenizer.json": "d241a60d5e8f04cc1b2b3e9ef7a4921b27bf526d9f6050ab90f9267a1f9e5c66",
+      "results/bge-base-en-v1.5/tokenizer_config.json": "9261e7d79b44c8195c1cada2b453e55b00aeb81e907a6664974b4d7776172ab3",
+      "results/bge-base-en-v1.5/vocab.txt": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3"
+    },
+    "pooling": "CLS",
+    "normalize": "L2",
+    "max_length": 512,
+    "batch_size": 4,
+    "cpu_threads": 4,
+    "seed": 0,
+    "python_hash_seed": "0",
+    "precision": "float32",
+    "device": "cpu",
+    "bm25": {
+      "k1": 1.2,
+      "b": 0.75,
+      "tokenizer": "unchanged existing tokenizer"
+    }
+  },
+  "fixed_input_hashes": {
+    "data/single_pair_implicit_15q_zh/queries.jsonl": "a53ecba12735120a05d6aa99aa23b0eac93d2e63690b2402f10a649d4e3bab70",
+    "data/single_pair_implicit_15q_zh/memories.jsonl": "909d9254b6039f21017fdc0785f004d23008fb8dcefe236029ff1684b06954a0",
+    "data/single_pair_implicit_15q_zh/gold.jsonl": "8ee5cbe94cb8074aaee5605a567230374ba44f912beff9c29a4c41d453aef82e",
+    "data/single_pair_implicit_15q_en/queries.jsonl": "d848a58a0308ebf105ef1e1bb2917efeeac533d3dc2443a32f632a5d6e24bd98",
+    "data/single_pair_implicit_15q_en/memories.jsonl": "b499821a0a8f0cfe782688d24bea8f5798b8dba5f65d050ffe42319203cb8dbe",
+    "data/single_pair_implicit_15q_en/gold.jsonl": "8ee5cbe94cb8074aaee5605a567230374ba44f912beff9c29a4c41d453aef82e"
+  },
+  "datasets": {
+    "before": {
+      "sha256": {
+        "queries.jsonl": "6dabd9344ea2b095691f7cacb2ad9b71af3f9c60ad5ad970533f7427ca066132",
+        "memories.jsonl": "0ef60781c5b042624e960ee73427d4c6b1ab0e50922b9195dbde6d81d8d5b2fd",
+        "gold.jsonl": "8ee5cbe94cb8074aaee5605a567230374ba44f912beff9c29a4c41d453aef82e"
+      },
+      "mean_word_jaccard": 0.1337982245020236,
+      "mean_dense_cosine": 0.6145787378152211,
+      "metrics": {
+        "dense": {
+          "hits": {
+            "1": 2,
+            "3": 4,
+            "5": 5,
+            "10": 12,
+            "20": 14,
+            "50": 15
+          },
+          "mean_gold_rank": 8.733333333333333,
+          "median_gold_rank": 6
+        },
+        "bm25": {
+          "hits": {
+            "1": 0,
+            "3": 2,
+            "5": 4,
+            "10": 7,
+            "20": 10,
+            "50": 12
+          },
+          "mean_gold_rank": 42.46666666666667,
+          "median_gold_rank": 12
+        }
+      },
+      "observed_shared_phrases": {
+        "q_hc_01": {
+          "phrase": "Wutong Restaurant",
+          "shared_with_gold": true,
+          "bank_count": 8
+        },
+        "q_hc_02": {
+          "phrase": "Binhai Highway",
+          "shared_with_gold": true,
+          "bank_count": 8
+        },
+        "q_hc_03": {
+          "phrase": "Unit 502 at Qinghe Apartments",
+          "shared_with_gold": true,
+          "bank_count": 8
+        },
+        "q_ic_01": {
+          "phrase": "Yunqiao Center",
+          "shared_with_gold": true,
+          "bank_count": 8
+        },
+        "q_ic_03": {
+          "phrase": "my lunch break",
+          "shared_with_gold": true,
+          "bank_count": 8
+        },
+        "q_ic_04": {
+          "phrase": "downtown duty-free shop",
+          "shared_with_gold": true,
+          "bank_count": 6
+        },
+        "q_bs_02": {
+          "phrase": "Binjiang Park",
+          "shared_with_gold": true,
+          "bank_count": 9
+        },
+        "q_bs_04": {
+          "phrase": "school athletic field",
+          "shared_with_gold": true,
+          "bank_count": 6
+        }
+      },
+      "token_audit": {
+        "queries": {
+          "texts": 15,
+          "tokens_excluding_special": 426,
+          "unknown_tokens": 0,
+          "unknown_ratio": 0.0,
+          "max_tokens_with_special": 48,
+          "would_truncate": 0
+        },
+        "memories": {
+          "texts": 225,
+          "tokens_excluding_special": 7488,
+          "unknown_tokens": 0,
+          "unknown_ratio": 0.0,
+          "max_tokens_with_special": 59,
+          "would_truncate": 0
+        }
+      },
+      "per_query": {
+        "q_hc_01": {
+          "gold_id": "m_0001",
+          "word_jaccard": 0.19047619047619047,
+          "dense": {
+            "gold_rank": 5,
+            "gold_score": 0.6875112056732178,
+            "top_10": [
+              "m_0006",
+              "m_0003",
+              "m_0013",
+              "m_0011",
+              "m_0001",
+              "m_0004",
+              "m_0002",
+              "m_0008",
+              "m_0009",
+              "m_0005"
+            ]
+          },
+          "bm25": {
+            "gold_rank": 5,
+            "gold_score": 19.175996037687185,
+            "top_10": [
+              "m_0006",
+              "m_0003",
+              "m_0002",
+              "m_0004",
+              "m_0001",
+              "m_0008",
+              "m_0005",
+              "m_0013",
+              "m_0166",
+              "m_0093"
+            ]
+          }
+        },
+        "q_hc_02": {
+          "gold_id": "m_0014",
+          "word_jaccard": 0.14893617021276595,
+          "dense": {
+            "gold_rank": 6,
+            "gold_score": 0.6475396156311035,
+            "top_10": [
+              "m_0016",
+              "m_0025",
+              "m_0017",
+              "m_0026",
+              "m_0022",
+              "m_0014",
+              "m_0015",
+              "m_0021",
+              "m_0020",
+              "m_0165"
+            ]
+          },
+          "bm25": {
+            "gold_rank": 9,
+            "gold_score": 11.281498853295066,
+            "top_10": [
+              "m_0016",
+              "m_0020",
+              "m_0025",
+              "m_0021",
+              "m_0026",
+              "m_0024",
+              "m_0015",
+              "m_0017",
+              "m_0014",
+              "m_0022"
+            ]
+          }
+        },
+        "q_hc_03": {
+          "gold_id": "m_0027",
+          "word_jaccard": 0.17777777777777778,
+          "dense": {
+            "gold_rank": 6,
+            "gold_score": 0.569587767124176,
+            "top_10": [
+              "m_0029",
+              "m_0036",
+              "m_0033",
+              "m_0035",
+              "m_0032",
+              "m_0027",
+              "m_0031",
+              "m_0028",
+              "m_0030",
+              "m_0141"
+            ]
+          },
+          "bm25": {
+            "gold_rank": 8,
+            "gold_score": 13.020825087460125,
+            "top_10": [
+              "m_0029",
+              "m_0033",
+              "m_0028",
+              "m_0035",
+              "m_0036",
+              "m_0032",
+              "m_0031",
+              "m_0027",
+              "m_0082",
+              "m_0200"
+            ]
+          }
+        },
+        "q_hc_04": {
+          "gold_id": "m_0040",
+          "word_jaccard": 0.02564102564102564,
+          "dense": {
+            "gold_rank": 22,
+            "gold_score": 0.4867437779903412,
+            "top_10": [
+              "m_0042",
+              "m_0153",
+              "m_0061",
+              "m_0051",
+              "m_0044",
+              "m_0046",
+              "m_0166",
+              "m_0045",
+              "m_0154",
+              "m_0149"
+            ]
+          },
+          "bm25": {
+            "gold_rank": 205,
+            "gold_score": 0.09731840065897325,
+            "top_10": [
+              "m_0046",
+              "m_0044",
+              "m_0051",
+              "m_0143",
+              "m_0027",
+              "m_0065",
+              "m_0166",
+              "m_0140",
+              "m_0107",
+              "m_0017"
+            ]
+          }
+        },
+        "q_hc_05": {
+          "gold_id": "m_0053",
+          "word_jaccard": 0.08823529411764706,
+          "dense": {
+            "gold_rank": 1,
+            "gold_score": 0.7197799682617188,
+            "top_10": [
+              "m_0053",
+              "m_0061",
+              "m_0056",
+              "m_0173",
+              "m_0060",
+              "m_0064",
+              "m_0062",
+              "m_0065",
+              "m_0209",
+              "m_0055"
+            ]
+          },
+          "bm25": {
+            "gold_rank": 112,
+            "gold_score": 3.7319392428748746,
+            "top_10": [
+              "m_0089",
+              "m_0088",
+              "m_0017",
+              "m_0173",
+              "m_0091",
+              "m_0023",
+              "m_0099",
+              "m_0064",
+              "m_0110",
+              "m_0143"
+            ]
+          }
+        },
+        "q_ic_01": {
+          "gold_id": "m_0066",
+          "word_jaccard": 0.20833333333333334,
+          "dense": {
+            "gold_rank": 3,
+            "gold_score": 0.6505449414253235,
+            "top_10": [
+              "m_0067",
+              "m_0068",
+              "m_0066",
+              "m_0071",
+              "m_0078",
+              "m_0086",
+              "m_0100",
+              "m_0069",
+              "m_0177",
+              "m_0219"
+            ]
+          },
+          "bm25": {
+            "gold_rank": 2,
+            "gold_score": 14.12964058506763,
+            "top_10": [
+              "m_0067",
+              "m_0066",
+              "m_0149",
+              "m_0069",
+              "m_0078",
+              "m_0068",
+              "m_0053",
+              "m_0105",
+              "m_0072",
+              "m_0187"
+            ]
+          }
+        },
+        "q_ic_02": {
+          "gold_id": "m_0079",
+          "word_jaccard": 0.07692307692307693,
+          "dense": {
+            "gold_rank": 20,
+            "gold_score": 0.5290785431861877,
+            "top_10": [
+              "m_0080",
+              "m_0087",
+              "m_0084",
+              "m_0094",
+              "m_0089",
+              "m_0100",
+              "m_0102",
+              "m_0099",
+              "m_0090",
+              "m_0148"
+            ]
+          },
+          "bm25": {
+            "gold_rank": 26,
+            "gold_score": 4.247711806364754,
+            "top_10": [
+              "m_0080",
+              "m_0094",
+              "m_0084",
+              "m_0148",
+              "m_0087",
+              "m_0099",
+              "m_0096",
+              "m_0100",
+              "m_0220",
+              "m_0089"
+            ]
+          }
+        },
+        "q_ic_03": {
+          "gold_id": "m_0092",
+          "word_jaccard": 0.14285714285714285,
+          "dense": {
+            "gold_rank": 10,
+            "gold_score": 0.6117198467254639,
+            "top_10": [
+              "m_0100",
+              "m_0094",
+              "m_0099",
+              "m_0096",
+              "m_0084",
+              "m_0089",
+              "m_0081",
+              "m_0091",
+              "m_0104",
+              "m_0092"
+            ]
+          },
+          "bm25": {
+            "gold_rank": 15,
+            "gold_score": 9.239332718206166,
+            "top_10": [
+              "m_0099",
+              "m_0100",
+              "m_0094",
+              "m_0096",
+              "m_0084",
+              "m_0089",
+              "m_0081",
+              "m_0166",
+              "m_0148",
+              "m_0153"
+            ]
+          }
+        },
+        "q_ic_04": {
+          "gold_id": "m_0105",
+          "word_jaccard": 0.19148936170212766,
+          "dense": {
+            "gold_rank": 2,
+            "gold_score": 0.7114502191543579,
+            "top_10": [
+              "m_0108",
+              "m_0105",
+              "m_0114",
+              "m_0110",
+              "m_0109",
+              "m_0106",
+              "m_0112",
+              "m_0209",
+              "m_0045",
+              "m_0210"
+            ]
+          },
+          "bm25": {
+            "gold_rank": 4,
+            "gold_score": 19.553198656160337,
+            "top_10": [
+              "m_0108",
+              "m_0109",
+              "m_0110",
+              "m_0105",
+              "m_0106",
+              "m_0114",
+              "m_0112",
+              "m_0219",
+              "m_0207",
+              "m_0069"
+            ]
+          }
+        },
+        "q_ic_05": {
+          "gold_id": "m_0118",
+          "word_jaccard": 0.0975609756097561,
+          "dense": {
+            "gold_rank": 10,
+            "gold_score": 0.5746595859527588,
+            "top_10": [
+              "m_0193",
+              "m_0130",
+              "m_0121",
+              "m_0184",
+              "m_0122",
+              "m_0129",
+              "m_0125",
+              "m_0119",
+              "m_0126",
+              "m_0118"
+            ]
+          },
+          "bm25": {
+            "gold_rank": 12,
+            "gold_score": 8.293319972204145,
+            "top_10": [
+              "m_0130",
+              "m_0193",
+              "m_0122",
+              "m_0125",
+              "m_0129",
+              "m_0126",
+              "m_0127",
+              "m_0050",
+              "m_0191",
+              "m_0119"
+            ]
+          }
+        },
+        "q_bs_01": {
+          "gold_id": "m_0131",
+          "word_jaccard": 0.17777777777777778,
+          "dense": {
+            "gold_rank": 1,
+            "gold_score": 0.6949278116226196,
+            "top_10": [
+              "m_0131",
+              "m_0133",
+              "m_0143",
+              "m_0142",
+              "m_0134",
+              "m_0137",
+              "m_0141",
+              "m_0160",
+              "m_0166",
+              "m_0053"
+            ]
+          },
+          "bm25": {
+            "gold_rank": 3,
+            "gold_score": 12.549631616626106,
+            "top_10": [
+              "m_0142",
+              "m_0133",
+              "m_0131",
+              "m_0215",
+              "m_0127",
+              "m_0020",
+              "m_0138",
+              "m_0126",
+              "m_0135",
+              "m_0132"
+            ]
+          }
+        },
+        "q_bs_02": {
+          "gold_id": "m_0144",
+          "word_jaccard": 0.14285714285714285,
+          "dense": {
+            "gold_rank": 10,
+            "gold_score": 0.5786120295524597,
+            "top_10": [
+              "m_0153",
+              "m_0149",
+              "m_0146",
+              "m_0151",
+              "m_0154",
+              "m_0166",
+              "m_0062",
+              "m_0042",
+              "m_0045",
+              "m_0144"
+            ]
+          },
+          "bm25": {
+            "gold_rank": 18,
+            "gold_score": 7.78865799205872,
+            "top_10": [
+              "m_0153",
+              "m_0151",
+              "m_0166",
+              "m_0146",
+              "m_0053",
+              "m_0209",
+              "m_0093",
+              "m_0149",
+              "m_0099",
+              "m_0216"
+            ]
+          }
+        },
+        "q_bs_03": {
+          "gold_id": "m_0157",
+          "word_jaccard": 0.0851063829787234,
+          "dense": {
+            "gold_rank": 9,
+            "gold_score": 0.5401709675788879,
+            "top_10": [
+              "m_0166",
+              "m_0164",
+              "m_0158",
+              "m_0161",
+              "m_0169",
+              "m_0162",
+              "m_0160",
+              "m_0163",
+              "m_0157",
+              "m_0165"
+            ]
+          },
+          "bm25": {
+            "gold_rank": 41,
+            "gold_score": 3.7353979832187147,
+            "top_10": [
+              "m_0164",
+              "m_0166",
+              "m_0161",
+              "m_0158",
+              "m_0191",
+              "m_0162",
+              "m_0159",
+              "m_0163",
+              "m_0108",
+              "m_0126"
+            ]
+          }
+        },
+        "q_bs_04": {
+          "gold_id": "m_0170",
+          "word_jaccard": 0.20754716981132076,
+          "dense": {
+            "gold_rank": 6,
+            "gold_score": 0.6755150556564331,
+            "top_10": [
+              "m_0172",
+              "m_0178",
+              "m_0171",
+              "m_0176",
+              "m_0181",
+              "m_0170",
+              "m_0177",
+              "m_0175",
+              "m_0179",
+              "m_0174"
+            ]
+          },
+          "bm25": {
+            "gold_rank": 7,
+            "gold_score": 15.364623620207446,
+            "top_10": [
+              "m_0172",
+              "m_0181",
+              "m_0178",
+              "m_0176",
+              "m_0054",
+              "m_0171",
+              "m_0170",
+              "m_0174",
+              "m_0175",
+              "m_0020"
+            ]
+          }
+        },
+        "q_bs_05": {
+          "gold_id": "m_0183",
+          "word_jaccard": 0.045454545454545456,
+          "dense": {
+            "gold_rank": 20,
+            "gold_score": 0.5408397316932678,
+            "top_10": [
+              "m_0193",
+              "m_0129",
+              "m_0185",
+              "m_0190",
+              "m_0184",
+              "m_0119",
+              "m_0121",
+              "m_0118",
+              "m_0082",
+              "m_0187"
+            ]
+          },
+          "bm25": {
+            "gold_rank": 170,
+            "gold_score": 0.37083654251242043,
+            "top_10": [
+              "m_0185",
+              "m_0193",
+              "m_0129",
+              "m_0190",
+              "m_0037",
+              "m_0187",
+              "m_0118",
+              "m_0184",
+              "m_0189",
+              "m_0034"
+            ]
+          }
+        }
+      }
+    },
+    "revised": {
+      "sha256": {
+        "queries.jsonl": "d848a58a0308ebf105ef1e1bb2917efeeac533d3dc2443a32f632a5d6e24bd98",
+        "memories.jsonl": "b499821a0a8f0cfe782688d24bea8f5798b8dba5f65d050ffe42319203cb8dbe",
+        "gold.jsonl": "8ee5cbe94cb8074aaee5605a567230374ba44f912beff9c29a4c41d453aef82e"
+      },
+      "mean_word_jaccard": 0.07005445735880518,
+      "mean_dense_cosine": 0.5432094554106395,
+      "metrics": {
+        "dense": {
+          "hits": {
+            "1": 1,
+            "3": 1,
+            "5": 4,
+            "10": 8,
+            "20": 13,
+            "50": 15
+          },
+          "mean_gold_rank": 11.266666666666667,
+          "median_gold_rank": 10
+        },
+        "bm25": {
+          "hits": {
+            "1": 0,
+            "3": 0,
+            "5": 0,
+            "10": 2,
+            "20": 4,
+            "50": 7
+          },
+          "mean_gold_rank": 71.4,
+          "median_gold_rank": 53
+        }
+      },
+      "observed_shared_phrases": {
+        "q_hc_01": {
+          "phrase": "Wutong Restaurant",
+          "shared_with_gold": false,
+          "bank_count": 0
+        },
+        "q_hc_02": {
+          "phrase": "Binhai Highway",
+          "shared_with_gold": false,
+          "bank_count": 0
+        },
+        "q_hc_03": {
+          "phrase": "Unit 502 at Qinghe Apartments",
+          "shared_with_gold": false,
+          "bank_count": 0
+        },
+        "q_ic_01": {
+          "phrase": "Yunqiao Center",
+          "shared_with_gold": false,
+          "bank_count": 0
+        },
+        "q_ic_03": {
+          "phrase": "my lunch break",
+          "shared_with_gold": false,
+          "bank_count": 2
+        },
+        "q_ic_04": {
+          "phrase": "downtown duty-free shop",
+          "shared_with_gold": false,
+          "bank_count": 0
+        },
+        "q_bs_02": {
+          "phrase": "Binjiang Park",
+          "shared_with_gold": false,
+          "bank_count": 0
+        },
+        "q_bs_04": {
+          "phrase": "school athletic field",
+          "shared_with_gold": false,
+          "bank_count": 0
+        }
+      },
+      "token_audit": {
+        "queries": {
+          "texts": 15,
+          "tokens_excluding_special": 363,
+          "unknown_tokens": 0,
+          "unknown_ratio": 0.0,
+          "max_tokens_with_special": 45,
+          "would_truncate": 0
+        },
+        "memories": {
+          "texts": 225,
+          "tokens_excluding_special": 6943,
+          "unknown_tokens": 0,
+          "unknown_ratio": 0.0,
+          "max_tokens_with_special": 57,
+          "would_truncate": 0
+        }
+      },
+      "per_query": {
+        "q_hc_01": {
+          "gold_id": "m_0001",
+          "word_jaccard": 0.05714285714285714,
+          "dense": {
+            "gold_rank": 17,
+            "gold_score": 0.5184953808784485,
+            "top_10": [
+              "m_0011",
+              "m_0003",
+              "m_0089",
+              "m_0010",
+              "m_0102",
+              "m_0006",
+              "m_0094",
+              "m_0007",
+              "m_0082",
+              "m_0009"
+            ]
+          },
+          "bm25": {
+            "gold_rank": 34,
+            "gold_score": 1.6941499090259369,
+            "top_10": [
+              "m_0082",
+              "m_0089",
+              "m_0006",
+              "m_0037",
+              "m_0202",
+              "m_0076",
+              "m_0175",
+              "m_0010",
+              "m_0162",
+              "m_0003"
+            ]
+          }
+        },
+        "q_hc_02": {
+          "gold_id": "m_0014",
+          "word_jaccard": 0.02564102564102564,
+          "dense": {
+            "gold_rank": 4,
+            "gold_score": 0.571807861328125,
+            "top_10": [
+              "m_0021",
+              "m_0026",
+              "m_0019",
+              "m_0014",
+              "m_0015",
+              "m_0065",
+              "m_0017",
+              "m_0175",
+              "m_0160",
+              "m_0038"
+            ]
+          },
+          "bm25": {
+            "gold_rank": 70,
+            "gold_score": 0.09321614528675991,
+            "top_10": [
+              "m_0031",
+              "m_0048",
+              "m_0107",
+              "m_0140",
+              "m_0110",
+              "m_0200",
+              "m_0092",
+              "m_0183",
+              "m_0026",
+              "m_0054"
+            ]
+          }
+        },
+        "q_hc_03": {
+          "gold_id": "m_0027",
+          "word_jaccard": 0.08695652173913043,
+          "dense": {
+            "gold_rank": 5,
+            "gold_score": 0.4771319627761841,
+            "top_10": [
+              "m_0029",
+              "m_0036",
+              "m_0035",
+              "m_0034",
+              "m_0027",
+              "m_0033",
+              "m_0065",
+              "m_0166",
+              "m_0062",
+              "m_0126"
+            ]
+          },
+          "bm25": {
+            "gold_rank": 58,
+            "gold_score": 2.4466515494816563,
+            "top_10": [
+              "m_0029",
+              "m_0173",
+              "m_0011",
+              "m_0054",
+              "m_0035",
+              "m_0076",
+              "m_0019",
+              "m_0217",
+              "m_0166",
+              "m_0034"
+            ]
+          }
+        },
+        "q_hc_04": {
+          "gold_id": "m_0040",
+          "word_jaccard": 0.02564102564102564,
+          "dense": {
+            "gold_rank": 21,
+            "gold_score": 0.4867437779903412,
+            "top_10": [
+              "m_0042",
+              "m_0153",
+              "m_0051",
+              "m_0044",
+              "m_0046",
+              "m_0166",
+              "m_0045",
+              "m_0122",
+              "m_0050",
+              "m_0160"
+            ]
+          },
+          "bm25": {
+            "gold_rank": 195,
+            "gold_score": 0.0714198076980575,
+            "top_10": [
+              "m_0046",
+              "m_0044",
+              "m_0051",
+              "m_0143",
+              "m_0035",
+              "m_0166",
+              "m_0174",
+              "m_0164",
+              "m_0042",
+              "m_0065"
+            ]
+          }
+        },
+        "q_hc_05": {
+          "gold_id": "m_0053",
+          "word_jaccard": 0.10909090909090909,
+          "dense": {
+            "gold_rank": 19,
+            "gold_score": 0.49176543951034546,
+            "top_10": [
+              "m_0056",
+              "m_0173",
+              "m_0064",
+              "m_0175",
+              "m_0059",
+              "m_0172",
+              "m_0179",
+              "m_0136",
+              "m_0055",
+              "m_0143"
+            ]
+          },
+          "bm25": {
+            "gold_rank": 8,
+            "gold_score": 9.126864743076968,
+            "top_10": [
+              "m_0029",
+              "m_0089",
+              "m_0064",
+              "m_0173",
+              "m_0060",
+              "m_0037",
+              "m_0166",
+              "m_0053",
+              "m_0110",
+              "m_0143"
+            ]
+          }
+        },
+        "q_ic_01": {
+          "gold_id": "m_0066",
+          "word_jaccard": 0.06666666666666667,
+          "dense": {
+            "gold_rank": 12,
+            "gold_score": 0.47611796855926514,
+            "top_10": [
+              "m_0077",
+              "m_0086",
+              "m_0075",
+              "m_0122",
+              "m_0173",
+              "m_0012",
+              "m_0177",
+              "m_0216",
+              "m_0071",
+              "m_0219"
+            ]
+          },
+          "bm25": {
+            "gold_rank": 20,
+            "gold_score": 4.577354454573029,
+            "top_10": [
+              "m_0202",
+              "m_0082",
+              "m_0076",
+              "m_0162",
+              "m_0219",
+              "m_0220",
+              "m_0033",
+              "m_0073",
+              "m_0045",
+              "m_0163"
+            ]
+          }
+        },
+        "q_ic_02": {
+          "gold_id": "m_0079",
+          "word_jaccard": 0.07692307692307693,
+          "dense": {
+            "gold_rank": 18,
+            "gold_score": 0.5290785431861877,
+            "top_10": [
+              "m_0080",
+              "m_0087",
+              "m_0100",
+              "m_0082",
+              "m_0084",
+              "m_0089",
+              "m_0102",
+              "m_0090",
+              "m_0162",
+              "m_0209"
+            ]
+          },
+          "bm25": {
+            "gold_rank": 24,
+            "gold_score": 4.0977858585157945,
+            "top_10": [
+              "m_0080",
+              "m_0084",
+              "m_0100",
+              "m_0087",
+              "m_0093",
+              "m_0089",
+              "m_0220",
+              "m_0081",
+              "m_0082",
+              "m_0209"
+            ]
+          }
+        },
+        "q_ic_03": {
+          "gold_id": "m_0092",
+          "word_jaccard": 0.02702702702702703,
+          "dense": {
+            "gold_rank": 15,
+            "gold_score": 0.5427466630935669,
+            "top_10": [
+              "m_0098",
+              "m_0102",
+              "m_0096",
+              "m_0095",
+              "m_0101",
+              "m_0089",
+              "m_0086",
+              "m_0094",
+              "m_0012",
+              "m_0003"
+            ]
+          },
+          "bm25": {
+            "gold_rank": 132,
+            "gold_score": 0.07653723625565001,
+            "top_10": [
+              "m_0089",
+              "m_0082",
+              "m_0098",
+              "m_0051",
+              "m_0076",
+              "m_0175",
+              "m_0107",
+              "m_0073",
+              "m_0029",
+              "m_0224"
+            ]
+          }
+        },
+        "q_ic_04": {
+          "gold_id": "m_0105",
+          "word_jaccard": 0.1,
+          "dense": {
+            "gold_rank": 1,
+            "gold_score": 0.6881642937660217,
+            "top_10": [
+              "m_0105",
+              "m_0110",
+              "m_0106",
+              "m_0210",
+              "m_0112",
+              "m_0115",
+              "m_0109",
+              "m_0116",
+              "m_0108",
+              "m_0065"
+            ]
+          },
+          "bm25": {
+            "gold_rank": 20,
+            "gold_score": 6.4259037301957616,
+            "top_10": [
+              "m_0189",
+              "m_0109",
+              "m_0199",
+              "m_0225",
+              "m_0077",
+              "m_0140",
+              "m_0157",
+              "m_0130",
+              "m_0170",
+              "m_0023"
+            ]
+          }
+        },
+        "q_ic_05": {
+          "gold_id": "m_0118",
+          "word_jaccard": 0.08695652173913043,
+          "dense": {
+            "gold_rank": 4,
+            "gold_score": 0.6581538319587708,
+            "top_10": [
+              "m_0130",
+              "m_0128",
+              "m_0122",
+              "m_0118",
+              "m_0129",
+              "m_0193",
+              "m_0121",
+              "m_0184",
+              "m_0190",
+              "m_0119"
+            ]
+          },
+          "bm25": {
+            "gold_rank": 64,
+            "gold_score": 3.2434606473227863,
+            "top_10": [
+              "m_0089",
+              "m_0082",
+              "m_0122",
+              "m_0130",
+              "m_0184",
+              "m_0123",
+              "m_0129",
+              "m_0175",
+              "m_0121",
+              "m_0196"
+            ]
+          }
+        },
+        "q_bs_01": {
+          "gold_id": "m_0131",
+          "word_jaccard": 0.05128205128205128,
+          "dense": {
+            "gold_rank": 6,
+            "gold_score": 0.5315658450126648,
+            "top_10": [
+              "m_0062",
+              "m_0141",
+              "m_0136",
+              "m_0153",
+              "m_0146",
+              "m_0131",
+              "m_0209",
+              "m_0122",
+              "m_0193",
+              "m_0065"
+            ]
+          },
+          "bm25": {
+            "gold_rank": 153,
+            "gold_score": 0.9415721123468745,
+            "top_10": [
+              "m_0089",
+              "m_0141",
+              "m_0082",
+              "m_0209",
+              "m_0211",
+              "m_0123",
+              "m_0166",
+              "m_0112",
+              "m_0127",
+              "m_0202"
+            ]
+          }
+        },
+        "q_bs_02": {
+          "gold_id": "m_0144",
+          "word_jaccard": 0.07142857142857142,
+          "dense": {
+            "gold_rank": 7,
+            "gold_score": 0.5155273675918579,
+            "top_10": [
+              "m_0062",
+              "m_0153",
+              "m_0065",
+              "m_0141",
+              "m_0107",
+              "m_0045",
+              "m_0144",
+              "m_0149",
+              "m_0042",
+              "m_0122"
+            ]
+          },
+          "bm25": {
+            "gold_rank": 53,
+            "gold_score": 3.383522997087753,
+            "top_10": [
+              "m_0222",
+              "m_0082",
+              "m_0089",
+              "m_0031",
+              "m_0149",
+              "m_0142",
+              "m_0029",
+              "m_0079",
+              "m_0085",
+              "m_0010"
+            ]
+          }
+        },
+        "q_bs_03": {
+          "gold_id": "m_0157",
+          "word_jaccard": 0.08333333333333333,
+          "dense": {
+            "gold_rank": 10,
+            "gold_score": 0.5319589972496033,
+            "top_10": [
+              "m_0166",
+              "m_0164",
+              "m_0158",
+              "m_0161",
+              "m_0169",
+              "m_0162",
+              "m_0160",
+              "m_0163",
+              "m_0165",
+              "m_0157"
+            ]
+          },
+          "bm25": {
+            "gold_rank": 47,
+            "gold_score": 3.797017187475812,
+            "top_10": [
+              "m_0164",
+              "m_0166",
+              "m_0161",
+              "m_0158",
+              "m_0162",
+              "m_0191",
+              "m_0159",
+              "m_0163",
+              "m_0169",
+              "m_0126"
+            ]
+          }
+        },
+        "q_bs_04": {
+          "gold_id": "m_0170",
+          "word_jaccard": 0.16,
+          "dense": {
+            "gold_rank": 8,
+            "gold_score": 0.5825018286705017,
+            "top_10": [
+              "m_0172",
+              "m_0175",
+              "m_0181",
+              "m_0171",
+              "m_0176",
+              "m_0178",
+              "m_0173",
+              "m_0170",
+              "m_0058",
+              "m_0146"
+            ]
+          },
+          "bm25": {
+            "gold_rank": 7,
+            "gold_score": 11.00801861130131,
+            "top_10": [
+              "m_0181",
+              "m_0175",
+              "m_0172",
+              "m_0173",
+              "m_0166",
+              "m_0171",
+              "m_0170",
+              "m_0176",
+              "m_0082",
+              "m_0089"
+            ]
+          }
+        },
+        "q_bs_05": {
+          "gold_id": "m_0183",
+          "word_jaccard": 0.022727272727272728,
+          "dense": {
+            "gold_rank": 22,
+            "gold_score": 0.5463820695877075,
+            "top_10": [
+              "m_0185",
+              "m_0190",
+              "m_0129",
+              "m_0192",
+              "m_0184",
+              "m_0191",
+              "m_0187",
+              "m_0128",
+              "m_0195",
+              "m_0082"
+            ]
+          },
+          "bm25": {
+            "gold_rank": 186,
+            "gold_score": 0.07074408099472028,
+            "top_10": [
+              "m_0185",
+              "m_0190",
+              "m_0129",
+              "m_0187",
+              "m_0184",
+              "m_0193",
+              "m_0196",
+              "m_0118",
+              "m_0101",
+              "m_0076"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "validation": {
+    "datasets": {
+      "zh": {
+        "queries": 15,
+        "memories": 225,
+        "gold_pairs": 15,
+        "text_rows_changed_from_archived_input": {
+          "queries.jsonl": 13,
+          "memories.jsonl": 85
+        }
+      },
+      "en": {
+        "queries": 15,
+        "memories": 225,
+        "gold_pairs": 15,
+        "text_rows_changed_from_archived_input": {
+          "queries.jsonl": 13,
+          "memories.jsonl": 85
+        }
+      }
+    },
+    "v2_reference_unchanged": true,
+    "archived_input_reproduces_historical_full_rankings": [
+      "dense",
+      "bm25"
+    ]
+  }
+}

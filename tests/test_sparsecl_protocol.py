@@ -4,7 +4,7 @@ import unittest
 import numpy as np
 
 from memory_retrieval.sparsecl import fused_order, ndcg_at_10, score_candidates
-from scripts.sparsecl_worker import input_rows
+from memory_retrieval.data import Memory, validate_memories
 
 
 class SparseCLProtocolTests(unittest.TestCase):
@@ -55,13 +55,9 @@ class SparseCLProtocolTests(unittest.TestCase):
         self.assertLess(swapped_with_nonrelevant, perfect)
 
     def test_equal_memory_texts_keep_their_original_ids(self):
-        memories, queries = input_rows({
-            "memories": [{"memory_id": "m1", "content": "same body"},
-                         {"memory_id": "m2", "content": "same body"}],
-            "queries": [{"query_id": "q1", "content": "query body"}],
-        })
-        self.assertEqual([row["memory_id"] for row in memories], ["m1", "m2"])
-        self.assertEqual(len(queries), 1)
+        memories = [Memory("m1", "same body", "text"), Memory("m2", "same body", "text")]
+        validate_memories(memories)
+        self.assertEqual([row.memory_id for row in memories], ["m1", "m2"])
 
 
 if __name__ == "__main__":

@@ -5,12 +5,15 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "memory-comparison-retrieval"
 version = "0.1.0"
-description = "Frozen-memory retrieval with existing-description selection"
+description = "Write-time conflict retrieval with orthogonal subspace projection (OCSP-QR)"
 requires-python = ">=3.11"
-dependencies = ["numpy>=1.26,<3", "python-dotenv>=1.0,<2"]
+dependencies = ["numpy>=1.25.2,<3", "python-dotenv>=1.0,<2"]
 
 [project.scripts]
 memory-retrieval = "memory_retrieval.cli:main"
 
 [tool.setuptools.packages.find]
 include = ["memory_retrieval*"]
+
+[tool.setuptools.package-data]
+memory_retrieval = ["model_lock.json"]

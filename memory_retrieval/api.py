@@ -131,8 +131,6 @@ class APIClient:
                 request["temperature"] = self.settings.llm_temperature
             if self.settings.llm_json_mode:
                 request["response_format"] = {"type": "json_object"}
-            # 该网关的 flash 模型默认跑思维链,一次批处理会先烧掉数千 reasoning token;
-            # 描述抽取不需要推理,显式关掉后同一请求从 40 秒级降到 2 秒级。
             if self.settings.llm_reasoning_effort:
                 request["reasoning_effort"] = self.settings.llm_reasoning_effort
             result = self._post(endpoint(self.settings.llm_base_url, "chat/completions"),

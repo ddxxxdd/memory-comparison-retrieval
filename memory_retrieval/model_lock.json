@@ -1,0 +1,177 @@
+{
+  "bge": {
+    "files": [
+      {
+        "rfilename": "config.json",
+        "blobId": "09a8200d8a549a3b9dba53b67156ca26810cc720",
+        "size": 777
+      },
+      {
+        "rfilename": "model.safetensors",
+        "blobId": "c766488f5e160d3128aeaa99bb4ad9083d2ff9e6",
+        "size": 437955512,
+        "lfs": {
+          "sha256": "c7c1988aae201f80cf91a5dbbd5866409503b89dcaba877ca6dba7dd0a5167d7",
+          "size": 437955512,
+          "pointerSize": 134
+        }
+      },
+      {
+        "rfilename": "special_tokens_map.json",
+        "blobId": "a8b3208c2884c4efb86e49300fdd3dc877220cdf",
+        "size": 125
+      },
+      {
+        "rfilename": "tokenizer.json",
+        "blobId": "688882a79f44442ddc1f60d70334a7ff5df0fb47",
+        "size": 711396
+      },
+      {
+        "rfilename": "tokenizer_config.json",
+        "blobId": "37fca74771bc76a8e01178ce3a6055a0995f8093",
+        "size": 366
+      },
+      {
+        "rfilename": "vocab.txt",
+        "blobId": "fb140275c155a9c7c5a3b3e0e77a9e839594a938",
+        "size": 231508
+      }
+    ],
+    "directory": "results/bge-base-en-v1.5",
+    "repo": "BAAI/bge-base-en-v1.5",
+    "revision": "a5beb1e3e68b9ab74eb54cfd186867f64f240e1a",
+    "max_seq_length": 512
+  },
+  "arguana": {
+    "repo": "SparseCL/BGE-SparseCL-arguana",
+    "revision": "2797d506cac008fba3be91f7692d1cd3f4ee4c78",
+    "alpha": 0.18,
+    "max_seq_length": 512,
+    "files": [
+      {
+        "rfilename": "config.json",
+        "blobId": "e4f5807531ce41ae62fd1578ca731c4fc3601f72",
+        "size": 744
+      },
+      {
+        "rfilename": "model.safetensors",
+        "blobId": "90d06d6c5f560382a6cb21d0147e19e71da870b9",
+        "size": 435589760,
+        "lfs": {
+          "sha256": "9bfc8399b76b6709e43654298a116c963952ab3651c25e7c8d11a6cda7e7aebb",
+          "size": 435589760,
+          "pointerSize": 134
+        }
+      },
+      {
+        "rfilename": "special_tokens_map.json",
+        "blobId": "9bbecc17cabbcbd3112c14d6982b51403b264bfa",
+        "size": 695
+      },
+      {
+        "rfilename": "tokenizer.json",
+        "blobId": "8f778e7d950e055b18b53222c75d2c54c3732df5",
+        "size": 711661
+      },
+      {
+        "rfilename": "tokenizer_config.json",
+        "blobId": "75305659f7795d4549f0e23688b52fa20a32f925",
+        "size": 1242
+      },
+      {
+        "rfilename": "vocab.txt",
+        "blobId": "fb140275c155a9c7c5a3b3e0e77a9e839594a938",
+        "size": 231508
+      }
+    ],
+    "directory": "results/BGE-SparseCL-arguana"
+  },
+  "msmarco": {
+    "repo": "SparseCL/BGE-SparseCL-msmarco",
+    "revision": "08dfecbdf4a80e3848e74e573a8844c2a517ee67",
+    "alpha": 2.19,
+    "max_seq_length": 256,
+    "files": [
+      {
+        "rfilename": "config.json",
+        "blobId": "e4f5807531ce41ae62fd1578ca731c4fc3601f72",
+        "size": 744
+      },
+      {
+        "rfilename": "model.safetensors",
+        "blobId": "1774f2df7f43bc9ff45a2747a38892e58e0ca182",
+        "size": 435589760,
+        "lfs": {
+          "sha256": "15fcba6c84ea263e4b7e95ef9f06e58661ae7900370df612f8e806c98a342063",
+          "size": 435589760,
+          "pointerSize": 134
+        }
+      },
+      {
+        "rfilename": "special_tokens_map.json",
+        "blobId": "9bbecc17cabbcbd3112c14d6982b51403b264bfa",
+        "size": 695
+      },
+      {
+        "rfilename": "tokenizer.json",
+        "blobId": "ab03971c004c377bcf9aeaa507dd5c97b0f19e28",
+        "size": 711661
+      },
+      {
+        "rfilename": "tokenizer_config.json",
+        "blobId": "75305659f7795d4549f0e23688b52fa20a32f925",
+        "size": 1242
+      },
+      {
+        "rfilename": "vocab.txt",
+        "blobId": "fb140275c155a9c7c5a3b3e0e77a9e839594a938",
+        "size": 231508
+      }
+    ],
+    "directory": "results/BGE-SparseCL-msmarco"
+  },
+  "hotpotqa": {
+    "repo": "SparseCL/BGE-SparseCL-hotpotqa",
+    "revision": "92c8bf7cb88ef298c7d66c06acb45e2861dce161",
+    "alpha": 4.82,
+    "max_seq_length": 256,
+    "files": [
+      {
+        "rfilename": "config.json",
+        "blobId": "e4f5807531ce41ae62fd1578ca731c4fc3601f72",
+        "size": 744
+      },
+      {
+        "rfilename": "model.safetensors",
+        "blobId": "a6b8eb7dbd5c8e7423201846c2a0f286f817ca19",
+        "size": 435589760,
+        "lfs": {
+          "sha256": "9afcadc44705181a29f6f48ec10bbf88f6ba69d9f39b8955a827a1d26b9449f1",
+          "size": 435589760,
+          "pointerSize": 134
+        }
+      },
+      {
+        "rfilename": "special_tokens_map.json",
+        "blobId": "9bbecc17cabbcbd3112c14d6982b51403b264bfa",
+        "size": 695
+      },
+      {
+        "rfilename": "tokenizer.json",
+        "blobId": "ab03971c004c377bcf9aeaa507dd5c97b0f19e28",
+        "size": 711661
+      },
+      {
+        "rfilename": "tokenizer_config.json",
+        "blobId": "75305659f7795d4549f0e23688b52fa20a32f925",
+        "size": 1242
+      },
+      {
+        "rfilename": "vocab.txt",
+        "blobId": "fb140275c155a9c7c5a3b3e0e77a9e839594a938",
+        "size": 231508
+      }
+    ],
+    "directory": "results/BGE-SparseCL-hotpotqa"
+  }
+}

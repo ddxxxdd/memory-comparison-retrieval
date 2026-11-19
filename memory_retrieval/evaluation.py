@@ -1,8 +1,10 @@
-"""Compute the experiment indicators on the supplied gold rows."""
+"""Validate retrieval labels and compute experiment indicators."""
 
-import numpy as np
+from collections import Counter
+from statistics import mean
 
-from .data import canonical_json, nonempty_text
+from .data import memory_banks, nonempty_text
+from .sparsecl import ndcg_at_10
 
 
 LABELS = {"conflict", "no_conflict", "uncertain"}
@@ -29,12 +31,24 @@ def validate_gold(rows, memory_ids=None):
             targets = row["conflict_old_memory_ids"]
             if not isinstance(targets, list):
                 raise ValueError("conflict_old_memory_ids 必须是数组")
-            for mid in targets:
+            unjudged = row.get("unjudged_old_memory_ids", [])
+            if not isinstance(unjudged, list):
+                raise ValueError("unjudged_old_memory_ids 必须是数组")
+            for mid in targets + unjudged:
                 nonempty_text(mid, "memory_id")
-            if len(set(targets)) != len(targets):
-                raise ValueError("conflict_old_memory_ids 有重复")
-            if memory_ids is not None and set(targets) - memory_ids:
-                raise ValueError(f"{query_id}: 冲突金标引用了不存在的旧记忆")
+            if len(set(targets + unjudged)) != len(targets) + len(unjudged):
+                raise ValueError("冲突金标和待定旧记忆的 ID 必须唯一且互不重叠")
+            if memory_ids is not None and set(targets + unjudged) - memory_ids:
+                raise ValueError(f"{query_id}: 金标引用了不存在的旧记忆")
+            details = row.get("target_details")
+            if details is not None:
+                if not isinstance(details, dict) or set(details) != set(targets):
+                    raise ValueError(f"{query_id}: target_details 必须逐条对应冲突金标")
+                for detail in details.values():
+                    if not isinstance(detail, dict):
+                        raise ValueError(f"{query_id}: target_details 条目必须是对象")
+                    nonempty_text(detail.get("source"), "target_details.source")
+                    nonempty_text(detail.get("relation"), "target_details.relation")
             for key in ("fully_reviewed", "human_reviewed"):
                 if key in row and not isinstance(row[key], bool):
                     raise ValueError(f"{key} 必须是布尔值")
@@ -58,6 +72,30 @@ def validate_gold(rows, memory_ids=None):
     return rows
 
 
+def validate_dataset(memories, queries, gold_rows=None):
+    banks = memory_banks(memories)
+    for query in queries:
+        if query.get("scenario_id") not in banks:
+            raise ValueError(f"{query['query_id']}: 查询未匹配到同场景旧记忆库")
+    if gold_rows is None:
+        return banks
+    validate_gold(gold_rows, {memory.memory_id for memory in memories})
+    if not queries:
+        return banks
+    query_scenarios = {query["query_id"]: query.get("scenario_id") for query in queries}
+    if set(query_scenarios) != {row["query_id"] for row in gold_rows}:
+        raise ValueError("查询与金标 query_id 不一致")
+    if None not in banks:
+        ids_by_scenario = {scenario: {m.memory_id for m in bank} for scenario, bank in banks.items()}
+        for row in gold_rows:
+            qid = row["query_id"]
+            refs = (row.get("gold_compare_ids", row.get("conflict_old_memory_ids", []))
+                    + row.get("uncertain_compare_ids", []) + row.get("unjudged_old_memory_ids", []))
+            if set(refs) - ids_by_scenario[query_scenarios[qid]]:
+                raise ValueError(f"{qid}: 金标或待定项引用了其他场景的旧记忆")
+    return banks
+
+
 def target_ids(row):
     """The old memories a write must retrieve: conflicting ones only."""
     if "conflict_old_memory_ids" in row and "gold_compare_ids" not in row:
@@ -66,144 +104,42 @@ def target_ids(row):
     return [mid for mid, label in labels.items() if label == "conflict"]
 
 
-def _rate(numerator, denominator):
-    return numerator / denominator if denominator else None
-
-
-def _percentiles(values):
-    return {"p50": float(np.percentile(values, 50)) if values else None,
-            "p95": float(np.percentile(values, 95)) if values else None}
-
-
-def evaluate(gold_rows, results):
-    validate_gold(gold_rows)
-    if not gold_rows or not results:
-        raise ValueError("金标与结果不能为空")
-    result_by_id = {row["query_id"]: row for row in results}
-    gold_by_id = {row["query_id"]: row for row in gold_rows}
-    if len(result_by_id) != len(results) or set(result_by_id) != set(gold_by_id):
-        raise ValueError("结果必须恰好覆盖全部金标查询，且不能重复或混入其他查询")
-    signatures = {canonical_json({key: r.get(key) for key in (
-        "index_id", "method", "rerank", "selection_policy", "similarity_threshold",
-        "coarse_k", "final_k", "judged", "llm", "embedding", "prompt_hash", "library_size"
-    )}) for r in results}
-    if len(signatures) > 1:
-        raise ValueError("一次评测不能混合不同索引、方法、模型、提示或预算")
-    for result in results:
-        coarse_ids = [r["memory_id"] for r in result["coarse_candidates"]]
-        final_ids = [r["memory_id"] for r in result["candidates"]]
-        policy = result.get("selection_policy", "top_k")
-        invalid_selection = False
-        if policy == "top_k":
-            coarse_k, final_k = result.get("coarse_k"), result.get("final_k")
-            invalid_selection = (not isinstance(coarse_k, int) or not isinstance(final_k, int)
-                                 or len(coarse_ids) > coarse_k or len(final_ids) > final_k)
-        elif policy == "similarity_threshold":
-            threshold = result.get("similarity_threshold")
-            invalid_selection = (isinstance(threshold, bool)
-                                 or not isinstance(threshold, (int, float))
-                                 or not np.isfinite(threshold)
-                                 or not 0 <= threshold <= 1
-                                 or any(not isinstance(row.get("coarse_score"), (int, float))
-                                        or not np.isfinite(row["coarse_score"])
-                                        or row["coarse_score"] < threshold
-                                        for row in result["coarse_candidates"])
-                                 or any(not isinstance(row.get("fine_score" if result["rerank"] else "coarse_score"),
-                                                      (int, float))
-                                        or not np.isfinite(row["fine_score" if result["rerank"] else "coarse_score"])
-                                        or row["fine_score" if result["rerank"] else "coarse_score"] < threshold
-                                        for row in result["candidates"]))
-        else:
-            invalid_selection = True
-        if (len(coarse_ids) != len(set(coarse_ids)) or len(final_ids) != len(set(final_ids))
-                or not set(final_ids) <= set(coarse_ids) or invalid_selection):
-            raise ValueError("结果中的候选重复、超出预算或不属于粗候选集合")
-        judgments = result["judgments"]
-        judged_ids = [row["memory_id"] for row in judgments]
-        if (len(judged_ids) != len(set(judged_ids))
-                or (result["judged"] and set(judged_ids) != set(final_ids))
-                or (not result["judged"] and judgments)
-                or any(row["conflict_label"] not in LABELS for row in judgments)):
-            raise ValueError("冲突判定必须完整、唯一地对应本次最终候选")
-
-    eligible, excluded = [], []
-    for gold in gold_rows:
-        if gold.get("uncertain_compare_ids"):
-            excluded.append(gold["query_id"])
-        else:
-            eligible.append((gold, result_by_id[gold["query_id"]]))
-
-    matched = required = returned = false_candidates = 0
-    query_recalls = []
-    query_full_coverage = []
-    candidate_counts = []
-    for gold, result in eligible:
-        # 冲突-only 金标里,检索目标就是冲突旧记忆;两层金标仍以应比较集合为目标。
-        targets = set(gold["gold_compare_ids"]) if "gold_compare_ids" in gold else set(target_ids(gold))
-        candidates = {row["memory_id"] for row in result["candidates"]}
-        query_hits = len(targets & candidates)
-        matched += query_hits
-        required += len(targets)
-        returned += len(candidates)
-        false_candidates += len(candidates - targets)
-        query_recalls.append(query_hits / len(targets) if targets else 1.0)
-        query_full_coverage.append(int(targets <= candidates))
-        candidate_counts.append(len(candidates))
-    retrieval = {
-        "evaluated_queries": len(eligible),
-        "retrieved_required_memories": matched,
-        "required_memories": required,
-        "candidate_recall": _rate(matched, required),
-        "candidate_recall_micro": _rate(matched, required),
-        "candidate_recall_macro": float(np.mean(query_recalls)) if query_recalls else None,
-        "full_coverage": float(np.mean(query_full_coverage)) if query_full_coverage else None,
-        "returned_candidates": returned,
-        "non_comparable_candidates": false_candidates,
-        "candidate_purity": _rate(matched, returned),
-        "candidate_count_mean": float(np.mean(candidate_counts)) if candidate_counts else None,
-        "candidate_count_p95": float(np.percentile(candidate_counts, 95)) if candidate_counts else None,
-        "candidate_count_max": max(candidate_counts) if candidate_counts else None,
-    }
-
-    conflict = None
-    if all(row["judged"] for row in results):
-        tp = fp = fn = tn = 0
-        for gold, result in eligible:
-            if "conflict_labels" in gold:
-                labels = gold["conflict_labels"]
-                positive = {mid for mid, label in labels.items() if label == "conflict"}
-                uncertain = {mid for mid, label in labels.items() if label == "uncertain"}
-            else:
-                positive = set(gold["conflict_old_memory_ids"])
-                uncertain = set(gold.get("uncertain_compare_ids") or [])
-            judgments = {row["memory_id"]: row["conflict_label"] for row in result["judgments"]}
-            predicted = {mid for mid, label in judgments.items() if label == "conflict" and mid not in uncertain}
-            tp += len(positive & predicted)
-            fn += len(positive - predicted)
-            fp += len(predicted - positive)
-            known_non_conflicts = set(judgments) - positive - uncertain
-            tn += len(known_non_conflicts - predicted)
-        conflict = {
-            "tp": tp, "fp": fp, "fn": fn, "tn": tn,
-            "f1": _rate(2 * tp, 2 * tp + fp + fn),
-            "false_alarm_rate": _rate(fp, fp + tn),
-            "miss_rate": _rate(fn, tp + fn),
-        }
-
-    stages = {"extraction": [], "retrieval": [], "reranking": [], "llm_judgment": [], "total": []}
-    for row in results:
-        timing = row["timing"]
-        stages["extraction"].append(1000 * timing.get("description", 0.0))
-        stages["retrieval"].append(1000 * timing.get("coarse_retrieval", timing.get("retrieval", 0.0)))
-        stages["reranking"].append(1000 * (timing.get("hypotheses", 0.0) + timing.get("fine_ranking", 0.0)))
-        if row["judged"]:
-            stages["llm_judgment"].append(1000 * timing.get("conflict_judgment", 0.0))
-        stages["total"].append(1000 * timing["total_seconds"])
-    return {
-        "total_queries": len(results),
-        "library_size": results[0].get("library_size"),
-        "candidate_retrieval": retrieval,
-        "conflict_classification": conflict,
-        "write_latency_ms": {stage: _percentiles(values) for stage, values in stages.items()},
-        "excluded_queries": excluded,
-    }
+def ranking_metrics(rankings, gold, cutoffs):
+    """Metrics against the labeled targets. Preserve missing ranks in a truncated pool."""
+    targets = {row["query_id"]: set(target_ids(row)) for row in gold}
+    if set(rankings) != set(targets) or not targets:
+        raise ValueError("排名必须逐条覆盖所选查询")
+    positions = {}
+    for qid, ids in rankings.items():
+        if len(ids) != len(set(ids)):
+            raise ValueError(f"{qid}: 排名有重复的旧记忆")
+        locations = {mid: rank for rank, mid in enumerate(ids, 1)}
+        positions[qid] = {mid: locations.get(mid) for mid in sorted(targets[qid])}
+    partial = any(row.get("fully_reviewed") is False or row.get("unjudged_old_memory_ids")
+                  or row.get("uncertain_compare_ids") for row in gold)
+    total = sum(map(len, targets.values()))
+    at_k = {}
+    for k in sorted(set(cutoffs)):
+        hits = {q: len(set(ids[:k]) & targets[q]) for q, ids in rankings.items()}
+        count = sum(hits.values())
+        returned = sum(min(k, len(ids)) for ids in rankings.values())
+        fraction = count / returned if returned else 0.0
+        source_totals, source_hits = Counter(), Counter()
+        for row in gold:
+            qid = row["query_id"]
+            for mid, detail in row.get("target_details", {}).items():
+                source = detail["source"]
+                source_totals[source] += 1
+                pos = positions[qid][mid]
+                source_hits[source] += int(pos is not None and pos <= k)
+        recalls = [hits[q] / len(ids) for q, ids in targets.items() if ids]
+        at_k[str(k)] = {"hits": count, "gold_pairs": total, "candidates": returned,
+                        "micro_recall": count / total if total else None,
+                        "macro_recall": mean(recalls) if recalls else None,
+                        "fully_covered_queries": sum(hits[q] == len(ids) for q, ids in targets.items()),
+                        "labeled_hit_fraction": fraction, "candidate_purity": None if partial else fraction,
+                        "recall_by_source": {s: {"hits": source_hits[s], "gold_pairs": n,
+                                                 "candidate_recall_micro": source_hits[s] / n}
+                                             for s, n in source_totals.items()}}
+    binary_gold = [{"query_id": q, "conflict_old_memory_ids": ids} for q, ids in targets.items()]
+    return {"at_k": at_k, "ndcg_at_10": ndcg_at_10(binary_gold, rankings), "gold_ranks": positions}

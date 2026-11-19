@@ -1,4 +1,4 @@
-"""方案中的原文 BM25 和混合检索对照，不参与描述选择主流程。"""
+"""BM25, deterministic ranking and reciprocal rank fusion on original text."""
 
 from collections import Counter
 import math
