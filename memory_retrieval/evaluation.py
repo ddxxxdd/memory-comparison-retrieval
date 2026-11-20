@@ -143,3 +143,17 @@ def ranking_metrics(rankings, gold, cutoffs):
                                              for s, n in source_totals.items()}}
     binary_gold = [{"query_id": q, "conflict_old_memory_ids": ids} for q, ids in targets.items()]
     return {"at_k": at_k, "ndcg_at_10": ndcg_at_10(binary_gold, rankings), "gold_ranks": positions}
+
+
+def grouped_ranking_metrics(rankings, queries, gold, cutoffs=(3, 5, 10)):
+    """Report all selected queries and any T1/T2 subsets with native source hits."""
+    groups = {"all": gold}
+    for kind in ("T1", "T2"):
+        qids = {q["query_id"] for q in queries if isinstance(q.get("source_ref"), dict)
+                and q["source_ref"].get("type") == kind}
+        if qids:
+            groups[kind] = [row for row in gold if row["query_id"] in qids]
+    return {name: {"queries": len(rows), "gold_pairs": sum(len(target_ids(row)) for row in rows),
+                   "methods": {method: ranking_metrics({g["query_id"]: ranked[g["query_id"]] for g in rows}, rows, cutoffs)
+                               for method, ranked in rankings.items()}}
+            for name, rows in groups.items()}

@@ -1,5 +1,6 @@
-"""Run OCSP-QR and its frozen baselines on the same per-query memory banks."""
+"""Run anchored graph retrieval, legacy OCSP-QR, and frozen baselines."""
 
+from concurrent.futures import ThreadPoolExecutor
 from dataclasses import replace
 from datetime import datetime, timezone
 import importlib.metadata
@@ -11,10 +12,12 @@ import numpy as np
 
 from .api import APIClient, usage_summary
 from .baselines import BM25, rank, reciprocal_rank_fusion
+from .bipolar_graph import (ANCHORED_METHODS, ANCHORED_PROMPT_SHA256, audit_anchored_probes,
+                            build_knn_transition, compute_bipolar_diffusion_scores, extract_anchored_probes)
 from .config import Settings
 from .data import fingerprint, sha256_file, write_json, write_jsonl
-from .encoders import CPU_THREADS, MODEL_LOCK, encode_groups
-from .evaluation import ranking_metrics, target_ids
+from .encoders import CPU_THREADS, MODEL_LOCK, FrozenEncoder, encode_groups
+from .evaluation import grouped_ranking_metrics, ranking_metrics, target_ids
 from .ocsp import (ADAPTIVE_MAX_K, ADAPTIVE_MIN_ORTHO_PROJ, ADAPTIVE_MIN_VIOLATION_SIM,
                    ONLINE_ZERO_SHOT_BIPOLAR_PROMPT, TOP_KS, compute_subspace_ocsp_scores,
                    extract_online_bipolar_probes, score_fixed_k, score_variable_candidates)
@@ -23,12 +26,13 @@ from .sparsecl import (INITIAL_RETRIEVAL_DEPTH, SPARSECL_SCORE_FORMULA, SPARSECL
 
 
 BASELINES = ("bm25", "dense", "hybrid", "sparsecl_arguana", "sparsecl_msmarco", "sparsecl_hotpotqa")
-MAIN_METHOD = "ocsp_qr"
+MAIN_METHOD = "anchored_bipolar_diffusion"
+LEGACY_METHOD = "ocsp_qr"
 ABLATION = "probes_only_no_ortho"
 
 
 def prepare_embeddings(dataset, args, methods, output):
-    with_probes = bool({MAIN_METHOD, ABLATION}.intersection(methods))
+    with_probes = bool({LEGACY_METHOD, ABLATION}.intersection(methods))
     texts = {"memories": [m.content.strip() for m in dataset.memories],
              "queries": [q["content"].strip() for q in dataset.queries]}
     info = {"models": {}, "timing_seconds": {}, "usage": usage_summary([])}
@@ -101,7 +105,7 @@ def score_original_text(dataset, methods, vectors, probes, gamma):
                 targets = set(target_ids(dataset.gold[i]))
                 dense_order = rank(scores["dense"], docs)[:10]
                 non_gold = [j for j in dense_order if docs[j].memory_id not in targets]
-                ordered = rank(scores[MAIN_METHOD], docs)
+                ordered = rank(scores[LEGACY_METHOD], docs)
                 adaptive = [docs[j].memory_id for j in ordered
                             if ocsp["best_s_minus"][j] >= ADAPTIVE_MIN_VIOLATION_SIM
                             and ocsp["best_s_perp"][j] >= ADAPTIVE_MIN_ORTHO_PROJ][:ADAPTIVE_MAX_K]
@@ -164,6 +168,84 @@ def score_sparsecl(dataset, methods, vectors, args, info):
     return rows
 
 
+def score_anchored_text(dataset, methods, vectors, *, k=5, top_seeds=5, alpha=0.2, beta=0.3):
+    rows = {name: {} for name in methods if name in ANCHORED_METHODS}
+    for memory_idx, query_idx in dataset.groups().values():
+        docs = [dataset.memories[i] for i in memory_idx]
+        bank = vectors["memories"][memory_idx]
+        transition = build_knn_transition(bank, docs, k=k)
+        for i in query_idx:
+            scores = compute_bipolar_diffusion_scores(
+                vectors["queries"][i], vectors["anchored_violation_probes"][i], bank, transition, docs,
+                top_seeds=top_seeds, alpha=alpha, beta=beta)
+            query = dataset.queries[i]
+            for name in rows:
+                rows[name][query["query_id"]] = ranked_row(query, docs, name, scores[name])
+    return rows
+
+
+def prepare_anchored_experiment(dataset, args, methods, output):
+    """Overlap new LLM requests with BGE and SparseCL, keeping BGE loaded once."""
+    if args.embedding_backend != "bge":
+        raise ValueError("Anchored graph methods require the frozen BGE encoder")
+    settings = Settings.from_env(args.env)
+    cache = args.cache or output / "probe_cache.sqlite3"
+    anchored_settings = replace(settings, cache_path=cache, llm_model="deepseek-v4.1-flash",
+                                llm_temperature=0.0, llm_json_mode=True, llm_reasoning_effort="none")
+    anchored_settings.require(llm=True)
+    client = APIClient(anchored_settings)
+    info = {"models": {"llm": anchored_settings.llm_identity(), "anchored_llm": anchored_settings.llm_identity()},
+            "timing_seconds": {}}
+    texts = {"memories": [m.content.strip() for m in dataset.memories],
+             "queries": [q["content"].strip() for q in dataset.queries]}
+    with ThreadPoolExecutor(max_workers=1) as executor:
+        future = executor.submit(extract_anchored_probes, client, dataset.queries, getattr(args, "probe_workers", 4))
+        started = time.perf_counter()
+        encoder = FrozenEncoder("bge", args.model_root)
+        info["timing_seconds"]["bge_load_verify"] = time.perf_counter() - started
+        vectors, identity, seconds = encoder.encode_groups(texts)
+        info["models"]["embedding"] = identity
+        info["timing_seconds"]["bge"] = seconds
+        baseline_methods = [name for name in methods if name in BASELINES]
+        rows, _ = score_original_text(dataset, baseline_methods, vectors, [], args.gamma)
+        rows.update(score_sparsecl(dataset, baseline_methods, vectors, args, info))
+        records, audit = future.result()
+        write_json(output / "anchored_probes.json", records)
+        encoded, _, seconds = encoder.encode_groups({
+            "anchored_violation_probes": [text for row in records for text in row["violation_probes"]]})
+        info["timing_seconds"]["bge"].update(seconds)
+        vectors["anchored_violation_probes"] = np.split(encoded["anchored_violation_probes"], len(records))
+    audit.update(audit_anchored_probes(dataset.queries, records, vectors["queries"], vectors["anchored_violation_probes"]))
+    audit["token_audit"] = identity["token_audit"]["anchored_violation_probes"]
+    info["anchored_probe_audit"] = audit
+    info["timing_seconds"]["anchored_probe_llm_total"] = audit["generation"]["wall_seconds"]
+    write_json(output / "anchored_probe_audit.json", audit)
+    probes, details, legacy_events = [], {}, []
+    legacy_methods = [name for name in methods if name in (LEGACY_METHOD, ABLATION)]
+    if legacy_methods:
+        legacy_client = APIClient(replace(settings, cache_path=cache))
+        started = time.perf_counter()
+        probes = extract_online_bipolar_probes(legacy_client, dataset.queries)
+        info["timing_seconds"]["online_probe_llm_total"] = time.perf_counter() - started
+        info["models"]["llm"] = settings.llm_identity()
+        groups = {key: [text for row in probes for text in row[key]]
+                  for key in ("compatible_paraphrases", "violation_probes")}
+        encoded, _, seconds = encoder.encode_groups(groups)
+        info["timing_seconds"]["bge"].update(seconds)
+        for key in groups:
+            vectors[key] = np.split(encoded[key], np.cumsum([len(row[key]) for row in probes[:-1]]))
+        old_rows, details = score_original_text(dataset, legacy_methods, vectors, probes, args.gamma)
+        rows.update(old_rows)
+        legacy_events = legacy_client.events
+    started = time.perf_counter()
+    rows.update(score_anchored_text(dataset, methods, vectors, k=getattr(args, "graph_k", 5),
+                                   top_seeds=getattr(args, "graph_seeds", 5),
+                                   alpha=getattr(args, "graph_alpha", 0.2), beta=getattr(args, "graph_beta", 0.3)))
+    info["timing_seconds"]["anchored_graph_and_scoring"] = time.perf_counter() - started
+    info["usage"] = usage_summary(client.events + legacy_events)
+    return vectors, probes, info, rows, details
+
+
 def save_probe_report(output, dataset, info, rankings, details, metrics, gamma):
     gold = {g["query_id"]: set(target_ids(g)) for g in dataset.gold}
     qids = list(gold)
@@ -205,8 +287,15 @@ def run(dataset, args, output, methods):
            "bm25": {"k1": 1.2, "b": 0.75}, "hybrid": {"rrf_constant": 60, "equal_weights": True},
            "candidate_pool": {"sparsecl": "IndexHNSWFlat", "M": 64, "efSearch": INITIAL_RETRIEVAL_DEPTH},
            "code_sha256": {p.name: sha256_file(p) for p in sorted(Path(__file__).parent.glob("*.py"))}}
-    if {MAIN_METHOD, ABLATION}.intersection(methods):
+    with_anchored = bool(set(ANCHORED_METHODS).intersection(methods))
+    if {LEGACY_METHOD, ABLATION}.intersection(methods):
         cfg["probe_prompt_sha256"] = fingerprint(ONLINE_ZERO_SHOT_BIPOLAR_PROMPT)
+    if with_anchored:
+        cfg["anchored_prompt_sha256"] = ANCHORED_PROMPT_SHA256
+        cfg["graph"] = {"k": getattr(args, "graph_k", 5), "top_seeds": getattr(args, "graph_seeds", 5),
+                        "alpha": getattr(args, "graph_alpha", 0.2), "beta": getattr(args, "graph_beta", 0.3)}
+        cfg["probe_workers"] = getattr(args, "probe_workers", 4)
+        cfg["anchor_encoded"] = False
     if set(methods) != {"bm25"} and args.embedding_backend == "bge":
         cfg["model_lock_sha256"] = sha256_file(Path(__file__).with_name("model_lock.json"))
     if any(name.startswith("sparsecl_") for name in methods):
@@ -218,9 +307,12 @@ def run(dataset, args, output, methods):
     output.mkdir(parents=True, exist_ok=False)
     write_json(output / "run_config.json", cfg)
     try:
-        vectors, probes, info = prepare_embeddings(dataset, args, methods, output)
-        rows, details = score_original_text(dataset, methods, vectors, probes, args.gamma)
-        rows.update(score_sparsecl(dataset, methods, vectors, args, info))
+        if with_anchored:
+            vectors, probes, info, rows, details = prepare_anchored_experiment(dataset, args, methods, output)
+        else:
+            vectors, probes, info = prepare_embeddings(dataset, args, methods, output)
+            rows, details = score_original_text(dataset, methods, vectors, probes, args.gamma)
+            rows.update(score_sparsecl(dataset, methods, vectors, args, info))
         rankings, metrics, depths = {}, {}, {}
         for name in methods:
             method_rows = [rows[name][q] for q in qids]
@@ -231,18 +323,29 @@ def run(dataset, args, output, methods):
             metrics[name] = ranking_metrics(rankings[name], dataset.gold, (*TOP_KS, 100, max(lengths)))
         if probes:
             save_probe_report(output, dataset, info, rankings, details, metrics, args.gamma)
+        if with_anchored:
+            write_json(output / "rankings.json", rankings)
         if any(sha256_file(p) != cfg["dataset_sha256"][p.name] for p in dataset.paths.values()):
             raise ValueError("Dataset inputs changed during the experiment")
+        groups = grouped_ranking_metrics(rankings, dataset.queries, dataset.gold)
         report = {"dataset": cfg["dataset"], "query_count": len(qids), "memory_count": len(dataset.memories),
                   "gold_pairs": sum(len(target_ids(row)) for row in dataset.gold), "arms": metrics,
+                  "groups": groups,
                   "models": info["models"], "usage": info["usage"], "timing": info["timing_seconds"],
                   "total_wall_seconds": time.perf_counter() - started}
+        if with_anchored:
+            report["anchored_probe_audit"] = info["anchored_probe_audit"]
         write_json(output / "report.json", report)
         table = ["# 记忆检索实验", "", f"{len(qids)} 条查询，{len(dataset.memories)} 条旧记忆，{report['gold_pairs']} 对已标注目标。",
-                 "", "| 方法 | Top-10 命中 | NDCG@10 |", "|---|---:|---:|"]
-        for name, metric in metrics.items():
-            at10 = metric["at_k"]["10"]
-            table.append(f"| {name} | {at10['hits']}/{at10['gold_pairs']} | {metric['ndcg_at_10']:.4f} |")
+                 "", "Top-K 为已标注目标总命中数；NDCG@10 按查询平均。"]
+        for group, summary in groups.items():
+            table.extend(["", f"## {'全集' if group == 'all' else group}（{summary['queries']} 查询，{summary['gold_pairs']} 目标）",
+                          "", "| 方法 | Top-3 | Top-5 | Top-10 | NDCG@10 | 原生 M_old Top-10 |", "|---|---:|---:|---:|---:|---:|"])
+            for name, metric in summary["methods"].items():
+                hits = [str(metric["at_k"][str(k)]["hits"]) for k in (3, 5, 10)]
+                native = metric["at_k"]["10"]["recall_by_source"].get("stale_native")
+                native_text = f"{native['hits']}/{native['gold_pairs']}" if native else "—"
+                table.append(f"| {name} | {' | '.join(hits)} | {metric['ndcg_at_10']:.4f} | {native_text} |")
         (output / "report.zh.md").write_text("\n".join(table) + "\n", encoding="utf-8")
         packages = {"numpy": np.__version__}
         if vectors and args.embedding_backend == "bge":

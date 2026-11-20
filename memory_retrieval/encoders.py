@@ -79,35 +79,45 @@ def encode(texts, tokenizer, model, batch_size, max_length, sparse, label):
     return vectors, time.perf_counter() - started
 
 
+class FrozenEncoder:
+    """Keep one frozen model loaded while later probe text is being generated."""
+
+    def __init__(self, name, base):
+        import torch
+        from transformers import AutoConfig, AutoModel, AutoTokenizer
+
+        spec = MODEL_LOCK[name]
+        checkpoint = base / spec["directory"]
+        hashes = verify_assets(base, [(spec["directory"], spec)])
+        torch.set_num_threads(CPU_THREADS)
+        torch.manual_seed(0)
+        self.tokenizer = AutoTokenizer.from_pretrained(checkpoint, local_files_only=True)
+        self.name, self.sparse, self.length = name, name != "bge", spec["max_seq_length"]
+        if self.sparse:
+            if str(base) not in sys.path:
+                sys.path.insert(0, str(base))
+            from sparsecl.models import our_BertForCL
+            config = AutoConfig.from_pretrained(checkpoint, local_files_only=True)
+            options = SimpleNamespace(pooler_type="avg", temp=0.05, hard_negative_weight=0.0,
+                                      do_mlm=False, mlm_weight=0.1, mlp_only_train=False)
+            self.model = our_BertForCL.from_pretrained(checkpoint, config=config, model_args=options, local_files_only=True)
+        else:
+            self.model = AutoModel.from_pretrained(checkpoint, local_files_only=True)
+        self.identity = {"model": spec["repo"], "revision": spec["revision"], "model_files_sha256": hashes,
+                         "pooling": "avg" if self.sparse else "CLS", "normalize": "L2", "max_length": self.length,
+                         "batch_size": BATCH_SIZE, "cpu_threads": CPU_THREADS, "seed": 0, "device": "cpu",
+                         "precision": "float32", "token_audit": {}}
+
+    def encode_groups(self, groups):
+        """Retain the original per-group batch boundaries and encoding settings."""
+        vectors, seconds = {}, {}
+        for group, texts in groups.items():
+            self.identity["token_audit"][group] = token_audit(self.tokenizer, texts, self.length)
+            vectors[group], seconds[group] = encode(texts, self.tokenizer, self.model, BATCH_SIZE,
+                                                    self.length, self.sparse, f"{self.name} {group}")
+        return vectors, self.identity, seconds
+
+
 def encode_groups(name, groups, base):
     """Encode each group with the same batch boundaries as the frozen comparisons."""
-    import torch
-    from transformers import AutoConfig, AutoModel, AutoTokenizer
-
-    spec = MODEL_LOCK[name]
-    checkpoint = base / spec["directory"]
-    hashes = verify_assets(base, [(spec["directory"], spec)])
-    torch.set_num_threads(CPU_THREADS)
-    torch.manual_seed(0)
-    tokenizer = AutoTokenizer.from_pretrained(checkpoint, local_files_only=True)
-    sparse = name != "bge"
-    if sparse:
-        if str(base) not in sys.path:
-            sys.path.insert(0, str(base))
-        from sparsecl.models import our_BertForCL
-        config = AutoConfig.from_pretrained(checkpoint, local_files_only=True)
-        options = SimpleNamespace(pooler_type="avg", temp=0.05, hard_negative_weight=0.0,
-                                  do_mlm=False, mlm_weight=0.1, mlp_only_train=False)
-        model = our_BertForCL.from_pretrained(checkpoint, config=config, model_args=options, local_files_only=True)
-    else:
-        model = AutoModel.from_pretrained(checkpoint, local_files_only=True)
-    vectors, audit, seconds = {}, {}, {}
-    length = spec["max_seq_length"]
-    for group, texts in groups.items():
-        audit[group] = token_audit(tokenizer, texts, length)
-        vectors[group], seconds[group] = encode(texts, tokenizer, model, BATCH_SIZE, length, sparse, f"{name} {group}")
-    identity = {"model": spec["repo"], "revision": spec["revision"], "model_files_sha256": hashes,
-                "pooling": "avg" if sparse else "CLS", "normalize": "L2", "max_length": length,
-                "batch_size": BATCH_SIZE, "cpu_threads": CPU_THREADS, "seed": 0, "device": "cpu",
-                "precision": "float32", "token_audit": audit}
-    return vectors, identity, seconds
+    return FrozenEncoder(name, base).encode_groups(groups)

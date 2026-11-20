@@ -7,10 +7,11 @@ from pathlib import Path
 import sys
 
 from .config import PROJECT_ROOT
+from .bipolar_graph import ANCHORED_METHODS
 from .data import read_jsonl
 from .dataset import load_dataset
 from .encoders import MODEL_ROOT
-from .experiment import ABLATION, BASELINES, MAIN_METHOD, run
+from .experiment import ABLATION, BASELINES, LEGACY_METHOD, MAIN_METHOD, run
 from .ocsp import ORTHO_GAMMA
 
 
@@ -39,7 +40,7 @@ def run_cli(argv=None, *, default_methods=(MAIN_METHOD,)):
             stream.reconfigure(encoding="utf-8")
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--dataset", type=Path, required=True, help="输入数据集或单个 STALE 场景目录")
-    parser.add_argument("--arms", nargs="+", choices=(*BASELINES, MAIN_METHOD, ABLATION, "all"),
+    parser.add_argument("--arms", nargs="+", choices=(*BASELINES, *ANCHORED_METHODS, LEGACY_METHOD, ABLATION, "all"),
                         default=default_methods, help=f"默认 {' '.join(default_methods)}。all 运行主方法和六个基线")
     select = parser.add_mutually_exclusive_group()
     select.add_argument("--scenario-ids", nargs="+", metavar="ID")
@@ -55,6 +56,11 @@ def run_cli(argv=None, *, default_methods=(MAIN_METHOD,)):
     parser.add_argument("--model-root", "--sparsecl-root", dest="model_root", type=Path, default=MODEL_ROOT,
                         help="包含冻结权重和官方 SparseCL 源码的本地目录")
     parser.add_argument("--gamma", type=float, default=ORTHO_GAMMA)
+    parser.add_argument("--graph-k", type=int, default=5)
+    parser.add_argument("--graph-seeds", type=int, default=5)
+    parser.add_argument("--graph-alpha", type=float, default=0.2)
+    parser.add_argument("--graph-beta", type=float, default=0.3)
+    parser.add_argument("--probe-workers", type=int, default=4)
     for name in ("queries", "memories", "gold"):
         parser.add_argument(f"--{name}", type=Path, help=f"显式指定 {name}.jsonl")
     source_mode = parser.add_mutually_exclusive_group()
@@ -65,6 +71,12 @@ def run_cli(argv=None, *, default_methods=(MAIN_METHOD,)):
         parser.error("--limit 必须大于等于 0")
     if not math.isfinite(args.gamma):
         parser.error("--gamma 必须是有限数")
+    if min(args.graph_k, args.graph_seeds, args.probe_workers) < 1:
+        parser.error("--graph-k、--graph-seeds 和 --probe-workers 必须大于 0")
+    if not math.isfinite(args.graph_alpha) or not 0 <= args.graph_alpha <= 1:
+        parser.error("--graph-alpha 必须是 [0, 1] 内的有限数")
+    if not math.isfinite(args.graph_beta) or args.graph_beta < 0:
+        parser.error("--graph-beta 必须是非负有限数")
     if args.output and args.run_name:
         parser.error("--output 和 --run-name 只能选一项")
     if args.run_name and (Path(args.run_name).name != args.run_name or args.run_name in (".", "..")):
@@ -75,6 +87,8 @@ def run_cli(argv=None, *, default_methods=(MAIN_METHOD,)):
     methods = tuple(dict.fromkeys(methods))
     if args.embedding_backend == "api" and any(name.startswith("sparsecl_") for name in methods):
         parser.error("SparseCL 的初召回需要冻结 BGE，请使用 --embedding-backend bge")
+    if args.embedding_backend == "api" and set(ANCHORED_METHODS).intersection(methods):
+        parser.error("锚定图扩散方法需要冻结 BGE，请使用 --embedding-backend bge")
     scenario_ids, query_ids = split_ids(args.scenario_ids), split_ids(args.query_ids)
     if scenario_ids == [] or query_ids == []:
         parser.error("至少指定一个有效 ID")
