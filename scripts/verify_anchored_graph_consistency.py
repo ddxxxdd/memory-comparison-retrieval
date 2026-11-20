@@ -1,6 +1,7 @@
 """Replay the saved anchored Test vectors through the main package, without inference."""
 
 import argparse
+import hashlib
 import json
 import os
 from pathlib import Path
@@ -16,7 +17,7 @@ for variable in ("OMP_NUM_THREADS", "MKL_NUM_THREADS", "OPENBLAS_NUM_THREADS"):
 import numpy as np
 import pytrec_eval
 
-from memory_retrieval.bipolar_graph import ANCHORED_FOUR_DIM_PROMPT, ANCHORED_PROMPT_SHA256, validate_anchored_probe_structure
+from memory_retrieval.bipolar_graph import ANCHORED_PROMPT_SHA256, validate_anchored_probe_structure
 from memory_retrieval.data import sha256_file, write_json
 from memory_retrieval.dataset import load_dataset
 from memory_retrieval.evaluation import grouped_ranking_metrics, target_ids
@@ -31,8 +32,10 @@ def verify(source):
     source = Path(source).resolve()
     results = source / "results"
     protocol = read_json(source.parent / "protocol.json")
-    assert protocol["system_prompt"] == ANCHORED_FOUR_DIM_PROMPT
-    assert protocol["prompt_sha256"] == ANCHORED_PROMPT_SHA256
+    # This is a scoring-only replay of historical vectors, not probe generation.
+    # Verify the historical prompt's integrity independently of the current prompt.
+    assert hashlib.sha256(protocol["system_prompt"].encode("utf-8")).hexdigest() == protocol["prompt_sha256"]
+    assert sha256_file(source.parent / "prompt.txt") == protocol["prompt_sha256"]
     dataset = load_dataset(source / "inputs")
     qids = [q["query_id"] for q in dataset.queries]
     for name, digest in protocol["input_sha256"][source.name].items():
@@ -43,7 +46,8 @@ def verify(source):
     assert [row["query_id"] for row in records] == qids
     for query, record in zip(dataset.queries, records, strict=True):
         assert record["query_content"] == query["content"]
-        validate_anchored_probe_structure({key: record[key] for key in ("new_state_anchor", "violation_probes")})
+        # Historical records may contain an anchor; only the four probes were encoded.
+        validate_anchored_probe_structure({"violation_probes": record["violation_probes"]})
     with np.load(results / "bge_vectors.npz", allow_pickle=False) as saved:
         metadata = json.loads(str(saved["metadata"]))
         assert metadata["query_ids"] == qids
@@ -87,7 +91,9 @@ def verify(source):
                 assert metric["at_k"][k] == reference["at_k"][k]
     assert all(sha256_file(results / name) == digest for name, digest in manifest.items())
     return {"status": "passed", "source": str(source), "queries": len(qids), "methods": methods,
-            "prompt_sha256": ANCHORED_PROMPT_SHA256, "all_full_rankings_identical": True,
+            "prompt_sha256": protocol["prompt_sha256"], "current_prompt_sha256": ANCHORED_PROMPT_SHA256,
+            "prompt_matches_current": protocol["prompt_sha256"] == ANCHORED_PROMPT_SHA256,
+            "all_full_rankings_identical": True,
             "max_score_abs_difference": max_score_error, "max_ndcg_abs_difference": max_ndcg_error,
             "pytrec_eval_verified": True, "llm_calls": 0, "embedding_calls": 0,
             "historical_artifacts_unchanged": True, "groups": groups}

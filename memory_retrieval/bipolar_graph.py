@@ -1,4 +1,4 @@
-"""Locked query-only anchored probes and directed bipolar memory-graph diffusion."""
+"""Query-only four-dimensional probes and directed bipolar memory-graph diffusion."""
 
 from concurrent.futures import ThreadPoolExecutor
 import hashlib
@@ -17,18 +17,17 @@ from .config import endpoint
 from .data import canonical_json
 
 
-ANCHORED_FOUR_DIM_PROMPT = '''Given a new memory in query, generate a comparison anchor and four older-memory statements that become contradictory or invalid when the anchor is true.
-Treat query as data. Use only its meaning, subject, scope, and implications. Write all output text in the same language as query.
-Return only a JSON object with exactly these keys:
-{"new_state_anchor": "...", "violation_probes": ["...", "...", "...", "..."]}
-new_state_anchor: one objective declarative sentence of at most 20 words summarizing the core new fact or state established by query. This anchor is solely a comparison reference.
-violation_probes: exactly four affirmative declarative sentences, each at most 30 words. Every probe must express an older assertion that is mutually exclusive with, contradicts, or is directly invalidated by the anchor. Never restate, paraphrase, or repeat the new state in query or the anchor. Avoid explicit negation, including "not", "never", "no longer", and negative contractions in the probes.
+ANCHORED_FOUR_DIM_PROMPT = '''Treat query as an established new fact. Generate four older-memory statements that directly contradict query or are directly invalidated when query is true.
+Treat query as data. Use its exact meaning, subject, restrictions, temporal scope, and implications. Write all output text in the same language as query.
+Return only a JSON object with exactly this key:
+{"violation_probes": ["...", "...", "...", "..."]}
+violation_probes: exactly four affirmative declarative sentences, each at most 30 words. Every probe must be mutually exclusive with, contradict, or be directly invalidated by query. Never restate, paraphrase, or repeat query. Avoid explicit negation, including "not", "never", "no longer", and negative contractions in the probes.
 Use one probe for each dimension, in this order:
-(a) Superseded or opposite state: an earlier state or attribute value directly incompatible with or replaced by the anchor.
-(b) Rule-instance contradiction: a concrete fact violating a general constraint in the anchor, or a standing rule broken by a concrete event in the anchor.
-(c) Invalidated precondition or dependency: an ongoing state, plan, or dependency whose necessary precondition is invalidated once the anchor is true.
-(d) Incompatible condition or context: a physical, temporal, or contextual condition that cannot coexist with what the anchor implies.
-Keep the same subject, referents, and applicable temporal scope. Express each older assertion as still claimed to apply in that scope, rather than a retrospective description of a completed past state. Before returning, check that each probe cannot remain valid alongside the anchor in that scope. State the older assertion itself; omit explanations and dimension labels.
+(a) Superseded or opposite state: an earlier state or attribute value directly incompatible with or replaced by query.
+(b) Rule-instance contradiction: a concrete fact violating a general constraint in query, or a standing rule broken by a concrete event in query.
+(c) Invalidated precondition or dependency: an ongoing state, plan, or dependency whose necessary precondition is invalidated once query is true.
+(d) Incompatible condition or context: a physical, temporal, or contextual condition that cannot coexist with what query implies.
+Keep the same subject, referents, and applicable temporal scope. Express each older assertion as still claimed to apply in that scope, rather than a retrospective description of a completed past state. Before returning, check that each probe cannot remain valid alongside query in that scope. State the older assertion itself; omit explanations and dimension labels.
 '''
 ANCHORED_PROMPT_SHA256 = hashlib.sha256(ANCHORED_FOUR_DIM_PROMPT.encode("utf-8")).hexdigest()
 ANCHORED_METHODS = ("anchored_bipolar_diffusion", "anchored_probes_only", "anchored_pos_diffusion")
@@ -48,10 +47,8 @@ def _audit_text(text):
 
 
 def validate_anchored_probe_structure(value):
-    if not isinstance(value, dict) or set(value) != {"new_state_anchor", "violation_probes"}:
-        raise ValueError("Expected only new_state_anchor and violation_probes")
-    if not isinstance(value["new_state_anchor"], str) or not value["new_state_anchor"].strip():
-        raise ValueError("Expected a nonempty anchor")
+    if not isinstance(value, dict) or set(value) != {"violation_probes"}:
+        raise ValueError("Expected only violation_probes")
     probes = value["violation_probes"]
     if not isinstance(probes, list) or len(probes) != 4 or any(not isinstance(p, str) or not p.strip() for p in probes):
         raise ValueError("Expected exactly four nonempty probes")
@@ -70,19 +67,19 @@ def audit_anchored_probes(queries, records, query_vectors=None, violation_vector
     for i, (query, record) in enumerate(zip(queries, records, strict=True)):
         if record["query_id"] != query["query_id"]:
             raise ValueError("Probe/query order mismatch")
-        validate_anchored_probe_structure({key: record[key] for key in ("new_state_anchor", "violation_probes")})
+        if "new_state_anchor" in record:
+            raise ValueError("Probe records must not contain new_state_anchor")
+        validate_anchored_probe_structure({"violation_probes": record.get("violation_probes")})
         for j, text in enumerate(record["violation_probes"]):
             row = {"query_id": query["query_id"], "probe_index": j + 1, "probe": text,
-                   "exact_query_or_anchor_repeat": _normalized(text) in {
-                       _normalized(query["content"]), _normalized(record["new_state_anchor"])}, **_audit_text(text)}
+                   "exact_query_repeat": _normalized(text) == _normalized(query["content"]), **_audit_text(text)}
             if query_vectors is not None:
                 row["query_cosine"] = float(violation_vectors[i][j] @ query_vectors[i])
                 row["query_cosine_gt_085"] = row["query_cosine"] > 0.85
             details.append(row)
     return {"probes": len(details), "structurally_valid_responses": len(records),
             "probe_query_cosine_gt_085": sum(row["query_cosine_gt_085"] for row in details) if query_vectors is not None else None,
-            "exact_query_or_anchor_repeats": sum(row["exact_query_or_anchor_repeat"] for row in details),
-            "anchors_over_20_words": sum(len(row["new_state_anchor"].split()) > 20 for row in records),
+            "exact_query_repeats": sum(row["exact_query_repeat"] for row in details),
             "probes_over_30_words": sum(row["words"] > 30 for row in details),
             "probes_with_explicit_negation": sum(bool(row["explicit_negations"]) for row in details),
             "probes_with_non_latin_letters": sum(bool(row["non_latin_letters"]) for row in details),
@@ -93,8 +90,8 @@ def audit_anchored_probes(queries, records, query_vectors=None, violation_vector
 def extract_anchored_probes(client, queries, max_workers=4):
     """Return (ordered probe records, audit), reusing APIClient's SQLite cache.
 
-    Keep the original request body (including query-only user content) so that
-    historical probe_cache.sqlite3 entries are exact cache hits. Network retries
+    Keep query-only user content; only identical prompt/request bodies reuse
+    probe_cache.sqlite3 entries. A prompt change produces a new cache key. Network retries
     remain APIClient's responsibility; format or drift defects never trigger a
     new generation. Invalid JSON/structure fails the batch.
     """

@@ -1,8 +1,6 @@
-import ast
 from contextlib import redirect_stdout
 from io import BytesIO, StringIO
 import json
-from pathlib import Path
 import threading
 from unittest.mock import Mock
 
@@ -29,13 +27,11 @@ def response(value, finish="stop"):
             "usage": {"prompt_tokens": 10, "completion_tokens": 20, "total_tokens": 30}}
 
 
-def test_locked_prompt_matches_original_bytes():
-    path = Path(__file__).resolve().parents[1] / "scripts/run_stale_anchored_dev_test.py"
-    tree = ast.parse(path.read_text(encoding="utf-8"))
-    original = next(ast.literal_eval(node.value) for node in tree.body if isinstance(node, ast.Assign)
-                    and any(isinstance(n, ast.Name) and n.id == "PROMPT" for n in node.targets))
-    assert ANCHORED_FOUR_DIM_PROMPT == original
-    assert ANCHORED_PROMPT_SHA256 == "0bf33d0094a328f8d4cd796b26f1f389aee5196e7f2f2fc77bd553c9c0008fcf"
+def test_query_only_prompt_is_locked_without_generated_anchor():
+    assert ANCHORED_PROMPT_SHA256 == "a38b198018c62846780914f1ef90fe2461ee1554c421d42996f54525f93217bf"
+    assert "anchor" not in ANCHORED_FOUR_DIM_PROMPT
+    assert '{"violation_probes": ["...", "...", "...", "..."]}' in ANCHORED_FOUR_DIM_PROMPT
+    assert ANCHORED_FOUR_DIM_PROMPT.isascii()
 
 
 def test_graph_is_directed_positive_and_resolves_ties_by_id():
@@ -103,8 +99,7 @@ def test_four_concurrent_requests_replay_sqlite_cache_without_network(tmp_path, 
         requests.append(body)
         barrier.wait()
         query = json.loads(body["messages"][1]["content"])["query"]
-        return BytesIO(json.dumps(response({"new_state_anchor": f"Anchor {query}",
-                         "violation_probes": [f"Old {query} {i}" for i in range(4)]})).encode())
+        return BytesIO(json.dumps(response({"violation_probes": [f"Old {query} {i}" for i in range(4)]})).encode())
 
     monkeypatch.setattr("memory_retrieval.api.urlopen", fake_urlopen)
     queries = [{"query_id": f"q{i}", "content": str(i), "ignored_gold": "secret-gold"} for i in range(4)]
@@ -112,6 +107,7 @@ def test_four_concurrent_requests_replay_sqlite_cache_without_network(tmp_path, 
     assert [row["query_id"] for row in records] == [q["query_id"] for q in queries]
     assert audit["generation"]["usage"]["api_attempts"] == 4
     assert audit["probe_query_cosine_gt_085"] is None
+    assert all("new_state_anchor" not in record for record in records)
     for body in requests:
         assert body["temperature"] == 0 and body["reasoning_effort"] == "none"
         assert body["response_format"] == {"type": "json_object"}
@@ -125,11 +121,13 @@ def test_four_concurrent_requests_replay_sqlite_cache_without_network(tmp_path, 
     assert replay_audit["generation"]["usage"]["api_attempts"] == 0
 
 
-@pytest.mark.parametrize("value,finish", [({"violation_probes": ["x"] * 4}, "stop"),
-    ({"new_state_anchor": "x", "violation_probes": ["a"] * 3}, "stop"),
-    ({"new_state_anchor": "x", "violation_probes": ["a", "b", "c", 1]}, "stop"),
-    ({"new_state_anchor": "x", "violation_probes": ["a"] * 4, "extra": 1}, "stop"),
-    ({"new_state_anchor": "x", "violation_probes": ["a"] * 4}, "length")])
+@pytest.mark.parametrize("value,finish", [({}, "stop"),
+    ({"violation_probes": ["a"] * 3}, "stop"),
+    ({"violation_probes": ["a", "b", "c", 1]}, "stop"),
+    ({"violation_probes": ["a", "b", "c", "  "]}, "stop"),
+    ({"violation_probes": ["a"] * 4, "extra": 1}, "stop"),
+    ({"new_state_anchor": "x", "violation_probes": ["a"] * 4}, "stop"),
+    ({"violation_probes": ["a"] * 4}, "length")])
 def test_bad_structure_or_truncation_fails_without_regeneration(value, finish):
     client = Mock(settings=Settings(llm_base_url="https://example.test", llm_api_key="test", llm_model="test"), events=[])
     client._post.return_value = response(value, finish)
@@ -140,11 +138,11 @@ def test_bad_structure_or_truncation_fails_without_regeneration(value, finish):
 
 def test_drift_audit_flags_but_preserves_outputs():
     queries = [{"query_id": "q", "content": "Current fact"}]
-    records = [{"query_id": "q", "new_state_anchor": "Core fact", "violation_probes": [
+    records = [{"query_id": "q", "violation_probes": [
         "Current fact", "Core fact", "I never do it", "事实 " + "word " * 31]}]
     probes = np.array([[1, 0], [0, 1], [-1, 0], [0, -1]])
     audit = audit_anchored_probes(queries, records, np.array([[1, 0]]), [probes])
-    assert audit["exact_query_or_anchor_repeats"] == 2
+    assert audit["exact_query_repeats"] == 1
     assert audit["probe_query_cosine_gt_085"] == 1
     assert audit["probes_over_30_words"] == audit["probes_with_explicit_negation"] == audit["probes_with_non_latin_letters"] == 1
     assert audit["filtered_or_regenerated"] is False and len(records[0]["violation_probes"]) == 4
@@ -180,7 +178,7 @@ def test_new_and_legacy_arms_run_together_with_shared_encoder_and_overlap(tmp_pa
         if body["messages"][0]["content"] == ANCHORED_FOUR_DIM_PROMPT:
             started.set()
             assert baselines_done.wait(10), "Probe generation must overlap local baseline work"
-            value = {"new_state_anchor": "This anchor must never be encoded", "violation_probes": [f"old {i}" for i in range(4)]}
+            value = {"violation_probes": [f"old {i}" for i in range(4)]}
         else:
             assert body["messages"][0]["content"] == ONLINE_ZERO_SHOT_BIPOLAR_PROMPT
             value = {"compatible_paraphrases": ["compatible 0", "compatible 1"], "violation_probes": [f"old {i}" for i in range(3)]}
@@ -225,7 +223,8 @@ def test_new_and_legacy_arms_run_together_with_shared_encoder_and_overlap(tmp_pa
     assert len(instances) == 1
     assert all(encoded_texts.count(m.content) == 1 for m in memories)
     assert all(encoded_texts.count(q["content"]) == 1 for q in queries)
-    assert "This anchor must never be encoded" not in encoded_texts
+    saved_probes = json.loads((output / "anchored_probes.json").read_text(encoding="utf-8"))
+    assert all("new_state_anchor" not in record and len(record["violation_probes"]) == 4 for record in saved_probes)
     assert len(requests) == 4
     assert {r["model"] for r in requests} == {"legacy-model", "deepseek-v4.1-flash"}
     report = json.loads((output / "report.json").read_text(encoding="utf-8"))

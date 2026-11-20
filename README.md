@@ -1,13 +1,13 @@
 # 写入时的记忆冲突检索
 
-项目主方法是 **锚定四维失效/冲突探针 + 旧记忆库双极图扩散**。给定新记忆及对应旧库，LLM 只读新记忆，生成一个新状态锚点和四条与之矛盾或被其使之失效的旧状态探针；锚点不参与向量编码。冻结 BGE 编码原文和探针，旧库内构建正余弦有向 k-NN 图，按行归一化；探针最大相似度提供正种子，原句相似度超过探针相似度的部分提供相容负源。默认 `k=5`、Top-5 种子、`α=0.2`、`β=0.3`，使用 `P@z` 单步扩散。[提示词与公式](memory_retrieval/bipolar_graph.py)
+项目主方法是 **四维失效/冲突探针 + 旧记忆库双极图扩散**。给定新记忆及对应旧库，LLM 只读新记忆，直接以原句为既定事实，生成四条与之矛盾或被其使之失效的旧状态探针。输出仅含 `violation_probes`，不再生成 `new_state_anchor`。冻结 BGE 编码原文和探针，旧库内构建正余弦有向 k-NN 图，按行归一化；探针最大相似度提供正种子，原句相似度超过探针相似度的部分提供相容负源。默认 `k=5`、Top-5 种子、`α=0.2`、`β=0.3`，使用 `P@z` 单步扩散。[提示词与公式](memory_retrieval/bipolar_graph.py)
 
-新方法原样保留锁定实验的英文提示词，UTF-8 SHA256 为 `0bf33d0094a328f8d4cd796b26f1f389aee5196e7f2f2fc77bd553c9c0008fcf`。旧 **OCSP-QR** 及其三探针消融保留原提示词、QR 和评分逻辑，仍可按名称运行，默认 `γ=0.65`。[旧方法说明](docs/ocsp_qr_method_summary.md) · [研究问题](docs/research_problem_and_objectives.md)
+当前英文提示词要求四条探针直接与原句矛盾或失效，禁止复述原句，并保持肯定陈述、同一语种、每条不超过 30 词。UTF-8 SHA256 为 `a38b198018c62846780914f1ef90fe2461ee1554c421d42996f54525f93217bf`。图扩散公式、参数和 `anchored_*` CLI 臂名保持不变。旧 **OCSP-QR** 及其三探针消融保留原提示词、QR 和评分逻辑，仍可按名称运行，默认 `γ=0.65`。[旧方法说明](docs/ocsp_qr_method_summary.md) · [研究问题](docs/research_problem_and_objectives.md)
 
 | 实验参数 | 方法 |
 |---|---|
 | `anchored_bipolar_diffusion` | 新主方法，默认运行 |
-| `anchored_probes_only` | 四条锚定探针最大余弦，去掉图扩散 |
+| `anchored_probes_only` | 四条探针最大余弦，去掉图扩散 |
 | `anchored_pos_diffusion` | 仅正源扩散，去掉相容负源及其传播 |
 | `ocsp_qr` | 保留的旧方法，QR 正交投影 |
 | `bm25` | BM25，k1 = 1.2，b = 0.75 |
@@ -29,7 +29,7 @@ wsl -d Ubuntu-22.04 -u dzp -- bash scripts/run_wsl.sh --dataset $scene --arms al
 
 `all` 运行新主方法与六个基线；同时运行两项新消融可传 `--arms all anchored_probes_only anchored_pos_diffusion`。新探针默认 4 并发，与 BGE/SparseCL 本地编码重叠执行；所有新臂共享同一批四条探针和同一个 BGE 实例，旧库/查询各编码一次。
 
-新方法的可选参数为 `--graph-k 5 --graph-seeds 5 --graph-alpha 0.2 --graph-beta 0.3 --probe-workers 4`。复现锁定协议时保持默认值，Dev/Test 共用设置。复用探针时，先复制历史 `probe_cache.sqlite3`，再通过 `--cache` 指定副本；新提示词与历史锚定实验的请求正文完全一致。旧 Austin 缓存需配合 `--arms ocsp_qr probes_only_no_ortho` 使用。
+新方法的可选参数为 `--graph-k 5 --graph-seeds 5 --graph-alpha 0.2 --graph-beta 0.3 --probe-workers 4`。复现锁定协议时保持默认值，Dev/Test 共用设置。复用探针时，先复制历史 `probe_cache.sqlite3`，再通过 `--cache` 指定副本；只有提示词、模型与请求正文完全相同才会命中缓存。去掉锚点输出后的探针需使用新缓存生成。旧 Austin 缓存需配合 `--arms ocsp_qr probes_only_no_ortho` 使用。
 
 全量对照可以把 `--dataset` 换成版本根目录。按 ID 选多个场景也可以直接从 Windows 运行 BM25。
 
@@ -46,7 +46,7 @@ python -m pytest -q
 python scripts/verify_anchored_graph_consistency.py
 ```
 
-一致性检查读取 `runs/experiments/stale-anchored-dev-test-bge-20261120/test` 保存的探针与 BGE 向量，断言完整排名一致、T1/T2 NDCG@10 误差小于 `1e-12`，并用 `pytrec_eval` 复核。
+一致性检查读取 `runs/experiments/stale-anchored-dev-test-bge-20261120/test` 保存的探针与 BGE 向量，断言完整排名一致、T1/T2 NDCG@10 误差小于 `1e-12`，并用 `pytrec_eval` 复核。该检查只重放历史评分，分别记录历史和当前提示词哈希，不把历史探针当作修复后生成的探针。
 
 ## 数据与输出
 
