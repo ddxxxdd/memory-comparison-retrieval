@@ -28,7 +28,7 @@ from memory_retrieval.evaluation import grouped_ranking_metrics, target_ids
 
 SOURCE = ROOT / "runs/experiments/stale-unseen-60scene-bipolar-seed20261122"
 OUTPUT = ROOT / "runs/experiments/stale-unseen-60scene-llm-rerank-seed20261122"
-REPORT = ROOT / "docs/stale_unseen_60scene_llm_rerank_comparison_seed20261122.md"
+REPORT = ROOT / "reports/stale_unseen_60scene_llm_rerank_comparison_seed20261122.md"
 ARM = "bge_top20_llm_rerank"
 FULL = "anchored_bipolar_diffusion"
 METHODS = ["dense", "sparsecl_msmarco", FULL, ARM]
@@ -287,6 +287,7 @@ def write_report(output, comparison):
               "本次目录中的 `protocol.json` / `prompt.txt` 固定请求及统计方案；`requests/`、`responses/`、`rerank_cache.sqlite3` 和 `api_events/` 保留原始调用；`records/` 保存逐场景补齐审计；`arms/` 保存全库排名；`comparison.json`、`per_query_ndcg.json`、`verification.json` 保存指标及核验。", ""]
     report = "\n".join(lines)
     (output / "report.zh.md").write_text(report, encoding="utf-8")
+    REPORT.parent.mkdir(parents=True, exist_ok=True)
     REPORT.write_text(report, encoding="utf-8")
 
 

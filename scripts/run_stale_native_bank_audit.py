@@ -42,7 +42,7 @@ BGE_SOURCE = ROOT / "runs/experiments/stale-unseen-60scene-bipolar-seed20261122"
 QWEN_SOURCE = ROOT / "runs/experiments/stale-unseen-60scene-qwen-emb-seed20261122"
 BASE = ROOT / "data/stale_scenarios/base"
 OUTPUT = ROOT / "runs/experiments/stale-unseen-60scene-native-bank-seed20261122"
-REPORT = ROOT / "docs/stale_unseen_60scene_native_bank_and_module_audit_seed20261122.md"
+REPORT = ROOT / "reports/stale_unseen_60scene_native_bank_and_module_audit_seed20261122.md"
 PROMPT = "a38b198018c62846780914f1ef90fe2461ee1554c421d42996f54525f93217bf"
 PROBES, POSITIVE, FULL = "anchored_probes_only", "anchored_pos_diffusion", "anchored_bipolar_diffusion"
 ARMS = {"BGE": ["bm25", "dense", "hybrid", "sparsecl_msmarco", PROBES, POSITIVE, FULL],
@@ -342,6 +342,7 @@ def write_report(output,c,a):
         f"产物：`{output}`。comparison.json 保存原生结果、配对检验和过滤记录；module_gain_audit.json 保存扩增库逐目标细账和误伤案例；inputs/、vectors/、graphs/、arms/ 保存原生实验快照。source_manifest.json 冻结历史输入，历史目录未修改。", ""]
     text="\n".join(lines)
     (output/"report.zh.md").write_text(text,encoding="utf-8")
+    REPORT.parent.mkdir(parents=True, exist_ok=True)
     REPORT.write_text(text,encoding="utf-8")
 
 

@@ -33,7 +33,7 @@ from memory_retrieval.experiment import ranked_row, score_original_text
 
 SOURCE = ROOT / "runs/experiments/stale-unseen-60scene-bipolar-seed20261122"
 OUTPUT = ROOT / "runs/experiments/stale-unseen-60scene-qwen-emb-seed20261122"
-REPORT = ROOT / "docs/stale_unseen_60scene_qwen_emb_seed20261122_experiment.md"
+REPORT = ROOT / "reports/stale_unseen_60scene_qwen_emb_seed20261122_experiment.md"
 PROMPT_HASH = "a38b198018c62846780914f1ef90fe2461ee1554c421d42996f54525f93217bf"
 GRAPH = {"k": 5, "top_seeds": 5, "alpha": .2, "beta": .3}
 FULL = "anchored_bipolar_diffusion"
@@ -312,6 +312,7 @@ def write_report(output, c):
         f"产物目录：`{output}`；原实验：`{c['source']}`。`protocol.json` 和 `source_manifest.json` 固定协议与原文件哈希；`embedding_cache.sqlite3` 保存原始响应，`batches/` 和 `vectors/` 保存向量，`graphs/` 保存 Qwen 图，`arms/` 保存全排名，`comparison.json` 和 `per_query_ndcg.json` 保存指标及配对数据。", ""]
     report = "\n".join(lines)
     (output / "report.zh.md").write_text(report, encoding="utf-8")
+    REPORT.parent.mkdir(parents=True, exist_ok=True)
     REPORT.write_text(report, encoding="utf-8")
 
 

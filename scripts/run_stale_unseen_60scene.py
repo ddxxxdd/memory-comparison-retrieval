@@ -275,17 +275,18 @@ def table(group, methods):
     return lines
 
 
-def write_report(output, comparison):
+def write_report(output, comparison, *, introduction=None, appendix=(), report_path=None, show_ablations=False):
     groups, sig, timing, usage = [comparison[k] for k in ("groups", "significance", "timing", "usage")]
     selection = read(output / "selection.json")
-    lines = ["# STALE 未见 60 场景对照实验", "", "2026-11-20，在服务器执行；随机种子 20261122 是抽样标识。", "",
+    lines = list(introduction) if introduction is not None else ["# STALE 未见 60 场景对照实验", "", "2026-11-20，在服务器执行；随机种子 20261122 是抽样标识。", "",
         f"从 400 场景池排除 {selection['counts']['excluded_total']} 个历史使用、提及或原生正文重复场景，从剩余 {selection['counts']['eligible_total']} 个中固定抽取 30 T1＋30 T2。样本 scenario_id 和规范化原生 M_old 正文与排除集均无交集，样本内部原生正文也互不重复。",
-        f"本轮 {comparison['counts']['memories']} 条旧记忆，{groups['all']['gold_pairs']} 个已标注目标，含 60 个官方原生目标。其余目标来自既有扩增与模型复核；不是全量人工金标，未改写正文或标签。每个方法只在对应场景的旧库内排序。", "",
+        f"本轮 {comparison['counts']['memories']} 条旧记忆，{groups['all']['gold_pairs']} 个已标注目标，含 60 个官方原生目标。其余目标来自既有扩增与模型复核；不是全量人工金标，未改写正文或标签。每个方法只在对应场景的旧库内排序。", ""]
+    lines += [
         "主包原样调用：query-only 四维探针，提示词 SHA256 `" + PROMPT_HASH + "`；k=5、Top-5 种子、α=0.2、β=0.3。LLM 为当前配置的 deepseek-v4.1-flash，temperature=0、JSON、reasoning_effort=none、16 并发；仅传输错误按 APIClient 退避重试，所有响应原样保存，无筛选、改写或重抽。",
         "BGE 为冻结 BAAI/bge-base-en-v1.5（revision a5beb1e3e68b9ab74eb54cfd186867f64f240e1a），CLS/L2、FP32、max_length=512、batch=4、每进程 CPU threads=4、seed=0。三个 SparseCL 检查点及 α=0.18/2.19/4.82 沿用主包锁定配置；BM25 k1=1.2、b=0.75；Hybrid 等权 RRF=60。四个编码器任务与探针请求重叠运行，BGE 三个新臂共用同一批向量和图。", ""]
     for name in ("T1", "T2", "all"):
         group = groups[name]
-        lines += [f"## {'总体' if name == 'all' else name}：{group['queries']} 场景、{group['gold_pairs']} 目标", ""] + table(group, BASELINES + [OUR[-1]]) + [""]
+        lines += [f"## {'总体' if name == 'all' else name}：{group['queries']} 场景、{group['gold_pairs']} 目标", ""] + table(group, BASELINES + (OUR if show_ablations else [OUR[-1]])) + [""]
     lines += ["## 逐场景配对显著性", "", "差值为完整方法减基线的平均 NDCG@10。Wilcoxon 双侧、Pratt 处理零差、正态近似，差值仅在检验秩时舍入至 12 位。Bootstrap 按场景成对重采样 20,000 次，种子 20261122；总体保持 T1/T2 各 30 个，取百分位 95% CI。配置在推理前冻结。p 值未做多重比较校正；总体为主要比较，T1/T2 为探索性分组。", "",
               "| 分组 | 对照 | 平均 ΔNDCG@10 | Wilcoxon p | Bootstrap 95% CI | 胜/平/负 |", "|---|---|---:|---:|---|---|" ]
     for group in ("T1", "T2", "all"):
@@ -299,17 +300,20 @@ def write_report(output, comparison):
               "探针基础审计（机械标记，非人工语义判定）：`" + json.dumps(comparison["probe_audit_summary"], ensure_ascii=False) + "`。", "",
               "全部 27 个方法×分组的 NDCG@10 由 pytrec_eval 从完整排名独立复算，误差 <1e-12；核验所有候选均属于对应场景。排名分数严格递减，仅用于保留原方法的平局顺序。主包、数据池和历史实验文件哈希均保持不变。", "",
               "原始目录：`" + str(output) + "`。`selection.json` / `exclusions.json` 保存抽样与排除证据；`protocol.json` 冻结参数和统计方案；`comparison.json`、`per_query_ndcg.json`、`arms/` 保存指标及完整排名；`probe_cache.sqlite3`、`probe_records/`、`api_events/` 保存原始响应及调用记录；`encoders/`、`graphs/` 支持断点恢复。", ""]
-    text = "\n".join(lines)
+    text = "\n".join([*lines, *appendix])
     (output / "report.zh.md").write_text(text, encoding="utf-8")
-    (ROOT / "docs/stale_unseen_60scene_bipolar_seed20261122_experiment.md").write_text(text, encoding="utf-8")
+    report_path = report_path or ROOT / "reports/stale_unseen_60scene_bipolar_seed20261122_experiment.md"
+    report_path.parent.mkdir(parents=True, exist_ok=True)
+    report_path.write_text(text, encoding="utf-8")
+    return report_path
 
 
-def main():
+def main(argv=None, *, report_writer=write_report):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
     parser.add_argument("--resume", action="store_true")
     parser.add_argument("--worker", choices=("bge", "arguana", "msmarco", "hotpotqa"))
-    args = parser.parse_args()
+    args = parser.parse_args(argv)
     output = args.output.resolve()
     if args.worker:
         encode_worker(output, args.worker)
@@ -394,13 +398,13 @@ def main():
         verify_protocol(output)
         for relative, digest in read(output / "source_manifest.json").items():
             assert sha256_file(ROOT / relative) == digest, relative
-        write_report(output, comparison)
+        report_path = report_writer(output, comparison)
         atomic_json(output / "attempts" / (attempt + ".json"), {"status": "complete", "wall_seconds": time.perf_counter() - started,
                                                               "probe_generation_wall_seconds": probe_seconds})
         hashes = {p.relative_to(output).as_posix(): sha256_file(p) for p in output.rglob("*") if p.is_file()
                   and p.name not in ("status.json", "probe_cache.sqlite3") and not p.name.endswith((".log", ".tmp"))}
         atomic_json(output / "completion.json", {"status": "complete", "artifacts_sha256": hashes,
-                    "report_sha256": sha256_file(ROOT / "docs/stale_unseen_60scene_bipolar_seed20261122_experiment.md")})
+                    "report_sha256": sha256_file(report_path)})
         progress("complete", completed_probes=60)
     except BaseException as exc:
         atomic_json(output / "attempts" / (attempt + ".json"), {"status": "failed", "wall_seconds": time.perf_counter() - started})

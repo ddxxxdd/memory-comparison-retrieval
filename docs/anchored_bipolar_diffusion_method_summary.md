@@ -57,4 +57,4 @@ $$\mathbf{r} = (1-\alpha)\,\mathbf{r}_0 + \alpha\,(P\,\mathbf{z}_{\text{pos}}) -
 | `anchored_pos_diffusion` | $(1-\alpha)\mathbf{r}_0 + \alpha P\mathbf{z}_{\text{pos}}$ | 加入正种子的邻域信号 |
 | `anchored_bipolar_diffusion` | $(1-\alpha)\mathbf{r}_0 + \alpha P\mathbf{z}_{\text{pos}} - \beta(\mathbf{z}_{\text{neg}} + \alpha P\mathbf{z}_{\text{neg}})$ | 完整方法，加入自身与邻域的负向惩罚 |
 
-在同一批 60 个 STALE 扩增场景中，加入负向惩罚后，BGE 的 Top-10 命中由 274/340 增至 276/340，Qwen 由 305/340 降至 303/340。[模块收益与误伤核验](stale_unseen_60scene_native_bank_and_module_audit_seed20261122.md)
+各编码器下正负源的实验效果及逐项分析见报告。[模块收益与误伤核验](../reports/stale_unseen_60scene_native_bank_and_module_audit_seed20261122.md)

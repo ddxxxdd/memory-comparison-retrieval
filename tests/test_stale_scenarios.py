@@ -83,20 +83,20 @@ class StaleScenarioTests(unittest.TestCase):
         self.assertEqual([row["content"] for row in candidates], [survivor])
         self.assertEqual(len(rejected), 2)
 
-    def test_split_history_review_preserves_original_positions(self):
+    def test_split_synthetic_review_preserves_original_positions(self):
         client = Mock()
 
         def response(task, prompt, payload, validate):
-            texts = payload["history"]
+            texts = payload["candidates"]
             if len(texts) > 2:
                 raise APIError("HTTP 524")
-            return validate({"targets": [{"id": 0, "relation": "stale", "reason": "Different workday."}],
-                             "uncertain": [1], "discard": []})
+            return validate({"candidates": [{"id": 0, "relation": "stale", "reason": "Different workday."},
+                                             {"id": 1, "relation": "compatible", "reason": "Compatible routine."}]})
 
         client.json_call.side_effect = response
-        labels = review_batch(client, {}, ["A", "B", "C", "D"], history=True)
-        self.assertEqual([row["id"] for row in labels["targets"]], [0, 2])
-        self.assertEqual(labels["uncertain"], [1, 3])
+        labels = review_batch(client, {}, ["A", "B", "C", "D"])
+        self.assertEqual([row["id"] for row in labels["candidates"] if row["relation"] == "stale"], [0, 2])
+        self.assertEqual([row["id"] for row in labels["candidates"] if row["relation"] == "compatible"], [1, 3])
 
     def test_encoders_keep_the_global_vector_positions_of_each_scope(self):
         memories = [Memory("a", "A", "text", "one"), Memory("b", "B", "text", "two"),

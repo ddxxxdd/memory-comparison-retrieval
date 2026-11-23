@@ -19,6 +19,8 @@ from memory_retrieval.data import fingerprint, nonempty_text, sha256_file, write
 
 STALE_URL = "https://huggingface.co/datasets/STALEproj/STALE/resolve/main/T1_T2_400_FULL.json"
 DATA_ROOT = ROOT / "data" / "stale_scenarios"
+V2_ROOT = ROOT / "data" / "stale_scenarios_v2"
+HISTORY_POLICY = "rule_only_background"
 SENTENCE_BOUNDARY = re.compile(r'(?<!\b[A-Z]\.)(?<!\bMr\.)(?<!\bMs\.)(?<!\bDr\.)(?<=[.!?])\s+|\n+')
 PERSONAL = re.compile(r"\b(?:I|my|we|our)\b", re.I)
 NON_FACT_START = re.compile(
@@ -96,8 +98,8 @@ def memory_row(scenario_id, content, record_type, **source):
             "source_ref": {"dataset": "STALE", "record_type": record_type, **source}}
 
 
-def history_claims(session):
-    """Select the first matching first-person excerpt from each user turn."""
+def history_claims(session, *, all_sentences=False):
+    """Extract eligible user sentences in dialogue order."""
     selected = []
     for turn_index, turn in enumerate(session):
         if turn["role"] != "user":
@@ -109,11 +111,14 @@ def history_claims(session):
                     and "?" not in excerpt and PERSONAL.search(excerpt)
                     and not NON_FACT_START.search(normalized) and not META_TALK.search(normalized)):
                 selected.append((turn_index, excerpt))
-                break
+                if not all_sentences:
+                    break
     return selected
 
 
-def convert_scenario(row):
+def convert_scenario(row, *, version="v1"):
+    if version not in ("v1", "v2"):
+        raise ValueError(f"Unknown STALE extraction version: {version}")
     scenario_id = nonempty_text(row.get("uid"), "STALE uid")
     old = nonempty_text(row.get("M_old"), "STALE M_old")
     new = nonempty_text(row.get("M_new"), "STALE M_new")
@@ -131,18 +136,25 @@ def convert_scenario(row):
     memories = [native]
     seen = {text_key(old), text_key(new)}
     anchor = text_key(old)
-    for session_index, turns in enumerate(sessions[:new_session]):
-        count = 0
-        for turn_index, content in history_claims(turns):
-            key = text_key(content)
-            if key in seen or anchor in key or key in anchor:
-                continue
-            seen.add(key)
-            memories.append(memory_row(scenario_id, content, "history",
-                                       session_index=session_index, turn_index=turn_index))
-            count += 1
-            if count == 3:
-                break
+    claims = [history_claims(turns, all_sentences=version == "v2") for turns in sessions[:new_session]]
+    # Filter the dialogue once. Reserve V1's occurrences before admitting other matches.
+    for v1_limits in ((True, False) if version == "v2" else (True,)):
+        for session_index, excerpts in enumerate(claims):
+            count = 0
+            previous_turn = None
+            for turn_index, content in excerpts:
+                if v1_limits and turn_index == previous_turn:
+                    continue
+                previous_turn = turn_index
+                key = text_key(content)
+                if key in seen or anchor in key or key in anchor:
+                    continue
+                seen.add(key)
+                memories.append(memory_row(scenario_id, content, "history",
+                                           session_index=session_index, turn_index=turn_index))
+                count += 1
+                if v1_limits and count == 3:
+                    break
     return sorted(memories, key=lambda item: item["memory_id"]), query, gold
 
 
@@ -155,11 +167,16 @@ def library_stats(memories):
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--source", required=True, type=Path, help="STALE T1_T2_400_FULL.json")
-    parser.add_argument("--output", type=Path, default=DATA_ROOT / "base")
+    parser.add_argument("--version", choices=("v1", "v2"), default="v1",
+                        help="v2 includes every matching sentence in every completed pre-write session")
+    parser.add_argument("--output", type=Path)
     args = parser.parse_args(argv)
+    args.output = args.output or (V2_ROOT if args.version == "v2" else DATA_ROOT) / "base"
+    if args.output.exists():
+        raise ValueError(f"输出目录已存在：{args.output.resolve()}")
     memories, queries, gold = [], [], []
     for source_row in iter_json_array(args.source):
-        old_bank, query, targets = convert_scenario(source_row)
+        old_bank, query, targets = convert_scenario(source_row, version=args.version)
         memories.extend(old_bank)
         queries.append(query)
         gold.append(targets)
@@ -170,6 +187,9 @@ def main(argv=None):
              "memories": len(memories), "memories_per_scenario": library_stats(memories),
              "history_extraction": "Up to 3 original user excerpts per completed session before the M_new session.",
              "gold_coverage": "Official M_old only. Background excerpts have no semantic labels in this version."}
+    if args.version == "v2":
+        stats.update(extraction_version="v2", history_policy=HISTORY_POLICY, history_extraction=(
+            "All eligible user sentences in completed pre-write sessions, deduplicated within each scenario."))
     args.output.parent.mkdir(parents=True, exist_ok=True)
     with TemporaryDirectory(dir=args.output.parent, prefix="convert-") as stage:
         dataset = Path(stage) / "dataset"

@@ -98,23 +98,3 @@ the same relation to all entries just because their topic is shared.
 
 Return a single JSON object: {"candidates":[{"id":0,"relation":"compatible",
 "reason":"..."}]}. Use the supplied integer IDs exactly, once each."""
-
-HISTORY_REVIEW = PAIR_RULES + """
-
-For `history`, review every entry. List omitted conflict or stale targets under
-`targets`; identify borderline same-topic cases under `uncertain`; put clear
-questions, hypothetical or conversational filler, unresolved fragments and
-redundant paraphrases of the official old claim under `discard`. Leave ordinary
-background facts and historical events unlisted. An old matter unrelated to this
-specific write remains unlisted even if the current truth of that matter is
-otherwise unknown. Do not discard an actual
-stale claim merely because it concerns the same property as the official pair.
-
-Return a single JSON object in this shape. Use the supplied integer IDs exactly:
-{"targets":[{"id":0,"relation":"stale","old_excerpt":"verbatim from entry 0","reason":"..."}],
- "uncertain":[1],"discard":[2]}. Use integer IDs only in `uncertain` and
-`discard`, and empty arrays where nothing applies. For each target, quote the
-words of the specific history entry that the new write invalidates. The quoted
-excerpt must be from that history ID, not the official old memory or the new text.
-Before returning, recheck that each target reason establishes an incompatibility
-or expiry of the quoted claim."""

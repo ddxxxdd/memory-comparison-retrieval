@@ -1,6 +1,7 @@
 """Export each STALE scenario as a standalone experiment dataset."""
 
 import argparse
+import json
 from pathlib import Path
 import re
 import sys
@@ -13,7 +14,8 @@ if str(ROOT) not in sys.path:
 
 from memory_retrieval.data import Memory, load_queries, read_jsonl, validate_memories, write_json, write_jsonl
 from memory_retrieval.evaluation import validate_dataset
-from scripts.convert_stale_scenarios import DATA_ROOT
+from scripts.convert_stale_scenarios import DATA_ROOT, HISTORY_POLICY
+from scripts.augment_stale_scenarios import validate_background_gold
 
 
 def export_scenarios(dataset):
@@ -29,6 +31,12 @@ def export_scenarios(dataset):
 
     raw_by_id = {row["memory_id"]: row for row in memory_rows}
     gold_by_query = {row["query_id"]: row for row in gold}
+    manifest_path = dataset / "manifest.json"
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8-sig")) if manifest_path.is_file() else {}
+    if manifest.get("history_policy") == HISTORY_POLICY:
+        for query in queries:
+            validate_background_gold([raw_by_id[m.memory_id] for m in banks[query["scenario_id"]]],
+                                     gold_by_query[query["query_id"]])
     output = dataset / "scenarios"
     if output.resolve() != output or (output.exists() and not (output / "index.json").is_file()):
         raise ValueError(f"导出目标不是可重建的场景目录 {output}")

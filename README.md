@@ -36,7 +36,7 @@ wsl -d Ubuntu-22.04 -u dzp -- bash scripts/run_wsl.sh --dataset $scene --arms al
 
 `all` 运行主方法和六个基线。要同时运行两项消融，传 `--arms all anchored_probes_only anchored_pos_diffusion`。探针请求可与本地 BGE、SparseCL 编码重叠执行。三个 `anchored_*` 臂共享同一批探针、同一个 BGE 编码器及同一张场景图。
 
-CLI 默认参数为 `--graph-k 5 --graph-seeds 5 --graph-alpha 0.2 --graph-beta 0.3 --probe-workers 4`。服务器 60 场景 BGE 实验将探针并发设为 16，图参数沿用默认值。每次运行默认在新结果目录创建 `probe_cache.sqlite3`。要复用已有响应，可将缓存复制后用 `--cache` 指向副本。缓存按请求 URL 和完整请求正文匹配。[60 场景 BGE 实验](docs/stale_unseen_60scene_bipolar_seed20261122_experiment.md)
+CLI 默认参数为 `--graph-k 5 --graph-seeds 5 --graph-alpha 0.2 --graph-beta 0.3 --probe-workers 4`。服务器 60 场景 BGE 实验将探针并发设为 16，图参数沿用默认值。每次运行默认在新结果目录创建 `probe_cache.sqlite3`。要复用已有响应，可将缓存复制后用 `--cache` 指向副本。缓存按请求 URL 和完整请求正文匹配。[60 场景 BGE 实验](reports/stale_unseen_60scene_bipolar_seed20261122_experiment.md)
 
 全量对照可以把 `--dataset` 换成版本根目录。按 ID 选多个场景也可以直接从 Windows 运行 BM25。
 
@@ -44,7 +44,7 @@ CLI 默认参数为 `--graph-k 5 --graph-seeds 5 --graph-alpha 0.2 --graph-beta 
 .\.venv\Scripts\python.exe scripts/run_experiment.py --dataset data/stale_scenarios/augmented --scenario-ids 7c0ae4e7-6b5a-42a2-891b-0ccf553bfe7f 01f694b2-c555-4b6e-8ca0-5f11210e2227 --arms bm25
 ```
 
-在配好模型依赖的 Python 3.11 环境中，执行 `python -m pip install -e .` 后即可使用 `memory-retrieval --dataset <目录>` 或 `python -m memory_retrieval --dataset <目录>`。默认六个基线均在本地计算。BGE 和 SparseCL 使用 CPU PyTorch、Transformers、NumPy 和 FAISS，权重在其他位置时传 `--model-root`。旧 OCSP 对照支持 `--arms ocsp_qr --embedding-backend api` 和 `EMBEDDING_*` 配置。主包 CLI 的三个 `anchored_*` 臂使用本地 BGE。Qwen 底座对照通过独立实验脚本复用已生成的探针，以 Qwen 向量重新构图，调用同一套评分函数。[模型配置](memory_retrieval/model_lock.json) · [环境变量示例](.env.example) · [Qwen 对照报告](docs/stale_unseen_60scene_qwen_emb_seed20261122_experiment.md)
+在配好模型依赖的 Python 3.11 环境中，执行 `python -m pip install -e .` 后即可使用 `memory-retrieval --dataset <目录>` 或 `python -m memory_retrieval --dataset <目录>`。默认六个基线均在本地计算。BGE 和 SparseCL 使用 CPU PyTorch、Transformers、NumPy 和 FAISS，权重在其他位置时传 `--model-root`。旧 OCSP 对照支持 `--arms ocsp_qr --embedding-backend api` 和 `EMBEDDING_*` 配置。主包 CLI 的三个 `anchored_*` 臂使用本地 BGE。Qwen 底座对照通过独立实验脚本复用已生成的探针，以 Qwen 向量重新构图，调用同一套评分函数。[模型配置](memory_retrieval/model_lock.json) · [环境变量示例](.env.example) · [Qwen 对照报告](reports/stale_unseen_60scene_qwen_emb_seed20261122_experiment.md)
 
 安装 `pytest`、`pytrec_eval` 后，可运行单元测试并用历史 Test 保存的向量复核评分。
 
@@ -57,13 +57,28 @@ python scripts/verify_anchored_graph_consistency.py
 
 ## 数据与输出
 
+`docs/` 存放研究问题、方法设计和数据构建说明，`reports/` 存放实验结果与案例分析。每次运行的排名、向量、日志和原始报告保存在 `runs/experiments/`。文件组织约定见 [AGENTS.md](AGENTS.md)。
+
 输入目录含 `memories.jsonl`、`queries.jsonl` 和 `gold.jsonl`。每条查询按 `scenario_id` 选择自己的完整旧库，选择发生在 BM25 统计、SparseCL 初召回和其他方法打分之前。没有分场景字段的数据集共用一份旧库。金标通过 `query_id` 对应查询，`conflict_old_memory_ids` 标出应检索的旧记忆 ID。
 
 - STALE 原版与扩增版各有 400 个场景。索引列出新记忆、场景 ID、目录和旧库条数。单场景目录可以直接作为输入。[原版场景索引](data/stale_scenarios/base/scenarios/index.json) · [扩增版场景索引](data/stale_scenarios/augmented/scenarios/index.json)
 - 重建 STALE 时依次使用原版转换、扩增和场景导出脚本。扩增项的来源及冲突或过时标签保存在金标内。[转换](scripts/convert_stale_scenarios.py) · [扩增](scripts/augment_stale_scenarios.py) · [扩增提示词](scripts/stale_augmentation_prompts.py) · [导出](scripts/export_stale_scenarios.py)
+- STALE V2 收录写入前每场会话的所有合格用户句子，仅作为旧库背景。离线继承 V1 全部记忆、合成标签和原有待定项，移除 74 个历史目标；金标为官方 400 个加合成 1,818 个，共 2,218 个。V2 构建不调用模型，命令和验收见[构建说明](docs/stale_v2_server_run.zh.md)。
 - 主包 CLI 每次新建一个结果目录，默认位于 `runs/experiments/`，也可通过 `--output` 指定。`report.zh.md` 和 `report.json` 给出总体、以及有 `source_ref.type` 时的 T1/T2 分组 Top-3/5/10 命中数、NDCG@10 和原生 `stale_native` 在 Top-10 的命中数。指标按已有金标计算。
 - `arms/` 保存各方法实际返回的排名。主方法及其两项消融对场景内全部旧记忆排序。三个 SparseCL 基线先用 BGE 初筛最多 1,000 条，再在这些候选中排序。[SparseCL 候选与排序实现](memory_retrieval/experiment.py)
 - `anchored_probes.json` 保存探针，`anchored_probe_audit.json` 记录完全复述、显式否定词、超长及与原句余弦大于 0.85 等标记。这些探针原样参与评分。响应被截断、JSON 无法解析或结构不符时，主包报错并停止本次运行。旧 OCSP 的逐查询明细在 `per_query_details.json`。报告保留服务端返回的实际用量。[探针校验与审计](memory_retrieval/bipolar_graph.py)
+
+## 代码入口
+
+| 入口 | 用途 |
+|---|---|
+| `python -m memory_retrieval`、`scripts/run_experiment.py` | 当前主方法、基线和消融的统一入口 |
+| `scripts/convert_stale_scenarios.py`、`augment_stale_scenarios.py`、`export_stale_scenarios.py`、`audit_stale_v2.py` | STALE 抽取、合成或继承、场景导出与 V2 验收 |
+| `scripts/run_stale_unseen_60scene.py`、`run_stale_qwen_embedding.py`、`run_stale_llm_rerank.py`、`run_stale_native_bank_audit.py` | 固定 60 场景的主方法、编码器、重排和原生旧库对照 |
+| `scripts/run_arguana_bipolar_comparison.py` | ArguAna 对照 |
+| `scripts/verify_anchored_graph_consistency.py` | 用已保存向量核对图打分与指标 |
+
+`run_orthogonal_conflict_retrieval.py` 和 `run_revised_pilot_baselines.py` 是历史 OCSP 与基线复现实验使用的兼容入口。早期四探针、图参数搜索和旧锚点 Dev/Test 的独立探索脚本已清理，当前算法与消融通过统一入口运行。STALE V2 的构建及验收测试集中在 `tests/test_stale_v2.py`。
 
 ## 已保留的实验
 
@@ -71,17 +86,17 @@ python scripts/verify_anchored_graph_consistency.py
 
 | 实验 | 结果 |
 |---|---|
-| STALE 60 场景，BGE 主方法、两项消融与六个基线 | [九方法对照](docs/stale_unseen_60scene_bipolar_seed20261122_experiment.md) |
-| 同批场景，BGE Top-20 加单次 LLM 重排 | [召回、排序与调用成本](docs/stale_unseen_60scene_llm_rerank_comparison_seed20261122.md) |
-| 同批场景，Qwen 替换 BGE，复用 240 条探针 | [编码器对照](docs/stale_unseen_60scene_qwen_emb_seed20261122_experiment.md) |
-| 同批场景，原生旧库与扩增库的模块分析 | [官方目标评测与扩散收益、误伤](docs/stale_unseen_60scene_native_bank_and_module_audit_seed20261122.md) |
-| STALE 10 个未见场景，四条探针与双极图扩散 | [10 场景对照](docs/stale_unseen_10scene_query_only_seed20261121_experiment.md) |
-| 15 条英文查询，直接从原句生成四条探针 | [主方法与两项消融](docs/single_pair_implicit_15q_query_only_experiment.md) |
-| ArguAna 完整测试集，与训练过的 SparseCL 对照 | [反论点检索结果](docs/arguana_bipolar_vs_sparsecl_server_20261120.md) |
+| STALE 60 场景，BGE 主方法、两项消融与六个基线 | [九方法对照](reports/stale_unseen_60scene_bipolar_seed20261122_experiment.md) |
+| 同批场景，BGE Top-20 加单次 LLM 重排 | [召回、排序与调用成本](reports/stale_unseen_60scene_llm_rerank_comparison_seed20261122.md) |
+| 同批场景，Qwen 替换 BGE，复用 240 条探针 | [编码器对照](reports/stale_unseen_60scene_qwen_emb_seed20261122_experiment.md) |
+| 同批场景，原生旧库与扩增库的模块分析 | [官方目标评测与扩散收益、误伤](reports/stale_unseen_60scene_native_bank_and_module_audit_seed20261122.md) |
+| STALE 10 个未见场景，四条探针与双极图扩散 | [10 场景对照](reports/stale_unseen_10scene_query_only_seed20261121_experiment.md) |
+| 15 条英文查询，直接从原句生成四条探针 | [主方法与两项消融](reports/single_pair_implicit_15q_query_only_experiment.md) |
+| ArguAna 完整测试集，与训练过的 SparseCL 对照 | [反论点检索结果](reports/arguana_bipolar_vs_sparsecl_server_20261120.md) |
 | 正交投影早期试验与零样本 QR | [初版](runs/experiments/ocsp-implicit-pilot-20261118/report.zh.md) · [OCSP-QR](runs/experiments/ocsp-qr-zeroshot-20261118/report.zh.md) |
 | 11 查询英文基线对照 | [BGE 等通用基线](runs/experiments/single-pair-english-general-bge-20261118/summary.md) · [三个 SparseCL 检查点](runs/experiments/single-pair-english-sparsecl-20261118/summary.md) |
-| 15 查询实验与数据修订 | [英文试验](runs/experiments/single-pair-15q-english-20261119/comparison.zh.md) · [两版对比](runs/experiments/single-pair-bge-v2-and-15q-20261119/comparison.zh.md) · [定向修订](reports/single_pair_implicit_15q_revision_20261119/targeted_followup.zh.md) · [修订前后排名](runs/experiments/single-pair-15q-targeted-20261119/comparison.json) · [冻结 BGE 复测](docs/single_pair_implicit_15q_bge_experiment.md) |
-| ValidMem v7，181 查询 | [实验报告](docs/validmem_v7_bge_ocsp_experiment.md) |
+| 15 查询实验与数据修订 | [英文试验](runs/experiments/single-pair-15q-english-20261119/comparison.zh.md) · [两版对比](runs/experiments/single-pair-bge-v2-and-15q-20261119/comparison.zh.md) · [定向修订](reports/single_pair_implicit_15q_revision_20261119/targeted_followup.zh.md) · [修订前后排名](runs/experiments/single-pair-15q-targeted-20261119/comparison.json) · [冻结 BGE 复测](reports/single_pair_implicit_15q_bge_experiment.md) |
+| ValidMem v7，181 查询 | [实验报告](reports/validmem_v7_bge_ocsp_experiment.md) |
 | STALE 扩增版 Austin，1 查询 | [实验报告与金标名次](runs/experiments/stale-augmented-t1-austin-1q-20261119/summary.md) |
 
 `data/` 和 `runs/` 在 Git 忽略列表中。上述 60 场景实验的完整排名、输入快照和缓存保存在服务器项目的 `runs/experiments/` 下，各报告列出了对应目录。
